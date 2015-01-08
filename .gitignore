@@ -1,0 +1,11 @@
+*.pyc
+*.swp
+*~
+
+.DS_Store
+.idea
+Icon?
+Thumbs.db
+ehthumbs.db
+
+_book/*

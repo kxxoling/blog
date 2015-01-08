@@ -1,0 +1,8 @@
+{
+    "plugins": ["quizzes", "disqus"],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "wr-blog"
+        }
+    }
+}
