@@ -1,5 +1,5 @@
 {
-    "plugins": ["quizzes", "disqus", "share"],
+    "plugins": ["quizzes", "disqus", "share", "anchors", "lantuml", "jsbin"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "wr-blog"
