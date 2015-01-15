@@ -1,11 +1,11 @@
 {
-    "plugins": ["quizzes", "disqus", "share", "anchors", "lantuml", "jsbin"],
+    "plugins": ["quizzes", "disqus", "share", "anchors", "plantuml", "jsbin"],
     "pluginsConfig": {
         "disqus": {
             "shortName": "wr-blog"
         },
-        share:{
-            google: {}
+        "share": {
+            "google": {}
         },
         "sharing": {
             "google": null,
