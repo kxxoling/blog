@@ -45,31 +45,31 @@ GitBook 插件本质上和 Node.js 包一样，因此其安装也分为全局和
 
 ```js
 {
-    // Folders to use for output
-    // Caution: it overrides the value from the command line
-    // It's not advised this option in the book.json
+    // 输出目录
+    // 可以被命令行覆盖
+    // 不建议在 book.json 中使用该参数
     "output": null,
 
     // Generator to use for building
     // Caution: it overrides the value from the command line
-    // It's not advised this option in the book.json
+    // 不建议在 book.json 中使用该参数
     "generator": "site",
 
-    // Book metadats (somes are extracted from the README by default)
+    // 元数据（某些可以从 README 中提取）
     "title": null,
     "description": null,
     "isbn": null,
 
     // For ebook format, the extension to use for generation (default is detected from output extension)
     // "epub", "pdf", "mobi"
-    // Caution: it overrides the value from the command line
-    // It's not advised this option in the book.json
+    // 可以被命令行覆盖
+    // 不建议在 book.json 中使用该参数
     "extension": null,
 
-    // Plugins list, can contain "-name" for removing default plugins
+    // 插件列表，可以使用 "-name" 删除默认插件
     "plugins": [],
 
-    // Global configuration for plugins
+    // 插件的全局设置
     "pluginsConfig": {
         "fontSettings": {
             "theme": "sepia", "night" or "white",
@@ -78,7 +78,7 @@ GitBook 插件本质上和 Node.js 包一样，因此其安装也分为全局和
         }
     },
 
-    // Variables for templating
+    // 模板渲染参数
     "variables": {},
 
     // Links in template (null: default, false: remove, string: new value)
@@ -98,20 +98,20 @@ GitBook 插件本质上和 Node.js 包一样，因此其安装也分为全局和
         }
     },
 
-    // Options for PDF generation
+    // PDF 生成参数
     "pdf": {
-        // Add page numbers to the bottom of every page
+        // 每页页脚是否添加页数
         "pageNumbers": false,
 
         // Font size for the fiel content
         "fontSize": 12,
 
-        // Paper size for the pdf
-        // Choices are [u’a0’, u’a1’, u’a2’, u’a3’, u’a4’, u’a5’, u’a6’, u’b0’, u’b1’, u’b2’, u’b3’, u’b4’, u’b5’, u’b6’, u’legal’, u’letter’]
+        // PDF 文档大小
+        // 可选参数：[u’a0’, u’a1’, u’a2’, u’a3’, u’a4’, u’a5’, u’a6’, u’b0’, u’b1’, u’b2’, u’b3’, u’b4’, u’b5’, u’b6’, u’legal’, u’letter’]
         "paperSize": "a4",
 
         // Margin (in pts)
-        // Note: 72 pts equals 1 inch
+        // 注：72 pts = 1 inch
         "margin": {
             "right": 62,
             "left": 62,
