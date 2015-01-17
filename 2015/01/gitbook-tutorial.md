@@ -1,7 +1,7 @@
 #使用Gitbook
-GitBook 是一个提供 Markdown 书籍托管的网络平台，支持通过 git 以及 GitHub 进行文档管理，
-使用它可以很简单地生成、发布电子图书。
-同时，GitBook 也是一个 Node.js 命令行工具，可以使用它搭建自己的 GitBook 站点。
+[GitBook](https://www.gitbook.com/) 是一个提供 Markdown 书籍托管的网络平台，
+支持通过 git 以及 GitHub 进行文档管理，使用它可以很简单地生成、发布电子图书。
+同时，[GitBook](https://github.com/GitbookIO/gitbook) 也是一个 Node.js 命令行工具，可以使用它搭建自己的 GitBook 站点。
 
 除了命令行程序和 web 服务外，GitBook 官方还提供了 跨平台的编辑器，提供直接编辑、发布电子书的功能，
 不过实际上仅相当于自启动的 GitBook 控制台程序，并不推荐安装，尤其对于 \*nix 系统而言。
