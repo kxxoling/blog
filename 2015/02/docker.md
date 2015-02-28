@@ -3,6 +3,15 @@
 首先声明，这里的系统环境设置为 Ubuntu 14.04，Mac OS 和 Windows 系统请在虚拟机里安装 Ubuntu，
 其它 Linux 发行版 和 Ubuntu 不会有太大区别，请自行修改命令。
 
+使用 Ubuntu（我自己安装的是 Xubuntu） 的好处：
+
+* 相比 Boot2docker 来说更加强大，比如我可以通过安装 zsh + zsh-docker-completetion 提供 docker 自动补全功能。
+* 获得最新最强大的官方支持，Docker 官方推荐使用 Ubuntu，对 Ubuntu 下的问题也能够最及时解决，
+甚至某些工具不提供 Mac OS 或者 Windows 兼容方案。
+* 相对于其它 Linux 发行版用户更多，使用更简单。
+* 推荐在虚拟机中安装 Xubuntu，和 Ubuntu 相比，Xubuntu 更轻量，在虚拟机中性能更好；
+在虚拟机中安装 Xubuntu 便于对开发环境的迁移以及内部共享。
+
 
 ## Docker 命令
 
