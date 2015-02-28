@@ -9,4 +9,9 @@
        * [Docker 速成](2015/02/docker.md)
 * [Pages](pages/README.md)
    * [样式指南](pages/style-guide.md)
+* [我的链接]()
+   * [Google+](https://plus.google.com/110933537774298503345)
+   * [GitHub](https://github.com/kxxoling)
+   * [简历](http://gh.windrunner.info/resume)
+   * [Python One to Many](http://py.windrunner.info)
 
