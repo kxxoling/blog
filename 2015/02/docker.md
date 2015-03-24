@@ -43,6 +43,22 @@ Container 是 Docker 最重要的概念，它通过操作相应的镜像提供�
     更轻量，在虚拟机中性能更好； 在虚拟机中安装 Xubuntu
     便于对开发环境的迁移以及内部共享。
 
+
+## 创建 docker 用户组
+
+docker 守护进程需要绑定 Unix socket 而非 TCP 端口，而 Unix Socket 通常需要管理员权限，
+因此在运行 docker 命令时常常需要输入 sudo 命令以获取相应权限，同时还会影响
+oh-my-zsh 自动补全插件的正常使用。
+
+你可以通过创建一个 docker 用户组并将当前用户加入组中来解决这个问题：
+
+```shell
+sudo usermod -aG docker $(whoami)
+```
+
+如果还有问题，可以尝试注销当前用户并重新登录。
+
+
 ## Docker 命令
 
 Docker 可以通过命令来构建镜像，也可以根据 Dockerfile 配置来构建。 docker
