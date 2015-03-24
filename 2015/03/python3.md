@@ -68,10 +68,32 @@ Python 3 中很多常见的 API 的返回值都不再是列表了：
 
 ## 状态比较
 
+Python 3 修改了一些比较规则：
+
+* `<, <=, >=, >` 这些“有序比较符”在操作符两端不具备有意义的排序规则时将会报 TypeError，
+  因此 `1 < ‘’`, `0 > None`, `len <= len`, `None < None` 这样的表达式都不再合法，会报 TypeError 错误。
+
+* `buildin.sorted()` 和 `list.sort()` 不再接受 `cmp` 参数，你可以使用使用 `key` 参数来替代。
+
+* 不要使用 `cmp()` 函数， `__cmp__` 已经不再被支持。因此排序请使用 `__lt__()`、
+  `__eq__` 和 `__hash__` 这些更有意义的比较。（现有的 `cmp()` 函数使用可以修改为 
+  `(a > b) - (a < b)`，等价于 `cmp(a, b)` 。）
 
 
 ## 整数
 
+* 根据 [PEP 0237](http://www.python.org/dev/peps/pep-0237)，`long` 更名为了 `int`，
+  也就是说内建的证书类型只有一种了，其使用和旧版的 `long` 基本相同。
+
+* 根据 [PEP 0238](http://www.python.org/dev/peps/pep-0238)， `1/2` 这样的表达式的
+  运算结果将是 float 类型，需要整数返回值请使用 `1//2`。（后面的语法从 Python 2.2 中就已经得到支持了。）
+
+* 因为 Python 中的整数已经没有限制了，因此 Python 3 中移除了 `sys.maxint` 常量。
+  不过，你可以使用 `sys.maxsize` 来定义一个超过所有列表和字符串索引大小的自然数，
+  在这种情况下相当于之前的 `sysl.maxint`。
+
+* `repr()` 在处理长整形型数字时将不会添加 “L”，因此在写代码时注意不要删掉了最后一位数字。
+  可以使用 `str()` 来替代。
 
 
 ## Text Vs. Data 与 Unicode Vs. 8-bit
