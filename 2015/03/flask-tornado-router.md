@@ -25,6 +25,7 @@ if __name__ == "__main__":
 使用路由元组做配置。
 
 ```python
+# tornadoapp.py
 import tornado.ioloop
 import tornado.web
 
@@ -54,22 +55,19 @@ Flask 在路由方面[支持惰性加载](http://flask.pocoo.org/docs/0.10/patte
 提供了 `Flask.add_url_rule()` 函数用于手动注册路由：
 
 ```python
+# flaskapp.py
 import flask
-
 
 class Flask(flask.Flask):
     def add_url_rules(self, url_rules):
         for url_rule in url_rules:
             self.add_url_rule(url_rule[0], view_func=url_rule[1])
 
-
 def hello():
     return "Hello World!"
 
-
 app = Flask(__name__)
 app.add_url_rules([("/", hello)])
-
 
 if __name__ == "__main__":
     app.run()
@@ -81,10 +79,9 @@ if __name__ == "__main__":
 上面的 “Hello World” 修改如下：
 
 ```python
-# app.py
+# tornadoapp.py
 import tornado.ioloop
 import tornado.web
-
 
 class Application(tornado.web.Application):
     def route(self, pattern):
@@ -94,15 +91,12 @@ class Application(tornado.web.Application):
             return handler
         return _
 
-
 app = Application()
-
 
 @app.route(r"/")
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.write("Hello, world")
-
 
 if __name__ == "__main__":
     app.listen(8888)
