@@ -11,6 +11,7 @@
        * [Python 3 的变化](2015/03/python3.md)
        * [Pony ORM 的秘密](2015/03/pony.md)
        * [Flask 与 Tornado 的路由定义](2015/03/flask-tornado-router.md)
+       * [招聘贴中的那些天坑](2015/03/job.md)
 * [ACG](acg/README.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
        * [（备份）十二国记之无责任地理考证](acg/the-twelve-kindoms/geography.md)
