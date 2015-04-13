@@ -13,6 +13,7 @@
        * [Flask 与 Tornado 的路由定义](2015/03/flask-tornado-router.md)
        * [招聘贴中的那些天坑](2015/03/job.md)
 * [ACG](acg/README.md)
+   * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
        * [（备份）十二国记之无责任地理考证](acg/the-twelve-kindoms/geography.md)
        * [（备份）十二国无责任考证之王宫篇](acg/the-twelve-kindoms/palace.md)
