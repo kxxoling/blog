@@ -21,6 +21,7 @@
 * [Pages](pages/README.md)
    * [Mac 下常用 GUI 应用](pages/mac-gui.md)
    * [Mac 下常用 CLI 应用](pages/mac-cli.md)
+   * [Chrome 常用插件](pages/chrome-plugin.md)
    * [样式指南](pages/style-guide.md)
 * [我的链接]()
    * [Google+](https://plus.google.com/110933537774298503345)
