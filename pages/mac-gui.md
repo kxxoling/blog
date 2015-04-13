@@ -5,9 +5,11 @@
 记录你一周内的软件使用时间分配情况，以周为单位返回效率报告。
 
 
+
 ## MySQL Sequel Pro
 
 相比 MySQL Workbench 更简介、轻量。
+
 
 
 ## RoboMongo
@@ -15,9 +17,33 @@
 MongoDB 的 GUI 管理工具。
 
 
+## MongoHub
+
+MongoDB 的 GUI 管理工具。
+
+
+
+## Vagrant Manager
+
+Vagrant 管理器
+
+
+
+## Wireshark
+
+网络请求查询工具
+
+
+
+## Go2Shell
+
+Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
+
+
 ## rdm
 
 Redis GUI 程序，功能比较弱，但是能比较方便地查看已经使用的 Redis key。
+
 
 
 ## MacVim
@@ -26,14 +52,11 @@ Redis GUI 程序，功能比较弱，但是能比较方便地查看已经使用�
 Vim 的插件。从此再没有使用 Sublime Text 的理由。
 
 
+
 ## DrRacket
 
 提供 Scheme 的运行环境，严格说起来 DrRacket 实现的也只是 Scheme 的方言。
 
-
-## DTerm
-
-可以在任意目录中调出控制台，算是对 Finder 的一个功能增强吧。
 
 
 ## SourceTree
@@ -47,9 +70,11 @@ Vim 的插件。从此再没有使用 Sublime Text 的理由。
 提供强大的 web 请求模拟功能，非常适合 RESTful API 应用测试。
 
 
+
 ## Music Converter
 
 音频转换工具。
+
 
 
 ## Gas Mask
@@ -57,14 +82,17 @@ Vim 的插件。从此再没有使用 Sublime Text 的理由。
 用于多个 hosts 之间快速切换。
 
 
+
 ## ClipMenu
 
 剪贴板纪录工具。
 
 
+
 ## MPlayer OSX Extended
 
 功能强大的免费播放器。
+
 
 
 ## DynamicLyrics
