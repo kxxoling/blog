@@ -12,6 +12,8 @@
        * [Pony ORM 的秘密](2015/03/pony.md)
        * [Flask 与 Tornado 的路由定义](2015/03/flask-tornado-router.md)
        * [招聘贴中的那些天坑](2015/03/job.md)
+   * [4月](2015/04/README.md)
+       * [选择 Vagrant 还是 Docker？](2015/04/vagrant-vs-docker.md)
 * [ACG](acg/README.md)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
