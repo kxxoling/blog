@@ -74,9 +74,14 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 
 pip 以外的所有 Python 应用都应该使用 pip 来安装！
 
-gem 是 Ruby 的包管理器，安装 compass / puppet / vagrant 等 Ruby 系应用时离不开 gem。
+gem 是 Ruby 的包管理器，安装 compass / puppet / vagrant 等 Ruby 应用时离不开 gem。
 
 npm 是 node.js 包管理器，cnpm 是 淘宝提供的 npm 替代品。
+
+```
+brew install npm
+npm install cnpm -g --registry=https://registry.npm.taobao.org 		# 安装 cnpm 来替代 npm 命令
+```
 
 
 
