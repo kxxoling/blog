@@ -66,7 +66,7 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 
 ## git
 
-最流行的分布式代码管理工具。
+最流行的分布式代码管理工具。Mac 自带了 git ，只需要做一下简单的配置：
 
 ```shell
 git config --global user.name "Kane Blueriver"
@@ -74,6 +74,7 @@ git config --global user.email "kxxoling@gmail.com"
 git config --global credential.helper osxkeychain 	# 设置 Mac KeyChain 工具来自动提交 GitHub 验证信息
 ```
 
+git 教程：[小猫都能学会的 git 教程](http://www.davidrevoy.com/article193/guide-building-krita-on-linux-for-cats)
 
 
 ## pip & gem & npm & cnpm
