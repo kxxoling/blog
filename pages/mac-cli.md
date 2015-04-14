@@ -68,6 +68,12 @@ wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - 
 
 最流行的分布式代码管理工具。
 
+```shell
+git config --global user.name "Kane Blueriver"
+git config --global user.email "kxxoling@gmail.com"
+git config --global credential.helper osxkeychain 	# 设置 Mac KeyChain 工具来自动提交 GitHub 验证信息
+```
+
 
 
 ## pip & gem & npm & cnpm
