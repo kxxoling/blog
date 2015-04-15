@@ -14,10 +14,14 @@ PEP8
 PEP 257
 [docstring conventions](http://legacy.python.org/dev/peps/pep-0257/)
 
-PEP 20 
+PEP 20
 [Zen of Python](http://legacy.python.org/dev/peps/pep-0020/)
 [Python 之禅]()
 
 Google Python 样式指南
 [中文]()
+[英文]()
+
+Pocoo 风格指引
+[中文](http://www.pythondoc.com/flask/styleguide.html)
 [英文]()
