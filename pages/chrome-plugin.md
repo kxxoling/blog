@@ -45,3 +45,12 @@ REST API 测试工具
 [JSON Formatter](https://github.com/callumlocke/json-formatter) 和
 [JSONViewer](https://github.com/tulios/json-viewer) 用于格式化 JSON 请求数据。
 
+
+
+## LiveReload
+
+[LiveReload](//chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
+是 [livereload.com](//livereload.com) 出品的 Chrome 插件，支持众多第三方应用，
+和 Python 自动刷新工具 [LiveReload](https://github.com/lepture/python-livereload)
+配合使用非常方便。
+

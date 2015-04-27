@@ -121,14 +121,25 @@ Python 社区的文档管理标准，著名的文档托管服务 [ReadTheDocs](h
 
 
 
+## LiveReload
+
+[LiveReload](https://github.com/lepture/python-livereload) 是使用 Python 开发的自动刷新工具，
+可以配合 livereload Chrome 插件使用。
+
+文档：[en](https://github.com/lepture/python-livereload)
+
+
+
 ## virtualenv
 
 提供 Python 虚拟环境的隔离。
 
 
+
 ## VirtualEnvWrapper
 
 virtualenv 命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 是在这之上的一层封装。
+
 
 
 ## tmux
