@@ -1,70 +1,66 @@
 # 用 Python 解释 Y Combinator
 
 注：
-> This is a talk given by [Sean B. Palmer](http://inamidst.com/sbp/)
-> to his friends to help them, and him, to understand the construction and use of the
-> [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator)
-> from [lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus).
-> They forced him to publish it online. Responsibility for mistakes and misunderstandings is entirely theirs.
+> 这本来是 [Sean B. Palmer](http://inamidst.com/sbp/) 为一个朋友做的演讲，
+> 通过 [lambda 演算](https://en.wikipedia.org/wiki/Lambda_calculus).
+> 来帮助他理解 [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator)
+> 的结构和使用。
 
 原文链接：[The Y Combinator Explained using Python](http://sbp.so/combinator)
 
+
 ## Dummy arguments
 
-Okay, imagine that the perpetrators of Java decided to improve Python. What kind of thing would they do? My guess is that they'd force us to pass an argument to every function, so that every function is unary. That would be an obvious Java-like improvement to make to Python.
+想象一下，一个邪恶的 Java 开发者试图“优化” Python，他会怎么做？我的猜测是，
+他会强迫我们给函数传递参数，这样就无法使用一元函数了，这在 Java 中很常见。
 
-One beautiful consequence is that we have to put dummy arguments in our functions sometimes. Dummy functions make work for engineers, so it's good for the economy. So, say we just had a function that returns a constant. Dummy argument!
+由此可能带来“伪参数”这样的结果：
 
 ```python
 def five(ignore):
     return 5
 ```
 
-
-So you might have to call that using, say...
+调用起来可能像这样：
 
 ```python
 five(None)
 ```
 
-
-Which returns 5. Now, you don't necessarily have to pass the null object. You can pass anything. Actually we might as well pass the function itself, since it's hanging around.
+它永远都会返回 5，因此你并不一定需要传入这个空对象，任何对象都是合法的参数，
+当然也包括这个函数本身：
 
 ```python
 five(five)
 ```
 
+它依旧会返回 5。在 Java 邪教徒的阴谋下，伪参数出现了，而我们决定将函数自身作为这个参数，
+因为这样可以避免引入其它对象。
 
-So that'll give 5 as a response. The Java Cabal caused us to pass dummy arguments, and we decided to pass the function itself, since it's lying about. It's the sort of thing that an idiot like me would do anyway, but if you have a language where nothing else is defined, then the function is the only thing that's available, so it's the only thing you can pass.
 
+## 自动调用（autocall）
 
-## Autocall
+当然，你也可以构造另外一个函数来调用 ``five(five)`` 这个函数，这就是我们将要讨论的 lambda 演算。
+但是我们的 Python 被 Java 话了，因此你可以想象出来这里会出现很多奇怪的问题。
 
-Note that you could also abstract the five(five) pattern by making a function to get another function to call itself. This is lambda calculus we're dealing with, and our Python has been Java-ised, so you can imagine how much bizarre rubbish is going to happen. The Y combinator is hard to understand because it's abstraction piled on abstraction. What we do is to break each abstraction down, and go through them one at a time.
+Y combinator 之所以难以理解，就是因此其中堆满了抽象，我们想要理解 YC 就必须将这些抽象各个击破。
 
-So here's the new function. This is actually an aside, but we will use this later:
+因此，这里我们可以构造一个 ``autocall`` 函数来自动调用 ``five`` 函数：
 
 ```python
 def autocall(f):
     return f(f)
-```
 
-
-So if we do...
-
-```python
 autocall(five)
 ```
 
 
-Then that expands to five(five) in the body there.
+## 递归
 
+Y combinator 事关于函数的递归，通常是匿名函数。教科书上通常使用阶乘或者 Fibonacci 作为例子，
+这里，我们选择阶乘函数。
 
-## Recursivity
-
-The Y combinator is about recursive functions, basically making them anonymisable. So everybody seems to use either factorial or fibonacci because they're unimaginative idiots who just use the same old recursive example crap that they saw in textbooks. I, on the other hand, am going to use factorial.
-
-Here's recursive factorial in python.
+Python 中阶乘可以这样实现：
 
 ```python
 def factorial(n):
