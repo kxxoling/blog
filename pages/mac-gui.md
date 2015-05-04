@@ -6,6 +6,13 @@
 
 
 
+## FlashLight
+
+[Flashlight](http://flashlight.nateparrott.com/plugin/quicksearch) 是 Spotlight
+的扩展工具，是 Alfred 的免费 clone。
+
+
+
 ## MySQL Sequel Pro
 
 相比 MySQL Workbench 更简介、轻量。
