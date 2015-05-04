@@ -33,6 +33,15 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 ```
 
+Ubuntu 中需要先注册 zsh 可用：
+
+```sh
+command -v zsh | sudo tee -a /etc/shells
+chsh -s "$(command -v zsh)" "${USER}"
+```
+
+切换 sh 之后可能需要重新登录才能生效。
+
 
 ## tree
 
