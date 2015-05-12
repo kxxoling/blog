@@ -18,6 +18,7 @@
    * [5月]()
        * [Docker 最佳实践](2015/05/docker-best-practice.md)
        * [Django 和 Flask 中的类视图](2015/05/class-view-in-django-flask.md)
+       * [Python 如何做测试](2015/05/python-test.md)
 * [ACG](acg/README.md)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
