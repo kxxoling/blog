@@ -192,9 +192,9 @@ Django 的启动互相之间的依赖严重，大部分文件都不能单独执�
 #### doctest
 
 在 Flask 中测试一个文件的 doctest 只需要运行：``python filename.py``，然而这在 Django 中行不通。
-在 Django 中依赖自身的 test 命令：`python manage.py test[ app_name]`，其中 ``app_name`` 若为空
+在 Django 中依赖自身的 test 命令：``python manage.py test[ app_name]``，其中 ``app_name`` 若为空
 默认测试所有应用。[在 1.6 及以后版本中](https://docs.djangoproject.com/en/1.6/releases/1.6/#new-test-runner)，
-需要首先在 `settings.py` 中指定 TEST_RUNNER：
+需要首先在 ``settings.py`` 中指定 ``TEST_RUNNER``：
 
 ```python
 INSTALLED_APPS = (
