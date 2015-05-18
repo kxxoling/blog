@@ -130,6 +130,13 @@ commands=make test     	# 执行测试的命令
   和第三方的 [Flask-Testing](https://pythonhosted.org/Flask-Testing/)
 
 
+## mock
+
+[mock](http://www.voidspace.org.uk/python/mock/) 是一个测试库，提供模拟对象供测试用例使用。
+[Python 3 以后](https://docs.python.org/3/library/unittest.mock.html#module-unittest.mock)，
+mock 已经加入标准库，调用方法是 ``from unittest import mock``。
+
+
 ## 浏览器
 
 浏览器端的测试自动化最常用的还是 [Selenium](http://www.seleniumhq.org/)，Python 版本的
