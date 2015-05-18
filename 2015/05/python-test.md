@@ -258,12 +258,28 @@ class PageTest(unittest.TestCase):
         self.assertEqual(200, res.status_code)
 
     def test_login(self):
+	"""普通测试。client 实例会自动解决 csrf 问题。"""
         res = self.client.get('/login/')
+
         self.assertEqual(200, res.status_code)
         self.assertIn('Username', res.content)
-        res_p = self.client.post('/login/', {'username': 'windrunner', 'password': 'password'})
-        self.assertEqual(200, res_p.status_code)
-        self.assertIn('windrunner', res_p.content)
+
+        res_post = self.client.post('/login/', {'username': 'windrunner', 'password': 'password', })
+
+        self.assertEqual(200, res_post.status_code)
+        self.assertIn('windrunner', res_post.content)
+
+    def test_login_csrf(self):
+	"""强制 csrf 检查"""
+        self.client = Client(enforce_csrf_checks=True)
+        res = self.client.get('/login/')
+        csrf_token = '%s' % res.context['csrf_token'] 			# 获取 csrf_token
+
+        res_fail = self.client.post('/login/', {'user': 'windrunner', 'pass': 'password', })
+        self.assertEqual(403, res_fail.status_code) 			# 没有处理 CSRF token 会返回 403 错误代码
+
+        res_csrf = self.client.post('/login/', {'user': 'windrunner', 'pass': 'password', 'csrfmiddlewaretoken': csrf_token, })
+        self.assertIn('windrunner', res_csrf.content)
 
     def test_logout(self):
         res = self.client.post('/logout/')
