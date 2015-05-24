@@ -154,3 +154,19 @@ virtualenv 命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 是
 ## tmux
 
 控制台中的标签页管理工具以及分屏管理工具。
+
+
+## Vim
+
+目前最常用的编辑器是 Vim，配置主要来自胡淼的 [dot-vim](https://github.com/humiaozuzu/dot-vimrc)，
+也有一些自己的特别配置。安装：
+
+```sh
+mv ~/.vim ~/.vim.orig
+mv ~/.vimrc ~/.vimrc.orig
+git clone git://github.com/humiaozuzu/dot-vimrc.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +BundleClean +BundleInstall +qall
+```
+
