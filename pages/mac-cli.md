@@ -72,6 +72,28 @@ chsh -s "$(command -v zsh)" "${USER}"
 文件查找命令，类似于 `ack`。
 
 
+## ncdu
+
+磁盘空间占用分析。
+
+
+## dos2unix
+
+换行符转换工具（Windows下换行符是 ``\r\n``，OS X 是 ``\n``）
+
+
+## coreutils
+
+Some missing Linux commands in shell
+
+
+## mpv-player
+
+```
+brew tap mpv-player/mpv
+brew install mpv
+```
+
 
 ## git
 
@@ -177,4 +199,16 @@ ln -s ~/.vim/vimrc ~/.vimrc
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleClean +BundleInstall +qall
 ```
+
+
+## aria2
+
+[aira2](http://aria2.sourceforge.net/) 是 OS X 和 Linux 下通用的下载工具，可以安装在路由器、NAS 等 Linux 机器上。
+
+配合 [YAAW](https://github.com/binux/yaaw) 或者 [webui-arias2](https://github.com/ziahamza/webui-aria2) 非常方便。
+
+附：
+* [aria2 配置示例](http://blog.binux.me/2012/12/aria2-examples/)
+* [YAAW](http://binux.github.io/yaaw/)
+* [Aria2 & YAAW 使用说明](http://aria2c.com/usage.html)
 
