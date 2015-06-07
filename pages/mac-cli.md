@@ -110,7 +110,7 @@ git 教程：[小猫都能学会的 git 教程](http://www.davidrevoy.com/articl
 常用的 git 插件有：
 
 * zsh git 插件
-* git-flow
+* git-flow（[AVH Edition](https://github.com/petervanderdoes/gitflow) ``brew install git-flow-avh``）
 * [legit](https://github.com/kennethreitz/legit)。legit 主要提供 git-flow 的命令封装。
 
 PS：zsh git 插件在较大的项目中会导致启动缓慢，建议在大型项目中关闭该插件。
