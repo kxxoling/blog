@@ -21,6 +21,7 @@
        * [Python 如何做测试](2015/05/python-test.md)
        * [乒乓](2015/05/pingpang.md)
        * [IPython 与 jupyter 概念介绍](2015/05/jupyter.md)
+       * [Python 中魔术方法](2015/04/magic-methods-in-python.md)
 * [ACG](acg/README.md)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
