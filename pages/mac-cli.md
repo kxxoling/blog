@@ -33,6 +33,15 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O - | sh
 ```
 
+Ubuntu 中需要先注册 zsh 可用：
+
+```sh
+command -v zsh | sudo tee -a /etc/shells
+chsh -s "$(command -v zsh)" "${USER}"
+```
+
+切换 sh 之后可能需要重新登录才能生效。
+
 
 ## tree
 
@@ -75,6 +84,14 @@ git config --global credential.helper osxkeychain 	# 设置 Mac KeyChain 工具�
 ```
 
 git 教程：[小猫都能学会的 git 教程](http://www.davidrevoy.com/article193/guide-building-krita-on-linux-for-cats)
+
+常用的 git 插件有：
+
+* zsh git 插件
+* git-flow
+* [legit](https://github.com/kennethreitz/legit)。legit 主要提供 git-flow 的命令封装。
+
+PS：zsh git 插件在较大的项目中会导致启动缓慢，建议在大型项目中关闭该插件。
 
 
 ## pip & gem & npm & cnpm
@@ -121,9 +138,19 @@ Python 社区的文档管理标准，著名的文档托管服务 [ReadTheDocs](h
 
 
 
+## LiveReload
+
+[LiveReload](https://github.com/lepture/python-livereload) 是使用 Python 开发的自动刷新工具，
+可以配合 livereload Chrome 插件使用。
+
+文档：[en](https://github.com/lepture/python-livereload)
+
+
+
 ## virtualenv
 
 提供 Python 虚拟环境的隔离。
+
 
 
 ## VirtualEnvWrapper
@@ -131,6 +158,23 @@ Python 社区的文档管理标准，著名的文档托管服务 [ReadTheDocs](h
 virtualenv 命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 是在这之上的一层封装。
 
 
+
 ## tmux
 
 控制台中的标签页管理工具以及分屏管理工具。
+
+
+## Vim
+
+目前最常用的编辑器是 Vim，配置主要来自胡淼的 [dot-vim](https://github.com/humiaozuzu/dot-vimrc)，
+也有一些自己的特别配置。安装：
+
+```sh
+mv ~/.vim ~/.vim.orig
+mv ~/.vimrc ~/.vimrc.orig
+git clone git://github.com/humiaozuzu/dot-vimrc.git ~/.vim
+ln -s ~/.vim/vimrc ~/.vimrc
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+vim +BundleClean +BundleInstall +qall
+```
+
