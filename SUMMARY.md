@@ -15,6 +15,7 @@
    * [4月](2015/04/README.md)
        * [选择 Vagrant 还是 Docker？](2015/04/vagrant-vs-docker.md)
        * [Python 中的方法绑定](2015/04/python-bound-unbound-method.md)
+       * [Python 中魔术方法](2015/04/magic-methods-in-python.md)
 * [ACG](acg/README.md)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)

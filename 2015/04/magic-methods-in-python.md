@@ -61,3 +61,4 @@ Lisp 的某些方言中就引入了 ``1 + 2`` 这样的语法糖，而实际上�
 | ``__exit__(self, exc, val, trace)``	| ``with self as x:``			| with 语句环境管理
 | ``__getstate__(self)``		| ``pickle.dump(pkl_file, self)``	| 序列化
 | ``__setstate__(self)``		| ``data = pickle.load(pkl_file)``	| 序列化
+
