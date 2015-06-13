@@ -55,7 +55,7 @@ chsh -s "$(command -v zsh)" "${USER}"
 
 
 
-## autojumps
+## autojump
 
 在常用目录间快速跳转，命令是 `j`。
 
