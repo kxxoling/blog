@@ -1,4 +1,4 @@
-# Python __future__ 库
+# Python ``__future__`` 库
 
 Python 虽然强调一件事只有一种显而易见的解决方案，但是仍然提供了诸多可以
 hack 的地方，比如我想要在 Python 中写出 ``def ... end`` 这样函数声明可以这样：
@@ -12,7 +12,7 @@ end
 ```
 
 这是因为 Python 中的内建函数都存在于 ``__builtin__`` 库中，而 ``__builtin__``
-库会随 Python 解释器的初始化载入，我们这里对 _____builtin__ 库打了一个简单的
+库会随 Python 解释器的初始化载入，我们这里对 ``__builtin__`` 库打了一个简单的
 MonkeyPatch ，这样在代码中使用 ``end`` 的效果就等同于 ``None``。
 
 那么，如果我想要在 Python 2.x 中使用类似 Python 3 中的 ``print()`` 函数怎么办？
@@ -27,4 +27,5 @@ from __future__ import print_function
 help(print)
 ```
 
-[官方文档](https://docs.python.org/2/library/__future__.html)
+参考链接：[官方文档](https://docs.python.org/2/library/__future__.html)
+
