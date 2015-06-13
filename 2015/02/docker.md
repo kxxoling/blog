@@ -81,7 +81,7 @@ Docker 可以通过命令来构建镜像，也可以根据 Dockerfile 配置来�
 向镜像中添加特定文件，可以是主机中或者 web 文件。以 WordPress 的
 Dockerfile 为例：
 
-``` {.sourceCode .dockerfile}
+```dockerfile
 ADD http://wordpress.org/latest.zip /var/www/wordpress.zip
 ```
 
@@ -99,7 +99,7 @@ ADD http://wordpress.org/latest.zip /var/www/wordpress.zip
 
 参考：[CentOS/CentOS-Dockerfiles](https://github.com/CentOS/CentOS-Dockerfiles/blob/master/mongodb/centos7/Dockerfile)
 
-``` {.sourceCode .dockerfile}
+```dockerfile
 FROM centos:latest
 MAINTAINER Kane Blueriver <kxxoling@gmail.com>
 
@@ -125,7 +125,7 @@ ENTRYPOINT ["/usr/bin/mongod"]
 
 参考：[CentOS/CentOS-Dockerfiles](https://github.com/CentOS/CentOS-Dockerfiles/blob/master/redis/centos7/Dockerfile)
 
-``` {.sourceCode .dockerfile}
+```dockerfile
 FROM centos:latest
 MAINTAINER Kane Blueriver <kxxoling@gmail.com>
 
@@ -148,7 +148,7 @@ CMD ["redis-server"]
 
 参考：[CentOS/CentOS-Dockerfiles](https://github.com/CentOS/CentOS-Dockerfiles/blob/master/memcached/centos7/Dockerfile)
 
-``` {.sourceCode .dockerfile}
+```dockerfile
 FROM centos:latest
 MAINTAINER Kane Blueriver <kxxoling@gmail.com>
 RUN  yum -y update; yum clean all
@@ -170,7 +170,7 @@ CMD  ["memcached", "-u", "daemon"]
 
 参考[dockerfile/mongodb](https://registry.hub.docker.com/u/dockerfile/mongodb/dockerfile/)
 
-``` {.sourceCode .dockerfile}
+```dockerfile
 FROM dockerfile/ubuntu
 
 # 从官网安装 MongoDB
@@ -224,7 +224,7 @@ Docker 公司还提供了快速编配工具 compose（原 Fig）用于加速 Doc
 
 安装：
 
-``` {.sourceCode .shell}
+```shell
 pip install docker-compose
 ```
 
@@ -234,7 +234,7 @@ pip install docker-compose
 
 首先你需要一个 WSGI 应用，这里以一个简单的 Flask 应用为例：
 
-``` {.sourceCode .python}
+```python
 from flask import Flask
 from redis import Redis
 import os
@@ -253,7 +253,7 @@ if __name__ == "__main__":
 标准的 Python 应用还需要提供一个 requirements.txt 记录其依赖——flask 和
 redis：
 
-``` {.sourceCode .text}
+```
 flask
 redis
 ```
@@ -263,7 +263,7 @@ redis
 
 定制一个 Flask 应用的运行环境：
 
-``` {.sourceCode .dockerfile}
+```dockerfile
 FROM python:2.7
 ADD . /code
 WORKDIR /code
@@ -276,7 +276,7 @@ RUN pip install -r requirements.txt
 定义 `docker-compose.yml`
 配置文件，装配应用运行环境所需组件（Container、Volume 等）：
 
-``` {.sourceCode .yaml}
+```yaml
 web:
   build: .
   command: python app.py
@@ -303,18 +303,18 @@ redis:
 
 构建：
 
-``` {.sourceCode .shell}
+```shell
 docker-compose up
 ```
 
 运行：
 
-``` {.sourceCode .shell}
+```shell
 docker-compose run web env
 ```
 
 停止：
 
-``` {.sourceCode .shell}
+```shell
 docker-compose stop
 ```

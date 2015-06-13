@@ -1,4 +1,5 @@
-#使用Gitbook
+# 使用GitBook
+
 [GitBook](https://www.gitbook.com/) 是一个提供 Markdown 书籍托管的网络平台，
 支持通过 git 以及 GitHub 进行文档管理，使用它可以很简单地生成、发布电子图书。
 同时，[GitBook](https://github.com/GitbookIO/gitbook) 也是一个 Node.js 命令行工具，可以使用它搭建自己的 GitBook 站点。
@@ -10,7 +11,9 @@ GitBook 网站使用简单，这里就不再赘述了，GitBook 控制台提供�
 自启动的站点能够提供和网站完全一样的编辑服务， 对于不方便登录其网站的用户来说非常方便。
 GitBook 甚至提供 GitHub hook，在每一次 push 时自动更新书籍内容。
 
-##使用 GitBook 控制台
+
+## 使用 GitBook 控制台程序
+
 GitBook 控制台基于 Node.js，因此需要首先安装 Node.js 的包管理工具 npm，再通过 npm 安装GitBook：
 
     npm install -g gitboook
@@ -31,16 +34,21 @@ GitBook 控制台基于 Node.js，因此需要首先安装 Node.js 的包管理�
     -V, --version  输出程序的版本号
 
 
-##目录结构
+## 目录结构
+
 GitBook 目录必备一个 book.json 的文件作为插件配置，正如后缀名所示，是一个 JSON 格式的文件。
 
-##GitBook 插件
+
+## GitBook 插件
+
 GitBook 插件本质上和 Node.js 包一样，因此其安装也分为全局和本地，全局安装命令：
 `npm install plugin_name`。本地安装则可以使用 GitBook 自带的命令 `gitbook install` 完成，
 将自动安装 book.json 中所配置的插件，不需要任何参数，默认的安装目录是文档目录下的 node_modules 目录。
 因此将该目录加入 .gitignore 的忽略列表中。
 
+
 ###配置文件
+
 标准的配置文件如下：
 
 ```js
@@ -128,31 +136,36 @@ GitBook 插件本质上和 Node.js 包一样，因此其安装也分为全局和
 }
 ```
 
-###官方插件
+### 官方插件
+
 GitBook 官方提供了以下插件：
 
-| Name | Description |
+| 名称 | 功能描述 |
 | ----- | ---- |
-| [exercises](https://github.com/GitbookIO/plugin-exercises) | Add interactive exercises to your book. |
-| [quizzes](https://github.com/GitbookIO/plugin-quizzes) | Add interactive quizzes to your book. |
-| [mathjax](https://github.com/GitbookIO/plugin-mathjax) | Displays mathematical notation in the book. |
-| [mixpanel](https://github.com/GitbookIO/plugin-mixpanel) | Mixpanel tracking for your book |
+| [exercises](https://github.com/GitbookIO/plugin-exercises) | 添加可交互的习题。 |
+| [quizzes](https://github.com/GitbookIO/plugin-quizzes) | 添加可交互的选择题 |
+| [mathjax](https://github.com/GitbookIO/plugin-mathjax) | 添加数学表达式支持 |
+| [mixpanel](https://github.com/GitbookIO/plugin-mixpanel) | Mixpanel 数据追踪服务 |
 | [infinitescroll](https://github.com/GitbookIO/gitbook-plugin-infinitescroll) | Infinite Scrolling |
 
-###第三方插件
-| Name | Description |
+### 第三方插件
+
+| 名称 | 功能描述 |
 | ----- | ---- |
-| [Google Analytics](https://github.com/GitbookIO/plugin-ga) | Google Analytics tracking for your book |
-| [Disqus](https://github.com/GitbookIO/plugin-disqus) | Disqus comments integration in your book |
-| [Autocover](https://github.com/GitbookIO/plugin-autocover) | Generate a cover for your book |
-| [Transform annoted quotes to notes](https://github.com/erixtekila/gitbook-plugin-richquotes) | Allow extra markdown markup to render blockquotes as nice notes |
-| [Send code to console](https://github.com/erixtekila/gitbook-plugin-toconsole) | Evaluate javascript block in the browser inspector's console |
-| [Revealable sections](https://github.com/mrpotes/gitbook-plugin-reveal) | Reveal sections of the page using buttons made from the first title in each section |
-| [Markdown within HTML](https://github.com/mrpotes/gitbook-plugin-nestedmd) | Process markdown within HTML blocks - allows custom layout options for individual pages |
-| [Bootstrap JavaScript plugins](https://github.com/mrpotes/gitbook-plugin-bootstrapjs) | Use the [Bootstrap JavaScript plugins](http://getbootstrap.com/javascript) in your online GitBook |
-| [Piwik Open Analytics](https://github.com/emmanuel-keller/gitbook-plugin-piwik) | Piwik Open Analytics tracking for your book |
-| [Heading Anchors](https://github.com/rlmv/gitbook-plugin-anchors) | Add linkable Github-style anchors to headings |
-| [JSBin](https://github.com/jcouyang/gitbook-plugin-jsbin) | Embedded jsbin frame into your book |
-| [GrVis](https://github.com/romanlytkin/gitbook-grvis) | Gitbook GrViz plugin is used to select from markdown dot and converting it into a picture format svg |
-| [PlantUml](https://github.com/romanlytkin/gitbook-plantuml) | Gitbook PlantUml plugin is used to select from markdown uml and converting it into a picture format svg |
-| [Mermaid](https://github.com/JozoVilcek/gitbook-plugin-mermaid) | Adds diagrams and flowcharts rendered by [mermaid](https://github.com/knsv/mermaid) |
+| [Google Analytics](https://github.com/GitbookIO/plugin-ga) | Google Analytics 追踪服务 |
+| [Disqus](https://github.com/GitbookIO/plugin-disqus) | Disqus 评论插件 |
+| [Autocover](https://github.com/GitbookIO/plugin-autocover) | 自动生成书本封面 |
+| [Transform annoted quotes to notes](https://github.com/erixtekila/gitbook-plugin-richquotes) | 对 Markdown 引用进行二次渲染 |
+| [Send code to console](https://github.com/erixtekila/gitbook-plugin-toconsole) | 在浏览器控制台中执行 JavaScript |
+| [Bootstrap JavaScript 插件](https://github.com/mrpotes/gitbook-plugin-bootstrapjs) | 在 GitBook 中使用 [Bootstrap JavaScript 插件](http://getbootstrap.com/javascript) |
+| [Piwik Open Analytics](https://github.com/emmanuel-keller/gitbook-plugin-piwik) | Piwik Open Analytics 数据追踪服务 |
+| [Heading Anchors](https://github.com/rlmv/gitbook-plugin-anchors) | 标题上添加 GitHub 风格的锚点链接 |
+| [JSBin](https://github.com/jcouyang/gitbook-plugin-jsbin) | [在 GitBook 中嵌入 JS 终端](http://jcouyang.gitbooks.io/functional-javascript/content/en/functor_&_monad/functor.html) |
+| [GrVis](https://github.com/romanlytkin/gitbook-grvis) | 将 Markdown 文本转为 svg 格式的 Graphviz 图 |
+| [PlantUml](https://github.com/romanlytkin/gitbook-plantuml) | 根据 Markdown 内容生成 svg 格式的 UML 图片 |
+| [Mermaid](https://github.com/JozoVilcek/gitbook-plugin-mermaid) | 通过 [mermaid](https://github.com/knsv/mermaid) 渲染流程图、示意图 |
+
+
+### 更多插件
+
+你可以在[官方插件中心](http://plugins.gitbook.com/) 或者 [npm](https://www.npmjs.com/search?q=gitbook-plugin) 寻找更多插件。
