@@ -16,6 +16,7 @@
        * [选择 Vagrant 还是 Docker？](2015/04/vagrant-vs-docker.md)
        * [Python 中的方法绑定](2015/04/python-bound-unbound-method.md)
        * [Python 中魔术方法](2015/04/magic-methods-in-python.md)
+       * [Python __future__ 库](2015/04/python-future.md)
    * [5月]()
        * [Docker 最佳实践](2015/05/docker-best-practice.md)
        * [Django 和 Flask 中的类视图](2015/05/class-view-in-django-flask.md)
