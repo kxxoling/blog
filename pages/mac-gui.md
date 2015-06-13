@@ -105,3 +105,9 @@ Vim 的插件。从此再没有使用 Sublime Text 的理由。
 ## DynamicLyrics
 
 在任务栏或者工作区中动态显示歌词的应用。
+
+
+## LaunchRocket
+
+用于监控 OS X 中正在运行的服务，支持 dnsmasq、各类数据库、Nginx 服务器等服务。
+
