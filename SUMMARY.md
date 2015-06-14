@@ -23,7 +23,7 @@
        * [Django 和 Flask 中的类视图](2015/05/class-view-in-django-flask.md)
        * [乒乓](2015/05/pingpang.md)
        * [IPython 与 jupyter 概念介绍](2015/05/jupyter.md)
-* [ACG](acg/README.md)
+* [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
        * [（备份）十二国记之无责任地理考证](acg/the-twelve-kindoms/geography.md)
