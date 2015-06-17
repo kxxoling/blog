@@ -5,19 +5,19 @@
 有了更深的认识。
 
 埋头苦干一直不是我的风格，所以在比较 Vagrant 安装、下载期间细细阅读了多篇相关文章，
-其中当然少不了 Vagrant 和 Docker 作者在 [StackOverflow]()
-上的亲自解惑（[中文](http://linux.cn/article-3840-1-rss.html)）。
+其中当然少不了 Vagrant 和 Docker 作者在 [StackOverflow](http://stackoverflow.com/questions/16647069/)
+上的亲自解惑（[中文](http://www.cnblogs.com/vikings-blog/p/3973265.html)）。
 
 
 ## 总结
 
 很难认为 Vagrant 和 Docker 是一个层次上的东西，但是两者都在部署开发环境这一目的上
-应用广泛。与 Vagrant 虚拟化等级相类似的是 Boot2Docker，都会在宿主机上建立一层虚拟机，
-当然本来就设计于虚拟机管理的 Vagrant 在这一点上的强大和灵活性肯定不是 后者可比的，
+应用广泛。与 Vagrant 虚拟化等级相类似的是 Boot2Docker（以下简称 B2D），都会在宿主机上建立一层虚拟机，
+当然本来就设计于虚拟机管理的 Vagrant 在这一点上的强大和灵活性肯定不是后者可比的。
 
-Docker 真正的核心依赖于 Linux 内核的 xxx 模块，Boot2Docker 存在的目的就在于为 Docker
-提供 Linux 的核心环境，换句话说，在 Linux 操作系统上直接运行 Docker 并不依赖 B2G。
-相比之下，依赖于第三方虚拟机的 Vagrant 要庞大地多。
+Docker 真正的核心依赖于 Linux 内核的 xxx 模块，B2D 存在的目的就在于为 Docker
+提供 Linux 的核心环境，换句话说，在 Linux 操作系统上直接运行 Docker 因此并不需要 B2D。
+相比之下，依赖于第三方虚拟机的 Vagrant 要庞大得多。
 
 
 ## Mac 下结合 Vagrant 和 Docker
