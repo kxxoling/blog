@@ -25,3 +25,11 @@ Google Python 样式指南
 Pocoo 风格指引
 [中文](http://www.pythondoc.com/flask/styleguide.html)
 [英文]()
+
+
+## Ruby
+
+* [Ruby 社区规范](https://github.com/bbatsov/ruby-style-guide)
+* [GitHub 的 Ruby 规范](https://github.com/styleguide/ruby)
+* [Airbnb 的 Ruby 规范](https://github.com/airbnb/ruby)
+
