@@ -42,7 +42,7 @@
 * [GitBook 博客](http://blog.windrunner.info/)
 * [定期更新的在线简历](http://gh.windrunner.info/resume/)
 
-如果你是**猎头**或者 **HR**，请通过下面的快速通道联系我：
+如果你非常想要认识我，我在下面留了一个快速联系的方式：）
 
-![我的支付宝钱包](/images/me/alipay.jpg)
+![我的微信钱包](/images/me/wechat-pay.png)
 
