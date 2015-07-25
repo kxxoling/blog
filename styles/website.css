@@ -1,0 +1,19 @@
+/* Reset font family */
+.book.font-family-1 {
+  font-family: STXihei, "Hiragino Sans", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", Helvetica, Tahoma, Arial, sans-serif !important;
+}
+
+/* Make page title aligned in the center */
+h1 {
+  text-align: center;
+}
+
+/* Make anchors bigger and looks better */
+.book .book-body .page-wrapper .page-inner section {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+a.plugin-anchor span {
+  font-size: 0.75em;
+}
+
