@@ -28,6 +28,7 @@
        * [开始学习 Ruby！](2015/06/start-ruby.md)
    * [7月]()
        * [Python encoding 原理及应用](python/encoding.md)
+       * [侦测 Python web 应用中的僵尸代码](python/web/coverage.md)
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
