@@ -11,7 +11,7 @@
        * [Python 3 的变化](2015/03/python3.md)
        * [Pony ORM 的秘密](2015/03/pony.md)
        * [Flask 与 Tornado 的路由定义](2015/03/flask-tornado-router.md)
-       * [招聘贴中的那些坑](2015/03/job.md)
+       * [招聘贴中的那些坑](career/job.md)
        * [WebSocket](2015/03/websocket.md)
    * [4月]()
        * [选择 Vagrant 还是 Docker？](2015/04/vagrant-vs-docker.md)
