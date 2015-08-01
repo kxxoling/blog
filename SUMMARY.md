@@ -31,6 +31,7 @@
        * [侦测 Python web 应用中的僵尸代码](python/web/coverage.md)
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
+   * [乒乓](acg/pingpang/pingpang.md)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
    * [十二国记](acg/the-twelve-kindoms/README.md)
        * [（备份）十二国记之无责任地理考证](acg/the-twelve-kindoms/geography.md)
