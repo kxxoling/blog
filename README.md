@@ -2,10 +2,12 @@
 
 ## 关于我
 
-我现在主要是一个 Python 程序员，会写一点前端，代码主要托管在 [GitHub](https://github.com/kxxoling)。
+我现在主要是一个 Python 程序员，会写一点前端，代码主要托管在
+[GitHub](https://github.com/kxxoling)。
 曾经做过 IT 网站编辑也兼记者，也顺手整理、翻译过一些项目的文档，和代码一样都托管在 GitHub 上。
 
-关于我的工作经历有一个[在线的介绍页面](http://gh.windrunner.info/resume/)，有时间的话我会继续更新它。
+关于我的工作经历有一个[在线的介绍页面](http://gh.windrunner.info/resume/)，
+有时间的话我会继续更新它。
 
 ### 兴趣爱好
 
@@ -20,7 +22,9 @@
 
 ### 如何反馈
 
-在阅读文章时如果发现错别字欢迎在 GitHub [新建 Issue](https://github.com/kxxoling/blog/issues/new) 提醒我。虽然是 git 项目，但作为个人博客并不接受 Pull Request。
+在阅读文章时如果发现错别字欢迎在 GitHub
+[新建 Issue](https://github.com/kxxoling/blog/issues/new) 提醒我。虽然是 git
+项目，但作为个人博客并不接受 Pull Request。
 对于文章观点的讨论可以新建 Issue 也可以直接在 Disqus 评论组件中指出。
 
 ### 如何订阅
@@ -31,7 +35,8 @@
 ## 博客标题
 
 博客名为“不立不破”，是基于对自身能力的判断的自我约束——不轻谈“开山立派”，不妄想“改变世界”。
-世界上有太多的问题都是源自于“看的书太少而想的太多”，博客的主要内容还是围绕现有知识的整理和发掘，前人的智慧已经够我研究很长时间了。
+世界上有太多的问题都是源自于“看的书太少而想的太多”，
+博客的主要内容还是围绕现有知识的整理和发掘，前人的智慧已经够我研究很长时间了。
 
 
 ## 一些链接
@@ -40,7 +45,7 @@
 * [GitHub](https://github.com/kxxoling)
 * [知乎](http://www.zhihu.com/people/kxxoling)
 * [GitBook 博客](http://blog.windrunner.info/)
-* [定期更新的在线简历](http://gh.windrunner.info/resume/)
+* [不定期更新的在线简历](http://gh.windrunner.info/resume/)
 
 如果你非常想要认识我，我在下面留了一个快速联系的方式：）
 
