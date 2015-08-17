@@ -19,12 +19,12 @@ PEP 20
 [Python 之禅]()
 
 Google Python 样式指南
-[中文]()
-[英文]()
+[中文](http://zh-google-styleguide.readthedocs.org/)
+[英文](http://google.github.io/styleguide/pyguide.html)
 
 Pocoo 风格指引
 [中文](http://www.pythondoc.com/flask/styleguide.html)
-[英文]()
+[英文](http://www.pocoo.org/internal/styleguide/)
 
 
 ## Ruby
