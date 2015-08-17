@@ -31,6 +31,8 @@
        * [侦测 Python web 应用中的僵尸代码](python/web/coverage.md)
    * [8月]()
        * [DyanmoDB 使用经验](db/nosql/dynamodb.md)
+       * [PostgreSQL 连接认证方式](db/rdb/postgres/auth.md)
+
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
    * [乒乓](acg/pingpang/pingpang.md)
