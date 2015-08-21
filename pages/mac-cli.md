@@ -82,9 +82,30 @@ chsh -s "$(command -v zsh)" "${USER}"
 换行符转换工具（Windows下换行符是 ``\r\n``，OS X 是 ``\n``）
 
 
-## coreutils
+## coreutils & advcopy
 
-Some missing Linux commands in shell
+Unix 命令增强。手动安装即可提供基本功能，不过为了安装 ``advcopy`` 我还是下载了源代码，
+打了补丁之后编译安装了一遍：
+
+```shell
+wget http://ftp.gnu.org/gnu/coreutils/coreutils-8.23.tar.xz
+tar xvJf coreutils-8.23.tar.xz
+cd coreutils-8.23/
+wget https://raw.githubusercontent.com/felixonmars/aur-mirror/master/advcopy/advcpmv-0.5-8.23.patch
+patch -p1 -i advcpmv-0.5-8.23.patch
+./configure –-without-gmp –-program-prefix g $(brew diy)
+make && make install
+brew link coreutils
+```
+
+如果 ``./configure ...`` 那条命令执行失败，可以去掉参数重新编译，然后手动添加软链接：
+
+```sh
+ln -s src/cp /usr/local/bin/
+alias cp="cp -gR"
+```
+
+这样就可以将编译出来的可执行文件链接到应用程序目录。
 
 
 ## mpv-player
