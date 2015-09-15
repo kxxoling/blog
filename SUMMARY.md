@@ -36,6 +36,7 @@
        * [Python 中的赋值](python/assignment.md)
    * [9月]()
        * [Redis 入门](db/nosql/redis.md)
+       * [Python functools 库](python/functools.md)
 
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
