@@ -37,6 +37,7 @@
    * [9月]()
        * [Redis 入门](db/nosql/redis.md)
        * [Python functools 库](python/functools.md)
+       * [Filco Majestouch 2 Convertible 拆解](hobby/m2c.md)
 
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)

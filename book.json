@@ -1,7 +1,10 @@
 {
     "version": "2.1.0",
-    "plugins": ["quizzes", "disqus", "share", "anchors", "jsbin"],
+    "plugins": ["quizzes", "disqus", "share", "anchors", "jsbin", "image-captions"],
     "pluginsConfig": {
+        "image-captions": {
+            "caption": "_CAPTION_"
+        },
         "disqus": {
             "shortName": "wr-blog"
         },
