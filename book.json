@@ -1,6 +1,9 @@
 {
     "version": "2.1.0",
-    "plugins": ["quizzes", "disqus", "share", "anchors", "jsbin", "image-captions"],
+    "plugins": ["quizzes", "disqus", "share", "anchors",
+                "js-sequence-diagram",
+                "jsbin",
+                "image-captions"],
     "pluginsConfig": {
         "image-captions": {
             "caption": "_CAPTION_"

@@ -169,3 +169,44 @@ GitBook 官方提供了以下插件：
 ### 更多插件
 
 你可以在[官方插件中心](http://plugins.gitbook.com/) 或者 [npm](https://www.npmjs.com/search?q=gitbook-plugin) 寻找更多插件。
+
+
+### 序列图插件
+
+[JS Sequence Diagram 插件](https://github.com/gmassanek/gitbook-plugin-js-sequence-diagram)
+是一个 GitBook 生成序列图的插件，这里以它为例讲解如何安装插件。
+
+首先在配置文件中加入插件名 ``js-sequence-diagram``，不包括 ``gitbook-`` 那部分：
+
+```json
+{
+    "plugins": ["js-sequence-diagram"]
+}
+```
+
+然后使用 gitbook 控制台工具安装：``gitbook install``。
+
+JS Sequence Diagram 的基本使用如下：
+
+    ```sequence
+    Title: 标题
+
+    A->B: 直线
+    B-->C: 虚线
+    C->>D: 箭头
+    D-->>A: 虚线箭头
+    ```
+
+效果：
+
+```sequence
+Title: 标题
+
+A->B: 直线
+B-->C: 虚线
+C->>D: 开箭头
+D-->>A: 虚线开箭头
+```
+
+JS Sequence Diagram 的更多使用请移步[其文档](http://bramp.github.io/js-sequence-diagrams/)。
+
