@@ -21,7 +21,7 @@ Guido 的独裁，他并不喜欢函数式编程中的“map-reduce”概念，�
 生成一个 list，使用时要多加注意。
 
 
-## 偏函数 ``partial``
+## 偏函数 ``partial`` 和 ``partialmethod``
 
 函数式编程中有个很重要的概念叫做柯里化，简单地（虽然并不准确）说，就是这样地效果：
 
@@ -35,7 +35,6 @@ add_y(num_x)        # 结果是 num_x+num_y
 
 当然，上面只是伪代码，在 Python 中你可以使用 ``partial`` 函数实现类似的效果：
 
-
 ```python
 from functools import partial
 
@@ -44,6 +43,42 @@ def add(x, y):
 
 add_y = partial(add, 3)  # add_y 是一个函数
 add_y(4)                 # 结果是 7
+```
+
+[``partialmethod``](https://docs.python.org/3/library/functools.html#functools.partialmethod)
+ 是 Python 3.4 中新引入的装饰器，作用基本类似于 ``partial``，
+不过仅作用于方法。举个例子就很容易明白：
+
+```python
+class Cell(object):
+    def __init__(self):
+        self._alive = False
+    @property
+    def alive(self):
+        return self._alive
+    def set_state(self, state):
+        self._alive = bool(state)
+    set_alive = partialmethod(set_state, True)
+    set_dead = partialmethod(set_state, False)
+
+c = Cell()
+c.alive         # False
+c.set_alive()
+c.alive         # True
+```
+
+在 Python 2 中使用 partialmethod 可以这样定义：
+
+```python
+# Code from https://gist.github.com/carymrobbins/8940382
+from functools import partial
+
+class partialmethod(partial):
+    def __get__(self, instance, owner):
+        if instance is None:
+            return self
+        return partial(self.func, instance,
+                       *(self.args or ()), **(self.keywords or {}))
 ```
 
 
