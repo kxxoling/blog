@@ -5,7 +5,6 @@
    * [GitBook 使用经验](app/gitbook-tutorial.md)
 * [2015]()
    * [2月]()
-       * [Grunt 基本配置及原理](fe/grunt.md)
        * [Docker 速成](sa/docker.md)
    * [3月]()
        * [Python 3 的变化](python/python3.md)
