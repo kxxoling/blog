@@ -33,3 +33,7 @@ Pocoo 风格指引
 * [GitHub 的 Ruby 规范](https://github.com/styleguide/ruby)
 * [Airbnb 的 Ruby 规范](https://github.com/airbnb/ruby)
 
+
+## Haskell
+
+* [haskell-style-guide](https://github.com/chrisdone/haskell-style-guide)
