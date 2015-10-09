@@ -1,17 +1,9 @@
 # 常用 Chrome Plugin
 
-## ublock
-
-[ublock](https://chrome.google.com/webstore/detail/cjpalhdlnbpafiamejdnhcphjbkeiagm)
-是广告屏蔽软件的简化版，更轻量性能也更好。
-
-
-
 ## chrome-qrcode
 
 [chrome-qrcode](https://chrome.google.com/webstore/detail/ijoeanckpfaegjkbdmbihinbdpgpcbba)
 能够快速地根据网页链接生成二维码，也可以手动编辑二维码的内容。
-
 
 
 ## Isometric Contributions
