@@ -54,3 +54,15 @@ REST API 测试工具
 和 Python 自动刷新工具 [LiveReload](https://github.com/lepture/python-livereload)
 配合使用非常方便。
 
+
+
+## Cross Share AirDrop
+
+[Cross Share AirDrop](https://chrome.google.com/webstore/detail/cross-share-airdrop/anolgdmijnkiiihclmnebmgnkfnfeilh)
+是一个为 Chrome 添加 AirDrop 分享功能的插件，需要配合 Mac OS X App
+[Cross Share](https://github.com/swmoon203/CrossShare/raw/master/CrossShare.app.zip)
+使用。
+
+桌面 App 和 Chrome 插件的源代码都托管在了 [GitHub](https://github.com/swmoon203/CrossShare/)，
+还提供了 Alfred Workflow 支持。
+

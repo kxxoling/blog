@@ -111,3 +111,10 @@ Vim 的插件。从此再没有使用 Sublime Text 的理由。
 
 用于监控 OS X 中正在运行的服务，支持 dnsmasq、各类数据库、Nginx 服务器等服务。
 
+
+## CrossShare
+
+CrossShare 提供了快捷 AirDrop 共享支持，安装后可以使用 AirDrop 打开
+``crossshare://airdrop?url=http://google.com`` 这样的链接，通常[配合 Chrome
+插件](http://blog.windrunner.info/pages/chrome-plugin.html#cross-share-airdrop)或者
+Alfred 工作流使用。
