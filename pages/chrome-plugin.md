@@ -2,6 +2,21 @@
 
 ## GitHub 相关
 
+### Octotree
+
+[Octotree](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc)
+是一个 GitHub 增强扩展，提供 GitHub 项目的树形视图，在线预览一个层级复杂的项目的文件结构很方便。
+
+![Octotree](https://lh4.googleusercontent.com/YBD64jR-o0kzLsZwK39mcRYVksugyKrmQc5E2acYBo2UTCnl9hjgoZAf0LNfA2ZZN9njvgET=s640-h400-e365-rw)
+
+
+### ZenHub
+
+[ZenHub](https://chrome.google.com/webstore/detail/zenhub-for-github/ogcgkffhplmphkaahpmffcafajaocjbd)
+为 GitHub 提供了一系列增强功能，包括但不限于搜索项目作者的其它项目、Issue 分类及增强、
+拖拽上传文件、“+1”功能、任务分类等等，也是 GitHub 官方推荐插件之一。
+
+
 ### Isometric Contributions
 
 [Isometric Contributions](https://chrome.google.com/webstore/detail/mjoedlfflcchnleknnceiplgaeoegien)
