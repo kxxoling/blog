@@ -1,5 +1,13 @@
 # 常用 Chrome Plugin
 
+## Bookmark Manager
+
+[Bookmark Manager](https://chrome.google.com/webstore/detail/gmlllbghnfkpflemihljekbapjopfjik)
+是 Google 官方出品的书签管理器，好看又实用。
+
+![Chrome Bookmark Manager](https://lh3.googleusercontent.com/QmwPViYka6CKUpQPk0PyXV2cBrXoToVl8vGpyFrT6HvzzmijDh7pmGGoTxohjJSbfujTYHVHyw=s640-h400-e365-rw)
+
+
 ## GitHub 相关
 
 ### Octotree
@@ -16,6 +24,8 @@
 为 GitHub 提供了一系列增强功能，包括但不限于搜索项目作者的其它项目、Issue 分类及增强、
 拖拽上传文件、“+1”功能、任务分类等等，也是 GitHub 官方推荐插件之一。
 
+![ZenHub](https://lh3.googleusercontent.com/FSXUYLO4R_rzGj5WFCJpgDV7crtfBlDadgSYk_CisMEpaLuk-eGNdsg6fvrrH_lyxFE75hqjag=s640-h400-e365-rw)
+
 
 ### Isometric Contributions
 
@@ -26,6 +36,8 @@
 ### Porter Plug
 
 [Porter Plug](https://porter.io/plug/) 提供 GitHub 项目的最近新闻以及项目的 star 数目变化。
+
+![Porter Plug](https://lh6.googleusercontent.com/SGi9XScqERosX4w3Y8TaZ_MuSmpxaBM7jnyN7YSLnoQ-yqgu4M6Hp1DiqTpHdSAtA-_mJD3Glw=s640-h400-e365-rw)
 
 
 ### Pretty Pull Requests
@@ -46,9 +58,13 @@
 REST API 测试工具
 
 
-## JSON Formatter / JSONViewer
+## Postman Interceptor
 
-[JSON Formatter](https://github.com/callumlocke/json-formatter) 和
+自动 Ajax 监控网络请求，并发送给 Postman。
+
+
+## JSON Formatter
+
 [JSONViewer](https://github.com/tulios/json-viewer) 用于格式化 JSON 请求数据。
 
 
