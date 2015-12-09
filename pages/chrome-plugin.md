@@ -33,6 +33,14 @@
 可以根据 GitHub Commit 信息提供了一个 3D 视图。
 
 
+### GitHub Hovercard
+
+[GitHub Hovercard](https://chrome.google.com/webstore/detail/github-hovercard/mmoahbbnojgkclgceahhakhnccimnplk)
+为 GitHub 项目、用户、组织甚至一些 commit 提供了详细的 hover 卡片。
+
+![GitHub Hovercard](https://lh3.googleusercontent.com/3xxchVfGyOJP23VkYNoJT3ZiaVGVr5ByQgWYeJ5NNkrYtjahLuWt9lLuwZokNGaXv32cLmvmIw=s640-h400-e365-rw)
+
+
 ### Porter Plug
 
 [Porter Plug](https://porter.io/plug/) 提供 GitHub 项目的最近新闻以及项目的 star 数目变化。
