@@ -39,6 +39,7 @@
        * [Filco Majestouch 2 Convertible 拆解](hobby/m2c.md)
        * [安装 IHaskell](haskell/ihaskell.md)
    * [12月]()
+       * [使用 AWS CLI](tool/aws/cli.md)
        * [使用 AWS S3 服务](tool/aws/s3.md)
 
 * [Python](python/README.md)
