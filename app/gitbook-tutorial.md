@@ -14,9 +14,14 @@ GitBook 甚至提供 GitHub hook，在每一次 push 时自动更新书籍内容
 
 ## 使用 GitBook 控制台程序
 
-GitBook 控制台基于 Node.js，因此需要首先安装 Node.js 的包管理工具 npm，再通过 npm 安装GitBook：
+GitBook 控制台基于 Node.js，因此需要首先安装 Node.js 的包管理工具 npm，再通过
+npm 安装 GitBook：
 
-    npm install -g gitboook
+    npm install -g gitbook-cli
+
+如果你安装过 2.0.0 之前的版本，需要首先卸载 gitbook：
+
+    npm uninstall -g gitbook
 
 安装成功后就可以使用 `gitbook [options] [command]` 来使用：
 
@@ -43,8 +48,8 @@ GitBook 目录必备一个 book.json 的文件作为插件配置，正如后缀�
 
 GitBook 插件本质上和 Node.js 包一样，因此其安装也分为全局和本地，全局安装命令：
 `npm install plugin_name`。本地安装则可以使用 GitBook 自带的命令 `gitbook install` 完成，
-将自动安装 book.json 中所配置的插件，不需要任何参数，默认的安装目录是文档目录下的 node_modules 目录。
-因此将该目录加入 .gitignore 的忽略列表中。
+将自动安装 book.json 中所配置的插件，不需要任何参数，默认的安装目录是文档目录下的
+``./node_modules/`` 目录。因此建议将该目录加入 .gitignore 的忽略列表中。
 
 
 ###配置文件
