@@ -2,7 +2,7 @@
 
 * [关于我](README.md)
 * [工具篇]()
-   * [GitBook 使用经验](app/gitbook-tutorial.md)
+   * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
