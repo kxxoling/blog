@@ -41,6 +41,7 @@
    * [12月]()
        * [使用 AWS CLI](tool/aws/cli.md)
        * [使用 AWS S3 服务](tool/aws/s3.md)
+       * [简单介绍 AWS](tool/aws/README.md)
 
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
