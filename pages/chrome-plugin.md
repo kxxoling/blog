@@ -96,3 +96,18 @@ REST API 测试工具
 桌面 App 和 Chrome 插件的源代码都托管在了 [GitHub](https://github.com/swmoon203/CrossShare/)，
 还提供了 Alfred Workflow 支持。
 
+### 使用方法
+
+打开 ``crossshare://<service>?<query>`` 的链接时会自动启动 CrossShare。
+
+- ``service`` 可选值包括 ``airdrop, email, message, twitter, facebook``
+- ``query`` 可选值包括 ``text, url, image```
+
+你可以在浏览器地址栏直接输入 CrossShare 链接，或者在控制台使用 ``open`` 命令：
+
+```
+open "crossshare://airdrop?url=http://windrunner.info"
+open "crossshare://airdrop?image=\<image file path\>"
+open "crossshare://email?text=body"
+```
+
