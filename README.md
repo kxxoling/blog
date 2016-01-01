@@ -13,6 +13,10 @@
 
 兴趣爱好是能让我感兴趣的东西，能让我开心的东西。通常的外在表现是动漫宅、程序员，也没什么可反驳的。
 
+### 关于妹红
+
+先移步[萌娘百科](http://zh.moegirl.org/藤原妹红)吧！
+
 
 ## 关于博客
 
@@ -29,7 +33,8 @@
 
 ### 如何订阅
 
-使用 GitBook 提供的[邮件订阅](https://www.gitbook.com/book/kxxoling/blog/details)方式。
+- 使用 GitBook 提供的[邮件订阅](https://www.gitbook.com/book/kxxoling/blog/details)方式。
+- 使用 GitHub 项目的 [watching](https://github.com/kxxoling/blog/commits?author=kxxoling) 功能。
 
 
 ## 博客标题
