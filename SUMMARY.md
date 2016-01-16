@@ -7,6 +7,7 @@
    * [1 月]()
        * [git 简单教程](vcs/git/README.md)
        * [git 周边支持](vcs/git/tools.md)
+       * [Sentry 入门](tool/sentry.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
