@@ -8,6 +8,7 @@
        * [git 简单教程](vcs/git/README.md)
        * [git 周边支持](vcs/git/tools.md)
        * [Sentry 入门](tool/sentry.md)
+       * [Django 自定义 User model](python/web/django-custom-user.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
