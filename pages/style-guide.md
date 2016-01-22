@@ -7,6 +7,8 @@
   [英文](https://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
 * DropBox CSS Style Guide：[英文](https://github.com/dropbox/css-style-guide)
   [中文](https://gist.github.com/kxxoling/ba20e1339ca66fcad445)
+* Airbnb 的 JS 规范：[中文](https://github.com/yuche/javascript)
+[英文](https://github.com/airbnb/javascript)
 
 
 ## Python
