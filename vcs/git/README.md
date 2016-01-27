@@ -19,6 +19,7 @@ git 是 Linux 之父 Linux 开发的开源的分布式版本控制系统，通�
 
 | git xxx 命令  | 作用
 |---------------|----------
+| status 		| 显示 repo 当前状态
 | commit 		| 提交代码
 | push 			| 推送代码
 | fetch 		| 拉取代码
@@ -30,6 +31,19 @@ git 是 Linux 之父 Linux 开发的开源的分布式版本控制系统，通�
 | checkout 	    | 检出某次提交或者某个分支
 | clone 		| 克隆代码库到本地
 | add           | 将变动添加到暂存区
+
+
+## 文件状态
+
+git 对 repo 的管理以文件为对象，在使用过程中一个文件会存在以下常见状态变化：
+
+- untracked：未添加。在仓库目录刚创建的尚未添加至 repo 的文件状态即是 untracked。也可以把已存在于 repo 中的文件从中删去，这时文件的状态也会回到了 untracked。
+- unmodified：新文件添加进来后并没有对照的历史版本，状态即 unmodified。
+- modified：unmodified 的文件发生修改、变动后其状态会改变为 modified。
+- staged：暂存状态。通过 add 命令记录待提交的文件，文件的状态会变味暂存状态。
+- commited：暂存文件提交后其状态即是 commited，当然也是 unmodified。
+
+![git 文件状态转换图解](/images/git/git-status.jpg)
 
 
 ## 最简单的流程
