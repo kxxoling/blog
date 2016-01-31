@@ -63,16 +63,18 @@ git 对 repo 的管理以文件为对象，在使用过程中一个文件会存�
 
 添加 upstream：
 
-```
-git upstream add origin <git repo addr>
-```
+    git upstream add origin <git repo addr>
 
 删除远程分支：
 
-```
-git push -d
-```
+    git push -d
+    
+清除无用代码／文件：
 
+    git clean -f     # 删除 untracked 状态的文件
+    git clean -fd    # 删除 untracked 状态的文件和目录
+    git clean -nfd   # 列出所有会删除的文件和目录（并不执行删除）
+    
 ## reset、revert、checkout 的区别
 
 | 命令\作用对象 |  文件                    | commit
@@ -89,20 +91,21 @@ git push -d
 我常用的方法是通过管道将 git diff 结果传递给 less，实际上 git 内置了分页（pager）的支持，
 diff 的时候加上 ``-s`` 参数即可设置 less 作为 pager，全局设置命令：
 
-```sh
-git config core.pager 'less -r'
-```
+    git config core.pager 'less -r'
 
 ### clone 特定分支
 
 项目很大或者网络很差的时候你可能只打算 clone 其中某一个分支：
 
+    git clone REPO_URI[ TARGET_FOLDER][ -b/--branch SOME_BRANCH]
+
+``REPO_URI`` 可以是 git 协议、HTTP/HTTPS 或者 SSH 协议的资源地址。
 
 ### 比较某个文件和远程分支上的区别
 
-```sh
-git diff local_branch remote_branch file_path
-```
+
+    git diff local_branch remote_branch file_path
+
 
 ### 列出已删除的文件（并恢复）
 
@@ -149,10 +152,15 @@ cherry-pick 你需要的那条提交记录。
 
 ### ignore 已存在在代码库中文件的后续改动
 
-```sh
-git update-index --assume-unchanged
-```
+    git update-index --assume-unchanged
 
+### 从不相干的 repo 中提取 commit
+
+    git --git-dir=SOME_REPO/.git format-patch -k -1 --stdout | git am -3 -k
+
+这行命令首先从仓库 SOME_REPO 中提取 patch 并输出到 stdout，在使用 ``git am`` 命令在当前 repo 中应用 commit。
+
+### 
 
 ## 参考链接 & 推荐阅读
 
