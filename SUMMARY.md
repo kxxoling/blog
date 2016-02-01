@@ -9,6 +9,8 @@
        * [git 周边支持](vcs/git/tools.md)
        * [Sentry 入门](tool/sentry.md)
        * [Django 自定义 User model](python/web/django-custom-user.md)
+   * [2 月]()
+       * [Vue.js 学习笔记](fe/vue-note.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
