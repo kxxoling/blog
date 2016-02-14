@@ -42,7 +42,9 @@ GitLab 起步较晚，但是功能上和前两者并没有本质区别。GitLab 
 
 * [hub]：hub 是 GitHub 提供的命令行工具，和 GitHub 集成提供了很多便捷的命令。
 * [GitFlow-avh]：GitFlow 是一种基于 git 的开发流程规范以及对应程序，GitFlow-avh 是 AVH 后续维护的版本。
+* [legit](https://github.com/kennethreitz/legit)：requests 作者的另一流行应用，使用类似于 GitFlow。
 * [oh-my-zsh] git 插件。如果你使用 zsh 和 oh-my-zsh，请不要忘记开启其 git 插件。
+* [git-extras](https://github.com/tj/git-extras)： node.js 社区大神 tj 的作品，提供了[一系列常用的 git 命令封装](https://github.com/tj/git-extras/blob/master/Commands.md)，熟练使用能够大幅提高 git 命令效率。
 
 
 ## 浏览器插件
