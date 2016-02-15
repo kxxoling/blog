@@ -11,9 +11,9 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 	- Browserify 插件 [vueify](https://github.com/vuejs/vueify)
 	- Chrome 插件 [vue-devtools](https://github.com/vuejs/vue-devtools)
 - xhr
-	- vue-resource （文档和代码都比较简单 ）
+	- [vue-resource] （文档和代码都比较简单 ）
 - UI 库：
-	- vue-strap （不依赖 BootStrap 的 JS 和 jQurey，但是仍需要 BootStrap 的 CSS。）
+	- [vue-strap] （不依赖 BootStrap 的 JS 和 jQurey，但是仍需要 BootStrap 的 CSS。）
 - 路由
 	- [vue-router](https://github.com/vuejs/vue-router)
 [lucius.cao@quesbook.com](mailto:lucius.cao@quesbook.com)
@@ -189,6 +189,19 @@ Vue 默认会自动转换 camelCase 和 PascalCase 的组件名为 kebab-case，
 组件应当定义好清晰的公开接口，允许外部环境通过 props 传递数据给组件，允许组件触发外部事件，使用 slot 提供可插拔的替换内容。
 
 
+### 默认事件
+[link](http://vuejs.org/api/#Options_\/_Lifecycle_Hooks)
+
+1. init 组件实例初始化完毕，并未开始设置数据监控和事件、监控
+2. created 数据监控、计算熟悉、方法、事件监控已就绪，DOM 未就绪，$el 尚不存在
+3. beforeCompile 即将开始构建
+4. compiled 构建已完成，指令已链接，$el 和 DOM 尚未就绪
+5. ready $el 插入文档
+6. attached
+7. detached
+8. beforeDestroy Vue 实例即将销毁
+9. destroyed Vue 实例销毁完成
+
 ### 事件派发
 
 
@@ -247,4 +260,26 @@ Vue 默认会自动转换 camelCase 和 PascalCase 的组件名为 kebab-case，
 虽然 Vue 提供了 ``:data.sync='obj'`` 这样的组件间数据双向绑定的写法，但对于复杂关联的数据，推荐使用
 ``$dispatch()`` 向上派发和 ``$broadcast()`` 向下广播事件。
 
+### 父子组件间数据交换的最佳实践？
+
+``$root``
+消息
+props
+slot
+
+
+## webpack 常见问题
+
+### 引入未发布在 npm 中的第三方库
+
+webpack 提供了 [expose-loader]：
+
+```js
+require('expose?本地名!../vendors/第三方库.js')
+```
+
+由于第三方库通常是以 JS 全局变量的形式进行注册，而 webpack 默认禁止这种行为，因此引入后需要注册才能使用。
+
+[vue-resource]: https://github.com/vuejs/vue-resource
+[vue-strap]: http://yuche.github.io/vue-strap/
 
