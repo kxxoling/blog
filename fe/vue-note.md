@@ -202,6 +202,8 @@ Vue 默认会自动转换 camelCase 和 PascalCase 的组件名为 kebab-case，
 8. beforeDestroy Vue 实例即将销毁
 9. destroyed Vue 实例销毁完成
 
+![图解 Vue 生命周期](/images/javascript/vue-lifecycle.png)
+
 ### 事件派发
 
 
