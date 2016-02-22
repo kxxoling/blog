@@ -47,24 +47,24 @@ chsh -s "$(command -v zsh)" "${USER}"
 
 显示目录的树状图
 
+常用命令 ``tree -L2`` 这样的命令显示最对两级目录内容。
 
 
 ## htop
 
-进程管理器，比自带的 top 要强大许多。
-
+ 一个比 top 更强大、易用的终端任务管理器。
 
 
 ## autojump
 
-在常用目录间快速跳转，命令是 `j`。
+在常用目录间快速跳转，命令是 ``j 目录部分名称``，使用 ``jo`` 替代 ``j`` 可以打开目录。
+
+``jo`` 仅支持 Mac 。
 
 
+## IPython ＋ ptpython ＋ Jupyter notebook
 
-## IPython
-
-提供更强大的 Python REPL 环境，配合 IPython Notebook 能提供强大的 web 执行环境。
-
+目前最强大的 Python REPL 环境。
 
 
 ## ag
@@ -112,29 +112,15 @@ alias cp="cp -gR"
 
 ```
 brew tap mpv-player/mpv
-brew install mpv
+brew cask install mpv
 ```
 
 
 ## git
 
-最流行的分布式代码管理工具。Mac 自带了 git ，只需要做一下简单的配置：
-
-```shell
-git config --global user.name "Kane Blueriver"
-git config --global user.email "kxxoling@gmail.com"
-git config --global credential.helper osxkeychain 	# 设置 Mac KeyChain 工具来自动提交 GitHub 验证信息
-```
+最流行的分布式代码管理工具。Mac 自带了 git ，不过还是推荐通过 brew 来安装最新的 git 程序和插件。
 
 git 教程：[小猫都能学会的 git 教程](http://www.davidrevoy.com/article193/guide-building-krita-on-linux-for-cats)
-
-常用的 git 插件有：
-
-* zsh git 插件
-* git-flow（[AVH Edition](https://github.com/petervanderdoes/gitflow) ``brew install git-flow-avh``）
-* [legit](https://github.com/kennethreitz/legit)。legit 主要提供 git-flow 的命令封装。
-
-PS：zsh git 插件在较大的项目中会导致启动缓慢，建议在大型项目中关闭该插件。
 
 
 ## pip & gem & npm & cnpm
@@ -146,39 +132,14 @@ gem 是 Ruby 的包管理器，安装 compass / puppet / vagrant 等 Ruby 应用
 npm 是 node.js 包管理器，cnpm 是 淘宝提供的 npm 替代品。
 
 ```
-brew install npm
-npm install cnpm -g --registry=https://registry.npm.taobao.org 		# 安装 cnpm 来替代 npm 命令
+brew install npm    # 会同时安装 node 和 npm
 ```
-
-
-
-## pgcli
-
-[pgcli](https://github.com/amjith/pgcli) 是控制台中的 PostgreSQL 管理工具，功能强大！
-推荐使用 brew 安装：
-
-```sh
-brew install pgcli
-```
-
-不过，由于 pgcli 是 Python 应用，你也可以使用 ``pip`` 或者 ``easy_install`` 安装：
-
-```sh
-pip install pgcli
-```
-
-
-## uwsgi & gunicorn
-
-提供 WSGI 支持的 web 服务器。
-
 
 
 ## sphinx
 
 Python 社区的文档管理标准，著名的文档托管服务 [ReadTheDocs](http://rtfd.org) 服务就是基于其搭建，
 支持 i18n，配合 Python 注释自动生成非常方便。
-
 
 
 ## LiveReload
@@ -190,15 +151,9 @@ Python 社区的文档管理标准，著名的文档托管服务 [ReadTheDocs](h
 
 
 
-## virtualenv
+## virtualenv & VirtualEnvWrapper
 
-提供 Python 虚拟环境的隔离。
-
-
-
-## VirtualEnvWrapper
-
-virtualenv 命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 是在这之上的一层封装。
+virtualenv 提供了 Python 虚拟环境的隔离，但是命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 基于它提供了更简易的命令和操作。
 
 
 
