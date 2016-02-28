@@ -11,6 +11,7 @@
        * [Django 自定义 User model](python/web/django-custom-user.md)
    * [2 月]()
        * [Vue.js 学习笔记](fe/vue-note.md)
+       * [写给 Python 程序员看的 Rust 介绍](rust/python-rust.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
