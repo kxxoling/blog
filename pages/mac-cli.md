@@ -128,12 +128,17 @@ git 教程：[小猫都能学会的 git 教程](http://www.davidrevoy.com/articl
 pip 以外的所有 Python 应用都应该使用 pip 来安装！
 
 gem 是 Ruby 的包管理器，安装 compass / puppet / vagrant 等 Ruby 应用时离不开 gem。
+gem 源也是被干扰得最厉害的，建议使用淘宝镜像：
 
-npm 是 node.js 包管理器，cnpm 是 淘宝提供的 npm 替代品。
+    gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
 
-```
-brew install npm    # 会同时安装 node 和 npm
-```
+npm 是 node.js 包管理器，cnpm 是 淘宝提供的 npm 替代品，不过现在速度似乎是官方源更快一些。
+
+    brew install npm    # 会同时安装 node 和 npm
+
+Ubuntu 官方源的 node.js 太古老，可以从 node.js 官方源安装：
+
+    curl -sL https://deb.nodesource.com/setup_5.x | sh -  # setup_5.x 换成 setup_4.x 就可以安装最新的 Node.js 4
 
 
 ## sphinx
