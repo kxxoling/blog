@@ -269,16 +269,18 @@ Rust 版本和 Python 版本最大的不同之处在于使用了 B 树 map 而�
 
 关系创建后，我们将其置入 Arc，因为 Arc 会管理它所封装的事物的引用计数，本例中即 mutex。也就是说，直到最后一个线程运行结束时 mutex 才会被删除。非常简洁！
 
+下面解释下这段代码是如何工作的：首先数 20 次，和在 Python 中一样，每次都运行一个本地函数。和 Python 中不同的是，我们在这里可以使用闭包。之后将 Arc 复制到本地线程中，也就是说每个线程都会有自己的 Arc（这会 Arc 的增加引用计数，但会在线程结束的时候释放）。之后我们使用本地函数 spawn 一个新线程，这会将闭包移动到线程中。
 
-So here is how the code works: we count to 20 like in Python, and for each of those numbers we run a local function. Unlike in Python we can use a closure here. Then we make a copy of the Arc into the local thread. This means that each thread sees it's own version of the Arc (internally this will increment the refcount and decrement automatically when the thread dies). Then we spawn the thread with a local function. The move tells us to move the closure into the thread. Then we run the Fibonacci function in each thread. When we lock our Arc we get back a result we can unwrap and the insert into. Ignore the unwrap for a moment, that's just how you convert explicit results into panics. However the point is that you can only ever get the result map when you unlock the mutex. You cannot accidentally forget to lock!
+之后每个线程都会执行 Fibonacci 函数，When we lock our Arc we get back a result we can unwrap and the insert into. 
+先不要管解包过程，这只是将明确的结果转换为 panic。重点在于，你只有在解除 mutex 锁之后才能获得结果映射，所以千万不能忘记解锁。
 
-Then we collect all threads into a vector. Lastly we iterate over all threads, join them and then print the results.
+之后我们将所有线程集中到 vector 中，最后迭代所有线程，合并并打印结果。
 
-Two things of note here: there are very few visible types. Sure, there is the Arc and the Fibonacci function takes unsigned 64bit integers, but other than that, no types are visible. We can also use the B-tree map here instead of a hashtable because Rust provides us with such a type.
+这里有两点需要注意的地方：可见类型非常少。当然，Arc 和 Fibonacci 函数接受 64 位 unsigned 整数，除此之外，没有任何类型是可见的。在我们也可以使用 B-tree 映射来代替哈希表，因为 Rust 内置了这个类型。
 
-Iteration works exactly the same as in Python. The only difference there is that in Rust in this case we need to acquire the mutex because the compiler cannot know that the threads finished running and the mutex is not necessary. However there is an API that does not require this, it's just not stable yet in Rust 1.0.
+迭代的运行方式和 Python 几乎完全一致，不同之处在于，这上面这个 Rust 例子中我们需要引入 mutex，因为编译器不知道线程会怎样结束，而 mutex 是不必要的。当然 Rust 也有不需要引入 mutex 的 API，只不过在 Rust 1.0 中还不是稳定版本。
 
-Performance wise pretty much what you expect would happen. (This example is intentionally terrible just to show how the threading works.)
+性能优化会如你所期望地那样进行。（这里的优化情况很糟糕，因为只是未来提供一个线程执行的例子。）
 
 
 ## Unicode
