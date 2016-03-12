@@ -39,16 +39,16 @@ Rust 函数调用的结尾会有一个惊叹符，它其实是宏。在编译期
 也就不会在打印的时候出现函数参数、类型不匹配的情况。
 
 
-## Traits vs Protocols（性状 vs 协议）
+## Traits vs Protocols（特性 vs 协议）
 
 最常见的不同之处在于对象的行为。
-在 Python 中，类可以通过实现特定的魔术方法来支持某行为，通常称之为遵从 x 协议——比如 __iter__ 方法用于返回一个迭代器对象。
+在 Python 中，类可以通过实现特定的魔术方法来支持某行为，通常称之为遵从 x 协议——比如 ``__iter__`` 方法用于返回一个迭代器对象。
 这些方法应该在类中实现，之后（实例化之后）就不能在修改了。（请无视 Monkey Patch）
 
-Rust 的理念和 Python 类似，不过它选择 trait 而非魔法方法。trait 的不同之处在于它的作用于仅在于本地，并不会影响其它模块。（ the implementation is locally scoped and you can implement more traits for types from another module. ）
-假如你想要给整数特殊的功能，并不会影响到整数类型。
+Rust 的理念和 Python 类似，不过它选“特性”而非魔术方法。特性的不同之处在于它仅作用于本地，你可以在别的模块中实现更多特性。
+如果你想要给整数特殊的功能，并不会影响到（全局的）整数类型。
 
-以自调用的类型为例。Python：
+以一个自调用的类型为例。Python：
 
 ```python
 class MyType(object):
@@ -87,7 +87,7 @@ impl Add for MyType {
 ```
 
 Rust 的实现代码稍微长一些，但是它实现了 Python 代码中未处理的自动类型。
-你可能还会注意到，Python 中的方法与类型声明在一起，而 Rust 中两者是分开声明的：struct 定义数据，impl MyType 用来定义类型所具备的方法，impl Add for MyType 是对 Add 特性的实现。
+你可能还会注意到，Python 中的方法与类型声明在一起，而 Rust 中两者是分开声明的：``struct`` 定义数据，``impl MyType`` 定义类型所具备的方法，``impl Add for MyType`` 是 Add 特性的实现。
 在 Add 方法的实现中，我们还定义了方法返回结果的类型，但是避免了像 Python 中那样需要在运行时检查类型的复杂性。
 
 另一点区别在于，Rust 构造器是明确的，而 Python 的更具迷惑性。
@@ -175,11 +175,9 @@ a = MyType() + MyType()
 而 Rust 中不存在这样的问题，每个对象都只能有一个所有者。你在引用 ``self`` 时，
 编译器将会将值“移动”过去，这时函数将无法找到原来的 ``self`` 也就无法将它 return 回去。
 想要 return ``self`` 则必须向将它移动回去（将它从引用中删除）。
-
-If you would append self to leaks the compiler would “move” the value there and you could not return it from the function because it was already moved elsewhere. You would have to move it back first to return it (for instance by removing it from the list again).
+如果你想要把 ``self`` 泄露出去，编译器会负责“移动”值，但是这样函数就无法返回 ``self``，因为它已经被移动了。想要返回它，你首先还是需要把它再移动回去（比如从列表中将它删除）。
 
 如果你需要多次引用同一个对象该怎么办呢？Rust 提供的解决方案是“借用（borrow）”，“借用”这个变量的值。
-
 借用的数量可以没有限制，但是不允许对借用的对象进行修改，或者可以修改但只允许存在一个借用。
 
 操作不可变“借用”的函数被标记为 ``&self``，使用可变借用的函数被标记为 ``&mut self``。作为拥有者你只能“借出”引用。如果想要将值移出函数（比如返回），则不能有额外的借出，并且将所有权移动后不能再借出。
@@ -292,7 +290,7 @@ Python （2 和 3）都使用着相似的 Unicode 模型，将 Unicode 数据映
 在 Rust 中，Unicode 都是 UTF-8 格式存储，我之前也提到过为什么这比 Python 或者 C# 的解决方案要好得多（参见 UCS vs UTF-8 as Internal String Encoding）。
 非常有趣的是 Rust 是如何处理丑陋的编码问题的。
 
-首先 Rust 一开始就意识到操作系统（不论是 Windows Unicode 还是 Linux 非 Unicode ）的 API 都非常糟糕，它没有像 Python 一样强制使用 Unicode，但是实现了一套低廉的字符转化系统，这在现实使用中非常出色，也使得 Rust 拥有高效的字符处理能力。
+首先 Rust 一开始就意识到操作系统（不论是 Windows Unicode 还是 Linux 非 Unicode）的 API 都非常糟糕，它没有像 Python 一样强制使用 Unicode，但是实现了一套低廉的字符转化系统，这在现实使用中非常出色，也使得 Rust 拥有高效的字符处理能力。
 
 对于大多数支持 UTF-8 的程序来说，编码、解码并不需要，只需要简单地验证编码的正确性，并不需要的对 UTF-8 字符编码后再输出。如果需要集成 Windows Unicode API，只需要在内部使用 WTF-8 进行编码，可以很高效地和 UTF-16 这样的 UCS2 编码之间进行转换。
 
