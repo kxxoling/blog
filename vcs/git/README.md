@@ -19,17 +19,17 @@ git 是 Linux 之父 Linux 开发的开源的分布式版本控制系统，通�
 
 | git xxx 命令  | 作用
 |---------------|----------
-| status 		| 显示 repo 当前状态
-| commit 		| 提交代码
-| push 			| 推送代码
-| fetch 		| 拉取代码
-| merge 		| 合并代码
-| pull 			| 拉去并合并代码
-| rebase 		| 衍合／变基。将某次提交后的所有提交按照需要应用到指定提交上。
-| config 		| 设置
-| tag 			| 打标签
-| checkout 	    | 检出某次提交或者某个分支
-| clone 		| 克隆代码库到本地
+| status        | 显示 repo 当前状态
+| commit        | 提交代码
+| push          | 推送代码
+| fetch         | 拉取代码
+| merge         | 合并代码
+| pull          | 拉去并合并代码
+| rebase        | 衍合／变基。将某次提交后的所有提交按照需要应用到指定提交上。
+| config        | 设置
+| tag           | 打标签
+| checkout      | 检出某次提交或者某个分支
+| clone         | 克隆代码库到本地
 | add           | 将变动添加到暂存区
 
 
@@ -67,14 +67,31 @@ git 对 repo 的管理以文件为对象，在使用过程中一个文件会存�
 
 删除远程分支：
 
-    git push -d
-    
+    git push --delete <branch_name>     # 缩写形式：git branch -d <branch_name>
+
+或者：
+
+  git branch -dr <remote> <branch>
+
 清除无用代码／文件：
 
     git clean -f     # 删除 untracked 状态的文件
     git clean -fd    # 删除 untracked 状态的文件和目录
     git clean -nfd   # 列出所有会删除的文件和目录（并不执行删除）
-    
+
+列出当前所有分支：
+
+  git branch --all[ --verbose]     # verbose 参数可以同时显示出分支的 HEAD commit，缩写形式： git branch -av
+
+显示文件的修改纪录和修改人信息：
+
+  git blame <filename>
+
+发布 tag：
+
+  git push --tags
+
+
 ## reset、revert、checkout 的区别
 
 | 命令\作用对象 |  文件                    | commit
