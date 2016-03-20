@@ -18,6 +18,20 @@ Homebrew Cask 是 Homebrew 的插件，作为 Homebrew 在 GUI 应用上的补�
 brew install caskroom/cask/brew-cask
 ```
 
+检查程序的状态：``brew info <app_name>``
+
+安装了多个版本时切换激活版本：
+
+    brew switch <app_name> <version>
+
+### 安装特定版本
+
+1. 先 tap 历史仓库：``brew tap homebrew/versions``
+2. 列出可安装版本：输入 ``brew install homebrew/versions/<app_name>``  后按 TAB 键
+3. 安装：``brew install homebrew/versions/<app_name><version>``
+
+或者在 [Homebrew-versions](https://github.com/Homebrew/homebrew-versions) 仓库中找到特定 Formula 的特定版本，然后直接安装：``https://github.com/Homebrew/homebrew-versions``
+
 
 ## zsh & oh-my-zsh!
 
