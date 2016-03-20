@@ -160,7 +160,14 @@ cherry-pick 你需要的那条提交记录。
 
 这行命令首先从仓库 SOME_REPO 中提取 patch 并输出到 stdout，在使用 ``git am`` 命令在当前 repo 中应用 commit。
 
-### 
+### 发布 dist 到 GitHub pages
+
+在 master 分支构建 dist 并将其加入版本控制（不喜欢的话也可以开一个 orphan 分支）：
+
+    git add dist                                        # 将 dist 目录加入版本控制库，如已忽略可以 git add -f
+    git commit -m "Initial dist subtree commit"         # 提交
+    git subtree push --prefix dist origin gh-pages      # 使用 subtree 命令单独将 dist 目录发布到一个分支
+
 
 ## 参考链接 & 推荐阅读
 
