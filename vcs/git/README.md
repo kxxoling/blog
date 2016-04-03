@@ -103,6 +103,30 @@ git 对 repo 的管理以文件为对象，在使用过程中一个文件会存�
 
 ## 其它常用命令
 
+### 撤销提交
+
+撤销提交最简单的方式是 ``git add``／``git remove`` 相应文件后运行：
+
+    git commit --amend
+	
+然后会直接回到编辑提交信息的 UI。（通常是使用默认编辑器编辑 commit 信息）
+
+或者可以一次性运行：
+
+    git commit [file1] [file2] ... -m [message]
+
+提交并显示详细信息和 diff 信息：
+
+    git commit -v
+	
+使用一次新的commit，替代上一次提交，如果代码没有任何新变化，则用来改写上一次commit的提交信息
+
+    git commit --amend -m [message]
+	
+重做上一次commit，并包括指定文件的新变化
+
+    git commit --amend [file1] [file2] ...
+
 ### 折叠显示 diff 信息
 
 我常用的方法是通过管道将 git diff 结果传递给 less，实际上 git 内置了分页（pager）的支持，
@@ -186,8 +210,16 @@ cherry-pick 你需要的那条提交记录。
     git subtree push --prefix dist origin gh-pages      # 使用 subtree 命令单独将 dist 目录发布到一个分支
 
 
+## 使用 git 追踪错误
+
+主要使用到的是 git blame 和 git bisec 命令：https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E4%BD%BF%E7%94%A8-Git-%E8%B0%83%E8%AF%95
+
+
 ## 参考链接 & 推荐阅读
 
 * [12 个 git 实战建议和技巧](http://www.csdn.net/article/2012-12-11/2812673-12-git-tips)
 * [How to undo (almost) anything with Git](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
+* [《Pro git》在线中文版](https://git-scm.com/book/zh/v2/)
+* [常用 Git 命令清单－－阮一峰](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+
 
