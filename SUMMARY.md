@@ -12,6 +12,8 @@
    * [2 月]()
        * [Vue.js 学习笔记](fe/vue-note.md)
        * [写给 Python 程序员看的 Rust 介绍](rust/python-rust.md)
+   * [4 月]()
+       * [PostgreSQL 索引类型](db/rdb/postgres/index-types.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
