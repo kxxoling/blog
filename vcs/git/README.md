@@ -209,6 +209,19 @@ cherry-pick 你需要的那条提交记录。
     git commit -m "Initial dist subtree commit"         # 提交
     git subtree push --prefix dist origin gh-pages      # 使用 subtree 命令单独将 dist 目录发布到一个分支
 
+### 执行 git 命令的时候忽略所有 hook
+
+以忽略 pre-push hook 为例：
+
+    git push --no-verify
+
+### 创建远程仓库
+
+    git init --bare
+
+    git remote add origin GIT_REPO_ADDR
+    git push -u origin master
+
 
 ## 使用 git 追踪错误
 
