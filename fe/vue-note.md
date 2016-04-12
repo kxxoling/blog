@@ -6,17 +6,21 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 - 官方索引：[awesome-vue](https://github.com/vuejs/awesome-vue)
 - 项目源代码：[GitHub](https://github.com/vuejs/vue)
 - 开发工具：
-	- 命令行工具 [vue-cli](https://github.com/vuejs/vue-cli)
-	- Webpack 插件 [vue-loader](https://github.com/vuejs/vue-loader)
+	- 命令行工具 [vue-cli](https://github.com/vuejs/vue-cli) （面向组件开放的项目都建议使用这个官方工具初始化）
+	- Webpack 插件 [vue-loader](https://github.com/vuejs/vue-loader) （官方推荐）
 	- Browserify 插件 [vueify](https://github.com/vuejs/vueify)
 	- Chrome 插件 [vue-devtools](https://github.com/vuejs/vue-devtools)
 - xhr
 	- [vue-resource] （文档和代码都比较简单 ）
 - UI 库：
 	- [vue-strap] （不依赖 BootStrap 的 JS 和 jQurey，但是仍需要 BootStrap 的 CSS。）
+	- [vue-antd] 蚂蚁金服 ant design 的 Vue 实现（不够完善，但是看起来比 [vue-strap] 好看些。
 - 路由
-	- [vue-router](https://github.com/vuejs/vue-router)
+	- [vue-router](https://github.com/vuejs/vue-router)（官方 router）
 [lucius.cao@quesbook.com](mailto:lucius.cao@quesbook.com)
+
+另外，我根据 Vue.js 的官方 demo 以及其它 demo 做了一个在线展示：[demo](http://gh.windrunner.info/vue-demos/)
+（[source on GitHub](https://github.com/kxxoling/vue-demos)）
 
 
 ## 基本概念
@@ -31,9 +35,6 @@ Vue 作为一个 MVVM 框架，双向绑定是其最基本的特性。
 
 动态数据的绑定（``computed``）
 
-### 指令
-
-MVVM 中很常见，偏声明式的语法
 
 ### 组件（核心）
 
@@ -98,11 +99,17 @@ MVVM 中很常见，偏声明式的语法
 
 可以理解为 templateUrl 的替代品。
 
+
+### 指令
+
+指令的作用和组件类似，相当于轻量级的组件。
+
+
 ### MixIn
 
 跟 Python 等语言的 MixIn 很像。
 
-### 事件与组件的声明周期
+### 事件与组件的生命周期
 
 ### 过渡动画
 
@@ -284,4 +291,6 @@ require('expose?本地名!../vendors/第三方库.js')
 
 [vue-resource]: https://github.com/vuejs/vue-resource
 [vue-strap]: http://yuche.github.io/vue-strap/
+[vue-antd]: https://github.com/okoala/vue-antd
+
 
