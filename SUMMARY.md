@@ -14,6 +14,8 @@
        * [写给 Python 程序员看的 Rust 介绍](rust/python-rust.md)
    * [4 月]()
        * [PostgreSQL 索引类型](db/postgres/index-types.md)
+   * [5 月]()
+       * [Django-REST-framework 学习笔记](python/web/django-rest-framework.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
