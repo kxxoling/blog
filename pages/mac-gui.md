@@ -4,6 +4,8 @@
 
 记录你一周内的软件使用时间分配情况，以周为单位返回效率报告。
 
+    brew cask install rescuetime
+
 
 ## FlashLight
 
@@ -30,10 +32,14 @@ MongoDB 的 GUI 管理工具。
 
 网络请求查询工具
 
+    brew cask install wireshark
+
 
 ## Go2Shell
 
 Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
+
+    brew cask install go2shell
 
 
 ## MacVim
@@ -41,19 +47,27 @@ Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
 为 VIM 提供鼠标选择、滚动、菜单、多标签等现代编辑器常用功能，基本上完全兼容
 Vim 的插件。
 
+    brew cask install macvim
+
 ## Sublime Text
 
 简单、好用的 GUI 编辑器。
+
+    brew cask install sublime-text3
 
 
 ## DrRacket
 
 提供 Scheme 的运行环境，严格说起来 DrRacket 实现的也只是 Scheme 的方言。
 
+    brew cask install racket
+
 
 ## SourceTree
 
 支持 git 和 hg 版本控制的 GUI 应用，并且支持 Git Flow。
+
+    brew cask install sourcetree
 
 
 ## Postman - REST client
@@ -70,15 +84,21 @@ Vim 的插件。
 
 用于多个 hosts 之间快速切换。
 
+    brew cask install gas-mask
+
 
 ## ClipMenu
 
 剪贴板纪录工具。
 
+    brew cask install clipmenu
+
 
 ## DynamicLyrics
 
 在任务栏或者工作区中动态显示歌词的应用。
+
+    brew cask install dynamiclyrics
 
 
 ## CrossShare
@@ -87,5 +107,19 @@ CrossShare 提供了快捷 AirDrop 共享支持，安装后可以使用 AirDrop 
 ``crossshare://airdrop?url=http://google.com`` 这样的链接，通常[配合 Chrome
 插件](http://blog.windrunner.info/pages/chrome-plugin.html#cross-share-airdrop)或者
 Alfred 工作流使用。
+
+
+## 微信 debugger
+
+国内做微信相关开发还是很需要的。
+
+    brew cask install wxdebugger
+
+
+## MacDown
+
+免费、轻量的 Markdown 编辑器。对于轻度用户来说完全够用了。
+
+    brew cask install macdown
 
 
