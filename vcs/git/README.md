@@ -228,11 +228,35 @@ cherry-pick 你需要的那条提交记录。
 主要使用到的是 git blame 和 git bisec 命令：https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E4%BD%BF%E7%94%A8-Git-%E8%B0%83%E8%AF%95
 
 
+### 删除远程所有已合并近 master 的分支
+
+    git push origin --delete $(git branch --merged origin/master -r | grep -v master | grep origin | cut -d/ -f2-)
+
+### 显示树状 git log
+
+    git log --oneline --graph
+
+### 显示某一个文件的变更记录
+
+    git log -p <filename>
+
+### 显示文件某几行的变更记录
+
+    git log -L <start-line>,<end-line>:<filename>
+
+### 显示没有合并进 master 的变更
+
+    git log --no-merges master
+
+### 显示其它分支某个文件的内容
+
+    git show <branch-name>:<filename>
+
+
 ## 参考链接 & 推荐阅读
 
 * [12 个 git 实战建议和技巧](http://www.csdn.net/article/2012-12-11/2812673-12-git-tips)
 * [How to undo (almost) anything with Git](https://github.com/blog/2019-how-to-undo-almost-anything-with-git)
 * [《Pro git》在线中文版](https://git-scm.com/book/zh/v2/)
 * [常用 Git 命令清单－－阮一峰](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
-
-
+* [19 Tips For Everyday Git Use](http://www.alexkras.com/19-git-tips-for-everyday-use/)
