@@ -252,6 +252,14 @@ cherry-pick 你需要的那条提交记录。
 
     git show <branch-name>:<filename>
 
+### 计算 git 项目总行数
+
+    git ls-files | xargs cat | wc -l
+
+列出每个文件的行数：
+
+    git ls-files | xargs wc -l
+
 
 ## 参考链接 & 推荐阅读
 
