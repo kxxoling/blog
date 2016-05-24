@@ -1,19 +1,24 @@
 {
-    "version": "2.1.0",
-    "plugins": ["quizzes", "disqus", "share", "anchors",
-                "anchor-navigation",
-                "js-sequence-diagram",
-                "jsbin",
-                "image-captions"],
-    "pluginsConfig": {
-        "image-captions": {
-            "caption": "_CAPTION_"
-        },
-        "disqus": {
-            "shortName": "wr-blog"
-        },
-        "share": {
-            "google": {}
-        }
+  "gitbook": "2.5.0",
+  "plugins": [
+    "quizzes",
+    "disqus",
+    "share",
+    "anchors",
+    "anchor-navigation",
+    "js-sequence-diagram",
+    "jsbin",
+    "image-captions"
+  ],
+  "pluginsConfig": {
+    "image-captions": {
+      "caption": "_CAPTION_"
+    },
+    "disqus": {
+      "shortName": "wr-blog"
+    },
+    "share": {
+      "google": {}
     }
+  }
 }
