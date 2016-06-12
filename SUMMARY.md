@@ -21,6 +21,7 @@
        * [JS 中 ``void`` 的正确用法](fe/void.md)
    * [6 月]()
        * [使用 Let's Encrypt 为网站提供 HTTPS 服务](sa/lets-encrypt.md)
+       * [git 简单配置](vcs/git/config.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
