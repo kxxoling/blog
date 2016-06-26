@@ -13,21 +13,6 @@
 的扩展工具，是 Alfred 的免费 clone。
 
 
-## MySQL Sequel Pro
-
-相比 MySQL Workbench 更简介、轻量。
-
-
-## RoboMongo
-
-MongoDB 的 GUI 管理工具。
-
-
-## MongoHub
-
-MongoDB 的 GUI 管理工具。
-
-
 ## Wireshark
 
 网络请求查询工具
@@ -42,14 +27,7 @@ Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
     brew cask install go2shell
 
 
-## MacVim
-
-为 VIM 提供鼠标选择、滚动、菜单、多标签等现代编辑器常用功能，基本上完全兼容
-Vim 的插件。
-
-    brew cask install macvim
-
-## Sublime Text
+## Sublime Text 3
 
 简单、好用的 GUI 编辑器。
 
@@ -122,4 +100,16 @@ Alfred 工作流使用。
 
     brew cask install macdown
 
+
+## Rime 输入法
+
+又名鼠须管输入法，我用的配置是修改自 rime_pro 4.0，配置库地址：[kxxoling/Rime]。
+
+
+[Rime]: https://github.com/kxxoling/Rime
+
+
+## MplayerX 播放器
+
+比之前稳定多了，所以我又从 Mpv 换回来了。
 
