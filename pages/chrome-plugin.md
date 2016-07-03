@@ -54,13 +54,6 @@
 为 GitHub 项目提供文件结构树形图。
 
 
-
-## chrome-qrcode
-
-[chrome-qrcode](https://chrome.google.com/webstore/detail/ijoeanckpfaegjkbdmbihinbdpgpcbba)
-能够快速地根据网页链接生成二维码，也可以手动编辑二维码的内容。
-
-
 ## Postman
 
 REST API 测试工具
@@ -68,13 +61,12 @@ REST API 测试工具
 
 ## Postman Interceptor
 
-自动 Ajax 监控网络请求，并发送给 Postman。
+自动监控网络请求，并发送给 Postman。
 
 
 ## JSON Formatter
 
 [JSONViewer](https://github.com/tulios/json-viewer) 用于格式化 JSON 请求数据。
-
 
 
 ## LiveReload
@@ -83,7 +75,6 @@ REST API 测试工具
 是 [livereload.com](//livereload.com) 出品的 Chrome 插件，支持众多第三方应用，
 和 Python 自动刷新工具 [LiveReload](https://github.com/lepture/python-livereload)
 配合使用非常方便。
-
 
 
 ## Cross Share AirDrop
@@ -110,4 +101,55 @@ open "crossshare://airdrop?url=http://windrunner.info"
 open "crossshare://airdrop?image=\<image file path\>"
 open "crossshare://email?text=body"
 ```
+
+## iChrome
+
+[iChrome](https://chrome.google.com/webstore/detail/ichrome-new-tab-a-fast-pr/iccjgbbjckehppnpajnmplcccjcgbdep/)
+为 Chrome 提供了自定义标签页的功能。
+
+![iChrome 预览](https://lh3.googleusercontent.com/4ll69EzM_5JQ660pKlvDlBVY0msF4IyGTzW8uDZrV6fwneGvKY0N-ADOg9_26MwRPlLGMBnq=s640-h400-e365-rw)
+
+
+## Image Search Options
+
+[Image Search Options](https://chrome.google.com/webstore/detail/image-search-options/kljmejbpilkadikecejccebmccagifhl)
+提供相似图片搜索功能，支持 Google、SauceNAO、TinEye、IQDB 等网站。
+
+![Image Search Options](https://lh3.googleusercontent.com/dCBEmb2tCDDmo48xm92iTOy_rWQEtPAIcXlLiO6o-mjkPXQq6HWf4FZmOMTiFTuTx-qpbGiO8A=s640-h400-e365-rw)
+
+
+## Ugoira2GIF
+
+[Ugoira2GIF](https://chrome.google.com/webstore/detail/ugoira2gif/ionmgpeclkmpjkmfejilaihdegkjehfj) 能够将 P 站的图片转换成 gif 格式。
+
+![Ugoira2GIF](https://lh4.googleusercontent.com/lOO5VXTFUwxzD25OMLh2Cze1iufBSOooVBf55aUcyeJHYA-Z_HxrKo2r_whLYqo_XM9mO1SCTg=s640-h400-e365-rw)
+
+
+## Proxy SwitchyOmega
+
+[Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif)
+是一个浏览器代理设置和管理插件，前身是 Switchy Sharp。
+
+![Proxy SwitchyOmega](https://lh4.googleusercontent.com/tJSuU0EPau0fgb2iSAXuVVLuwk1b0pZ5qgmzGTZQ2mnfYOF_1vW1o8MUOTI95UPSMRZ7AvM_=s640-h400-e365-rw)
+
+
+## web 开发相关
+
+### React Developer Tools
+
+[React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+
+![React Developer Tools](https://lh6.googleusercontent.com/qRoMSCGDgOfrlH2Oh3adbmyDFCYOb1HjYHlvdiNylTaDlDS_SHiTWjHIH-xdTewAv6YJHJJ71g=s640-h400-e365-rw)
+
+### Redux DevTools
+
+[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+
+![Redux DevTools](https://lh3.googleusercontent.com/wfhSnnYEQc3TCXbRTpTloa-XZesgDt0xAogzGoLF1BUCU04aYhdwAjueJYTtDxfRiqjUfC539g=s640-h400-e365-rw)
+
+### Vue.js devtools
+
+[Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+
+![Vue.js devtools](https://lh3.googleusercontent.com/zfUws9vbcxMXz8Ad_PxLlcq8e1dodaV_rymPGJFUdvaOptRDR0lZOrH2ZiJw34qirwAR7YHF=s640-h400-e365-rw)
 
