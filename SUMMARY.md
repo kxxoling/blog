@@ -77,6 +77,7 @@
    * [Mac 下常用 CLI 应用](pages/mac-cli.md)
    * [Chrome 常用插件](pages/chrome-plugin.md)
    * [样式指南](pages/style-guide.md)
+   * [使用 EditorConfig 统一编辑器设置](pages/editorconfig.md)
    * [友情链接](pages/friend-links.md)
 * [我的链接]()
    * [Google+](https://plus.google.com/110933537774298503345)

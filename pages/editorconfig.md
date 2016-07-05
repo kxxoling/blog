@@ -1,0 +1,84 @@
+# 使用 EditorConfig 设置项目的偏好设置
+
+[EditorConfig] 是一个编辑器/IDE 偏好设置的标准，在各大主流编辑器/IDE 平台都支持或者拥有相应的插件。它能够帮助你根据项目自动设置编辑器/IDE 的代码偏好。
+
+EditorConfig 的配置文件是 ini 格式的纯文本文件，因此对于版本控制程序来说非常友好。
+
+## 配置文件基本
+
+EditorConfig 插件会自动在项目中寻找名为 ``.editorconfig`` 的配置文件，每个文件的样式偏好会自动根据该文件所在文件夹的 ``.editorconfig`` 文件向上寻找所有同名文件，直到某个配置的文件种包含了 ``root=true``。最接近该文件的配置文件中的设置优先最高。
+
+## 配置文件格式
+
+配置文件的格式为 ini，这是出于 Python 程序的解析方便而使用。 配置文件必须是 UTF-8 格式，并支持通配符。
+
+### 简单实例
+
+```ini
+# 通常建议项目最顶层的配置文件设置该值
+root = true
+
+# 表示以 Unix 风格的换行符结尾
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# 中括号中的通配符匹配多种类型的文件(这里是 js 和 py)
+# 并设置文件的编码类型
+[*.{js,py}]
+charset = utf-8
+
+# 四格缩进
+[*.py]
+indent_style = space
+indent_size = 4
+
+# 设置缩进类型为 tab
+[Makefile]
+indent_style = tab
+
+# 覆盖 lib 目录下的所有 js 文件的缩进宽度为 2 空格
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# 精确匹配 package.json 和 .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
+```
+
+### 通配符基本
+
+字符           | 功能
+--------------|--------------------------
+*             | 匹配 ``/`` 之外的所有字符
+**            | 匹配所有字符
+[name]        | 匹配 name 中所包含的任一字符
+[!name]       | 匹配不包含在 name 中的任一字符
+{s1,s2,s3}    | 匹配其中任一字符串的字符
+{num1..num2}  | 匹配 num1 到 num2 之间的整数，支持正负数
+
+### 支持的参数
+
+
+- ``indent_style``：缩进风格，可以是 ``tab`` 或者 ``space``，对应 hard tabs 和 soft tabs。
+
+- ``indent_size``：缩进的宽度，即列数，必须是整数。如果indent_style为tab，则此属性默认为tab_width。
+
+- ``tab_width``：设置 tab 的宽度。默认值等同 ``indent_size``。
+
+- ``end_of_line``：换行符，``lf``、``cr`` 或者 ``crlf``。
+
+- ``charset``：编码类型，可以是 ``latin1``、``utf-8``、``utf-8-bom``、``utf-16be`` 和 ``utf-16le``。不建议使用 ``utf-8-bom``。
+
+- ``trim_trailing_whitespace``：设为 ``true`` 表示会除去换行行首的任意空白字符。
+
+- ``insert_final_newline``：设为 ``true`` 表明使文件以一个空白行结尾
+
+- ``root``：表明是最顶层的配置文件，发现设为true时，才会停止查找 ``.editorconfig`` 文件。
+
+
+
+[EditorConfig]: http://editorconfig.org/
+
