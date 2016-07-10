@@ -25,6 +25,7 @@
        * [PostgreSQL 简介及其生态](db/postgres/README.md)
    * [7 月]()
        * [PostgreSQL 复杂数据类型的支持](db/postgres/complex-types.md)
+       * [PostgreSQL 中的视图](db/postgres/view.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
