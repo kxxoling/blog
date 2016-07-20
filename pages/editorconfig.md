@@ -79,6 +79,11 @@ indent_size = 2
 - ``root``：表明是最顶层的配置文件，发现设为true时，才会停止查找 ``.editorconfig`` 文件。
 
 
+## 示例
+
+{% gist id="https://gist.github.com/kxxoling/01c5943dea13f71c2a658e870405f158" %}{% endgist %}
+
+
 
 [EditorConfig]: http://editorconfig.org/
 
