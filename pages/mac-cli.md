@@ -207,3 +207,21 @@ vim +BundleClean +BundleInstall +qall
 * [YAAW](http://binux.github.io/yaaw/)
 * [Aria2 & YAAW 使用说明](http://aria2c.com/usage.html)
 
+
+## 终端录制工具 asciinema
+
+[asciinema](https://asciinema.org/) 是一个终端录制及分享工具，支持 Mac 和 Linux 操作系统。Mac 下可以使用 HomeBrew 进行安装：``brew install asciinema``。
+
+asciinema 的使用也非常简单，输入下面的命令将开启一个 tty 开始录制：
+
+```sh
+asciinema rec
+```
+
+其使用方式和本地的 shell 环境基本一致。按下组合键 ``Ctrl+d`` 可以退出录制环境，并自动上传。
+
+安装 asciinema 时会在本地生成一个独一无二的认证 token，在官网注册好帐号后，输入 ``asciinema auth`` 可以将自己的帐号和 token 相关联，并加以管理。
+
+官网的注册方式是基于 email 的认证，会自动获取 gavatar 头像作为你站内的头像。关联成功后的页面如下：
+
+![asciinema 关联成功](/images/asciinema-reg.png)
