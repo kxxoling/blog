@@ -103,13 +103,40 @@ Alfred 工作流使用。
 
 ## Rime 输入法
 
-又名鼠须管输入法，我用的配置是修改自 rime_pro 4.0，配置库地址：[kxxoling/Rime]。
+又名鼠须管输入法。官网：http://rime.im/
 
+配置文档：https://github.com/rime/home/wiki/CustomizationGuide
 
-[Rime]: https://github.com/kxxoling/Rime
+配置教程：https://medium.com/@scomper/鼠須管-的调教笔记-3fdeb0e78814
+http://www.jianshu.com/p/cffc0ea094a7
+
+配置文件下载地址（Mac 版）：https://dl.dropboxusercontent.com/u/6790544/squirrel-patch.zip
+
+仍在调教中……
 
 
 ## MplayerX 播放器
 
 比之前稳定多了，所以我又从 Mpv 换回来了。
+
+
+## QuickLook 插件
+
+系统性地增强 Mac 预览程序的功能，大部分可以通过 HomeBrew Cask 进行安装：
+
+```sh
+brew cask install qlcolorcode # 代码高亮
+brew cask install qlstephen # 纯文本格式增强
+brew cask install qlmarkdown # Markdown 预览
+brew cask install quicklook-json # JSON 预览
+brew cask install qlprettypatch # patch 格式预览
+brew cask install quicklook-csv # csv 格式预览
+brew cask install betterzipql # 压缩格式预览
+brew cask install qlimagesize # 标题栏显示图片大小信息
+brew cask install webpquicklook # webp 格式支持
+brew cask install suspicious-package # pkg 格式支持
+```
+
+插件列表可以在 [quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
+上找到。
 
