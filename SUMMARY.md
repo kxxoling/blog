@@ -28,6 +28,7 @@
        * [PostgreSQL 中的视图](db/postgres/view.md)
    * [8 月]()
        * [macOS 的一些独有命令行程序](apple/utilities.md)
+       * [netdata 安装小记](sa/netdata.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
