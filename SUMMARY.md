@@ -29,6 +29,7 @@
    * [8 月]()
        * [macOS 的一些独有命令行程序](apple/utilities.md)
        * [netdata 安装小记](sa/netdata.md)
+       * [Python 是如何寻找包的？](python/find-pkg.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)

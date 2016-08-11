@@ -1,0 +1,157 @@
+# Python 是如何寻找包的？
+
+
+## ``sys.path``
+
+Python ``import`` 时会首先寻找 ``sys.path`` 中列出的路径，通常是这样：
+
+```py
+>>> import sys
+>>> '\n'.join(sys.path)
+
+/usr/lib/python2.7
+/usr/lib/python2.7/plat-x86_64-linux-gnu
+/usr/lib/python2.7/lib-tk
+/usr/lib/python2.7/lib-old
+/usr/lib/python2.7/lib-dynload
+/usr/local/lib/python2.7/dist-packages
+/usr/lib/python2.7/dist-packages
+```
+
+那么 Python 是如何获取 ``sys.path`` 的呢？根据 [Python 的文档](https://docs.python.org/2/library/sys.html#sys.path)，首先是当前目录，然后是 ``PYTHONPATH`` 环境变量，再之后是安装时设置的默认目录，由 ``site`` 模块控制。
+
+Python 在启动的时候会自动引用 ``site`` 模块，关于它是如何操作 ``sys.path`` 的，可以参考[相关文档](https://docs.python.org/2/library/site.html#module-site)。
+
+当然，你也可以手动操作 ``sys.path``，这同样会影响会话期间 Python 寻找包的行为。
+
+
+## 模块的 ``__file__`` 属性
+
+在引用模块的时候，你可以检查其 ``__file__`` 属性，由此获知它在文件系统的安装位置。
+
+在 [Python 的文档](https://docs.python.org/2/reference/datamodel.html#the-standard-type-hierarchy)中这样说到：
+
+> The ``__file__`` attribute is not present for C modules that are statically linked into the interpreter; for extension modules loaded dynamically from a shared library, it is the pathname of the shared library file.
+> 
+> C 模块并没有 ``__file__`` 属性，因为它们通常是静态链接到解释器的；对于共享库动态加载的扩展模块，只有那个共享库所在的目录名。
+
+例如：
+
+```py
+>>> import sys
+>>> sys.__file__
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'module' object has no attribute '__file__'
+```
+
+
+## ``imp`` 模块
+
+Python 的 import 流程由 [imp 模块](https://docs.python.org/2.7/library/imp.html) 控制，因此我们可以完全自己手动控制库的 import 过程。
+
+使用 ``imp.find_module`` 来寻找模块：
+
+```py
+>>> import imp
+>>> imp.find_module('numpy')
+(None, '/usr/local/lib/python2.7/dist-packages/numpy', ('', '', 5))
+```
+
+当然，我们可以使用 ``imp.load_source`` 直接 import 某个包文件并指定其包名。
+
+```py
+imp.load_source('module_name', 'module_full_path')
+
+print(module_name)
+```
+
+
+## Ubuntu 自带的 Python
+
+如果在 Ubuntu 中自己手动编译安装 Python 有时会导致无法找到已安装的包是怎么回事呢？我们来看一下它们的 ``sys.path``：
+
+- Ubuntu Python（/usr/bin/python）
+
+```py
+>>> import sys
+>>> '\n'.join(sys.path)
+
+/usr/lib/python2.7
+/usr/lib/python2.7/plat-x86_64-linux-gnu
+/usr/lib/python2.7/lib-tk
+/usr/lib/python2.7/lib-old
+/usr/lib/python2.7/lib-dynload
+/usr/local/lib/python2.7/dist-packages
+/usr/lib/python2.7/dist-packages
+```
+
+- 自己编译的 Python（/usr/local/bin/python）
+
+```py
+>>> import sys
+>>> '\n'.join(sys.path)
+
+/usr/local/lib/python2.7/dist-packages
+/usr/local/lib/python27.zip
+/usr/local/lib/python2.7
+/usr/local/lib/python2.7/plat-linux2
+/usr/local/lib/python2.7/lib-tk
+/usr/local/lib/python2.7/lib-old
+/usr/local/lib/python2.7/lib-dynload
+/usr/local/lib/python2.7/site-packages
+```
+
+Ubuntu Python 会将包安装在 ``/usr/local/lib/python2.7/dist-packages``，而自己编译的 Python 则会安装在 ``/usr/local/lib/python2.7/site-packages``。因此需要手动修改 ``PYTHONPATH`` 环境变量来解决。
+
+但是为什么 Ubuntu Python 的 ``sys.path`` 中会有 ``/usr/local/lib/python2.7/dist-packages``？实际上它将它硬编码在 ``site.py`` 文件中了，首先看一下该文件顶部的注释：
+
+> For Debian and derivatives, this ``sys.path`` is augmented with directories for packages distributed within the distribution. Local addons go into /usr/local/lib/python/dist-packages, Debian addons install into /usr/{lib,share}/python/dist-packages. /usr/lib/python/site-packages is not used.
+> 
+> 对于 Debian 及其衍生系统，``sys.path`` 中是否应该包含包路径是有争议的，本地扩展将安装在 ``/usr/local/lib/python/dist-packages``，Debian 扩展将安装在 ``/usr/{lib,share}/python/dist-packages``，而 ``/usr/lib/python/site-packages `` 未被使用。
+
+在来看它具体在代码中是怎样实现的：
+
+```py
+def getsitepackages():
+    """Returns a list containing all global site-packages directories
+    (and possibly site-python).
+
+    For each directory present in the global ``PREFIXES``, this function
+    will find its `site-packages` subdirectory depending on the system
+    environment, and will return a list of full paths.
+    """
+    sitepackages = []
+    seen = set()
+
+    for prefix in PREFIXES:
+        if not prefix or prefix in seen:
+            continue
+        seen.add(prefix)
+
+        if sys.platform in ('os2emx', 'riscos'):
+            sitepackages.append(os.path.join(prefix, "Lib", "site-packages"))
+        elif os.sep == '/':
+            sitepackages.append(os.path.join(prefix, "local/lib",
+                                        "python" + sys.version[:3],
+                                        "dist-packages"))
+            sitepackages.append(os.path.join(prefix, "lib",
+                                        "python" + sys.version[:3],
+                                        "dist-packages"))
+        else:
+            sitepackages.append(prefix)
+            sitepackages.append(os.path.join(prefix, "lib", "site-packages"))
+        if sys.platform == "darwin":
+            # for framework builds *only* we add the standard Apple
+            # locations.
+            from sysconfig import get_config_var
+            framework = get_config_var("PYTHONFRAMEWORK")
+            if framework:
+                sitepackages.append(
+                        os.path.join("/Library", framework,
+                            sys.version[:3], "site-packages"))
+    return sitepackages
+```
+
+
+参考：[](https://leemendelowitz.github.io/blog/how-does-python-find-packages.html)
