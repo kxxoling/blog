@@ -4,23 +4,170 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 
 - 官方文档：[英文](http://vuejs.org/) [中文](http://cn.vuejs.org/)
 - 官方索引：[awesome-vue](https://github.com/vuejs/awesome-vue)
-- 项目源代码：[GitHub](https://github.com/vuejs/vue)
+- 项目源代码：[vuejs/vue](https://github.com/vuejs/vue)
 - 开发工具：
-	- 命令行工具 [vue-cli](https://github.com/vuejs/vue-cli) （面向组件开放的项目都建议使用这个官方工具初始化）
+	- 脚手架工具 [vue-cli](https://github.com/vuejs/vue-cli) （面向组件开放的项目都建议使用这个官方工具初始化）
 	- Webpack 插件 [vue-loader](https://github.com/vuejs/vue-loader) （官方推荐）
-	- Browserify 插件 [vueify](https://github.com/vuejs/vueify)
-	- Chrome 插件 [vue-devtools](https://github.com/vuejs/vue-devtools)
+	- Browserify 插件 [vueify](https://github.com/vuejs/vueify) （webpack 明显是一个更优选择）
+	- Chrome 开发插件 [vue-devtools](https://github.com/vuejs/vue-devtools)
 - xhr
-	- [vue-resource] （文档和代码都比较简单 ）
+	- [vue-resource] （文档和代码都比较简单）
 - UI 库：
-	- [vue-strap] （不依赖 BootStrap 的 JS 和 jQurey，但是仍需要 BootStrap 的 CSS。）
 	- [vue-antd] 蚂蚁金服 ant design 的 Vue 实现（不够完善，但是看起来比 [vue-strap] 好看些。
+	- [vue-spectre](https://github.com/vace/vue-spectre)
 - 路由
 	- [vue-router](https://github.com/vuejs/vue-router)（官方 router）
-[lucius.cao@quesbook.com](mailto:lucius.cao@quesbook.com)
+	- [vuex-router-sync](https://github.com/vuejs/vuex-router-sync)（Vuex 和 Vue-Router 的绑定）
+- 单项数据流
+    - [VueX](https://github.com/vuejs/vuex) 相当于 React-Redux + Redux
 
-另外，我根据 Vue.js 的官方 demo 以及其它 demo 做了一个在线展示：[demo](http://gh.windrunner.info/vue-demos/)
-（[source on GitHub](https://github.com/kxxoling/vue-demos)）
+
+## Vue 2.0 更新
+
+### 高级部分
+
+模板渲染不再依赖于 DOM，也就是说 ``<script type="text/x-template">`` 以及单文件组件用户由于不需要手动设置 ``el`` 选项将不再会受 1.0 时代的渲染限制。
+
+由于 Vue 2.0 已经将编译器和运行时环境解耦，因此提供了两种不同的构建：
+
+- 独立版本。和 1.x 类似，包含编译器和运行时环境两者。
+- 仅包含运行时。并不包含编译器，你可以选择自己预编译模板，或者手动编写渲染函数。npm 上默认是该版本，因此你需要配合 Browserify 或者 Webpack 进行预编译处理。
+
+### config 设置
+
+新增配置
+
+- ``silent``
+- ``optionMergeStrategies``
+- ``devtools``
+- ``errorHandler``
+- ``keyCodes``： configure custom key aliases for ``v-on``
+
+反对配置：
+
+- ``debug``
+- ``async``
+- ``delemiters``：改为组件级设置
+- ``unsafeDelimiters``：使用 ``v-html`` 代替
+
+### 全局 API
+
+
+新增 ``Vue.compile``（仅针对独立版本）。
+
+反对的 API 有：
+
+- stagger：set and access data-index on el instead
+- Vue.elementDirective：使用组件代替
+- Vue.partial：使用组件函数代替
+
+### 选项
+
+反对项：
+
+- props.coerce：请使用 computed 代替修改 prop
+- prop 绑定模式：v-model 支持组件
+- replace：组件必须且只能有一个根元素
+
+新增：
+
+- propsData：instantiation only
+- render
+
+### 生命周期
+
+``init`` 改为 ``beforeCreate``
+
+新增：
+
+- beforeMount
+- mounted
+- beforeUpdate
+- updated
+- activated
+- deactivated
+
+反对：
+
+- ready：使用 mounted 代替
+- active：改为在 vue-router 中进行管理
+- beforeCompile：使用 created 代替
+- compiled：使用 mounted 代替
+- attached：请在其它 hook 中检查是否存在于 DOM
+- detached：同上
+
+
+### Assets
+
+partials 和 elementDirectives 已反对。
+
+
+### 其它
+
+不再支持 events。
+
+新增：
+
+- delimiters：代替之前的全局设置，仅支持独立模式。
+- functional：将组件设置为无状态、无实例。（仅仅是一个返回虚拟节点的渲染函数）
+
+### 实例属性
+
+vm.$refs 和 vm.$els 合并为前者。
+
+### 实例方法
+
+data 中已反对项:
+
+- $get
+- $set：使用 Vue.set 代替
+- $delete：使用 Vue.delete 代替
+- $eval
+- $interpolate
+- $log：使用 devtools 插件代替
+
+事件中反对：
+
+- $dispatch：使用全局事件或者 Vuex。
+- $broadcast：同上。
+
+### DOM 相关
+
+反对项：
+
+- vm.$appendTo
+- vm.$before
+- vm.$after
+- vm.$remove
+
+基本上都可以用原生 DOM API 代替。
+
+### 指令变化
+
+- 反对使用 ``\{\{\{\}\}\}``
+- 反对 v-for 中使用 ``$index`` 和 ``$key``，使用 ``(value, index) in arr`` 或者 `` (value, key, index) in obj`` 代替。
+- 反对 debounce，使用第三方 debounce 函数配合v-on:input 来代替。
+- v-ref：改为属性 ``ref``
+- v-el：已合并进 ``ref`` 属性
+
+
+### 渲染相关
+
+提供 ``renderToString``、``renderToStream`` 和客户端渲染。
+
+详细：https://github.com/vuejs/vue/issues/2873
+
+### 常见更新问题
+
+#### 不支持过滤器怎么办？
+
+建议使用 computed 属性代替。
+
+#### debounce 和 v-model 怎么解决？
+
+debounce 是用来限制 Ajax 等耗时时间的出发频率的，Vue 的 debounce 属性使得 v-model 的控制变得容易，但它只能用于延迟状态的更新而不是复杂操作本身，这是它的限制之处。
+
+比如说你在设计一个搜索提示功能，使用 debounce 意味着用户必须停止输入一段时间之后才会发送搜索请求，而你真正需要的应该是搜索频率的限制。
 
 
 ## 基本概念
