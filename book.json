@@ -1,6 +1,23 @@
 {
-  "gitbook": "2.5.0",
+  "gitbook": "3.x.x",
+  "title": "不立不破",
+  "author": "Kane Blueriver",
+  "description": "个人博客",
+  "language" : "zh-hans",
+  "links" : {
+    "sidebar" : {
+      "Google+": "https://plus.google.com/110933537774298503345",
+      "GitHub": "https://github.com/kxxoling"
+    }
+  },
+  "styles": {
+    "website": "styles/website.css"
+  },
   "plugins": [
+    "splitter",
+    "tbfed-pagefooter",
+    "ga",
+    "donate",
     "quizzes",
     "disqus",
     "share",
@@ -9,9 +26,33 @@
     "gist",
     "js-sequence-diagram",
     "jsbin",
+    "sitemap",
     "image-captions"
   ],
   "pluginsConfig": {
+    "tbfed-pagefooter": {
+      "copyright": "Kane Blueriver",
+      "modify_label": "最近修改时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+
+    "sitemap": {
+      "hostname": "http://blog.windrunner.info/"
+    },
+    "ga": {
+      "token": "UA-36854955-4"
+    },
+    "sitemap": {
+      "hostname": "http://blog.windrunner.info"
+    },
+    "donate": {
+      "wechat": "/images/me/wechat-pay.png",
+      "alipay": "/images/me/alipay.jpg",
+      "title": "",
+      "button": "打赏",
+      "alipayText": "支付宝",
+      "wechatText": "微信"
+    },
     "image-captions": {
       "caption": "_CAPTION_"
     },
