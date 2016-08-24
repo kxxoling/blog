@@ -32,6 +32,7 @@
        * [Python 是如何寻找包的？](python/find-pkg.md)
        * [表单提交该用什么 Content-Type？](programming/form-content-type.md)
        * [PostgreSQL 与 trigram 算法](postgres/trigram.md)
+       * [Emacs 入门](tool/emacs.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
