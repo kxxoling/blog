@@ -33,6 +33,7 @@
        * [表单提交该用什么 Content-Type？](programming/form-content-type.md)
        * [PostgreSQL 与 trigram 算法](postgres/trigram.md)
        * [Emacs 入门](tool/emacs.md)
+       * [Python 中的元类（metaclass）](python/metaclass.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
