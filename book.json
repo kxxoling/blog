@@ -26,6 +26,7 @@
     "js-sequence-diagram",
     "jsbin",
     "sitemap",
+    "rss",
     "image-captions"
   ],
   "pluginsConfig": {
@@ -34,7 +35,18 @@
       "modify_label": "最近修改时间：",
       "modify_format": "YYYY-MM-DD HH:mm:ss"
     },
-
+    "rss": {
+      "title": "Kane（kxxoling）的博客",
+      "description": "这就是我的博客",
+      "author": "Kane Blueriver(kxxoling)",
+      "site_url": "http://blog.windrunner.info/",
+      "feed_url": "/feed.xml",
+      "categories": [
+        "python",
+        "web development",
+        "anime"
+      ]
+    },
     "sitemap": {
       "hostname": "http://blog.windrunner.info/"
     },
