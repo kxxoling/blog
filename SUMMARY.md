@@ -35,6 +35,7 @@
        * [Emacs 入门](tool/emacs.md)
        * [Python 中的元类（metaclass）](python/metaclass.md)
        * [Linux、Windows 和 Mac](programming/linux-win-mac.md)
+       * [使用 Rocket.Chat 作为团队 IM](tool/rocket-chat.md)
 * [2015]()
    * [2月]()
        * [Docker 速成](sa/docker.md)
