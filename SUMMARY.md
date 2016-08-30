@@ -94,7 +94,6 @@
    * [使用 EditorConfig 统一编辑器设置](pages/editorconfig.md)
    * [友情链接](pages/friend-links.md)
 * [我的链接]()
-   * [Google+](https://plus.google.com/110933537774298503345)
    * [GitHub](https://github.com/kxxoling)
    * [简历](http://gh.windrunner.info/resume)
    * [Python One to Many](http://py.windrunner.info)
