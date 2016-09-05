@@ -56,6 +56,16 @@ chsh -s "$(command -v zsh)" "${USER}"
 
 切换 sh 之后可能需要重新登录才能生效。
 
+### 配置 agnoster 主题
+
+- [安装 iTerm2 Solorized Dark 主题](https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Light.itermcolors)
+- [安装 PowerLine 字体](https://github.com/powerline/fonts) 并设置为 iTerm2 默认字体
+- 配置环境变量：``export DEFAULT_USER="your_username"; export ZSH_THEME="agnoster"``
+
+效果预览：
+
+![](https://gist.githubusercontent.com/agnoster/3712874/raw/screenshot.png)
+
 
 ## tree
 
