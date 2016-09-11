@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2016]()
+   * [9 月]()
+       * [Python 与 ES6](js/py-es6.md)
    * [8 月]()
        * [使用 Rocket.Chat 作为团队 IM](tool/rocket-chat.md)
        * [Linux、Windows 和 Mac](programming/linux-win-mac.md)
