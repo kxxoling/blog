@@ -2,16 +2,13 @@
 
 ## 关于我
 
-我现在主要是一个 Python 程序员，会写一点前端，代码主要托管在
-[GitHub](https://github.com/kxxoling)。
-曾经做过 IT 网站编辑也兼记者，也顺手整理、翻译过一些项目的文档，和代码一样都托管在 GitHub 上。
+2013 开始编程工作，主要编程语言是 Python 和 JavaScript，略懂 HTML 和 CSS；惯用后端框架是 Django 和 Flask，前端项目习惯使用 Vue.js，也有少许 React.js 经验；曾用 React-Native 写过简单的移动应用，也简单使用过 Swift 编写原生应用。项目源代码都托管在[我的 GitHub](https://github.com/kxxoling) 上。
 
-关于我的工作经历有一个[在线的介绍页面](http://gh.windrunner.info/resume/)，
-有时间的话我会继续更新它。
+常用编辑器有 Emacs、Vim、Sublime Text 和 Atom，认为 Intellij IDEA 比 Eclipse 好用，PEP 8 遵从者，JS、HTML 以及相关语言的文件均使用 2 空格缩进，大括号去死缩进万岁党，函数式编程拥护者，const nazi！
 
 ### 兴趣爱好
 
-兴趣爱好是能让我感兴趣的东西，能让我开心的东西。通常的外在表现是动漫宅、程序员，也没什么可反驳的。
+爱好广泛、样样不精是我的特点，外在表现是动漫爱好者、宅男、程序员，没什么可反驳的。
 
 ### 关于妹红
 
@@ -24,35 +21,31 @@
 原文件托管在 [GitHub](https://github.com/kxxoling/blog) 上，
 受益于 git 的版本控制功能，可以根据 commit 纪录找回文章早期版本，个人觉得非常适合管理博客。
 
+### 博客标题
+
+博客名为“不立不破”──不轻谈建立和打破，世界上有太多的问题都是源自于“看的书太少而想的太多”，博客的主要内容还是围绕现有知识的整理和发掘，前人的智慧已经够我研究很长时间了。
+
+### 版权
+
+如无特殊注明，本站原创文章均遵循 [CC 4.0 BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/) 协议共享。
+
 ### 如何反馈
 
-在阅读文章时如果发现错别字欢迎在 GitHub
-[新建 Issue](https://github.com/kxxoling/blog/issues/new) 提醒我。虽然是 git
-项目，但作为个人博客并不接受 Pull Request。
-对于文章观点的讨论可以新建 Issue 也可以直接在 Disqus 评论组件中指出。
+在阅读文章时如果发现错别字欢迎在 GitHub [新建 issue](https://github.com/kxxoling/blog/issues/new) 提醒我。虽然是 git 项目，但作为个人博客并不接受 Pull Request。对于文章观点的讨论可以新建 issue 也可以直接在 Disqus 评论组件中指出。
 
 ### 如何订阅
 
 - 使用 GitBook 提供的[邮件订阅](https://www.gitbook.com/book/kxxoling/blog/details)方式。
 - 使用 GitHub 项目的 [watching](https://github.com/kxxoling/blog/commits?author=kxxoling) 功能。
-
-
-## 博客标题
-
-博客名为“不立不破”，是基于对自身能力的判断的自我约束——不轻谈“开山立派”，不妄想“改变世界”。
-世界上有太多的问题都是源自于“看的书太少而想的太多”，
-博客的主要内容还是围绕现有知识的整理和发掘，前人的智慧已经够我研究很长时间了。
+- RSS 订阅：http://blog.windrunner.info/feed.xml
 
 
 ## 一些链接
 
-* [Google+](https://plus.google.com/110933537774298503345)
-* [GitHub](https://github.com/kxxoling)
-* [知乎](http://www.zhihu.com/people/kxxoling)
-* [GitBook 博客](http://blog.windrunner.info/)
-* [不定期更新的在线简历](http://gh.windrunner.info/resume/)
-
-如果你非常想要认识我，我在下面留了一个快速联系的方式：）
-
-![我的微信钱包](/images/me/wechat-pay.png)
+- [GitHub](https://github.com/kxxoling)
+- [知乎](http://www.zhihu.com/people/kxxoling)
+- [GitBook 博客](http://blog.windrunner.info/)
+- [已废弃的在线简历](http://gh.windrunner.info/resume/)
+- [一个简单的个人主页](http://gh.windrunner.info/about-me/)
+- [个人主页](http://gh.windrunner.info/me/)
 
