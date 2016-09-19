@@ -5,6 +5,7 @@
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2016]()
    * [9 月]()
+       * [在 docker 中运行 Jypter notebook](programming/jupyter-docker.md)
        * [Python 与 ES6](js/py-es6.md)
        * [NotImplemented 和 NotImpementedError](python/not-implemented.md)
    * [8 月]()
