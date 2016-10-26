@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2016]()
+   * [10 月]()
+       * [日本动画推荐](acg/anime.md)
    * [9 月]()
        * [在 docker 中运行 Jypter notebook](programming/jupyter-docker.md)
        * [Python 与 ES6](js/py-es6.md)
