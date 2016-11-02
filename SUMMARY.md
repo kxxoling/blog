@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2016]()
+   * [11 月]()
+       * [在 iTerm2 中查看图片](tool/iterm2-imgcat.md)
    * [10 月]()
        * [日本动画推荐](acg/anime.md)
    * [9 月]()
