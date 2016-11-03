@@ -10,7 +10,7 @@
    * [10 月]()
        * [日本动画推荐](acg/anime.md)
    * [9 月]()
-       * [在 docker 中运行 Jypter notebook](programming/jupyter-docker.md)
+       * [在 docker 中运行 Jupyter notebook](programming/jupyter-docker.md)
        * [Python 与 ES6](js/py-es6.md)
        * [NotImplemented 和 NotImpementedError](python/not-implemented.md)
    * [8 月]()

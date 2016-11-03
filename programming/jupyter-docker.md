@@ -1,4 +1,4 @@
-# 在 docker 中运行 Jypter notebook
+# 在 docker 中运行 Jupyter notebook
 
 Jupyter 是个好东西，提供了简单易用的 web REPL 环境，并且可以根据工作语言选配不同的 kernel 提供不同的功能。但是，由于常常用作测试所用，因此对于我这样的“洁癖患者”来说，保持后台常驻和环境清洁实在是非常终于，于是我想到了 docker，实在是 Jupter 运行容器的不二之选。
 
