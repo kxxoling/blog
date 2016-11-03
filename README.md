@@ -37,15 +37,15 @@
 
 - 使用 GitBook 提供的[邮件订阅](https://www.gitbook.com/book/kxxoling/blog/details)方式。
 - 使用 GitHub 项目的 [watching](https://github.com/kxxoling/blog/commits?author=kxxoling) 功能。
-- RSS 订阅：http://blog.windrunner.info/feed.xml
+- RSS 订阅：[feed.xml](http://blog.windrunner.me/feed.xml)
 
 
 ## 一些链接
 
 - [GitHub](https://github.com/kxxoling)
 - [知乎](http://www.zhihu.com/people/kxxoling)
-- [GitBook 博客](http://blog.windrunner.info/)
-- [已废弃的在线简历](http://gh.windrunner.info/resume/)
-- [一个简单的个人主页](http://gh.windrunner.info/about-me/)
-- [个人主页](http://gh.windrunner.info/me/)
+- [GitBook 博客](http://blog.windrunner.me/)
+- [已废弃的在线简历](http://gh.windrunner.me/resume/)
+- [一个简单的个人主页](http://gh.windrunner.me/about-me/)
+- [个人主页](http://gh.windrunner.me/me/)
 

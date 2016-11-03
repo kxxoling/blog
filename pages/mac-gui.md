@@ -83,7 +83,7 @@ Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
 
 CrossShare 提供了快捷 AirDrop 共享支持，安装后可以使用 AirDrop 打开
 ``crossshare://airdrop?url=http://google.com`` 这样的链接，通常[配合 Chrome
-插件](http://blog.windrunner.info/pages/chrome-plugin.html#cross-share-airdrop)或者
+插件](/pages/chrome-plugin.html#cross-share-airdrop)或者
 Alfred 工作流使用。
 
 

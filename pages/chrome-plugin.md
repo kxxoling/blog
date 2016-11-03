@@ -97,7 +97,7 @@ REST API 测试工具
 你可以在浏览器地址栏直接输入 CrossShare 链接，或者在控制台使用 ``open`` 命令：
 
 ```
-open "crossshare://airdrop?url=http://windrunner.info"
+open "crossshare://airdrop?url=http://windrunner.me"
 open "crossshare://airdrop?image=\<image file path\>"
 open "crossshare://email?text=body"
 ```

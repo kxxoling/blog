@@ -104,6 +104,6 @@
    * [友情链接](pages/friend-links.md)
 * [我的链接]()
    * [GitHub](https://github.com/kxxoling)
-   * [简历](http://gh.windrunner.info/resume)
-   * [Python One to Many](http://py.windrunner.info)
+   * [简历](http://gh.windrunner.me/resume)
+   * [Python One to Many](http://py.windrunner.me)
 

@@ -51,7 +51,7 @@ GitLab 起步较晚，但是功能上和前两者并没有本质区别。GitLab 
 
 ## 浏览器插件
 
-见[我的 Chrome 插件选择](http://blog.windrunner.info/pages/chrome-plugin.html#github-相关)。
+见[我的 Chrome 插件选择](/pages/chrome-plugin.html#github-相关)。
 
 
 [GitUp]: http://gitup.co/

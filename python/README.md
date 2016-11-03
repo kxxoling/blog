@@ -29,7 +29,7 @@ Pythoneer 	| Python 与 -eer 后缀结合，意指 Python 工程师／开发者�
 Pythonista 	| Python 语言爱好者，Python 专家。
 
 
-注：关于 Python 规范可以参考我整理的 [Python 代码规范](http://blog.windrunner.info/pages/style-guide.html#python)。
+注：关于 Python 规范可以参考我整理的 [Python 代码规范](/pages/style-guide.html#python)。
 
 
 ## Python WTF
