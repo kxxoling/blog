@@ -6,6 +6,7 @@
 * [2016]()
    * [11 月]()
        * [在 iTerm2 中查看图片](tool/iterm2-imgcat.md)
+       * [使用 YeoMan 快速创建项目](tool/yeoman.md)
    * [10 月]()
        * [日本动画推荐](acg/anime.md)
    * [9 月]()
