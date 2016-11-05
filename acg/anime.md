@@ -12,11 +12,15 @@
 
 监督：宫崎骏
 
+![《龙猫》](/images/anime/totoro.jpg)
+
 在龙猫的守护之下和大自然来一次亲密接触是很多人童年的梦想，动画中简单却又细腻的对亲情的描写也值得称道，即使放到今天也是不可多得的佳作。
 
 ### 《天空之城》（1986）
 
 监督：宫崎骏
+
+![《天空之城》](/images/anime/castle-in-the-sky.jpg)
 
 相对于动画，这部作品的经典主题曲可能流传的更广。
 
@@ -24,9 +28,13 @@
 
 监督：宫崎骏
 
+![《红猪》](/images/anime/red-pig.jpg)
+
 ### 《幽灵公主》（1997）
 
 监督：宫崎骏
+
+![《幽灵公主》截图](/images/anime/princess.jpg)
 
 宫崎骏环保主义思想的流露。
 
@@ -36,11 +44,15 @@
 
 监督：宫崎骏
 
+![《千与千寻的神隐》截图](/images/anime/spirited-away.jpg)
+
 这部作品的评价和分析多的不能再多了。
 
 ### 《起风了》（2013）
 
 监督：宫崎骏
+
+![《起风了》](/images/anime/wind.jpg)
 
 还没看，创纪录的票房已经足够证明它的价值。
 
@@ -72,6 +84,8 @@
 
 监督：庵野秀明
 
+![《EVA》](/images/anime/eva.jpg)
+
 这部作品的影响力毋庸置疑，各种评论和考证实在是多的不能再多了，这里就不做多言。
 
 对于刚入门 Anime 的朋友来说，这部作品有几大亮点不得不提：
@@ -84,6 +98,7 @@
 剧场版：
 
 #### 《死与新生》（1997） 
+
 #### 《THE END OF EVANGELION》（1997）
 
 #### 《序》──EVANGELION:1.0 YOU ARE (NOT) ALONE（2007）
@@ -124,10 +139,6 @@ Gainax 和 Production I.G 联合出品。
 
 今敏的英年早逝是命运对动画业界和爱好者所开的最大玩笑，享年 47 岁的他部部经典、在国际上获奖无数！擅长精神层面的探讨和描写，对于细节的刻画非常用心，深信动画中没有无用的背景，因此对今敏动画的考据也是粉丝的一大乐趣所在。
 
-### 《Memories/她的记忆》（1992）
-
-监督：大友克洋
-
 今敏在这部作品中担任的是脚本一职。
 
 ### 《Perfect Blue/未麻的部屋》（1997）
@@ -135,7 +146,6 @@ Gainax 和 Production I.G 联合出品。
 今敏的 OVA 处女作。除了音乐中规中矩外，其它都堪称满分的作品。
 
 ![《Perfect Blue》](/images/anime/perfect-blue.jpg)
-
 
 ### 《千年女优》（2002）
 
@@ -145,17 +155,41 @@ Gainax 和 Production I.G 联合出品。
 
 ### 《东京教父》（2003）
 
+![《东京教父》](/images/anime/tokyo-god-father.jpg)
+
 ### 《妄想代理人》（2004）
+
+![《妄想代理人》](/images/anime/paranota-agent.jpg)
 
 今敏唯一一部 TV 动画作品。我看到这部作品的时候正是工作 gap 期间感触很深。该作对现代生活、工作压抑和压力的描写以及侧面刻画是 Anime 中少见的题材，即使在电影、电视剧等更大众的题材中也很少看到。很庆幸是在工作之后才接触的这部作品。
 
 ### 《Paprika》（2006）
 
+![《Paprika》](/images/anime/paprika.jpg)
+
 个人最不喜欢的一部作品，商业元素太过浓重，但是把今敏对于精神、梦境和显示的思考，以及场景变换的能力发挥的淋漓尽致。BTW，诺兰名作《盗梦空间》中能看到诸多明显的这部作品的影子。
 
 ### 《早上好》（2007）
 
+![《早上好》](/images/anime/good-morning.jpg)
+
 一部 1 分钟短片。
+
+------------------------------------------------
+
+## 大友克洋
+
+### 《Memories/她的记忆》（1992）
+
+监督：大友克洋
+
+脚本：今敏
+
+### 《阿基拉》
+
+### 《短暂和平》
+
+### 《蒸汽男孩》
 
 ------------------------------------------------
 
@@ -163,7 +197,13 @@ Gainax 和 Production I.G 联合出品。
 
 ### 《COWBOY BEBOP/星际牛仔》（1998）
 
+![《COWBOY BEBOP》](/images/anime/cowboy-bebop.jpg)
+
+![《COWBOY BEBOP》](/images/anime/cowboy-bebop-1.jpg)
+
 ### 《星际牛仔：天国之扉》（2001）
+
+![《星际牛仔：天国之扉》](/images/anime/cowboy-bebop-ova.jpg)
 
 ### 《黑客帝国动画版》（2003）
 
@@ -171,9 +211,15 @@ Gainax 和 Production I.G 联合出品。
 
 ### 《混沌武士》（2004）
 
+![《混沌武士》](/images/anime/samurai.jpg)
+
 ### 《鲁邦三世～名为峰不二子的女人～》（2012）
 
+![《鲁邦三世～名为峰不二子的女人》](/images/anime/fujiko.jpg)
+
 ### 《Space Dandy》（2014）
+
+![P 站 ID：45955745](/images/anime/space-dandy.png)
 
 
 ------------------------------------------------
@@ -201,12 +247,20 @@ Gainax 和 Production I.G 联合出品。
 
 暂且不表
 
+### 《人狼》
+
+![《人狼》](/images/anime/jin-roh.jpg)
+
 
 ## 细田守
 
 ### 《狼的孩子雨和雪》（2012）
 
+![《狼的孩子雨和雪》](/images/anime/wolf-children.jpg)
+
 ### 《怪物之子》（2015）
+
+![《怪物之子》](/images/anime/boy-and-beast.jpg)
 
 
 ------------------------------------------------
@@ -217,17 +271,23 @@ Gainax 和 Production I.G 联合出品。
 
 新海诚近乎一人完成的短片作品，赢得了 CG 动画大赛的大赛奖。
 
-![](/images/anime/her-cat.jpg)
+![《她和她的猫》](/images/anime/her-cat.jpg)
 
 ### 《秒速五厘米/樱花抄》（2007）
+
+![《秒速五厘米》](/images/anime/5cm.jpg)
 
 新海诚代表作，也是很多人了解他的入门作品。
 
 ### 《你的名字》（2016）
 
+![P 站 ID：58734221](/images/anime/your-name.png)
+
 仅次于《千与千寻的神隐》的票房记录之作。
 
-### 《谁人的目光》
+### 《谁人的目光/来自谁的凝望》
+
+![《谁人的目光》](/images/anime/gaze.png)
 
 一部动画短片，也是一个房地产公司作创作的宣传片。囧。
 
@@ -246,26 +306,38 @@ Gainax 和 Production I.G 联合出品。
 
 监督：押井守
 
+![《攻壳机动队：Ghost In the Shell》](/images/anime/gis.jpg)
+
+![《攻壳机动队：Ghost In the Shell》](/images/anime/gis-1.jpg)
+
 ### 《攻壳机动队：Stand Alone Complex》（2002）
 
 监督：神山健治
+
+![《攻壳机动队：Stand Alone Complex》](/images/anime/gis-sac.jpg)
 
 ### 《攻壳机动队：S.A.C. 2nd GIG》（2004）
 
 监督：神山健治
 
+![《攻壳机动队：S.A.C. 2nd GIG》](/images/anime/gis-sac-2nd-gig.jpg)
+
 ### 《攻壳机动队2：Innocence》（2004）
 
 监督：押井守
+
+![《攻壳机动队2：Innocence》](/images/anime/gis-innocence.jpg)
 
 ### 《攻壳机动队：S.A.C. Solid State Society》（2006）
 
 监督：神山健治
 
+![《攻壳机动队：S.A.C. Solid State Society》](/images/anime/gis-sss.jpg)
+
 
 ## 《黑客帝国动画版》（2003）
 
-《黑客帝国动画版》 是原作导演沃卓斯基兄弟/姐弟/姐妹联合日美顶尖动画监督所做的《黑客帝国》延伸作品，它与原作共享世界观但是几乎不共享角色。动画版总共分为 9 部，除《》1、2 以外故事上互不关联。每部短片在题材和立意上各不相同、各具特色，放到今天依旧是非常杰出的作品。
+《黑客帝国动画版》 是原作导演沃卓斯基兄弟/姐弟/姐妹联合日美顶尖动画监督所做的《黑客帝国》延伸作品，它与原作共享世界观但是几乎不共享角色。动画版总共分为 9 部，除《机器的复兴》1、2 以外故事上互不关联。每部短片在题材和立意上各不相同、各具特色，放到今天依旧是非常杰出的作品。
 
 ------------------------------------------------
 
@@ -303,68 +375,145 @@ Gainax 和 Production I.G 联合出品。
 
 ------------------------------------------------
 
-## 未分类
 
-### 《Spcie and wolf/狼与香辛料》
-
-### 《JOJO 的奇妙冒险》系列
-
-### 《CLANNAD》
-
-### 《东京地震 8.0》
-
-### 《白箱》
-
-### 《男子高中生的日常》
-
-### 《怪》与《怪・化猫》
-
-### 《RWBY》前 2 部
-
-### 《虫师》
-
-### 《夏目友人帐》系列
-
-### 《物语系列》
-
-### 《花开物语》
-
-### 《我的青春恋爱物语》第 1 部
-
-### 《白兔糖》
-
-甜到心！
-
-### 《Death Note/死亡笔记》
-
-### 《Code Gease/叛逆的鲁路修》
-
-### 《花与爱丽丝之死》
-
-### 《一拳超人》
-
-### 《月刊少女野崎君》
-
-### 《冰果》
-
+## Fate 系列
 ### 《Fate/Zero》
+
+![《Fate/Zero》](/images/anime/fate-zero.jpg)
 
 ### 《Fate Stay Night · Unlimited Blade works/无限剑制》
 
+![《Unlimited Blade works》](/images/anime/fate-ubw.jpg)
+
+------------------------------------------------
+
+### 《物语系列》
+
+![《物语》](/images/anime/monogatari.jpg)
+
+------------------------------------------------
+
+
+## 未分类
+
+### 《十二国记》
+
+![《十二国记》](/images/anime/12-kindoms.jpg)
+
+### 《Spice and Wolf/狼与香辛料》
+
+![《Spice and Wolf》](/images/anime/spice-and-wolf.jpg)
+
+### 《JOJO 的奇妙冒险》系列
+
+![《JOJO 的奇妙冒险》](/images/anime/jojo.jpg)
+
+### 《CLANNAD》
+
+![《CLANNAD》](/images/anime/clannad.jpg)
+
+### 《东京地震 8.0》
+
+![《东京地震 8.0》](/images/anime/tokyo-magnitude-8.jpg)
+
+### 《白箱》
+
+![《白箱》](/images/anime/shirobako.jpg)
+
+### 《男子高中生的日常》
+
+![《男子高中生的日常》](/images/anime/daily-lives-of-high-school-boys.jpg)
+
+### 《物怪》与《怪・化猫》
+
+![《怪・化猫》](/images/anime/ayakashi.jpg)
+
+### 《RWBY》前 2 部
+
+![《RWBY》](/images/anime/rwby.jpg)
+
+### 《虫师》
+
+![《虫师》](/images/anime/mushishi.jpg)
+
+### 《夏目友人帐》系列
+
+![《夏目友人帐》](/images/anime/natsume.jpg)
+
+### 《花开物语》
+
+![《花开物语》](/images/anime/hanasaku-iroha.jpg)
+
+### 《我的青春恋爱物语》第 1 部
+
+![《我的青春恋爱物语》](/images/anime/youth-romatic.jpg)
+
+### 《白兔糖》
+
+![《白兔糖》](/images/anime/bunny-drop.jpg)
+
+### 《Death Note/死亡笔记》
+
+![《Death Note》](/images/anime/death-note.jpg)
+
+### 《Code Geass/叛逆的鲁路修》
+
+![《Code Geass》](/images/anime/code-geass.jpg)
+
+### 《花与爱丽丝之死/花与爱丽丝杀人事件》
+
+![《花与爱丽丝之死》](/images/anime/alice.jpg)
+
+### 《一拳超人》
+
+![《一拳超人》](/images/anime/one-punch.jpg)
+
+### 《月刊少女野崎君》
+
+![《月刊少女野崎君》](/images/anime/nozaki-kun.jpg)
+
+### 《冰菓》
+
+![《冰菓》](/images/anime/hyoka.jpeg)
+
 ### 《斩服少女/KILL la KILL》（2013） 
+
+![《KILL la KILL》](/images/anime/kill-la-kill.jpg)
 
 监督：今石洋之
 
-### 《甲贺忍法帖》
+### 《甲贺忍法帖/Basilisk》
+
+![《甲贺忍法帖》](/images/anime/basilisk.jpg)
 
 ### 《异邦人无皇刃谭》
 
+![《异邦人》](/images/anime/sword-of-stranger.jpg)
+
 ### 《黑礁/Black Lagoon》
 
+原作：广江礼威
+
+监督：片渊须直
+
+![《Black Lagoon》](/images/anime/black-lagoon.jpg)
+
+#### OVA
+
+![《Black Lagoon》OVA](/images/anime/black-lagoon-ova.jpg)
+
 ### 《Monster/怪物》
+
+原作：浦泽直树
+
+![《Monster》中的经典形象](/images/anime/monster.jpg)
+
+
 
 ### 日本动画（人）展览会系列作品
 
 ![《Me! Me! Me!》](/images/anime/mememe.jpg)
+
 ![《阴郁的夜晚》](/images/anime/peace.jpg)
+
 ![第 6 话](/images/anime/animator-expo-06.jpg)
