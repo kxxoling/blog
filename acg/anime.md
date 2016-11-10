@@ -476,7 +476,7 @@ Gainax 和 Production I.G 联合出品。
 
 ![《冰菓》](/images/anime/hyoka.jpeg)
 
-### 《斩服少女/KILL la KILL》（2013） 
+### 《斩服少女/KILL la KILL》（2013）
 
 ![《KILL la KILL》](/images/anime/kill-la-kill.jpg)
 
@@ -509,8 +509,46 @@ Gainax 和 Production I.G 联合出品。
 ![《Monster》中的经典形象](/images/anime/monster.jpg)
 
 
+### 《浪客剑心：追忆篇》（1999）
 
-### 日本动画（人）展览会系列作品
+![《浪客剑心：追忆篇》](/images/anime/kenshin.jpg)
+
+### 《龙与虎》
+
+![《龙与虎》](/images/anime/toradora.jpg)
+
+### 《进击的巨人》
+
+![《进击的巨人》](/images/anime/attack-on-titan.jpg)
+
+### 《永生之酒/Baccano!》（2007）
+
+![《永生之酒》](/images/anime/baccano.jpg)
+
+### 《精灵守护者》（2007）
+
+![《精灵守护者》](/images/anime/spirit-guardian.jpg)
+
+### 《Level E/灵异 E 接触》
+
+![Level E](/images/anime/e.jpg)
+
+### 《寄生兽》
+
+![寄生兽](/images/anime/prasyte.jpg)
+
+## 《Hellsing/皇家国教骑士团》
+
+![《Hellsing》](/images/anime/hellsing.jpg)
+
+### OVA 《Hellsing Ultimate》
+
+![《Hellsing Ultimate》](/images/anime/hellsing-ultimate.jpg)
+
+![《Hellsing》女主角](/images/anime/hellsing-ultimate-seras-bernadotte.png)
+
+
+## 日本动画（人）展览会系列作品
 
 ![《Me! Me! Me!》](/images/anime/mememe.jpg)
 
