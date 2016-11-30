@@ -37,7 +37,7 @@
 
 - 使用 GitBook 提供的[邮件订阅](https://www.gitbook.com/book/kxxoling/blog/details)方式。
 - 使用 GitHub 项目的 [watching](https://github.com/kxxoling/blog/commits?author=kxxoling) 功能。
-- RSS 订阅：[feed.xml](http://blog.windrunner.me/feed.xml)
+- RSS 订阅：[https://blog.windrunner.me/feed.xml](https://blog.windrunner.me/feed.xml)
 
 
 ## 一些链接
