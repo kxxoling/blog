@@ -7,6 +7,7 @@
    * [12 月]()
        * [《你的名字。》观后感](acg/shinkai-makoto/your-name.md)
        * [使用 autossh 建立反向 SSH 连接](sa/reverse-ssh.md)
+       * [用命令行创建字符图案](linux/figlet-toilet.md)
    * [11 月]()
        * [在 iTerm2 中查看图片](tool/iterm2-imgcat.md)
        * [使用 YeoMan 快速创建项目](tool/yeoman.md)
