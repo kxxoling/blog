@@ -140,3 +140,21 @@ brew cask install suspicious-package # pkg 格式支持
 插件列表可以在 [quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
 上找到。
 
+
+## Synergy 键鼠同步
+
+[Synergy](https://symless.com/synergy/) 是一款[开源](https://github.com/symless/synergy)的跨平台的多设备间键鼠同步软件。在所有设备上都安装完 Synergy 并运行之后，将其中连结了键鼠的设备设置为服务端，其它为客户端即可根据提示自动完成配对，并自由地切换想要控制的设备。（当然，需要保证在同一网络环境下。）
+
+目前在无线环境中使用中遇到了卡顿和轻微漂移的问题，也存在断线不能重连的问题，可能跟网络质量有关。
+
+亮点：
+
+- 支持剪贴板同步
+- 支持拖拽复制文件
+
+缺点：
+
+- 不够稳定；
+- 存在内存泄漏问题，需要定时重启。
+
+
