@@ -38,16 +38,17 @@ autossh -M 20001 \
 ```systemd
 [Unit]
 Description=AutoSSH service for remote tunnel
-After=network.target
+After=network-online.target
 
 [Service]
 User=your_username
-ExecStart=/usr/bin/autossh --M 20001 -N -o "PubkeyAuthentication=yes" -o "StrictHostKeyChecking=false" -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -R a_a_a_a:20000:localhost:22 -p 8383 remote_user@a_a_a_a
+ExecStart=/usr/bin/autossh -M 20001 -N -o "PubkeyAuthentication=yes" -o "StrictHostKeyChecking=false" -o "ServerAliveInterval 60" -o "ServerAliveCountMax 3" -R a_a_a_a:20000:localhost:22 -p 8383 remote_user@a_a_a_a
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-这样就创建了一个 ``remote-autossh`` 服务，并指定其在网络服务启动后启动。可以运行 ``systemctl daemon-reload && systemctl start remote-autossh`` 立即启动服务。
+这样就创建了一个 ``remote-autossh`` 服务，并指定其在网络服务启动后启动。可以运行 ``systemctl daemon-reload && systemctl start remote-autossh`` 立即启动服务，或者 ``systemctl enable remote-autossh.service`` 启动服务并设置为开机启动。
 
 需要注意的是，配置文件中的 autossh 命令需要替换为其绝对地址，以及不支持 ``-f`` 参数。
+
