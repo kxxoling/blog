@@ -1,19 +1,28 @@
 # 常用 GUI 应用
 
-## Rescue Time
+## [Rescue Time](https://www.rescuetime.com/)
 
 记录你一周内的软件使用时间分配情况，以周为单位返回效率报告。
+
+![](https://www.rescuetime.com/images/imac.png)
 
     brew cask install rescuetime
 
 
 ## FlashLight
 
+![](https://camo.githubusercontent.com/3518833268d47c54081beec1f6aac6e834113676/68747470733a2f2f7261772e6769746875622e636f6d2f6e6174652d706172726f74742f666c6173686c696768742f6d61737465722f496d6167652e706e67)
+
 [Flashlight](http://flashlight.nateparrott.com/plugin/quicksearch) 是 Spotlight
 的扩展工具，是 Alfred 的免费 clone。
 
+源代码：[w0lfschild/Flashlight](https://github.com/nate-parrott/Flashlight/wiki/Creating-a-Plugin)
+
+安装：``brew cask install mysimbl flashlight``。
+
 
 ## Wireshark
+![](https://www.wireshark.org/docs/wsug_html_chunked/wsug_graphics/ws-main.png)
 
 网络请求查询工具
 
@@ -67,6 +76,8 @@ Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
 
 ## ClipMenu
 
+![](http://www.clipmenu.com/images/screenshot/home/screenshot.jpg)
+
 剪贴板纪录工具。
 
     brew cask install clipmenu
@@ -94,13 +105,6 @@ Alfred 工作流使用。
     brew cask install wxdebugger
 
 
-## MacDown
-
-免费、轻量的 Markdown 编辑器。对于轻度用户来说完全够用了。
-
-    brew cask install macdown
-
-
 ## Rime 输入法
 
 又名鼠须管输入法。官网：http://rime.im/
@@ -115,9 +119,11 @@ http://www.jianshu.com/p/cffc0ea094a7
 仍在调教中……
 
 
-## MplayerX 播放器
+## [MplayerX 播放器](http://mplayerx.org/)
 
-比之前稳定多了，所以我又从 Mpv 换回来了。
+稳定、美观的全格式视频播放器，播放 SMB 视频非常流畅。
+
+    brew cask install mplayerx
 
 
 ## QuickLook 插件
@@ -156,5 +162,14 @@ brew cask install suspicious-package # pkg 格式支持
 
 - 不够稳定；
 - 存在内存泄漏问题，需要定时重启。
+
+
+## Tunnelblick
+
+Mac 下的 OpenVPN 客户端。
+
+源代码：[Tunnelblick/Tunnelblick](https://github.com/Tunnelblick/Tunnelblick/)
+
+    brew cask install tunnelblick
 
 
