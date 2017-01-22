@@ -141,6 +141,7 @@ brew cask install betterzipql # 压缩格式预览
 brew cask install qlimagesize # 标题栏显示图片大小信息
 brew cask install webpquicklook # webp 格式支持
 brew cask install suspicious-package # pkg 格式支持
+brew cask install qlvideo # 视频缩略图预览
 ```
 
 插件列表可以在 [quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
@@ -173,3 +174,8 @@ Mac 下的 OpenVPN 客户端。
     brew cask install tunnelblick
 
 
+## 日历增强软件 [Itsycal](https://www.mowglii.com/itsycal/)
+
+macOS 自带的时间软件一直为人所诟病，Itsycal 则提供了一个简单的替代方案，支持日历和近期事项管理。
+
+![](https://www.mowglii.com/itsycal/itsycalbanner2.png)
