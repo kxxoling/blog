@@ -23,3 +23,37 @@ webm 是 Google 提出的多媒体文件格式，包含了 VP8 影片轨和 Ogg 
     ffmpeg -i input.webm -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" output.mp4
 
 这里 vf 参数的意义是，将视频的长宽强制转换为偶数，否则可能遇到“width not divisible by 2”的问题。
+
+## 生成视频缩略图
+
+### 生成封面
+
+使用视频的第一帧作为封面：
+
+```sh
+ffmpeg -i your-video.mp4 -ss 00:00:00 -vframes 1 thumb.png
+```
+
+### 每 xx 秒生成一个缩略图
+
+每分钟一张：
+
+```sh
+ffmpeg -i your-video.mp4 -vf fps=1/60 your-video-%03d.png
+```
+
+再将其合并：
+
+```sh
+ffmpeg -i your-video-%03d.png -filter_complex scale=-1:-1,tile=99x1:margin=10:padding=4 output.png
+```
+
+这里的 tile 长度设定为 99，应当改为缩略图的总数。
+
+一步到位：
+
+```sh
+ffmpeg -ss 00:00:00 -i your-video.mp4 -vf 'select=not(mod(n\,24)),scale=-1:-1,tile=99*1' out.png
+```
+
+意思是从视频的 00:00:00 处开始，每 24 帧（一般动换都是 24 帧的）取一张图片，长宽不进行压缩，最后合成在 99*1 的方格中。
