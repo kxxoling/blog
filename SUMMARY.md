@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
+   * [2 月]()
+       * [使用 Homebrew](tool/homebrew.md)
    * [1 月]()
        * [使用 ffmpeg 转换视频格式](tool/ffmpeg.md)
 * [2016]()
