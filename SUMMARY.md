@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
+   * [3 月]()
+       * [Linux kernel 代码中最奇怪的提交记录](programming/linux-kernel-strangest-commit.md)
    * [2 月]()
        * [使用 Homebrew](tool/homebrew.md)
    * [1 月]()
