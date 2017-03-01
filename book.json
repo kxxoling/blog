@@ -39,7 +39,7 @@
       "title": "Kane（kxxoling）的博客",
       "description": "这就是我的博客",
       "author": "Kane Blueriver(kxxoling)",
-      "site_url": "http://blog.windrunner.me/",
+      "site_url": "https://blog.windrunner.me/",
       "feed_url": "/feed.xml",
       "categories": [
         "python",
@@ -47,14 +47,11 @@
         "anime"
       ]
     },
-    "sitemap": {
-      "hostname": "http://blog.windrunner.me/"
-    },
     "ga": {
       "token": "UA-36854955-4"
     },
     "sitemap": {
-      "hostname": "http://blog.windrunner.me"
+      "hostname": "https://blog.windrunner.me"
     },
     "donate": {
       "wechat": "/images/me/wechat-pay.png",
