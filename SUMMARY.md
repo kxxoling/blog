@@ -5,6 +5,7 @@
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
    * [3 月]()
+       * [启用 SQLite JSON1 和 FTS5 扩展](python/sqlite-json1-fts5.md)
        * [Linux kernel 代码中最奇怪的提交记录](programming/linux-kernel-strangest-commit.md)
    * [2 月]()
        * [使用 Homebrew](tool/homebrew.md)
