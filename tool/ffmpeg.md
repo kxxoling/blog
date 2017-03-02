@@ -1,8 +1,22 @@
 # 使用 ffmpeg 转换视频格式
 
-ffmpeg 是 \*nix 系统下最流行的视频处理库，功能强大，并且提供了丰富的终端命令，实是日常视频处理的一大利器！
+ffmpeg 是 \*nix 系统下最流行的音视频处理库，功能强大，并且提供了丰富的终端命令，实是日常视频处理的一大利器！
 
 ## 实例
+
+### flac 格式转 mp3
+
+音频格式转换非常简单：``ffmpeg -i input.flac -acodec libmp3lame output.mp3``。
+
+ffmpeg 将会使用 libmp3lame 解码器将 ``input.flac`` 文件转换为 mp3 格式的 ``output.mp3`` 文件。
+
+#### 批量格式转换
+
+想要批量转换 flac 文件也是很常见的需求，我们可以结合 bash 命令来完成：
+
+```sh
+find . -name "*.flac" -exec bash -c 'ffmpeg -i "{}" -y "${0/.flac}.wav"' {} \;
+```
 
 ### webm 转 gif 格式
 
