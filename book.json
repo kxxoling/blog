@@ -26,7 +26,7 @@
     "js-sequence-diagram",
     "jsbin",
     "sitemap",
-    "rss",
+    "rss@2.1.5",
     "image-captions"
   ],
   "pluginsConfig": {
