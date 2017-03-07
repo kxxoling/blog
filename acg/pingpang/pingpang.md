@@ -40,3 +40,6 @@
 
 这部动画给我灌了满满一碗鸡汤，但却不是平常的味道，麻辣味的鸡汤，在灼烧之后却是酣畅淋漓的痛快。
 
+扩展阅读：
+
+- [松本大洋 × 湯浅政明『ピンポン』COMPLETE ARTWORKS](http://www.haveanice.com/article/松本大洋-×-湯浅政明『ピンポン』complete-artworks)
