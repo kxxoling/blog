@@ -82,7 +82,7 @@ platform = 'windows'
 
 - 根据 ``Pipfile`` 自动寻找项目根目录。
 - 如果不存在，可以自动生成 ``Pipfile`` 和 ``Pipfile.lock``。
-- 自动在项目目录的 ``.venv`` 目录创建虚拟环境。
+- 自动在项目目录的 ``.venv`` 目录创建虚拟环境。（暂时需要设置 ``export PIPENV_VENV_IN_PROJECT=1``）
 - 自动管理 ``Pipfile`` 新安装和删除的包。
 - 自动更新 pip。
 
