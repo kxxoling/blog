@@ -179,3 +179,11 @@ Mac 下的 OpenVPN 客户端。
 macOS 自带的时间软件一直为人所诟病，Itsycal 则提供了一个简单的替代方案，支持日历和近期事项管理。
 
 ![](https://www.mowglii.com/itsycal/itsycalbanner2.png)
+
+特性：
+
+- 日历同步
+- 生日提醒
+- 中国节假日
+- 自定义每周第一天
+- 每周特殊日提醒
