@@ -2,13 +2,13 @@
 
 ## 关于我
 
-2013 开始编程工作，主要编程语言是 Python 和 JavaScript，略懂 HTML 和 CSS；惯用后端框架是 Django 和 Flask，前端项目习惯使用 Vue.js，也有少许 React.js 经验；曾用 React-Native 写过简单的移动应用，也简单使用过 Swift 编写原生应用。项目源代码都托管在[我的 GitHub](https://github.com/kxxoling) 上。
+2013 开始编程工作，主要编程语言是 Python 和 JavaScript，略懂 HTML 和 CSS；惯用后端框架是 Django 和 Flask，前端项目习惯使用 Vue.js，也有少许 React 相关经验；使用 React-Native 写过简单的移动应用，也简单使用过 Swift 编写原生应用。项目源代码都托管在[我的 GitHub](https://github.com/kxxoling) 上。
 
-常用编辑器有 Emacs、Vim、Sublime Text 和 Atom，认为 Intellij IDEA 比 Eclipse 好用，PEP 8 遵从者，JS、HTML 以及相关语言的文件均使用 2 空格缩进，大括号去死缩进万岁党，函数式编程拥护者，const nazi！
+常用编辑器是 Vim 和 Sublime Text 3，正在学习使用 Emacs，PEP 8 遵从者，JS、HTML 以及相关语言的文件均使用 2 空格缩进，大括号去死缩进万岁党，函数式编程拥护者，const nazi！
 
 ### 兴趣爱好
 
-爱好广泛、样样不精是我的特点，外在表现是动漫爱好者、宅男、程序员，没什么可反驳的。
+闲暇时光喜欢看看动漫、电影、电视剧，有时玩玩游戏、Dota2 爱好者、4000 分守门员。偶尔写写代码、逛逛 HackerNews、翻译或整理一些技术文章。
 
 ### 关于妹红
 
@@ -17,9 +17,7 @@
 
 ## 关于博客
 
-本博客使用 [GitBook](https://www.gitbook.com/book/kxxoling/blog/) 搭建，
-原文件托管在 [GitHub](https://github.com/kxxoling/blog) 上，
-受益于 git 的版本控制功能，可以根据 commit 纪录找回文章早期版本，个人觉得非常适合管理博客。
+本博客使用 [GitBook](https://www.gitbook.com/book/kxxoling/blog/) 搭建，原始文件托管在 [GitHub](https://github.com/kxxoling/blog) 上，受益于 git 的版本控制功能，可以根据 commit 记录找回文章早期版本，个人觉得非常适合管理博客。
 
 ### 博客标题
 
