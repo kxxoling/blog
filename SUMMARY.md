@@ -5,6 +5,7 @@
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
    * [3 月]()
+       * [剑与禅的碰撞──《浪客行》](acg/vagabond/README.md)
        * [pip 与 Pipfile](python/pip.md)
        * [《成人女性的动画时间》观感（未完）](acg/otona-jyoshi-no-anime-time.md)
        * [攻壳机动队（Ghost in the Shell）系列作品简介](acg/ghost-in-the-shell/README.md)
