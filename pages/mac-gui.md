@@ -20,6 +20,9 @@
 
 安装：``brew cask install mysimbl flashlight``。
 
+## [The Unarchiver](https://itunes.apple.com/app/the-unarchiver/id425424353)
+
+非常好用的文件解、压缩工具，能够自动识别绝大多数文件名的编码，对于不能自动识别的文件会提供常见编码预览选择，是非常不错的 macOS 默认解、压缩工具的替代品。
 
 ## Wireshark
 ![](https://www.wireshark.org/docs/wsug_html_chunked/wsug_graphics/ws-main.png)
@@ -41,6 +44,12 @@ Finder 中快速打开 Shell 的工具，支持多个 Shell 程序。
 简单、好用的 GUI 编辑器。
 
     brew cask install sublime-text3
+
+Sublime Text 3 会提供一个 ``subl`` 命令，支持在命令行启动该应用程序，但是在 tmux 环境中可能无法正常使用，可以尝试通过以下方法解决：
+
+1. 安装 ``reattach-to-user-namespace``：``brew install reattach-to-user-namespace``
+2. 修改 tmux 配置，将这一行添加到 ``.tmux.conf`` 文件中：``set-option -g default-command "reattach-to-user-namespace -l zsh"``
+3. 重新加载配置文件：``tmux source ~/.tmux.conf``。（需要在非 tmux 环境中执行）
 
 
 ## DrRacket
