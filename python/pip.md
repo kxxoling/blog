@@ -64,7 +64,16 @@ platform = 'windows'
 
 ### pip 支持
 
-[pip](https://pip.pypa.io/en/stable/) 提供了 ``-p``/``--pipfile`` 参数用于安装 ``Pipfile``。
+[pip](https://pip.pypa.io/en/stable/) 提供了 ``-p``/``--pipfile`` 参数用于安装 ``Pipfile``，类似 ``-r``/``--requirement`` 会默认寻找 ``requirements.txt`` 文件，如果没有指定 ``-p`` 的参数将会自动寻找 ``Pipfile`` 文件。
+
+例如：
+
+```sh
+pip install -p    # 没有参数会自动寻找 Pipfile 文件
+pip install -p Pipfile.lock  # 根据 Pipfile.lock 安装指定依赖
+```
+
+需要注意的是，``pip install -p`` 安装时会自动生成或更新 ``Pipfile.lock`` 文件。
 
 ### ``Pipfile.lock``
 
