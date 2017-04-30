@@ -5,6 +5,7 @@
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
    * [4 月]()
+       * [Django Channels](python/web/django-channels.md)
        * [为什么 Python 被设计为带有 GIL？](python/gil.md)
    * [3 月]()
        * [剑与禅的碰撞──《浪客行》](acg/vagabond/README.md)
