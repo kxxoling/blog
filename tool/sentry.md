@@ -106,9 +106,24 @@ Sentry 的搜索支持 ``token:value`` 语法，例如：
 ### 和 GitLab 集成
 ### 和 Trello 集成
 
+## Docker 部署
+
+Sentry 官方还提供了 Docker 镜像以及[部署方案](https://github.com/docker-library/docs/blob/master/sentry/variant-onbuild.md)，用起来非常方便。
+
+0. 首先安装并启动 Docker 服务，然后拉取最新的 Sentry 镜像：``docker pull sentry``。
+1. 启动一个 redis 服务作为消息 broker：``docker run -d --name sentry-redis redis``
+2. 设置数据库密码作为环境变量，之后的命令都会用到：``export DBPW='<your-postgres-db-password>'``
+3. 启动一个 Postgres 数据库服务作为存储数据库：``docker run -d --name sentry-postgres -e POSTGRES_PASSWORD='$(DBPW)' -e POSTGRES_USER=sentry postgres``
+4. migrate 数据库解构至最新：``docker run -it --rm -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry upgrade``
+5. 启动 Sentry  并链接以上服务: ``docker run -d --name sentry-app -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-redis:redis --link sentry-postgres:postgres -p 8080:9000 sentry``
+6. 运行一个 cron container 用于定时任务：``docker run -d --name sentry-cron -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry run cron``
+7. 运行一个 worker container 用户后台任务：``docker run -d --name sentry-worker-1 -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry run worker``
+
+如果没有什么错误发生，使用 ``docker ps`` 命令将会得到 sentry-app、sentry-posgres、sentry-redis、sentry-cron、sentry-worker-1 5 个正在运行的容器。
 
 参考：
-	- [Sentry Python 文档](https://docs.getsentry.com/on-premise/clients/python)
+
+- [Sentry Python 文档](https://docs.getsentry.com/on-premise/clients/python)
 
 [Sentry]: https://getsentry.com/
 
