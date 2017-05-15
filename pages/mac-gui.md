@@ -173,6 +173,17 @@ brew cask install qlvideo # 视频缩略图预览
 - 不够稳定；
 - 存在内存泄漏问题，需要定时重启。
 
+### 控制台支持
+
+对于没有接入键鼠的设备如何使用 Synergy 似乎成了鸡生蛋蛋生鸡的问题，好在 Synergy 提供了命令行程序 ``synergyc`` 和 ``synergys`` 分别支持 Synergy 作为客户端和服务器端启动。
+
+作为客户端：``synergyc <server_ip>``
+
+作为服务器端：
+
+1. 使用 GUI 导出配置文件，例如 ``synergy.conf``；
+2. ``synergys -c synergy.conf``。
+
 
 ## Tunnelblick
 
