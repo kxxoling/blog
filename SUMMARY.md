@@ -4,6 +4,7 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
+   * [谈谈“物语”系列动画](acg/monogatari-series.md)
    * [5 月]()
        * [git hook 简单介绍](vcs/git/hooks.md)
    * [4 月]()
