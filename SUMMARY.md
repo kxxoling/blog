@@ -110,6 +110,7 @@
 
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
+   * [黑客帝国动画版 The Animatrix](acg/animatrix.md)
    * [（转载）庵野秀明的 anime style](acg/hideaki-anno-anime-style.md)
    * [乒乓](acg/pingpang/pingpang.md)
    * [（备份）竹取物语](acg/bamboo-cutter-tale/farewell.md)
