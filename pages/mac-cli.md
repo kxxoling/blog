@@ -235,3 +235,27 @@ asciinema rec
 官网的注册方式是基于 email 的认证，会自动获取 gavatar 头像作为你站内的头像。关联成功后的页面如下：
 
 ![asciinema 关联成功](/images/asciinema-reg.png)
+
+## transfer.sh
+
+[transfer.sh](https://transfer.sh) 是一个提供文件临时存储的网络服务，可以使用终端直接上传文件：
+``curl --upload-file ./hello.txt https://transfer.sh/hello.txt https://transfer.sh/66nb8/hello.txt``，当然使用 shell 函数会更加方便，可以将下面代码存入 ``.bashrc`` 或者 ``.zshrc`` 中获得 ``transfer`` 命令：
+
+```sh
+# transfer.sh
+transfer() {
+    if [ $# -eq 0 ];
+    then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md";
+        return 1;
+    fi
+    tmpfile=$( mktemp -t transferXXX );
+    if tty -s;
+    then
+        basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g');
+        curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile;
+    else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ;
+    fi;
+    cat $tmpfile;
+    rm -f $tmpfile;
+}
+```
