@@ -4,7 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
-   * [谈谈“物语”系列动画](acg/monogatari-series.md)
+   * [9 月]()
+       * [10 行 HTML 实现 AR 效果](fe/ar-in-10.md)
    * [5 月]()
        * [git hook 简单介绍](vcs/git/hooks.md)
    * [4 月]()
@@ -110,6 +111,7 @@
 
 * [Python](python/README.md)
 * [ACG](https://gist.github.com/kxxoling/0a65907b7cf99b88420c)
+   * [谈谈“物语”系列动画](acg/monogatari-series.md)
    * [黑客帝国动画版 The Animatrix](acg/animatrix.md)
    * [（转载）庵野秀明的 anime style](acg/hideaki-anno-anime-style.md)
    * [乒乓](acg/pingpang/pingpang.md)
