@@ -105,9 +105,17 @@ pip install -p Pipfile.lock  # 根据 Pipfile.lock 安装指定依赖
 - ``pipenv lock``：确认 ``Pipfile`` 中所有包已安装，并根据安装版本生成 ``Pipfile.lock``。
 - ``pipenv shell``：应用虚拟环境。
 
+### 自动补全
+
+由于 pipenv 的命令行程序是基于 Click 库，因此自带了 Bash 补全功能，只需要运行或者将这行代码加入 Bash 启动脚本：``eval "$(_FOO_BAR_COMPLETE=source foo-bar)"``。
+
+对于 Zsh，需要将这行代码改为 ``eval "$(_PIPENV_COMPLETE=source-zsh pipenv)"``。
+
+
 最后，``Pipfile`` 和 ``pipenv`` 仍然是实验性特性，可能存在不稳定性和较大变动，注意关注最新变化！。
 
 参考：
 
 - [pypa/pipfile](https://github.com/pypa/pipfile)
 - [Announcing pipenv](https://www.kennethreitz.org/essays/announcing-pipenv) by Kenneth Reitz
+
