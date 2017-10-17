@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
+   * [10 月]()
+       * [《七武士》](misc/7-samurai.md)
    * [9 月]()
        * [10 行 HTML 实现 AR 效果](fe/ar-in-10.md)
    * [5 月]()
