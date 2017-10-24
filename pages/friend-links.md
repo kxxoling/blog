@@ -4,7 +4,7 @@
 
 [Sanaeの空想庭园](http://blog.kochiya.me/)
 
-[鹚酱的 Brilliant Life](http://brilliant.gd/)
+[鹚酱的 Brilliant Life](https://brilliant.run/)
 
 [mixi by Jackson Tan](http://g.mixi.moe/)
 
