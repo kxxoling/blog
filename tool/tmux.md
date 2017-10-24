@@ -101,11 +101,19 @@ tmux 有个特性，不管多少人连进同一个 tmux 会话，他们看到和
 
 ## Tmate 与远程会话共享
 
-首先你需要安装 Tmate：
+首先你需要安装 [Tmate](https://tmate.io/)：
 
-```
-brew update
+```sh
 brew install tmate
+```
+
+Ubuntu：
+
+```sh
+sudo apt-get install software-properties-common && \
+sudo add-apt-repository ppa:tmate.io/archive    && \
+sudo apt-get update                             && \
+sudo apt-get install tmate
 ```
 
 输入 ``tmate`` 将会创建一个公开的远程会话（会话的底部会出现提示“[tmate] Remote session: ssh [some hash]@ny.tmate.io”），将 ssh 的地址发送给你的朋友就可以分享你的会话了！
