@@ -4,6 +4,8 @@
 * [工具篇]()
    * [GitBook 使用经验](tool/gitbook-tutorial.md)
 * [2017]()
+   * [11 月]()
+       * [Flask 命令行接口](python/web/flask-cli.md)
    * [10 月]()
        * [《七武士》](misc/7-samurai.md)
    * [9 月]()
