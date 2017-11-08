@@ -27,9 +27,19 @@
     "jsbin",
     "sitemap",
     "rss@2.1.5",
+    "github-buttons",
     "image-captions"
   ],
   "pluginsConfig": {
+    "github-buttons": {
+      "buttons": [{
+        "user": "kxxoling",
+        "type": "follow",
+        "size": "large",
+        "count": true,
+        "width": "234"
+      }]
+    },
     "tbfed-pagefooter": {
       "copyright": "Kane Blueriver",
       "modify_label": "最近修改时间：",
