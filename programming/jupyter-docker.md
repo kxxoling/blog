@@ -8,12 +8,12 @@ Jupyter 是个好东西，提供了简单易用的 web REPL 环境，并且可�
 
 [官方](https://github.com/jupyter/docker-stacks)提供了 ``base-notebook``、``minimal-notebook``、``all-spark-notebook``、``pyspark-notebook``、``scipy-notebook``、``datascience-notebook``、``tensorflow-notebook`` 以及 ``r-notebook`` 可选。根据自己的需要选择合适的镜像即可，通常 ``base-notebook`` 就够用了，这里便以它为例。
 
-启动：``docker run -d -P jupyter/base-notebook``，这里 ``-d`` 表示用完即删，因此在其中安装的程序、插件并不会在系统中留下任何痕迹；``-P`` 则是为镜像中 expose 的所有端口都分配一个随机的本地映射。
+启动：``docker run --remove -P jupyter/base-notebook``，这里 ``--remove`` 表示，因此在其中安装的程序、插件并不会在系统中留下任何痕迹；``-P`` 则是为镜像中 expose 的所有端口都分配一个随机的本地映射。
 
 可以输入 ``docker ps`` 查看刚启动的 container 实例：
 
 ```
-~ ᐅ docker ps
+~ docker ps
 CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                     NAMES
 2c3a5876de9b        jupyter/base-notebook   "tini -- start-notebo"   12 minutes ago      Up 12 minutes       0.0.0.0:32768->8888/tcp   kickass_davinci
 ```
@@ -22,17 +22,20 @@ CONTAINER ID        IMAGE                   COMMAND                  CREATED    
 
 为了保持可控性，可以将 ``-P`` 替换为 ``-p 18888:8888``，确保每次启动 container 实例时都会自动映射到 18888 端口。
 
-该镜像并没有提供更多的配置选项，不过通过直接查看配置文件可以获知实例中的用户名为 ``jovyan``，Jupyter 的活动目录是 ``/home/jovyan/work``，并且可以挂载出来：
+该镜像并没有提供更多的配置选项，不过通过直接查看配置文件可以获知实例中的用户名为 ``jovyan``，Jupyter 的活动目录是 ``/home/jovyan/``，并且可以挂载出来：
+
+另外，我们还可以使用 ``--restart`` 指令让容器随系统启动，并在出现问题时自动重启。
 
 于是：
 
 ```sh
 mkdir $HOME/nbs
-docker run -d -p 18888:8888 \
--v $HOME/nbs:/home/jovyan/work \
+docker run -d --restart=always --name=jupyter -p 18888:8888 \
+-v $HOME/nbs:/home/jovyan/ \
 jupyter/base-notebook
 ```
 
+如果访问 ``localhost:18888`` 出现权限错误，可以使用 ``docker logs jupyter`` 来输出该容器的标准输出流，你可能看到一串类似 ``http://localhost:8888/?token=3c32ac9203dc507d0d6bbcc191c83c650c081308100eb397`` 的带 token 的 URL，将 8888 替换为我们的 18888 在浏览器中打开即可完成验证。
 
 ### IHaskell
 
