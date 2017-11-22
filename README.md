@@ -2,13 +2,13 @@
 
 ## 关于我
 
-2013 开始编程工作，主要编程语言是 Python 和 JavaScript，略懂 HTML 和 CSS；惯用后端框架是 Django 和 Flask，前端项目习惯使用 Vue.js，也有少许 React 相关经验；使用 React-Native 写过简单的移动应用，也简单使用过 Swift 编写原生应用。项目源代码都托管在[我的 GitHub](https://github.com/kxxoling) 上。
+2013 年开始编程工作，主要编程语言是 Python 和 ECMAScript，略懂 HTML 和 CSS；惯用后端框架是 Django 和 Flask，前端项目习惯使用 Vue.js，也有少许 React 相关经验。开源项目见[我的 GitHub](https://github.com/kxxoling) 上。
 
 常用编辑器是 Vim 和 Sublime Text 3，正在学习使用 Emacs，PEP 8 遵从者，JS、HTML 以及相关语言的文件均使用 2 空格缩进，大括号去死缩进万岁党，函数式编程拥护者，const nazi！
 
 ### 兴趣爱好
 
-闲暇时光喜欢看看动漫、电影、电视剧，有时玩玩游戏、Dota2 爱好者、4000 分守门员。偶尔写写代码、逛逛 HackerNews、翻译或整理一些技术文章。
+闲暇时光喜欢看看动漫、电影，Dota2 爱好者、4000 分守门员。偶尔写写代码、逛逛 HackerNews、翻译或整理一些技术文章。
 
 ### 关于妹红
 
