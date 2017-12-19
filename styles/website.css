@@ -30,3 +30,9 @@ a.plugin-anchor span {
   display: block;
 }
 
+.page-toc {
+  position: fixed;
+  right: 3rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}

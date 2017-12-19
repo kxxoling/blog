@@ -20,7 +20,6 @@
     "quizzes",
     "disqus",
     "share",
-    "anchors",
     "anchor-navigation",
     "gist",
     "js-sequence-diagram",
@@ -28,6 +27,7 @@
     "sitemap",
     "rss@2.1.5",
     "github-buttons",
+    "page-toc",
     "image-captions"
   ],
   "pluginsConfig": {
