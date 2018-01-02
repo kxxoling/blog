@@ -102,12 +102,9 @@ open "crossshare://airdrop?image=\<image file path\>"
 open "crossshare://email?text=body"
 ```
 
-## iChrome
+## [Tampermonkey](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
-[iChrome](https://chrome.google.com/webstore/detail/ichrome-new-tab-a-fast-pr/iccjgbbjckehppnpajnmplcccjcgbdep/)
-为 Chrome 提供了自定义标签页的功能。
-
-![iChrome 预览](https://lh3.googleusercontent.com/4ll69EzM_5JQ660pKlvDlBVY0msF4IyGTzW8uDZrV6fwneGvKY0N-ADOg9_26MwRPlLGMBnq=s640-h400-e365-rw)
+Tampermonkey 俗称油猴脚本，是一个可以编写脚本增强网页功能的插件。你可以自己编写，可以在脚本分享网站上寻找需要的网站。这里有一些我自己编写的脚本：[kxxoling/monkey_scripts](https://github.com/kxxoling/monkey_scripts)。
 
 
 ## Image Search Options
@@ -152,4 +149,3 @@ open "crossshare://email?text=body"
 [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 
 ![Vue.js devtools](https://lh3.googleusercontent.com/zfUws9vbcxMXz8Ad_PxLlcq8e1dodaV_rymPGJFUdvaOptRDR0lZOrH2ZiJw34qirwAR7YHF=s640-h400-e365-rw)
-
