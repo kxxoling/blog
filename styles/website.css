@@ -36,3 +36,10 @@ a.plugin-anchor span {
   max-height: 80vh;
   overflow-y: auto;
 }
+@media (max-width: 1360px) {
+  .page-toc {
+    position: initial;
+    max-height: none;
+    right: unset;
+  }
+}
