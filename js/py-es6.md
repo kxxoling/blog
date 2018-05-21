@@ -30,7 +30,7 @@ i   // 2
 ```js
 // ES6
 var arr = [1,2];
-for (var i = 0; i < arr.length; i++) {}
+for (let i = 0; i < arr.length; i++) {}
 i   // ReferenceError: i is not defined
 ```
 
@@ -114,7 +114,7 @@ let arrayLike = {
 let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 
 // ES5 中只能这样：
-var arr1 = [].slice.call(arrayLike); 
+var arr1 = [].slice.call(arrayLike);
 ```
 
 ES5 中数组创建方法的行为一直不统一，因此提供了 ``Array.of`` 来创建新数组：
