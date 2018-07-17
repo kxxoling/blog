@@ -41,9 +41,5 @@
 ## 一些链接
 
 - [GitHub](https://github.com/kxxoling)
-- [知乎](http://www.zhihu.com/people/kxxoling)
-- [GitBook 博客](http://blog.windrunner.me/)
-- [已废弃的在线简历](http://gh.windrunner.me/resume/)
-- [一个简单的个人主页](http://gh.windrunner.me/about-me/)
-- [个人主页](http://gh.windrunner.me/me/)
+- [GitBook 博客](https://blog.windrunner.me/)
 
