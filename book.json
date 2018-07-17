@@ -63,12 +63,10 @@
       "hostname": "https://blog.windrunner.me"
     },
     "donate": {
-      "wechat": "/images/me/wechat-pay.png",
       "alipay": "/images/me/alipay.jpg",
       "title": "",
       "button": "打赏",
       "alipayText": "支付宝",
-      "wechatText": "微信"
     },
     "image-captions": {
       "caption": "_CAPTION_"
