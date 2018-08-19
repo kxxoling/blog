@@ -1,13 +1,5 @@
 # 常用 Chrome Plugin
 
-## Bookmark Manager
-
-[Bookmark Manager](https://chrome.google.com/webstore/detail/gmlllbghnfkpflemihljekbapjopfjik)
-是 Google 官方出品的书签管理器，好看又实用。
-
-![Chrome Bookmark Manager](https://lh3.googleusercontent.com/QmwPViYka6CKUpQPk0PyXV2cBrXoToVl8vGpyFrT6HvzzmijDh7pmGGoTxohjJSbfujTYHVHyw=s640-h400-e365-rw)
-
-
 ## GitHub 相关
 
 ### Octotree
