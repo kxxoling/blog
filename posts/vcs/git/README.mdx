@@ -63,15 +63,15 @@ git 对 repo 的管理以文件为对象，在使用过程中一个文件会存�
 
 添加 upstream：
 
-    git upstream add origin <git repo addr>
+    git upstream add origin [git repo addr]
 
 删除远程分支：
 
-    git push --delete <branch_name>     # 缩写形式：git branch -d <branch_name>
+    git push --delete [branch_name]     # 缩写形式：git branch -d [branch_name]
 
 或者：
 
-  git branch -dr <remote> <branch>
+  git branch -dr [remote] [branch]
 
 清除无用代码／文件：
 
@@ -85,7 +85,7 @@ git 对 repo 的管理以文件为对象，在使用过程中一个文件会存�
 
 显示文件的修改纪录和修改人信息：
 
-  git blame <filename>
+  git blame [filename]
 
 发布 tag：
 
@@ -238,11 +238,11 @@ cherry-pick 你需要的那条提交记录。
 
 ### 显示某一个文件的变更记录
 
-    git log -p <filename>
+    git log -p [filename]
 
 ### 显示文件某几行的变更记录
 
-    git log -L <start-line>,<end-line>:<filename>
+    git log -L [start-line],[end-line]:[filename]
 
 ### 显示没有合并进 master 的变更
 
@@ -250,7 +250,7 @@ cherry-pick 你需要的那条提交记录。
 
 ### 显示其它分支某个文件的内容
 
-    git show <branch-name>:<filename>
+    git show [branch-name]:[filename]
 
 ### 计算 git 项目总行数
 
