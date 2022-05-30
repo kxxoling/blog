@@ -38,7 +38,9 @@ GiST 并不是一种索引，更像是多种索引策略的集合。PostgreSQL �
 
 GiST 索引也支持“邻近查询”，比如：
 
-    SELECT * FROM places ORDER BY location <-> point '(101,456)' LIMIT 10;
+```sql
+SELECT * FROM places ORDER BY location <-> point '(101,456)' LIMIT 10;
+```
 
 
 ## GIN

@@ -14,14 +14,13 @@
 
 先移步[萌娘百科](http://zh.moegirl.org/藤原妹红)吧！
 
-
 ## 关于博客
 
 本博客使用 [GitBook](https://www.gitbook.com/book/kxxoling/blog/) 搭建，原始文件托管在 [GitHub](https://github.com/kxxoling/blog) 上，受益于 git 的版本控制功能，可以根据 commit 记录找回文章早期版本，个人觉得非常适合管理博客。
 
 ### 博客标题
 
-博客名为“不立不破”──不轻谈建立和打破，世界上有太多的问题都是源自于“看的书太少而想的太多”，博客的主要内容还是围绕现有知识的整理和发掘，前人的智慧已经够我研究很长时间了。
+博客名为“不立不破”── 不轻谈建立和打破，世界上有太多的问题都是源自于“看的书太少而想的太多”，博客的主要内容还是围绕现有知识的整理和发掘，前人的智慧已经够我研究很长时间了。
 
 ### 版权
 
@@ -37,9 +36,7 @@
 - 使用 GitHub 项目的 [watching](https://github.com/kxxoling/blog/commits?author=kxxoling) 功能。
 - RSS 订阅：[https://blog.windrunner.me/feed.xml](https://blog.windrunner.me/feed.xml)
 
-
 ## 一些链接
 
 - [GitHub](https://github.com/kxxoling)
 - [GitBook 博客](https://blog.windrunner.me/)
-

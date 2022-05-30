@@ -106,7 +106,7 @@ Ubuntu Python 会将包安装在 ``/usr/local/lib/python2.7/dist-packages``，�
 
 但是为什么 Ubuntu Python 的 ``sys.path`` 中会有 ``/usr/local/lib/python2.7/dist-packages``？实际上它将它硬编码在 ``site.py`` 文件中了，首先看一下该文件顶部的注释：
 
-> For Debian and derivatives, this ``sys.path`` is augmented with directories for packages distributed within the distribution. Local addons go into /usr/local/lib/python/dist-packages, Debian addons install into /usr/{lib,share}/python/dist-packages. /usr/lib/python/site-packages is not used.
+> For Debian and derivatives, this ``sys.path`` is augmented with directories for packages distributed within the distribution. Local addons go into /usr/local/lib/python/dist-packages, Debian addons install into `/usr/{lib,share}/python/dist-packages`. `/usr/lib/python/site-packages` is not used.
 > 
 > 对于 Debian 及其衍生系统，``sys.path`` 中是否应该包含包路径是有争议的，本地扩展将安装在 ``/usr/local/lib/python/dist-packages``，Debian 扩展将安装在 ``/usr/{lib,share}/python/dist-packages``，而 ``/usr/lib/python/site-packages `` 未被使用。
 
