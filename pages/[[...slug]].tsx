@@ -7,8 +7,10 @@ import path from 'path'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
+import Head from 'next/head'
 
 import instinctComponents from '../components/InstinctComponents'
+import PostList from '../components/PostList'
 import SyntaxHighlighter from '../components/SyntaxHighlighter'
 
 // @ts-ignore
@@ -32,16 +34,18 @@ export const getStaticPaths = async () => {
   const files = await getFiles(path.join('posts'))
 
   // @ts-ignore
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename
-        .replace('.mdx', '')
-        .replace('.md', '')
-        .replace('posts/', '')
-        .split('/'),
-    },
-  }))
-
+  const paths = files
+    .map((filename) => ({
+      params: {
+        slug: filename
+          .replace('.mdx', '')
+          .replace('.md', '')
+          .replace('posts/', '')
+          .split('/'),
+      },
+    }))
+    .concat({ params: { slug: ['/'] } })
+    .concat({ params: { slug: [''] } })
   return {
     paths,
     fallback: false,
@@ -56,6 +60,60 @@ export const getStaticProps = async ({
   params,
 }: GetStaticPropsContext<Params>) => {
   const slug = params!.slug
+
+  // @ts-ignore
+  async function getFiles(dir) {
+    const dirents = await fs.promises.readdir(dir, { withFileTypes: true })
+    // @ts-ignore
+    const files = await Promise.all(
+      dirents
+        .filter((dirent) => !dirent.name.startsWith('.'))
+        .map((dirent) => {
+          // const res = path.resolve(dir, dirent.name)
+          return dirent.isDirectory()
+            ? getFiles(path.join(dir, dirent.name))
+            : path.join(dir, dirent.name)
+        })
+    )
+    return Array.prototype.concat(...files)
+  }
+
+  const fileList = await getFiles(path.join('posts'))
+  const posts = fileList.map((filename: string) => {
+    const fileContent = fs.readFileSync(
+      filename, // 'posts/xxx.{md|mdx}
+      'utf-8'
+    )
+    const slug = filename.replace('posts/', '').split('.')[0]
+    if (filename.endsWith('.md')) {
+      // 处理 markdown 文章
+      if (filename.indexOf('README') < 0) {
+        return {
+          frontMatter: {
+            title: fileContent.split('\n')[0].replace('#', '').trim(),
+          },
+          slug,
+        }
+      }
+      // 处理 README 文档， TODO: 对 index.mdx 进行同样处理
+      return {
+        frontMatter: {
+          title: fileContent.split('\n')[0].replace('#', '').trim(),
+        },
+        slug: slug.replace('/README', ''),
+      }
+    }
+    const { data: frontMatter } = matter(fileContent)
+    if (!frontMatter.title) {
+      // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
+      frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
+    }
+    return { frontMatter, slug }
+  })
+
+  if (!slug) {
+    return { props: { slug: null, posts } }
+  }
   const mdxPath = path.join('posts', slug.join('/') + '.mdx')
   const mdPath = path.join('posts', slug.join('/') + '.md')
   const filePath = fs.existsSync(mdxPath) ? mdxPath : mdPath
@@ -68,18 +126,38 @@ export const getStaticProps = async ({
       frontMatter,
       slug,
       mdxSource,
+      posts,
     },
   }
 }
 
+// @ts-ignore
+function Home({ posts }) {
+  return (
+    <div className="">
+      <Head>
+        <title>home</title>
+      </Head>
+      <PostList posts={posts} />
+    </div>
+  )
+}
+
 export default function PostPage({
-  frontMatter: { title },
+  slug,
+  posts,
+  frontMatter,
   mdxSource,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const components = { ...instinctComponents, pre: SyntaxHighlighter }
+
+  if (slug === null) {
+    return <Home posts={posts} />
+  }
   return (
     <div className="">
-      {title && <h1>{title}</h1>}
+      {frontMatter?.title && <h1>{frontMatter.title}</h1>}
+      {'index'}
       {/* @ts-ignore */}
       <MDXRemote {...mdxSource} components={components} />
     </div>
