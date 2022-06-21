@@ -11,9 +11,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <title>Blog</title>
       </Head>
 
-      <header className="navigation md:sticky top-0 w-full z-40 bg-white text-gray-700 body-font shadow-md">
+      <header className="top-0 z-40 w-full text-gray-700 bg-white shadow-md navigation md:sticky body-font">
         <div className="w-full px-5" style={{ minHeight: '80px' }}>
-          <div className="container mx-auto flex flex-wrap py-5 flex-col lg:flex-row items-center">
+          <div className="container flex flex-col flex-wrap items-center py-5 mx-auto lg:flex-row">
             <nav
               className={`
                 sm:text-center
@@ -23,19 +23,19 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               `}
             >
               <Link href="/">
-                <a className="mr-4 mb-2  md:mr-3 md:mb-0  lg:mr-5" title="Home">
+                <a className="mb-2 mr-4 md:mr-3 md:mb-0 lg:mr-5" title="Home">
                   Home
                 </a>
               </Link>
 
               <Link href="/bio">
-                <a className="mr-4 mb-2  md:mr-3 md:mb-0  lg:mr-5" title="Bio">
+                <a className="mb-2 mr-4 md:mr-3 md:mb-0 lg:mr-5" title="Bio">
                   Bio
                 </a>
               </Link>
 
               <Link href="/pages/friend-links">
-                <a className="mr-4 mb-2  md:mr-3 md:mb-0  lg:mr-5" title="Bio">
+                <a className="mb-2 mr-4 md:mr-3 md:mb-0 lg:mr-5" title="Bio">
                   Friends
                 </a>
               </Link>
@@ -45,16 +45,16 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       </header>
 
       <div className="scrollable">
-        <section className="w-full bg-gray-200 py-4">
-          <div className="container justify-center flex max-w-2xl m-auto leading-none ">
+        <section className="w-full py-4 bg-gray-200">
+          <div className="container flex justify-center max-w-2xl m-auto leading-none ">
             <span className="">
               🚧 🚧 🚧 页面施工中，欢迎稍后回来！🚧 🚧 🚧
             </span>
           </div>
         </section>
 
-        <div className="flex flex-col-reverse gap-6 xl:flex-row p-6 pb-16 justify-center">
-          <div className="prose w-full max-w-200 flex-grow">
+        <div className="flex flex-col-reverse justify-center gap-6 p-6 pb-16 xl:flex-row">
+          <div className="flex-grow w-full prose max-w-200">
             <div className="container">
               <main>
                 <Component {...pageProps} />
@@ -62,13 +62,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </div>
           </div>
 
-          <div className="sidebar w-full md:w-1/5 px-4 mb-4 md:mb-0">
-            <aside className="position-staitc top-auto bottom-auto w-auto">
+          <div className="w-full px-4 mb-4 sidebar md:w-1/5 md:mb-0">
+            <aside className="top-auto bottom-auto w-auto position-staitc">
               <section className="mx-auto mb-8">
                 <div className="text-center">
                   <div className="relative">
                     <div className="avatar" style={{ maxWidth: '100%' }}>
-                      <div className="w-64 rounded-full border-4 border-white shadow-md">
+                      <div className="w-64 border-4 border-white rounded-full shadow-md">
                         <img
                           src="https://avatars.githubusercontent.com/u/1227139"
                           alt="Kane Blueriver"
@@ -96,8 +96,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                   </div>
                 </div>
               </section>
-              <section className="sidebar__section sidebar__section__work flex flex-wrap">
-                <div className="sidebar__section__work_link mx-auto text-center mb-8">
+              <section className="flex flex-wrap sidebar__section sidebar__section__work">
+                <div className="mx-auto mb-8 text-center sidebar__section__work_link">
                   <a
                     className="w-1/2 text-gray-700 hover:text-lightseagreen-800"
                     href="https://frontmatter.codes"

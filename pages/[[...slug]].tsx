@@ -44,7 +44,6 @@ export const getStaticPaths = async () => {
           .split('/'),
       },
     }))
-    .concat({ params: { slug: ['/'] } })
     .concat({ params: { slug: [''] } })
   return {
     paths,
@@ -157,7 +156,6 @@ export default function PostPage({
   return (
     <div className="">
       {frontMatter?.title && <h1>{frontMatter.title}</h1>}
-      {'index'}
       {/* @ts-ignore */}
       <MDXRemote {...mdxSource} components={components} />
     </div>

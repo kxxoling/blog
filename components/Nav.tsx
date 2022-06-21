@@ -2,13 +2,13 @@ import Link from 'next/link'
 
 const Nav = () => {
   return (
-    <nav className="nav p-3 border-bottom">
+    <nav className="p-3 nav border-bottom">
       <Link href="/" passHref>
         <h2 className="pointer">Kane Blueriver</h2>
       </Link>
 
       <Link href="/bio" passHref>
-        <p className="pointer ms-5 lead my-auto">Bio</p>
+        <p className="my-auto pointer ms-5 lead">Bio</p>
       </Link>
     </nav>
   )
