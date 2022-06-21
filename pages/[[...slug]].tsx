@@ -41,6 +41,7 @@ export const getStaticPaths = async () => {
           .replace('.mdx', '')
           .replace('.md', '')
           .replace('posts/', '')
+          .replace('/README', '')
           .split('/'),
       },
     }))
@@ -68,7 +69,6 @@ export const getStaticProps = async ({
       dirents
         .filter((dirent) => !dirent.name.startsWith('.'))
         .map((dirent) => {
-          // const res = path.resolve(dir, dirent.name)
           return dirent.isDirectory()
             ? getFiles(path.join(dir, dirent.name))
             : path.join(dir, dirent.name)
@@ -113,12 +113,22 @@ export const getStaticProps = async ({
   if (!slug) {
     return { props: { slug: null, posts } }
   }
-  const mdxPath = path.join('posts', slug.join('/') + '.mdx')
-  const mdPath = path.join('posts', slug.join('/') + '.md')
-  const filePath = fs.existsSync(mdxPath) ? mdxPath : mdPath
-  const markdownWithMeta = fs.readFileSync(filePath, 'utf-8')
+  let filePath = path.join('posts', slug.join('/') + '.mdx')
+  if (!fs.existsSync(filePath)) {
+    const mdPath = path.join('posts', slug.join('/') + '.md')
+    if (fs.existsSync(mdPath)) {
+      filePath = mdPath
+    } else {
+      const mdxReadmePath = path.join('posts', slug.join('/') + '/README.mdx')
+      filePath = fs.existsSync(mdxReadmePath)
+        ? mdxReadmePath
+        : path.join('posts', slug.join('/') + '/README.md')
+    }
+  }
 
-  const { data: frontMatter, content } = matter(markdownWithMeta)
+  const fileContent = fs.readFileSync(filePath, 'utf-8')
+
+  const { data: frontMatter, content } = matter(fileContent)
   const mdxSource = await serialize(content)
   return {
     props: {
@@ -155,7 +165,7 @@ export default function PostPage({
   }
   return (
     <div className="">
-      {frontMatter?.title && <h1>{frontMatter.title}</h1>}
+      {<h1>{frontMatter.title}</h1>}
       {/* @ts-ignore */}
       <MDXRemote {...mdxSource} components={components} />
     </div>
