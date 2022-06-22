@@ -1,0 +1,155 @@
+---
+title: 常用 GUI 应用
+shortTitle: 常用 GUI
+description: 一些 macOS 必备 GUI
+tags: [macOS, GUI, Homebrew]
+date: '2022-06-23'
+---
+
+## [Rescue Time](https://www.rescuetime.com/)
+
+记录你一周内的软件使用时间分配情况，以周为单位返回效率报告。
+
+![](https://www.rescuetime.com/images/imac.png)
+
+```sh
+brew install --cask rescuetime
+```
+
+## [The Unarchiver](https://itunes.apple.com/app/the-unarchiver/id425424353)
+
+非常好用的文件解、压缩工具，能够自动识别绝大多数文件名的编码，对于不能自动识别的文件会提供常见编码预览选择，是非常不错的 macOS 默认解、压缩工具的替代品。
+
+## Wireshark
+
+![](https://www.wireshark.org/docs/wsug_html_chunked/wsug_graphics/ws-main.png)
+
+网络请求查询工具
+
+```sh
+brew install --cask wireshark
+```
+
+## REST client
+
+## Music Converter
+
+音频转换工具。
+
+## 剪贴板纪录工具
+
+### [Clipy](https://github.com/Clipy/Clipy)
+
+![](https://camo.githubusercontent.com/31f607d2a5e474e8eae4fa4f8bf3a301339900534b6f63bd5e3f52a3c9d0517c/687474703a2f2f636c6970792d6170702e636f6d2f696d672f73637265656e73686f74312e706e67)
+
+```sh
+brew install --cask clipy
+```
+
+### [Maccy](https://maccy.app/)
+
+<video
+  src="https://maccy.app/img/maccy/Demo.webm"
+  autoPlay
+  loop
+  muted
+  playsInline
+/>
+
+````sh
+
+```sh
+brew install --cask maccy
+````
+
+## [LyricsX](https://github.com/ddddxxx/LyricsX)
+
+在任务栏或者工作区中动态显示歌词的应用。
+
+```sh
+brew install --cask lyricsx
+```
+
+## [IINA 播放器](https://iina.io/)
+
+稳定、美观的全格式视频播放器，播放 SMB 视频非常流畅。
+
+```sh
+brew install --cask iina
+```
+
+## QuickLook 插件
+
+系统性地增强 Mac 预览程序的功能，大部分可以通过 HomeBrew Cask 进行安装：
+
+```sh
+brew install --cask qlcolorcode # 代码高亮
+brew install --cask qlstephen # 纯文本格式增强
+brew install --cask qlmarkdown # Markdown 预览
+brew install --cask quicklook-json # JSON 预览
+brew install --cask qlprettypatch # patch 格式预览
+brew install --cask quicklook-csv # csv 格式预览
+brew install --cask betterzipql # 压缩格式预览
+brew install --cask qlimagesize # 标题栏显示图片大小信息
+brew install --cask webpquicklook # webp 格式支持
+brew install --cask suspicious-package # pkg 格式支持
+brew install --cask qlvideo # 视频缩略图预览
+```
+
+插件列表可以在 [quick-look-plugins](https://github.com/sindresorhus/quick-look-plugins)
+上找到。
+
+## Synergy 键鼠同步
+
+[Synergy](https://symless.com/synergy/) 是一款[开源](https://github.com/symless/synergy)的跨平台的多设备间键鼠同步软件。在所有设备上都安装完 Synergy 并运行之后，将其中连结了键鼠的设备设置为服务端，其它为客户端即可根据提示自动完成配对，并自由地切换想要控制的设备。（当然，需要保证在同一网络环境下。）
+
+目前在无线环境中使用中遇到了卡顿和轻微漂移的问题，也存在断线不能重连的问题，可能跟网络质量有关。
+
+亮点：
+
+- 支持剪贴板同步
+- 支持拖拽复制文件
+
+缺点：
+
+- 不够稳定；
+- 存在内存泄漏问题，需要定时重启。
+
+### 控制台支持
+
+对于没有接入键鼠的设备如何使用 Synergy 似乎成了鸡生蛋蛋生鸡的问题，好在 Synergy 提供了命令行程序 `synergyc` 和 `synergys` 分别支持 Synergy 作为客户端和服务器端启动。
+
+作为客户端：`synergyc <server_ip>`
+
+作为服务器端：
+
+1. 使用 GUI 导出配置文件，例如 `synergy.conf`；
+2. `synergys -c synergy.conf`。
+
+## Tunnelblick
+
+Mac 下的 OpenVPN 客户端。
+
+源代码：[Tunnelblick/Tunnelblick](https://github.com/Tunnelblick/Tunnelblick/)
+
+```sh
+brew install --cask tunnelblick
+```
+
+## 日历增强软件 [Itsycal](https://www.mowglii.com/itsycal/)
+
+macOS 自带的时间软件一直为人所诟病，Itsycal 则提供了一个简单的替代方案，支持日历和近期事项管理。
+
+![](https://www.mowglii.com/itsycal/itsycalbanner2.png)
+
+```sh
+brew install --cask itsycal
+```
+
+特性：
+
+- 日历同步
+- 生日提醒
+- 中国节假日
+- 自定义每周第一天
+- 每周特殊日提醒

@@ -1,10 +1,16 @@
-# 常用 CLI 应用
+---
+title: 常用 CLI 应用
+shortTitle: 常用 CLI
+description: 一些 macOS 必备 CLI
+tags: [macOS, CLI, Homebrew]
+date: '2022-06-23'
+---
 
 ## HomeBrew & HomeBrew Cask
 
 Homebrew 是 Mac 下最好用的包管理器，推荐所有控制台应用都尽可能使用 brew 管理。
 
-安装 [HomeBrew](http://brew.sh)：
+安装 [Homebrew](http://brew.sh)：
 
 ```sh
 ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”
@@ -18,7 +24,7 @@ Homebrew Cask 是 Homebrew 的插件，作为 Homebrew 在 GUI 应用上的补�
 brew install caskroom/cask/brew-cask
 ```
 
-检查程序的状态：``brew info <app_name>``
+检查程序的状态：`brew info <app_name>`
 
 安装了多个版本时切换激活版本：
 
@@ -26,14 +32,13 @@ brew install caskroom/cask/brew-cask
 
 ### 安装特定版本
 
-1. 先 tap 历史仓库：``brew tap homebrew/versions``
-2. 列出可安装版本：输入 ``brew install homebrew/versions/<app_name>``  后按 TAB 键
-3. 安装：``brew install homebrew/versions/<app_name><version>``
+1. 先 tap 历史仓库：`brew tap homebrew/versions`
+2. 列出可安装版本：输入 `brew install homebrew/versions/<app_name>` 后按 TAB 键
+3. 安装：`brew install homebrew/versions/<app_name><version>`
 
-或者在 [Homebrew-versions](https://github.com/Homebrew/homebrew-versions) 仓库中找到特定 Formula 的特定版本，然后直接安装：``https://github.com/Homebrew/homebrew-versions``
+或者在 [Homebrew-versions](https://github.com/Homebrew/homebrew-versions) 仓库中找到特定 Formula 的特定版本，然后直接安装：`https://github.com/Homebrew/homebrew-versions`
 
-
-## zsh & oh-my-zsh!
+## zsh & oh-my-zsh! & p10k
 
 被称为终极 shell 也没什么问题。Mac 已经预装了 zsh ，只需要安装 `oh-my-zsh!` 即可：
 
@@ -60,55 +65,48 @@ chsh -s "$(command -v zsh)" "${USER}"
 
 - [安装 iTerm2 Solorized Dark 主题](https://github.com/altercation/solarized/blob/master/iterm2-colors-solarized/Solarized%20Light.itermcolors)
 - [安装 PowerLine 字体](https://github.com/powerline/fonts) 并设置为 iTerm2 默认字体
-- 配置环境变量：``export DEFAULT_USER="your_username"; export ZSH_THEME="agnoster"``
+- 配置环境变量：`export DEFAULT_USER="your_username"; export ZSH_THEME="agnoster"`
 
 效果预览：
 
 ![](https://gist.githubusercontent.com/agnoster/3712874/raw/screenshot.png)
 
+最后，安装 [p10k](https://github.com/romkatv/powerlevel10k)：
+
+![](https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/prompt-styles-high-contrast.png)
 
 ## tree
 
 显示目录的树状图
 
-常用命令 ``tree -L2`` 这样的命令显示最对两级目录内容。
+常用命令 `tree -L2` 这样的命令显示最对两级目录内容。
 
+## autojump & z & zoxide
 
-## htop
+`autojump` 帮助你在常用目录间快速跳转，命令是 `j 目录部分名称`，使用 `jo` 替代 `j` 可以打开目录。`jo` 仅支持 Mac ，可以迅速打开文件夹。
 
- 一个比 top 更强大、易用的终端任务管理器。
+`z` 和 [`zoxide`](https://github.com/ajeetdsouza/zoxide) 都是类似的工具，都是用来搜索文件的，但是 `z` 更加强大，支持搜索多个目录，比如 `z .` 可以搜索当前目录，`z . -r` 可以搜索当前目录及子目录。
 
+## 现代 CLI
 
-## autojump
-
-在常用目录间快速跳转，命令是 ``j 目录部分名称``，使用 ``jo`` 替代 ``j`` 可以打开目录。
-
-``jo`` 仅支持 Mac 。
-
-
-## IPython ＋ ptpython ＋ Jupyter notebook
-
-目前最强大的 Python REPL 环境。
-
-
-## ag
-
-文件查找命令，类似于 `ack`。
-
-
-## ncdu
-
-磁盘空间占用分析。
-
-
-## dos2unix
-
-换行符转换工具（Windows下换行符是 ``\r\n``，OS X 是 ``\n``）
-
+- `ag`：文件查找命令，类似于 `ack`。
+- `ncdu`：磁盘空间占用分析。
+- [`bat`](https://github.com/sharkdp/bat)：替代 `cat`
+- [`fd`](https://github.com/sharkdp/fd)：替代 `find`
+- [`ripgrep`](https://github.com/BurntSushi/ripgrep)：替代 `grep`
+- [`exa`](https://github.com/ogham/exa)：替代 `ls`
+- [`dust`](https://github.com/bootandy/dust)：替代 `du`
+- [`broot`](https://github.com/Canop/broot)：替代 `tree`
+- `htop`：替代 `top`
+- [`btop`++](https://github.com/aristocratos/btop)：替代 `top`
+- [`ctop`](https://github.com/bcicen/ctop)：替代 `docker top`
+- [`sampler`](https://github.com/sqshq/sampler)：终端版的 grafana
+- [`nnn`](https://github.com/jarun/nnn)：终端文件管理器
+- [`fzf`](https://github.com/junegunn/fzf)：模糊匹配/查找
 
 ## coreutils & advcopy
 
-Unix 命令增强。手动安装即可提供基本功能，不过为了安装 ``advcopy`` 我还是下载了源代码，
+Unix 命令增强。手动安装即可提供基本功能，不过为了安装 `advcopy` 我还是下载了源代码，
 打了补丁之后编译安装了一遍：
 
 ```shell
@@ -122,7 +120,7 @@ make && make install
 brew link coreutils
 ```
 
-如果 ``./configure ...`` 那条命令执行失败，可以去掉参数重新编译，然后手动添加软链接：
+如果 `./configure ...` 那条命令执行失败，可以去掉参数重新编译，然后手动添加软链接：
 
 ```sh
 ln -s src/cp /usr/local/bin/
@@ -131,14 +129,10 @@ alias cp="cp -gR"
 
 这样就可以将编译出来的可执行文件链接到应用程序目录。
 
+## 文本格式化工具
 
-## mpv-player
-
-```
-brew tap mpv-player/mpv
-brew cask install mpv
-```
-
+- [zhlint](https://github.com/Jinjiang/zhlint)
+- prettier
 
 ## git
 
@@ -146,81 +140,42 @@ brew cask install mpv
 
 git 教程：[小猫都能学会的 git 教程](http://www.davidrevoy.com/article193/guide-building-krita-on-linux-for-cats)
 
+## node.js 相关
 
-## pip & gem & npm & cnpm
+- yarn
+- pnpm
+- npx：现在已经是 [npm](https://github.com/npm/cli) 的一部分了
 
-pip 以外的所有 Python 应用都应该使用 pip 来安装！
+## Python 开发相关
 
-gem 是 Ruby 的包管理器，安装 compass / puppet / vagrant 等 Ruby 应用时离不开 gem。
-gem 源也是被干扰得最厉害的，建议使用淘宝镜像：
-
-    gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
-
-npm 是 node.js 包管理器，cnpm 是 淘宝提供的 npm 替代品，不过现在速度似乎是官方源更快一些。
-
-    brew install npm    # 会同时安装 node 和 npm
-
-Ubuntu 官方源的 node.js 太古老，可以从 node.js 官方源安装：
-
-    curl -sL https://deb.nodesource.com/setup_5.x | sh -  # setup_5.x 换成 setup_4.x 就可以安装最新的 Node.js 4
-
-
-## sphinx
-
-Python 社区的文档管理标准，著名的文档托管服务 [ReadTheDocs](http://rtfd.org) 服务就是基于其搭建，
-支持 i18n，配合 Python 注释自动生成非常方便。
-
-
-## LiveReload
-
-[LiveReload](https://github.com/lepture/python-livereload) 是使用 Python 开发的自动刷新工具，
-可以配合 livereload Chrome 插件使用。
-
-文档：[en](https://github.com/lepture/python-livereload)
-
-
-
-## virtualenv & VirtualEnvWrapper
-
-virtualenv 提供了 Python 虚拟环境的隔离，但是命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 基于它提供了更简易的命令和操作。
-
-
+- [virtualenv] 提供了 Python 虚拟环境的隔离，但是命令复杂，目录的管理也比较混乱，VirtualEnvWrapper 基于它提供了更简易的命令和操作。
+- pip-tools
+- pyenv
+- [poetry](https://python-poetry.org/)：Python 开发环境的配置工具，支持 Python 3.6+。
+- [pipx](https://github.com/pypa/pipx)：npx 的 Python 版本
+- IPython & Jupyter notebook 目前最强大的 Python REPL 环境。
 
 ## tmux
 
 控制台中的标签页管理工具以及分屏管理工具。
 
+## [neofetch](https://github.com/dylanaraps/neofetch)
 
-## Vim
+没啥用，就是炫酷：
 
-目前最常用的编辑器是 Vim，配置主要来自胡淼的 [dot-vim](https://github.com/humiaozuzu/dot-vimrc)，
-也有一些自己的特别配置。安装：
+![neofetch](https://camo.githubusercontent.com/82b03feab20083a17944229ea151c0fbd521cae0ecb44a8b2f3934ebce2e1e91/68747470733a2f2f692e696d6775722e636f6d2f47466d433541642e706e67)
 
-```sh
-mv ~/.vim ~/.vim.orig
-mv ~/.vimrc ~/.vimrc.orig
-git clone git://github.com/humiaozuzu/dot-vimrc.git ~/.vim
-ln -s ~/.vim/vimrc ~/.vimrc
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-vim +BundleClean +BundleInstall +qall
-```
-
+## NeoVim
 
 ## aria2
 
 [aira2](http://aria2.sourceforge.net/) 是 OS X 和 Linux 下通用的下载工具，可以安装在路由器、NAS 等 Linux 机器上。
 
-配合 [YAAW](https://github.com/binux/yaaw) 或者 [webui-arias2](https://github.com/ziahamza/webui-aria2) 非常方便。
-
-附：
-* [aria2 配置示例](http://blog.binux.me/2012/12/aria2-examples/)
-* [YAAW](http://binux.github.io/yaaw/)
-* [Aria2 & YAAW 使用说明](http://aria2c.com/usage.html)
-
+目前主要在 NAS 上配合 AriaNg 使用。
 
 ## 终端录制工具 asciinema
 
-[asciinema](https://asciinema.org/) 是一个终端录制及分享工具，支持 Mac 和 Linux 操作系统。Mac 下可以使用 HomeBrew 进行安装：``brew install asciinema``。
+[asciinema](https://asciinema.org/) 是一个终端录制及分享工具，支持 Mac 和 Linux 操作系统。Mac 下可以使用 HomeBrew 进行安装：`brew install asciinema`。
 
 asciinema 的使用也非常简单，输入下面的命令将开启一个 tty 开始录制：
 
@@ -228,9 +183,9 @@ asciinema 的使用也非常简单，输入下面的命令将开启一个 tty �
 asciinema rec
 ```
 
-其使用方式和本地的 shell 环境基本一致。按下组合键 ``Ctrl+d`` 可以退出录制环境，并自动上传。
+其使用方式和本地的 shell 环境基本一致。按下组合键 `Ctrl+d` 可以退出录制环境，并自动上传。
 
-安装 asciinema 时会在本地生成一个独一无二的认证 token，在官网注册好帐号后，输入 ``asciinema auth`` 可以将自己的帐号和 token 相关联，并加以管理。
+安装 asciinema 时会在本地生成一个独一无二的认证 token，在官网注册好帐号后，输入 `asciinema auth` 可以将自己的帐号和 token 相关联，并加以管理。
 
 官网的注册方式是基于 email 的认证，会自动获取 gavatar 头像作为你站内的头像。关联成功后的页面如下：
 
@@ -239,7 +194,7 @@ asciinema rec
 ## transfer.sh
 
 [transfer.sh](https://transfer.sh) 是一个提供文件临时存储的网络服务，可以使用终端直接上传文件：
-``curl --upload-file ./hello.txt https://transfer.sh/hello.txt https://transfer.sh/66nb8/hello.txt``，当然使用 shell 函数会更加方便，可以将下面代码存入 ``.bashrc`` 或者 ``.zshrc`` 中获得 ``transfer`` 命令：
+`curl --upload-file ./hello.txt https://transfer.sh/hello.txt https://transfer.sh/66nb8/hello.txt`，当然使用 shell 函数会更加方便，可以将下面代码存入 `.bashrc` 或者 `.zshrc` 中获得 `transfer` 命令：
 
 ```sh
 # transfer.sh
