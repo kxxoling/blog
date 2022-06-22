@@ -12,6 +12,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "next": "^12.1.6",
+    "next-mdx-remote": "^4.0.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-syntax-highlighter": "^15.5.0"
@@ -29,12 +30,11 @@
     "eslint-config-next": "12.1.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^8.0.1",
-    "next-mdx-remote": "^4.0.0",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
     "prettier-eslint": "^15.0.1",
