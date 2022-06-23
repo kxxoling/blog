@@ -6,7 +6,7 @@ EditorConfig 的配置文件是 ini 格式的纯文本文件，因此对于版�
 
 ## 配置文件基本
 
-EditorConfig 插件会自动在项目中寻找名为 ``.editorconfig`` 的配置文件，每个文件的样式偏好会自动根据该文件所在文件夹的 ``.editorconfig`` 文件向上寻找所有同名文件，直到某个配置的文件种包含了 ``root=true``。最接近该文件的配置文件中的设置优先最高。
+EditorConfig 插件会自动在项目中寻找名为 `.editorconfig` 的配置文件，每个文件的样式偏好会自动根据该文件所在文件夹的 `.editorconfig` 文件向上寻找所有同名文件，直到某个配置的文件种包含了 `root=true`。最接近该文件的配置文件中的设置优先最高。
 
 ## 配置文件格式
 
@@ -50,38 +50,35 @@ indent_size = 2
 
 ### 通配符基本
 
-字符           | 功能
---------------|--------------------------
-*             | 匹配 ``/`` 之外的所有字符
-**            | 匹配所有字符
-[name]        | 匹配 name 中所包含的任一字符
-[!name]       | 匹配不包含在 name 中的任一字符
-`{s1,s2,s3}`  | 匹配其中任一字符串的字符
-`{num1..num2}`| 匹配 num1 到 num2 之间的整数，支持正负数
+| 字符           | 功能                                     |
+| -------------- | ---------------------------------------- |
+| \*             | 匹配 `/` 之外的所有字符                  |
+| \*\*           | 匹配所有字符                             |
+| [name]         | 匹配 name 中所包含的任一字符             |
+| [!name]        | 匹配不包含在 name 中的任一字符           |
+| `{s1,s2,s3}`   | 匹配其中任一字符串的字符                 |
+| `{num1..num2}` | 匹配 num1 到 num2 之间的整数，支持正负数 |
 
 ### 支持的参数
 
+- `indent_style`：缩进风格，可以是 `tab` 或者 `space`，对应 hard tabs 和 soft tabs。
 
-- ``indent_style``：缩进风格，可以是 ``tab`` 或者 ``space``，对应 hard tabs 和 soft tabs。
+- `indent_size`：缩进的宽度，即列数，必须是整数。如果 indent_style 为 tab，则此属性默认为 tab_width。
 
-- ``indent_size``：缩进的宽度，即列数，必须是整数。如果indent_style为tab，则此属性默认为tab_width。
+- `tab_width`：设置 tab 的宽度。默认值等同 `indent_size`。
 
-- ``tab_width``：设置 tab 的宽度。默认值等同 ``indent_size``。
+- `end_of_line`：换行符，`lf`、`cr` 或者 `crlf`。
 
-- ``end_of_line``：换行符，``lf``、``cr`` 或者 ``crlf``。
+- `charset`：编码类型，可以是 `latin1`、`utf-8`、`utf-8-bom`、`utf-16be` 和 `utf-16le`。不建议使用 `utf-8-bom`。
 
-- ``charset``：编码类型，可以是 ``latin1``、``utf-8``、``utf-8-bom``、``utf-16be`` 和 ``utf-16le``。不建议使用 ``utf-8-bom``。
+- `trim_trailing_whitespace`：设为 `true` 表示会除去换行行首的任意空白字符。
 
-- ``trim_trailing_whitespace``：设为 ``true`` 表示会除去换行行首的任意空白字符。
+- `insert_final_newline`：设为 `true` 表明使文件以一个空白行结尾
 
-- ``insert_final_newline``：设为 ``true`` 表明使文件以一个空白行结尾
-
-- ``root``：表明是最顶层的配置文件，发现设为true时，才会停止查找 ``.editorconfig`` 文件。
-
+- `root`：表明是最顶层的配置文件，发现设为 true 时，才会停止查找 `.editorconfig` 文件。
 
 ## 示例
 
 {/* <Gist id="01c5943dea13f71c2a658e870405f158" /> */}
 
-
-[EditorConfig]: http://editorconfig.org/
+[editorconfig]: http://editorconfig.org/

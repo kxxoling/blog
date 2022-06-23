@@ -6,27 +6,26 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 - 官方索引：[awesome-vue](https://github.com/vuejs/awesome-vue)
 - 项目源代码：[vuejs/vue](https://github.com/vuejs/vue)
 - 开发工具：
-	- 脚手架工具 [vue-cli](https://github.com/vuejs/vue-cli) （面向组件开放的项目都建议使用这个官方工具初始化）
-	- Webpack 插件 [vue-loader](https://github.com/vuejs/vue-loader) （官方推荐）
-	- Browserify 插件 [vueify](https://github.com/vuejs/vueify) （webpack 明显是一个更优选择）
-	- Chrome 开发插件 [vue-devtools](https://github.com/vuejs/vue-devtools)
+  - 脚手架工具 [vue-cli](https://github.com/vuejs/vue-cli) （面向组件开放的项目都建议使用这个官方工具初始化）
+  - Webpack 插件 [vue-loader](https://github.com/vuejs/vue-loader) （官方推荐）
+  - Browserify 插件 [vueify](https://github.com/vuejs/vueify) （webpack 明显是一个更优选择）
+  - Chrome 开发插件 [vue-devtools](https://github.com/vuejs/vue-devtools)
 - xhr
-	- [vue-resource] （文档和代码都比较简单）
+  - [vue-resource] （文档和代码都比较简单）
 - UI 库：
-	- [vue-antd] 蚂蚁金服 ant design 的 Vue 实现（不够完善，但是看起来比 [vue-strap] 好看些。
-	- [vue-spectre](https://github.com/vace/vue-spectre)
+  - [vue-antd] 蚂蚁金服 ant design 的 Vue 实现（不够完善，但是看起来比 [vue-strap] 好看些。
+  - [vue-spectre](https://github.com/vace/vue-spectre)
 - 路由
-	- [vue-router](https://github.com/vuejs/vue-router)（官方 router）
-	- [vuex-router-sync](https://github.com/vuejs/vuex-router-sync)（Vuex 和 Vue-Router 的绑定）
+  - [vue-router](https://github.com/vuejs/vue-router)（官方 router）
+  - [vuex-router-sync](https://github.com/vuejs/vuex-router-sync)（Vuex 和 Vue-Router 的绑定）
 - 单项数据流
-    - [VueX](https://github.com/vuejs/vuex) 相当于 React-Redux + Redux
-
+  - [VueX](https://github.com/vuejs/vuex) 相当于 React-Redux + Redux
 
 ## Vue 2.0 更新
 
 ### 高级部分
 
-模板渲染不再依赖于 DOM，也就是说 ``<script type="text/x-template">`` 以及单文件组件用户由于不需要手动设置 ``el`` 选项将不再会受 1.0 时代的渲染限制。
+模板渲染不再依赖于 DOM，也就是说 `<script type="text/x-template">` 以及单文件组件用户由于不需要手动设置 `el` 选项将不再会受 1.0 时代的渲染限制。
 
 由于 Vue 2.0 已经将编译器和运行时环境解耦，因此提供了两种不同的构建：
 
@@ -37,23 +36,22 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 
 新增配置
 
-- ``silent``
-- ``optionMergeStrategies``
-- ``devtools``
-- ``errorHandler``
-- ``keyCodes``： configure custom key aliases for ``v-on``
+- `silent`
+- `optionMergeStrategies`
+- `devtools`
+- `errorHandler`
+- `keyCodes`： configure custom key aliases for `v-on`
 
 反对配置：
 
-- ``debug``
-- ``async``
-- ``delemiters``：改为组件级设置
-- ``unsafeDelimiters``：使用 ``v-html`` 代替
+- `debug`
+- `async`
+- `delemiters`：改为组件级设置
+- `unsafeDelimiters`：使用 `v-html` 代替
 
 ### 全局 API
 
-
-新增 ``Vue.compile``（仅针对独立版本）。
+新增 `Vue.compile`（仅针对独立版本）。
 
 反对的 API 有：
 
@@ -76,7 +74,7 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 
 ### 生命周期
 
-``init`` 改为 ``beforeCreate``
+`init` 改为 `beforeCreate`
 
 新增：
 
@@ -96,11 +94,9 @@ Vue.js 通常简称 Vue，是一个介于 Angular 和 Reactjs 之间的前端开
 - attached：请在其它 hook 中检查是否存在于 DOM
 - detached：同上
 
-
 ### Assets
 
 partials 和 elementDirectives 已反对。
-
 
 ### 其它
 
@@ -144,16 +140,15 @@ data 中已反对项:
 
 ### 指令变化
 
-- 反对使用 ``\{\{\{\}\}\}``
-- 反对 v-for 中使用 ``$index`` 和 ``$key``，使用 ``(value, index) in arr`` 或者 `` (value, key, index) in obj`` 代替。
-- 反对 debounce，使用第三方 debounce 函数配合v-on:input 来代替。
-- v-ref：改为属性 ``ref``
-- v-el：已合并进 ``ref`` 属性
-
+- 反对使用 `\{\{\{\}\}\}`
+- 反对 v-for 中使用 `$index` 和 `$key`，使用 `(value, index) in arr` 或者 ` (value, key, index) in obj` 代替。
+- 反对 debounce，使用第三方 debounce 函数配合 v-on:input 来代替。
+- v-ref：改为属性 `ref`
+- v-el：已合并进 `ref` 属性
 
 ### 渲染相关
 
-提供 ``renderToString``、``renderToStream`` 和客户端渲染。
+提供 `renderToString`、`renderToStream` 和客户端渲染。
 
 详细：https://github.com/vuejs/vue/issues/2873
 
@@ -169,7 +164,6 @@ debounce 是用来限制 Ajax 等耗时时间的出发频率的，Vue 的 deboun
 
 比如说你在设计一个搜索提示功能，使用 debounce 意味着用户必须停止输入一段时间之后才会发送搜索请求，而你真正需要的应该是搜索频率的限制。
 
-
 ## 基本概念
 
 入前面所说，Vue 的定位介于 Angular 和 Reactjs，既可以手动绑定 DOM 元素，也可以定义组件进行模块化开发。
@@ -180,15 +174,15 @@ Vue 作为一个 MVVM 框架，双向绑定是其最基本的特性。
 
 数据的绑定、类／状态的绑定、样式绑定
 
-动态数据的绑定（``computed``）
-
+动态数据的绑定（`computed`）
 
 ### 组件（核心）
 
 #### template 标签
 
 #### 插槽 slot
-对于一个灵活的组件来说，可替换的组件非常重要。Vue 中提供了一个叫做 slot 的概念，使用 ``slot`` 标签作为内容插槽的占位符。
+
+对于一个灵活的组件来说，可替换的组件非常重要。Vue 中提供了一个叫做 slot 的概念，使用 `slot` 标签作为内容插槽的占位符。
 
 定义：
 
@@ -212,15 +206,17 @@ Vue 作为一个 MVVM 框架，双向绑定是其最基本的特性。
 
 ```html
 <modal>
-	<template slot="header"><!-- 声明替换 template 中的 header 槽 -->
-		<h2>This is header</h2>
-	</template>
-	<div slot="body"><!-- template 标签不是必须的，可以指定槽元素 -->
-		<p>Content body.</p>
-	</div>
-	<template slot="footer">
-		<div>Footer</div>
-	</template>
+  <template slot="header"
+    ><!-- 声明替换 template 中的 header 槽 -->
+    <h2>This is header</h2>
+  </template>
+  <div slot="body">
+    <!-- template 标签不是必须的，可以指定槽元素 -->
+    <p>Content body.</p>
+  </div>
+  <template slot="footer">
+    <div>Footer</div>
+  </template>
 </modal>
 ```
 
@@ -234,7 +230,7 @@ Vue 作为一个 MVVM 框架，双向绑定是其最基本的特性。
 - 模板只包含一个元素指令，如 `<partial>` 或 vue-router 的 `<router-view>`。
 - 模板根节点有一个流程控制指令，如 v-if 或 v-for。
 
-片段实例的问题在于，可能无法找到唯一对应的顶级元素，因此无法正常绑定 ``$el``。
+片段实例的问题在于，可能无法找到唯一对应的顶级元素，因此无法正常绑定 `$el`。
 
 大多数情况下不建议使用片段实例。
 
@@ -246,11 +242,9 @@ Vue 作为一个 MVVM 框架，双向绑定是其最基本的特性。
 
 可以理解为 templateUrl 的替代品。
 
-
 ### 指令
 
 指令的作用和组件类似，相当于轻量级的组件。
-
 
 ### MixIn
 
@@ -269,22 +263,23 @@ CSS 动画的原理是在触发创建和销毁事件时修改元素的类名，�
 ```html
 <div v-if="show" transition="expand">hello</div>
 <style>
-/* 必需 */
-.expand-transition {
-  transition: all .3s ease;
-  height: 30px;
-  padding: 10px;
-  background-color: #eee;
-  overflow: hidden;
-}
+  /* 必需 */
+  .expand-transition {
+    transition: all 0.3s ease;
+    height: 30px;
+    padding: 10px;
+    background-color: #eee;
+    overflow: hidden;
+  }
 
-/* .expand-enter 定义进入的开始状态 */
-/* .expand-leave 定义离开的结束状态 */
-.expand-enter, .expand-leave {
-  height: 0;
-  padding: 0 10px;
-  opacity: 0;
-}
+  /* .expand-enter 定义进入的开始状态 */
+  /* .expand-leave 定义离开的结束状态 */
+  .expand-enter,
+  .expand-leave {
+    height: 0;
+    padding: 0 10px;
+    opacity: 0;
+  }
 </style>
 ```
 
@@ -305,32 +300,29 @@ transition 特性没有值时默认类名是 .v-transition, .v-enter 和 .v-leav
 ```js
 Vue.transition('bounce', {
   enterClass: 'bounceInLeft',
-  leaveClass: 'bounceOutRight'
+  leaveClass: 'bounceOutRight',
 })
 ```
 
 就可以像上面那样使用了。
 
-
 #### JS 过渡
 
 ### 过滤器
 
-对数据进行额外的处理，使用管道符 ``|`` 分隔数据和过滤器，可以同时使用多个过滤器。
+对数据进行额外的处理，使用管道符 `|` 分隔数据和过滤器，可以同时使用多个过滤器。
 
 #### 自定义过滤器
 
-过滤器通常是单参数函数，可以使用 ``Vue.filter(filterName, filterFunc)`` 方法全局注册。
+过滤器通常是单参数函数，可以使用 `Vue.filter(filterName, filterFunc)` 方法全局注册。
 
 #### 双向过滤器
-
 
 ## 自定义开发
 
 ### 自定义指令
 
 ### 插件开发
-
 
 ## 增强代码的可复用性
 
@@ -342,9 +334,9 @@ Vue 默认会自动转换 camelCase 和 PascalCase 的组件名为 kebab-case，
 
 组件应当定义好清晰的公开接口，允许外部环境通过 props 传递数据给组件，允许组件触发外部事件，使用 slot 提供可插拔的替换内容。
 
-
 ### 默认事件
-[link](http://vuejs.org/api/#Options_\/_Lifecycle_Hooks)
+
+[link](http://vuejs.org/api/#Options_/_Lifecycle_Hooks)
 
 1. init 组件实例初始化完毕，并未开始设置数据监控和事件、监控
 2. created 数据监控、计算熟悉、方法、事件监控已就绪，DOM 未就绪，$el 尚不存在
@@ -359,7 +351,6 @@ Vue 默认会自动转换 camelCase 和 PascalCase 的组件名为 kebab-case，
 ![图解 Vue 生命周期](/images/javascript/vue-lifecycle.png)
 
 ### 事件派发
-
 
 ## 常见问题
 
@@ -402,27 +393,26 @@ Vue 默认会自动转换 camelCase 和 PascalCase 的组件名为 kebab-case，
 ### 是否会提供类似 templateURL 的支持？
 
 [官方的回答](http://vuejs.org/2015/10/28/why-no-template-url/)是不会考虑。
-（[中文](https://segmentfault.com/a/1190000004174940) [中文2](http://www.jianshu.com/p/7f7f050c9edf)）
+（[中文](https://segmentfault.com/a/1190000004174940) [中文 2](http://www.jianshu.com/p/7f7f050c9edf)）
 
 不过 Vue 提供了另一个相似的功能，也就是异步加载组件。
 
 ### 用做 SPA 的时候如何不重复渲染被隐藏的组件？
 
-可以考虑使用 ``v-show`` 指令来代替 ``v-if``，可以使用 ``keep-alive`` 指令。
-较新版本的 vue-loader 也提供了 ``keep-alive`` 的支持。
+可以考虑使用 `v-show` 指令来代替 `v-if`，可以使用 `keep-alive` 指令。
+较新版本的 vue-loader 也提供了 `keep-alive` 的支持。
 
 ### 组件中数据同步问题？
 
-虽然 Vue 提供了 ``:data.sync='obj'`` 这样的组件间数据双向绑定的写法，但对于复杂关联的数据，推荐使用
-``$dispatch()`` 向上派发和 ``$broadcast()`` 向下广播事件。
+虽然 Vue 提供了 `:data.sync='obj'` 这样的组件间数据双向绑定的写法，但对于复杂关联的数据，推荐使用
+`$dispatch()` 向上派发和 `$broadcast()` 向下广播事件。
 
 ### 父子组件间数据交换的最佳实践？
 
-``$root``
+`$root`
 消息
 props
 slot
-
 
 ## webpack 常见问题
 
@@ -439,5 +429,3 @@ require('expose?本地名!../vendors/第三方库.js')
 [vue-resource]: https://github.com/vuejs/vue-resource
 [vue-strap]: http://yuche.github.io/vue-strap/
 [vue-antd]: https://github.com/okoala/vue-antd
-
-
