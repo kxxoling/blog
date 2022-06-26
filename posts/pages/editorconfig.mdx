@@ -1,8 +1,14 @@
-# 使用 EditorConfig 设置项目的偏好设置
+---
+title: 使用 EditorConfig 设置项目的偏好设置
+tags: [linter, EditorConfig]
+date: '2022-06-26'
+---
 
 [EditorConfig] 是一个编辑器/IDE 偏好设置的标准，在各大主流编辑器/IDE 平台都支持或者拥有相应的插件。它能够帮助你根据项目自动设置编辑器/IDE 的代码偏好。
 
 EditorConfig 的配置文件是 ini 格式的纯文本文件，因此对于版本控制程序来说非常友好。
+
+已被 prettier 默认支持，可以设置 `option.editorConfig = true` 来启用。
 
 ## 配置文件基本
 
@@ -62,19 +68,12 @@ indent_size = 2
 ### 支持的参数
 
 - `indent_style`：缩进风格，可以是 `tab` 或者 `space`，对应 hard tabs 和 soft tabs。
-
 - `indent_size`：缩进的宽度，即列数，必须是整数。如果 indent_style 为 tab，则此属性默认为 tab_width。
-
 - `tab_width`：设置 tab 的宽度。默认值等同 `indent_size`。
-
 - `end_of_line`：换行符，`lf`、`cr` 或者 `crlf`。
-
 - `charset`：编码类型，可以是 `latin1`、`utf-8`、`utf-8-bom`、`utf-16be` 和 `utf-16le`。不建议使用 `utf-8-bom`。
-
 - `trim_trailing_whitespace`：设为 `true` 表示会除去换行行首的任意空白字符。
-
 - `insert_final_newline`：设为 `true` 表明使文件以一个空白行结尾
-
 - `root`：表明是最顶层的配置文件，发现设为 true 时，才会停止查找 `.editorconfig` 文件。
 
 ## 示例

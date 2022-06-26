@@ -1,4 +1,9 @@
-# Sentry
+---
+title: Sentry
+tags: [Sentry]
+date: '2022-06-26'
+thumbnail: /images/sentry.webp
+---
 
 Sentry 是一个开源的实时错误报告工具，支持 web 前后端、移动应用以及游戏，支持
 Python、OC、Java、Go、Node.js、Django、RoR 等[主流编程语言和框架](https://getsentry.com/platforms/)
@@ -17,9 +22,7 @@ Python、OC、Java、Go、Node.js、Django、RoR 等[主流编程语言和框架
 ### DSN（Data Source Name）
 
 Sentry 服务支持多用户、多团队、多应用管理，每个应用都对应一个 PROJECT_ID，以及用于身份认证的
-PUBLIC_KEY 和 SECRET_KEY。由此组成一个这样的 DSN：
-
-    `'{PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}'`
+PUBLIC_KEY 和 SECRET_KEY。由此组成一个这样的 DSN：`'{PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}'`
 
 PROTOCOL 通常会是 `http` 或者 `https`，HOST 为 Sentry 服务的主机名和端口，PATH
 通常为空。
@@ -43,6 +46,8 @@ PostgreSQL 以及 Redis，确保你已经安装好了这些依赖。考虑到 Py
 ## 使用 Sentry SDK
 
 Sentry 的 SDK 通常在各语言的包管理器中成为 Raven，使用起来也非常简单。以 Python 为例：
+
+（现已改为 sentry 或者 sentry-client）
 
 ```python
 from raven import Client
@@ -173,14 +178,14 @@ logging.config.dictConfig(LOGGING)
 
 Sentry 官方还提供了 Docker 镜像以及[部署方案](https://github.com/docker-library/docs/blob/master/sentry/variant-onbuild.md)，用起来非常方便。
 
-0. 首先安装并启动 Docker 服务，然后拉取最新的 Sentry 镜像：`docker pull sentry`。
-1. 启动一个 redis 服务作为消息 broker：`docker run -d --name sentry-redis redis`
-2. 设置数据库密码作为环境变量，之后的命令都会用到：`export DBPW='<your-postgres-db-password>'`
-3. 启动一个 Postgres 数据库服务作为存储数据库：`docker run -d --name sentry-postgres -e POSTGRES_PASSWORD='$(DBPW)' -e POSTGRES_USER=sentry postgres`，这里推荐使用 Volume 将数据库文件单独挂载出来。
-4. migrate 数据库结构至最新：`docker run -it --rm -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry upgrade`
-5. 启动 Sentry 服务并链接以上服务: `docker run -d --name sentry-app -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-redis:redis --link sentry-postgres:postgres -p 8080:9000 sentry`
-6. 运行一个 cron 容器用于定时任务：`docker run -d --name sentry-cron -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry run cron`
-7. 运行一个 worker 容器用于后台任务：`docker run -d --name sentry-worker-1 -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry run worker`
+1. 首先安装并启动 Docker 服务，然后拉取最新的 Sentry 镜像：`docker pull sentry`。
+2. 启动一个 redis 服务作为消息 broker：`docker run -d --name sentry-redis redis`
+3. 设置数据库密码作为环境变量，之后的命令都会用到：`export DBPW='<your-postgres-db-password>'`
+4. 启动一个 Postgres 数据库服务作为存储数据库：`docker run -d --name sentry-postgres -e POSTGRES_PASSWORD='$(DBPW)' -e POSTGRES_USER=sentry postgres`，这里推荐使用 Volume 将数据库文件单独挂载出来。
+5. migrate 数据库结构至最新：`docker run -it --rm -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry upgrade`
+6. 启动 Sentry 服务并链接以上服务: `docker run -d --name sentry-app -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-redis:redis --link sentry-postgres:postgres -p 8080:9000 sentry`
+7. 运行一个 cron 容器用于定时任务：`docker run -d --name sentry-cron -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry run cron`
+8. 运行一个 worker 容器用于后台任务：`docker run -d --name sentry-worker-1 -e SENTRY_SECRET_KEY='$(DBPW)' --link sentry-postgres:postgres --link sentry-redis:redis sentry run worker`
 
 如果没有什么错误发生，使用 `docker ps` 命令将会得到 `sentry-app`、`sentry-posgres`、`sentry-redis`、`sentry-cron`、`sentry-worker-1` 5 个正在运行的容器。
 

@@ -1,6 +1,11 @@
-# git 入门
+---
+title: git 入门
+tags: [git, vcs]
+date: '2022-06-26'
+thumbnail: /images/git/git-status.jpg
+---
 
-git 是 Linux 之父 Linux 开发的开源的分布式版本控制系统，通常用于代码的版本控制。和 SVN
+git 是 Linux 之父 Linus 开发的开源的分布式版本控制系统，通常用于代码的版本控制。和 SVN
 这样依赖中心服务器的版本控制系统不同的是，git 是分布式的，因此被称为分布式版本控制系统。
 
 ## 基本概念
@@ -16,7 +21,7 @@ git 是 Linux 之父 Linux 开发的开源的分布式版本控制系统，通�
 ## 基本命令
 
 | git xxx 命令 | 作用                                                         |
-| ------------ | ------------------------------------------------------------ |
+| :----------- | :----------------------------------------------------------- |
 | status       | 显示 repo 当前状态                                           |
 | commit       | 提交代码                                                     |
 | push         | 推送代码                                                     |
@@ -58,38 +63,52 @@ git 对 repo 的管理以文件为对象，在使用过程中一个文件会存�
 
 添加 upstream：
 
-    git upstream add origin [git repo addr]
+```sh
+git upstream add origin [git repo addr]
+```
 
 删除远程分支：
 
-    git push --delete [branch_name]     # 缩写形式：git branch -d [branch_name]
+```sh
+git push --delete [branch_name]     # 缩写形式：git branch -d [branch_name]
+```
 
 或者：
 
+```sh
 git branch -dr [remote] [branch]
+```
 
 清除无用代码／文件：
 
-    git clean -f     # 删除 untracked 状态的文件
-    git clean -fd    # 删除 untracked 状态的文件和目录
-    git clean -nfd   # 列出所有会删除的文件和目录（并不执行删除）
+```sh
+git clean -f     # 删除 untracked 状态的文件
+git clean -fd    # 删除 untracked 状态的文件和目录
+git clean -nfd   # 列出所有会删除的文件和目录（并不执行删除）
+```
 
 列出当前所有分支：
 
+```sh
 git branch --all[ --verbose] # verbose 参数可以同时显示出分支的 HEAD commit，缩写形式： git branch -av
+```
 
 显示文件的修改纪录和修改人信息：
 
+```sh
 git blame [filename]
+```
 
 发布 tag：
 
+```sh
 git push --tags
+```
 
 ## reset、revert、checkout 的区别
 
 | 命令\作用对象 | 文件                     | commit                                                     |
-| ------------- | ------------------------ | ---------------------------------------------------------- |
+| :------------ | :----------------------- | :--------------------------------------------------------- |
 | reset         | 清除文件的未提交改动     | 丢弃私有分支中某次提交之后的所有提交，或者丢失未提交的改动 |
 | checkout      | 放弃工作目录中的所有改动 | 切换分支，或者检出某个版本的文件快照                       |
 | revert        |                          | 将公共分支的代码强制覆盖为某个版本的代码                   |
@@ -100,44 +119,59 @@ git push --tags
 
 撤销提交最简单的方式是 `git add`／`git remove` 相应文件后运行：
 
-    git commit --amend
+```sh
+git commit --amend
+```
 
 然后会直接回到编辑提交信息的 UI。（通常是使用默认编辑器编辑 commit 信息）
 
 或者可以一次性运行：
 
-    git commit [file1] [file2] ... -m [message]
+```sh
+git commit [file1] [file2] ... -m [message]
+```
 
 提交并显示详细信息和 diff 信息：
 
-    git commit -v
+```sh
+git commit -v
+```
 
 使用一次新的 commit，替代上一次提交，如果代码没有任何新变化，则用来改写上一次 commit 的提交信息
 
-    git commit --amend -m [message]
+```sh
+git commit --amend -m [message]
+```
 
 重做上一次 commit，并包括指定文件的新变化
 
-    git commit --amend [file1] [file2] ...
+```sh
+git commit --amend [file1] [file2] ...
+```
 
 ### 折叠显示 diff 信息
 
 我常用的方法是通过管道将 git diff 结果传递给 less，实际上 git 内置了分页（pager）的支持，
 diff 的时候加上 `-s` 参数即可设置 less 作为 pager，全局设置命令：
 
-    git config core.pager 'less -r'
+```sh
+git config core.pager 'less -r'
+```
 
 ### clone 特定分支
 
 项目很大或者网络很差的时候你可能只打算 clone 其中某一个分支：
 
-    git clone REPO_URI[ TARGET_FOLDER][ -b/--branch SOME_BRANCH]
+````sh
+git clone REPO_URI[ TARGET_FOLDER][ -b/--branch SOME_BRANCH]
 
 `REPO_URI` 可以是 git 协议、HTTP/HTTPS 或者 SSH 协议的资源地址。
 
 ### 比较某个文件和远程分支上的区别
 
-    git diff local_branch remote_branch file_path
+```sh
+git diff local_branch remote_branch file_path
+````
 
 ### 列出已删除的文件（并恢复）
 
@@ -162,32 +196,44 @@ cherry-pick 你需要的那条提交记录。
 
 这种情况下，你可以使用 `git rebase`，例如，你想要修改 bbc643cd commit，运行下面的命令：
 
-    git rebase bbc643cd^ --interactive
+```sh
+git rebase bbc643cd^ --interactive
+```
 
 在默认的编辑器中选择并修改你期望修改的，然后保存修改并输入：
 
-    git add
-    <
-    filepattern
-    >
+```sh
+git add
+<
+filepattern
+>
+```
 
 现在你就可以使用
 
-    git commit --amend
+```sh
+git commit --amend
+```
 
 来修改 commit，之后使用
 
-    git rebase --continue
+```sh
+git rebase --continue
+```
 
 返回之前最新的 commit。
 
 ### ignore 已存在在代码库中文件的后续改动
 
-    git update-index --assume-unchanged
+```sh
+git update-index --assume-unchanged
+```
 
 ### 从不相干的 repo 中提取 commit
 
-    git --git-dir=SOME_REPO/.git format-patch -k -1 --stdout | git am -3 -k
+```sh
+git --git-dir=SOME_REPO/.git format-patch -k -1 --stdout | git am -3 -k
+```
 
 这行命令首先从仓库 SOME_REPO 中提取 patch 并输出到 stdout，在使用 `git am` 命令在当前 repo 中应用 commit。
 
@@ -195,22 +241,28 @@ cherry-pick 你需要的那条提交记录。
 
 在 master 分支构建 dist 并将其加入版本控制（不喜欢的话也可以开一个 orphan 分支）：
 
-    git add dist                                        # 将 dist 目录加入版本控制库，如已忽略可以 git add -f
-    git commit -m "Initial dist subtree commit"         # 提交
-    git subtree push --prefix dist origin gh-pages      # 使用 subtree 命令单独将 dist 目录发布到一个分支
+```sh
+git add dist                                        # 将 dist 目录加入版本控制库，如已忽略可以 git add -f
+git commit -m "Initial dist subtree commit"         # 提交
+git subtree push --prefix dist origin gh-pages      # 使用 subtree 命令单独将 dist 目录发布到一个分支
+```
 
 ### 执行 git 命令的时候忽略所有 hook
 
 以忽略 pre-push hook 为例：
 
-    git push --no-verify
+```sh
+git push --no-verify
+```
 
 ### 创建远程仓库
 
-    git init --bare
+```sh
+git init --bare
 
-    git remote add origin GIT_REPO_ADDR
-    git push -u origin master
+git remote add origin GIT_REPO_ADDR
+git push -u origin master
+```
 
 ## 使用 git 追踪错误
 
@@ -218,35 +270,51 @@ cherry-pick 你需要的那条提交记录。
 
 ### 删除远程所有已合并近 master 的分支
 
-    git push origin --delete $(git branch --merged origin/master -r | grep -v master | grep origin | cut -d/ -f2-)
+```sh
+git push origin --delete $(git branch --merged origin/master -r | grep -v master | grep origin | cut -d/ -f2-)
+```
 
 ### 显示树状 git log
 
-    git log --oneline --graph
+```sh
+git log --oneline --graph
+```
 
 ### 显示某一个文件的变更记录
 
-    git log -p [filename]
+```sh
+git log -p [filename]
+```
 
 ### 显示文件某几行的变更记录
 
-    git log -L [start-line],[end-line]:[filename]
+```sh
+git log -L [start-line],[end-line]:[filename]
+```
 
 ### 显示没有合并进 master 的变更
 
-    git log --no-merges master
+```sh
+git log --no-merges master
+```
 
 ### 显示其它分支某个文件的内容
 
-    git show [branch-name]:[filename]
+```sh
+git show [branch-name]:[filename]
+```
 
 ### 计算 git 项目总行数
 
-    git ls-files | xargs cat | wc -l
+```sh
+git ls-files | xargs cat | wc -l
+```
 
 列出每个文件的行数：
 
-    git ls-files | xargs wc -l
+```sh
+git ls-files | xargs wc -l
+```
 
 ## 参考链接 & 推荐阅读
 
