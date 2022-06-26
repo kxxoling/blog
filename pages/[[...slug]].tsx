@@ -8,6 +8,7 @@ import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import Head from 'next/head'
+import Gist from 'react-gist'
 
 import instinctComponents from '../components/InstinctComponents'
 import PostList from '../components/PostList'
@@ -158,7 +159,11 @@ export default function PostPage({
   frontMatter,
   mdxSource,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const components = { ...instinctComponents, pre: SyntaxHighlighter }
+  const components = {
+    ...instinctComponents,
+    pre: SyntaxHighlighter,
+    Gist,
+  }
 
   if (slug === null) {
     return <Home posts={posts} />
