@@ -2,22 +2,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 type Post = {
-  frontMatter: Record<string, string>
+  frontMatter: {
+    title: string
+    date: string
+    description?: string
+    thumbnail?: string
+    tags?: string[]
+  }
   slug: string
 }
 
 function Post({ post }: { post: Post }): JSX.Element {
   const {
-    frontMatter: { title, description, date, thumbnailUrl },
+    frontMatter: { title, description, date, thumbnail, tags },
   } = post
 
-  if (!thumbnailUrl) {
+  if (!thumbnail) {
     return (
       <div
         className={`px-4 py-2
         text-2xl
-
-
         `}
       >
         {title}
@@ -31,6 +35,15 @@ function Post({ post }: { post: Post }): JSX.Element {
         <div className="col-md-8">
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
+            {tags?.length && (
+              <p className="card-text">
+                {tags.map((tag) => (
+                  <span key={tag} className="badge badge-secondary">
+                    {tag}
+                  </span>
+                ))}
+              </p>
+            )}
             {description && <p className="card-text">{description}</p>}
             {date && (
               <p className="card-text">
@@ -40,16 +53,18 @@ function Post({ post }: { post: Post }): JSX.Element {
           </div>
         </div>
 
-        <div className="m-auto col-md-4">
-          <Image
-            src={thumbnailUrl}
-            className="img-fluid rounded-start"
-            alt="thumbnail"
-            width={500}
-            height={400}
-            objectFit="cover"
-          />
-        </div>
+        {thumbnail && (
+          <div className="m-auto col-md-4">
+            <Image
+              src={thumbnail}
+              className="img-fluid rounded-start"
+              alt="thumbnail"
+              width={500}
+              height={400}
+              objectFit="cover"
+            />
+          </div>
+        )}
       </div>
     </div>
   )
