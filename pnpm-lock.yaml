@@ -9,6 +9,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.0.0
   autoprefixer: ^10.4.7
   daisyui: ^2.15.1
+  disqus-react: ^1.1.3
   eslint: 8.10.0
   eslint-config-next: 12.1.0
   eslint-config-prettier: ^8.5.0
@@ -32,6 +33,7 @@ specifiers:
   typescript: ^4.7.2
 
 dependencies:
+  disqus-react: 1.1.3_ef5jwxihqo6n7gxfmzogljlgcm
   gray-matter: 4.0.3
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
   next-mdx-remote: 4.0.3_ef5jwxihqo6n7gxfmzogljlgcm
@@ -1004,6 +1006,16 @@ packages:
     dependencies:
       path-type: 4.0.0
     dev: true
+
+  /disqus-react/1.1.3_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-DwKdmbHTMPyhBECBeRYAPNcIqZNKMvsRiyVdF89BdmFCbZpWb7+xMj/lvAuckBSx1ilOHpTKYYyW11uodaJ6ig==}
+    peerDependencies:
+      react: ^15.6.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.6.1 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.1.0
+      react-dom: 18.1.0_react@18.1.0
+    dev: false
 
   /dlv/1.1.3:
     resolution: {integrity: sha512-+HlytyjlPKnIG8XuRG8WvmBP8xs8P71y+SKKS6ZXWoEgLuePxtDoUEiH7WkdePWrQ5JBpE6aoVqfZfJUQkjXwA==}

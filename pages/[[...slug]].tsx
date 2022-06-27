@@ -4,6 +4,7 @@ import type { ParsedUrlQuery } from 'querystring'
 import fs from 'fs'
 import path from 'path'
 
+import { DiscussionEmbed } from 'disqus-react'
 import matter from 'gray-matter'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -173,6 +174,15 @@ export default function PostPage({
       {<h1>{frontMatter.title}</h1>}
       {/* @ts-ignore */}
       <MDXRemote {...mdxSource} components={components} />
+      <DiscussionEmbed
+        shortname="wr-blog"
+        config={{
+          url: `https://blog.windrunner.me/${slug}`,
+          identifier: `https://blog.windrunner.me/${slug}`,
+          title: frontMatter.title,
+          language: 'zh-CN',
+        }}
+      />
     </div>
   )
 }
