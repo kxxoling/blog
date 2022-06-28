@@ -1,0 +1,128 @@
+---
+title: 在 Mac 上使用 lima 替代 Docker
+tags: [lima, colima, docker, macOS]
+date: '2022-06-29'
+thumbnail: /images/lima.png
+description: Lima 是
+---
+
+由于 Docker 的对 Linux 的依赖，在 macOS 上使用 Docker 时，一直需要一个 VM 提供 Linux 运行环境，而 Macbook 在切换到 M1 系列芯片后，VirtualBox 一直未能提供支持，也就导致 Docker 的兼容性一直在观望中。在这样的环境下，lima 应运而生。
+
+除了 lima，podman 也可以用来替代 Docker，但是在 macOS 上一直有 [volume 挂载的问题](https://github.com/containers/podman/discussions/13537)，此外，podman 对 docker socket 的支持也不是很好，因此并没有成为替代的首选。
+
+## Lima
+
+相对于其它竞品，lima 有以下优点：
+
+- 支持 M1 系列 CPU 和 Intel
+- 提供了完整的 VM 环境
+- 支持模拟 x86_64
+- 自动 volume 挂载和端口转发
+- 类似 dockerfile 的 YAML 配置文件
+
+缺点也有一些：
+
+- x86_64 性能损失很大，当然别家也逃不了（WWDC 2022 公开了 VM 使用 Rosetta 2 的能力，可能能得到大幅提升）
+- 目前 Volume 挂载还是 sshfs，并不是真正的 FS，改进的计划已经在 milestone 里了。
+
+### 安装
+
+```sh
+brew install lima docker docker-credential-helper
+```
+
+安装 docker 是在 mac 下提供 client 来使用 docker remote 能力，毕竟 lima 本质上仍然是 VM。
+
+### 创建虚拟机
+
+创建 lima 虚拟机配置：`~/.lima/default/lima.yaml`，如果找不到该文件，可以从官方库下载：
+
+```sh
+mkdir -p ~/.lima/default/lima.yaml
+curl https://github.com/lima-vm/lima/blob/master/examples/docker.yaml -O ~/.lima/default/lima.yaml
+```
+
+上面的 `default` 可以换成任意别名作为 VM 的名字，但是 default 比较特殊，在很多命令中可以省略。
+
+之后运行 `limactl start default` 就可以启动 VM 了，使用 `limactl shell default` 或者 `lima` 就可以进入 default VM 中。如果你有 Windows 下 WSL 的使用经验，会发现它的命令非常熟悉。
+
+### 更方便 docker 使用的 VM
+
+[这里](https://itnext.io/replace-docker-desktop-with-lima-88ec6f9d6a19)有个配置得更完善的 lima 配置便于使用 docker，可以将它保存到 `~/.lima/docker/lima.yaml` 使用：
+
+```yaml
+# Example to use Docker instead of containerd & nerdctl
+# $ limactl start docker
+# $ limactl shell docker docker run -it -v $HOME:$HOME --rm alpine
+
+# To run `docker` on the host (assumes docker-cli is installed):
+# $ export DOCKER_HOST=$(limactl list docker --format 'unix://{{.Dir}}/sock/docker.sock')
+# $ docker ...
+
+# This example requires Lima v0.8.0 or later
+images:
+  # Hint: run `limactl prune` to invalidate the "current" cache
+  - location: 'https://cloud-images.ubuntu.com/impish/current/impish-server-cloudimg-amd64.img'
+    arch: 'x86_64'
+  - location: 'https://cloud-images.ubuntu.com/impish/current/impish-server-cloudimg-arm64.img'
+    arch: 'aarch64'
+mounts: # 自动挂载的目录和权限
+  - location: '~'
+    writable: true
+  - location: '/tmp/lima'
+    writable: true
+# containerd is managed by Docker, not by Lima, so the values are set to false here.
+containerd:
+  system: false
+  user: false
+provision:
+  - mode: system
+    script: |
+      #!/bin/sh
+      sed -i 's/host.lima.internal.*/host.lima.internal host.docker.internal/' /etc/hosts
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      command -v docker >/dev/null 2>&1 && exit 0
+      export DEBIAN_FRONTEND=noninteractive
+      curl -fsSL https://get.docker.com | sh # 这里也可以换成 apt 中的 docker
+      # NOTE: you may remove the lines below, if you prefer to use rootful docker, not rootless
+      systemctl disable --now docker
+      apt-get install -y uidmap dbus-user-session
+  - mode: user
+    script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      systemctl --user start dbus
+      dockerd-rootless-setuptool.sh install
+      docker context use rootless
+      # 这里可以优化下 docker registry 配置
+probes:
+  - script: |
+      #!/bin/bash
+      set -eux -o pipefail
+      if ! timeout 30s bash -c "until command -v docker >/dev/null 2>&1; do sleep 3; done"; then
+        echo >&2 "docker is not installed yet"
+        exit 1
+      fi
+      if ! timeout 30s bash -c "until pgrep rootlesskit; do sleep 3; done"; then
+        echo >&2 "rootlesskit (used by rootless docker) is not running"
+        exit 1
+      fi
+    hint: See "/var/log/cloud-init-output.log". in the guest
+portForwards:
+  - guestSocket: '/run/user/{{.UID}}/docker.sock'
+    hostSocket: '{{.Dir}}/sock/docker.sock'
+message: |
+  To run `docker` on the host (assumes docker-cli is installed), run the following commands:
+  ------
+  docker context create lima --docker "host=unix://{{.Dir}}/sock/docker.sock"
+  docker context use lima
+  docker run hello-world
+  ------
+```
+
+## colima
+
+TO BE CONTINUED
