@@ -28,7 +28,9 @@ brew install caskroom/cask/brew-cask
 
 安装了多个版本时切换激活版本：
 
-    brew switch [app_name>] [version]
+```sh
+brew switch [app_name>] [version]
+```
 
 ### 安装特定版本
 
@@ -90,44 +92,38 @@ chsh -s "$(command -v zsh)" "${USER}"
 ## 现代 CLI
 
 - `ag`：文件查找命令，类似于 `ack`。
-- `ncdu`：磁盘空间占用分析。
 - [`bat`](https://github.com/sharkdp/bat)：替代 `cat`
 - [`fd`](https://github.com/sharkdp/fd)：替代 `find`
 - [`ripgrep`](https://github.com/BurntSushi/ripgrep)：替代 `grep`
+- [`ripgrep-all`](https://github.com/phiresky/ripgrep-all)：替代 `grep`
 - [`exa`](https://github.com/ogham/exa)：替代 `ls`
+- [`lsd`](https://github.com/Peltoche/lsd)：替代 `ls`
+- [`nnn`](https://github.com/jarun/nnn)：终端文件管理器
+- [`ncdu`](https://dev.yorhel.nl/ncdu)：磁盘空间占用显示 & 分析。
 - [`dust`](https://github.com/bootandy/dust)：替代 `du`
+- [`duf`](https://github.com/muesli/duf)：替代 `df`
 - [`broot`](https://github.com/Canop/broot)：替代 `tree`
 - `htop`：替代 `top`
 - [`btop`++](https://github.com/aristocratos/btop)：替代 `top`
 - [`ctop`](https://github.com/bcicen/ctop)：替代 `docker top`
 - [`sampler`](https://github.com/sqshq/sampler)：终端版的 grafana
-- [`nnn`](https://github.com/jarun/nnn)：终端文件管理器
+- [`dog`](https://github.com/ogham/dog)：替代 `dig`，更加强大的 DNS 查询工具。
 - [`fzf`](https://github.com/junegunn/fzf)：模糊匹配/查找
-
-## coreutils & advcopy
-
-Unix 命令增强。手动安装即可提供基本功能，不过为了安装 `advcopy` 我还是下载了源代码，
-打了补丁之后编译安装了一遍：
-
-```shell
-wget http://ftp.gnu.org/gnu/coreutils/coreutils-8.23.tar.xz
-tar xvJf coreutils-8.23.tar.xz
-cd coreutils-8.23/
-wget https://raw.githubusercontent.com/felixonmars/aur-mirror/master/advcopy/advcpmv-0.5-8.23.patch
-patch -p1 -i advcpmv-0.5-8.23.patch
-./configure –-without-gmp –-program-prefix g $(brew diy)
-make && make install
-brew link coreutils
-```
-
-如果 `./configure ...` 那条命令执行失败，可以去掉参数重新编译，然后手动添加软链接：
-
-```sh
-ln -s src/cp /usr/local/bin/
-alias cp="cp -gR"
-```
-
-这样就可以将编译出来的可执行文件链接到应用程序目录。
+- [`delta`](https://github.com/dandavison/delta)：替代 `diff`
+- [`difftastic`](https://github.com/Wilfred/difftastic)：替代 `diff`，基于语法结构进行 diff。
+- [`jq`](https://github.com/stedolan/jq)：shell 中的 JSON 查询工具，配合管道使用非常方便
+- [`yq`](https://github.com/mikefarah/yq)：jq 的 YAML 版本，支持 JSON、YAML、XML
+- [`hyperfine`](https://github.com/sharkdp/hyperfine)：bentchmark 工具
+- [`lazygit`](https://github.com/jesseduffield/lazygit)：git 的 TUI
+- [`tig`](https://github.com/jonas/tig)：git 的 TUI
+- [`tldr`](https://github.com/tldr-pages/tldr) + [TealDeer](https://github.com/dbrgn/tealdeer)：终端命令的说明文档
+- [`gping`](https://github.com/orf/gping)：替代 `ping`
+- [`procs`](https://github.com/dalance/procs)：替代 `ps`
+- [`mtr`](https://github.com/traviscross/mtr)：网络分析工具
+- [`iperf3`](https://github.com/esnet/iperf)：网络测速工具
+- [`xh`](https://github.com/ducaale/xh)：网络请求工具，[HTTPie](https://httpie.io/) 的 Rust 版本。
+- [`curlie`](https://github.com/rs/curlie)：替代 `curl`
+- [`viddy`](https://github.com/sachaos/viddy)：替代 `watch`，支持 Time Machine 和 pager
 
 ## 文本格式化工具
 
