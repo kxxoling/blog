@@ -89,7 +89,7 @@ z // []
 
 对于的 Python 3代码：
 
-```py3
+```py
 head, *tail = range(1, 5)
 ```
 
