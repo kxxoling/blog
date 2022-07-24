@@ -4,16 +4,21 @@ import type { ParsedUrlQuery } from 'querystring'
 import fs from 'fs'
 import path from 'path'
 
-import { DiscussionEmbed } from 'disqus-react'
 import matter from 'gray-matter'
-import { MDXRemote } from 'next-mdx-remote'
+import dockerfile from 'highlight.js/lib/languages/dockerfile'
+import erlang from 'highlight.js/lib/languages/erlang'
+import ini from 'highlight.js/lib/languages/ini'
+import nginx from 'highlight.js/lib/languages/nginx'
+import scheme from 'highlight.js/lib/languages/scheme'
+import vim from 'highlight.js/lib/languages/vim'
 import { serialize } from 'next-mdx-remote/serialize'
-import Head from 'next/head'
-import Gist from 'react-gist'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeCodeTitles from 'rehype-code-titles'
+import rehypeHighlight from 'rehype-highlight'
+import rehypeSlug from 'rehype-slug'
 
-import instinctComponents from '../components/InstinctComponents'
+import PostDetails from '../components/PostDetails'
 import PostList from '../components/PostList'
-import SyntaxHighlighter from '../components/SyntaxHighlighter'
 
 // @ts-ignore
 export const getStaticPaths = async () => {
@@ -131,7 +136,37 @@ export const getStaticProps = async ({
   const fileContent = fs.readFileSync(filePath, 'utf-8')
 
   const { data: frontMatter, content } = matter(fileContent)
-  const mdxSource = await serialize(content)
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            properties: { className: ['anchor'] },
+          },
+          { behaviour: 'wrap' },
+        ],
+
+        [
+          rehypeHighlight,
+          {
+            ignoreMissing: true, // 默认 false，但是 sequence 和 mermaid 需要稍后支持
+            languages: {
+              scheme,
+              conf: ini,
+              systemd: ini,
+              nginx,
+              dockerfile,
+              vim,
+              erlang,
+            },
+          },
+        ],
+        rehypeCodeTitles,
+      ],
+    },
+  })
   return {
     props: {
       frontMatter,
@@ -145,10 +180,7 @@ export const getStaticProps = async ({
 // @ts-ignore
 function Home({ posts }) {
   return (
-    <div className="">
-      <Head>
-        <title>home</title>
-      </Head>
+    <div className="flex flex-col items-center mb-8">
       <PostList posts={posts} />
     </div>
   )
@@ -160,29 +192,10 @@ export default function PostPage({
   frontMatter,
   mdxSource,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const components = {
-    ...instinctComponents,
-    pre: SyntaxHighlighter,
-    Gist,
-  }
-
   if (slug === null) {
     return <Home posts={posts} />
   }
   return (
-    <div className="">
-      {<h1>{frontMatter.title}</h1>}
-      {/* @ts-ignore */}
-      <MDXRemote {...mdxSource} components={components} />
-      <DiscussionEmbed
-        shortname="wr-blog"
-        config={{
-          url: `https://blog.windrunner.me/${slug}`,
-          identifier: `https://blog.windrunner.me/${slug}`,
-          title: frontMatter.title,
-          language: 'zh-CN',
-        }}
-      />
-    </div>
+    <PostDetails frontMatter={frontMatter} mdxSource={mdxSource} slug={slug} />
   )
 }

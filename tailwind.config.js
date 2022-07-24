@@ -1,4 +1,4 @@
-// /* eslint-disable node/no-unpublished-require */
+/* eslint-disable node/no-unpublished-require */
 module.exports = {
   content: [
     './pages/_app.tsx',
@@ -23,11 +23,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  // eslint-disable-next-line node/no-unpublished-require
-  plugins: [require('@tailwindcss/typography'), require('daisyui')],
-  daisyui: {
-    styled: true,
-    rtl: false,
-    themes: ['cmyk', 'cupcake'],
-  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwindcss-textshadow'),
+  ],
 }

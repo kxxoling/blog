@@ -1,116 +1,113 @@
+/* eslint-disable @next/next/no-img-element */
 import type { AppProps } from 'next/app'
 
+import { IconSearch } from '@tabler/icons-react'
+import 'highlight.js/styles/xcode.css'
 import Head from 'next/head'
-import Link from 'next/link'
+import styled from 'styled-components'
+import tw from 'twin.macro'
+
+import Aside from '../components/Aside'
+
 import '../styles/globals.css'
+
+const Container = tw.div`
+  p-2
+  bg-[#1f1d2b]
+  max-w-[1360px]
+  max-h-[1200px]
+  h-[95vh]
+  flex
+  w-full
+  rounded-lg
+  relative
+  shadow-lg
+  overflow-hidden
+`
+
+const Background = styled.div`
+  background-image: url('https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: color-dodge;
+  background-color: rgba(18, 21, 39, 0.86);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1em 2em;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  &:before {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      163deg,
+      rgba(31, 29, 43, 1) 21%,
+      rgba(31, 29, 43, 0.3) 64%
+    );
+    opacity: 0.4;
+    content: '';
+  }
+`
+
+const Input = tw.input`
+w-full h-full
+bg-[#353340] rounded-md
+text-sm text-white
+px-4 py-2 shadow-sm
+outline-none
+hover:ring-2 ring-[#ff7551]
+cursor-not-allowed
+`
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>Blog</title>
+        <title>山人多呓语，浮世笑百姿</title>
       </Head>
 
-      <header className="top-0 z-40 w-full text-gray-700 bg-white shadow-md navigation md:sticky body-font">
-        <div className="w-full px-5" style={{ minHeight: '80px' }}>
-          <div className="container flex flex-col flex-wrap items-center py-5 mx-auto lg:flex-row">
-            <nav
-              className={`
-                sm:text-center
-                md:text-center md:ml-4 md:py-1 md:pl-4
-                lg:mr-auto lg:mb-0 lg:border-l lg:border-gray-400
-                mb-6 flex flex-wrap items-center justify-center cursor-pointer text-base
-              `}
-            >
-              <Link href="/">
-                <a className="mb-2 mr-4 md:mr-3 md:mb-0 lg:mr-5" title="Home">
-                  Home
-                </a>
-              </Link>
+      <Background>
+        <Container>
+          <Aside />
 
-              <Link href="/bio">
-                <a className="mb-2 mr-4 md:mr-3 md:mb-0 lg:mr-5" title="Bio">
-                  Bio
-                </a>
-              </Link>
+          <div className="flex flex-col w-full h-full grow">
+            <div className="flex flex-col shrink-0">
+              <div className="flex items-center px-8 py-8 shrink-0">
+                <div className="h-10 flex w-full max-w-[400px] transition-all hover:max-w-[600px] relative">
+                  <Input type="text" placeholder="Search…" readOnly />
+                  <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <IconSearch size={24} />
+                  </div>
+                </div>
+                <div className="flex items-center gap-4 pl-8 ml-auto shrink-0">
+                  <img
+                    className="w-8 h-8 rounded-full"
+                    src="https://avatars.githubusercontent.com/u/1227139"
+                    alt="Kane Blueriver"
+                  />
+                  <span className="text-sm text-gray-400">Kane Blueriver</span>
+                </div>
+              </div>
+            </div>
 
-              <Link href="/pages/friend-links">
-                <a className="mb-2 mr-4 md:mr-3 md:mb-0 lg:mr-5" title="Bio">
-                  Friends
-                </a>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <div className="scrollable">
-        <section className="w-full py-4 bg-gray-200">
-          <div className="container flex justify-center max-w-2xl m-auto leading-none ">
-            <span className="">
-              🚧 🚧 🚧 页面施工中，欢迎稍后回来！🚧 🚧 🚧
-            </span>
-          </div>
-        </section>
-
-        <div className="flex flex-col-reverse justify-center gap-6 p-6 pb-16 xl:flex-row">
-          <div className="flex-grow w-full prose max-w-200">
-            <div className="container">
-              <main>
+            <div className="relative flex flex-col mx-8 overflow-y-hidden grow">
+              <div className="z-10 text-4xl pb-4 w-full text-white shrink-0 bg-gradient-to-b from-[#1f1d2b] absolute top-0 insect-x-0" />
+              <div className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow">
                 <Component {...pageProps} />
-              </main>
+              </div>
             </div>
           </div>
-
-          <div className="w-full px-4 mb-4 sidebar md:w-1/5 md:mb-0">
-            <aside className="top-auto bottom-auto w-auto position-staitc">
-              <section className="mx-auto mb-8">
-                <div className="text-center">
-                  <div className="relative">
-                    <div className="avatar" style={{ maxWidth: '100%' }}>
-                      <div className="w-64 border-4 border-white rounded-full shadow-md">
-                        <img
-                          src="https://avatars.githubusercontent.com/u/1227139"
-                          alt="Kane Blueriver"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mx-auto mt-4 text-center">
-                    <a
-                      target="_blank"
-                      href="https://blog.windrunner.me/"
-                      rel="noopener noreferrer"
-                    >
-                      📖
-                    </a>
-                    <a
-                      target="_blank"
-                      className="ml-4"
-                      href="https://github.com/kxxoling/"
-                      rel="noopener noreferrer"
-                    >
-                      🐙
-                    </a>
-                  </div>
-                </div>
-              </section>
-              <section className="flex flex-wrap sidebar__section sidebar__section__work">
-                <div className="mx-auto mb-8 text-center sidebar__section__work_link">
-                  <a
-                    className="w-1/2 text-gray-700 hover:text-lightseagreen-800"
-                    href="https://frontmatter.codes"
-                    title="Front Matter - Headless CMS running in VS Code"
-                  >
-                    {/* TODO */}
-                  </a>
-                </div>
-              </section>
-            </aside>
-          </div>
-        </div>
-      </div>
+        </Container>
+      </Background>
     </>
   )
 }
