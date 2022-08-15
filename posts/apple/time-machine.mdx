@@ -1,0 +1,206 @@
+---
+title: Time Machine 小技巧
+description: 一些 Time Machine 使用小技巧
+tags: [macOS, TimeMachine, Ubuntu]
+createdAt: '2022-08-16'
+---
+
+Time Machine 是 macOS 的备份工具，它可以将您的文件备份到硬盘和网盘上，用作系统的备份或者文件的还原。打开系统 Time Machine 设置就可以开启它，首次备份会花上比较多的，并且会有 CPU 高度占用。Time Machine 的目标可以是硬盘，网盘，或者 iCloud，如果你家里有 NAS 服务器可以开启自带的 Time Machine 服务（群晖、威联通等主流 NAS 系统都自带了），或者像我一样在 Ubuntu 22.04 上设置 Time Machine 服务。
+
+## 在 Ubuntu 上设置
+
+在 Ubuntu 上设置 Time Machine 依赖 2 个服务，[netatalk](https://en.wikipedia.org/wiki/Netatalk) 和 [avahi](<https://en.wikipedia.org/wiki/Avahi_(software)>)，分别提供了 [Apple Filing Protocol (AFP)](https://en.wikipedia.org/wiki/Apple_Filing_Protocol) 和兼容 [Bonjour](<https://en.wikipedia.org/wiki/Bonjour_(software)>) 的 mDNS 服务，有了它们，你就可以使用 Ubuntu 作为 Time Machine 的服务器。
+
+```shell
+# 安装 netatalk 和 avahi
+sudo apt install netatalk avahi-daemon
+```
+
+安装后需要配置下 Time Machine 备份的位置，选块硬盘或者 SMB 目录，设置好权限并将 netatalk 配置好：
+
+```shell
+# 配置 Time Machine 备份的位置
+mkdir timemachine
+sudo chown nobody:nogroup timemachine
+sudo chmod 777 timemachine
+```
+
+```ini
+; 添加到 /etc/netatalk/afp.conf
+; 或者取消原文件注释进行修改
+; 其它部分保持不动就可以了
+[Time Machine] ; 这里是 Time Machine 服务的名称，也可以设置成你喜欢的名字
+path = /path/to/timemachine ; 配置好刚刚设置的目录
+time machine = yes
+```
+
+之后再重启 netatalk 服务：
+
+```shell
+sudo service netatalk restart
+```
+
+这时候 macOS 上的 Time Machine 就可以搜索到你刚刚设置好的服务了。
+
+## 使用 docker 设置 Time Machine 服务
+
+在网上看到也可以使用 docker 提供 Time Machine 服务，思路大同小异，用 Samba 代替了 netatalk，
+
+### 创建备份目录
+
+在合适的磁盘上创建备份的目标目录
+
+```shell
+mkdir ~/tmbackup
+mkdir ~/tmbackup/config
+mkdir ~/tmbackup/data
+```
+
+### docker-compose 配置
+
+```yaml
+version: '3.4'
+
+services:
+  avahi:
+    container_name: avahi
+    image: solidnerd/avahi:0.7
+    network_mode: host
+    volumes:
+      - ./avahi:/etc/avahi:ro
+    restart: unless-stopped
+
+  samba:
+    container_name: samba
+    image: dperson/samba
+    environment:
+      TZ: 'Asia/Shanghai'
+    networks:
+      - default
+    ports:
+      - '137:137/udp'
+      - '138:138/udp'
+      - '139:139/tcp'
+      - '445:445/tcp'
+    read_only: true
+    tmpfs:
+      - /tmp
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - /home/alex/tmbackup/data:/backup:z # 这里配置好你自己的 tmbackup volume
+    command: '-s "Time Machine Backup;/backup;yes;no" -u "alex;alexspasswd"' # 记得修改用户名和密码
+```
+
+### 初始化 Avahi 配置并禁用 DBUS
+
+```shell
+# 初始化 Avahi 配置
+sudo docker create --name avahi-config solidnerd/avahi:0.7
+sudo docker cp avahi-config:/etc/avahi .
+sudo docker rm avahi-config
+
+# 禁用 DBUS
+sed -i 's/#enable-dbus=yes/enable-dbus=no/' avahi/avahi-daemon.conf
+```
+
+### 创建 Avahi 配置来广播 Samba 服务
+
+```shell
+cat <<EOT >> avahi/services/smb.conf
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+<name replace-wildcards="yes">%h</name>
+<service>
+  <type>_adisk._tcp</type>
+  <txt-record>sys=waMa=0,adVF=0x100</txt-record>
+  <txt-record>dk0=adVN=Time Capsule,adVF=0x82</txt-record>
+</service>
+<service>
+  <type>_smb._tcp</type>
+  <port>445</port>
+</service>
+<service>
+  <type>_device-info._tcp</type>
+  <port>0</port>
+  <txt-record>model=RackMac</txt-record>
+</service>
+</service-group>
+EOT
+```
+
+### 启动 docker 服务
+
+```shell
+docker-compose up -d
+```
+
+## 加速 Time Machine 备份
+
+### 解除 TM 备份速度限制
+
+在网上搜到一条加速备份的命令：`sudo sysctl debug.lowpri_throttle_enabled 0`，也可以使用 `sudo sysctl debug.lowpri_throttle_enabled 1` 还原设置，但是在 macOS 12.5 上成功将备份速度从 2MB/s 加速到 1MB/s。💩 仅供参考。
+
+### 筛选 TM 备份的目录
+
+另一个可以提升备份速度的办法是减少要备份的文件，比如云盘目录、可以轻松从网上下载的文件、缓存目录等等。比如
+
+- docker 容器 `~/Library/Containers/com.docker.docker`
+- Python 虚拟环境 `~/.virtualenvs`
+- `~/.gem`
+- `~/.npm`
+- pip 缓存目录
+- 各级 `node_modules`
+- `~/.pnpm-store`
+- `~/.cache`
+- `~/Applications`
+- `~/Applications (Parallels)`
+- `~/Library/Caches`
+- `~/.VirtualBox VMs`
+- `~/Parallels`
+- `~/vagrant.d`
+- `~/Dropbox`
+- `~/Google Drive`
+- `/Applications`
+- `/Library/Application Support/Steam/steamapp/common`
+
+### 使用命令行设置 TM 备份的目录
+
+macOS 提供了一个 tmutil 命令，可以设置备份的目录，比如
+
+```shell
+tmutil addexclusion "$(pwd)/not_backuped" # 将当前目录添加到备份目录中
+tmutil isexcluded "$(pwd)/not_backuped" # 查看是否被排除
+xattr "not_backuped" # 查看文件属性
+```
+
+需要注意的是，`tmutils addexclusion some_dir` 排除的目录不会在 GUI 应用中显示，只能使用 CLI 命令查看：`sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"`。但是 GUI 应用中的设置是可以在 CLI 中查看的：
+
+```shell
+$ defaults read /Library/Preferences/com.apple.TimeMachine.plist SkipPaths
+
+(
+    "~windrunner/Drive",
+    "~windrunner/.npm",
+    "~windrunner/.cache",
+    "~windrunner/.pnpm-store"
+)
+```
+
+### 排除所有 node_modules
+
+比较遗憾的是，TM 并不支持目录的规则匹配，所以需要排除所有 `node_modules` 目录有一点麻烦：
+
+```shell
+find `pwd` -maxdepth 3 -type d -name 'node_modules' | xargs -n 1 tmutil addexclusion
+```
+
+对于新添加的项目就需要文件系统 hook 或者定时任务来保证了。
+
+参考：
+
+- [Backup a Mac to a Linux server over a network using Time Machine and Docker](https://alexlubbock.com/time-machine-network-backup-linux)
+- [Exclude folders by regex (?) from time machine backup](https://superuser.com/a/1267863/715265)
+- [On OS X, what files are excluded by rule from a Time Machine backup?](https://apple.stackexchange.com/a/25833/101989)
