@@ -1,7 +1,8 @@
 ---
 title: git 入门
 tags: [git, vcs]
-date: '2022-06-26'
+createdAt: '2022-06-26'
+updatedAt: '2022-08-24'
 thumbnail: /images/git/git-status.jpg
 ---
 
@@ -316,6 +317,24 @@ git ls-files | xargs cat | wc -l
 git ls-files | xargs wc -l
 ```
 
+### pull/push 设置不同的 remote
+
+[git 1.8.3](https://raw.githubusercontent.com/git/git/master/Documentation/RelNotes/1.8.3.txt) 添加了“三角关系”的支持，可以通过 `branch.[branch name].pushremote` 将某个分支的 pull 和 push 目标设置为不同的 remote。例如：
+
+```sh
+$ git checkout master
+$ git config branch.master.remote upstream
+$ git config branch.master.pushRemote origin
+$ cat .git/config
+
+[branch "master"]
+    merge = refs/heads/master
+    remote = upstream
+    pushRemote = origin
+```
+
+可以达到 master 分支每次 pull 都是从公共上游 upstream 获取更新，而 push 则是指向自己 fork 的 origin，这是一个比较搭配 GitHub flow 的使用方式。
+
 ## 参考链接 & 推荐阅读
 
 - [12 个 git 实战建议和技巧](http://www.csdn.net/article/2012-12-11/2812673-12-git-tips)
@@ -323,3 +342,4 @@ git ls-files | xargs wc -l
 - [《Pro git》在线中文版](https://git-scm.com/book/zh/v2/)
 - [常用 Git 命令清单－－阮一峰](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 - [19 Tips For Everyday Git Use](http://www.alexkras.com/19-git-tips-for-everyday-use/)
+- [Different default remote (tracking branch) for git pull and git push](https://stackoverflow.com/a/69407612/2836912)
