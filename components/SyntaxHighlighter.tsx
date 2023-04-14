@@ -5,7 +5,7 @@ import ReactSyntaxHighlighter from 'react-syntax-highlighter'
 // @ts-ignore
 const SyntaxHighlighter = ({ children: { props } }: SyntaxHighlighterProps) => {
   return (
-    <div className="mockup-code">
+    <div className="">
       <ReactSyntaxHighlighter {...props}>
         {props.children}
       </ReactSyntaxHighlighter>

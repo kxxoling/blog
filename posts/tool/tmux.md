@@ -125,7 +125,7 @@ sudo apt-get install tmate
 
 如果你跟我一样使用 Vim 作为编辑器，可能同样会遇到输出黑块的问题。解决方案是在 Vim 的配置文件中加入：
 
-```viml
+```vim
 if exists('$TMUX')
   set term=screen-256color
 endif

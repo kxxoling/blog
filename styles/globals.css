@@ -2,15 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  min-height: 100vh;
+* ::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 10px;
 }
-
-body::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: linear-gradient(#10aaaa, #005555);
-  border-radius: 4px;
+* ::-webkit-scrollbar-thumb {
+  background-color: rgba(21, 20, 26, 0.63);
+  border-radius: 10px;
 }
