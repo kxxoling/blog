@@ -99,6 +99,7 @@ export const getStaticProps = async ({
 
   const fileList = await getFiles(path.join('posts'))
   const posts = fileList
+    .filter((file: string) => !file.startsWith('posts/pages'))
     .map((filename: string) => {
       const fileContent = fs.readFileSync(
         filename, // 'posts/xxx.{md|mdx}
