@@ -20,6 +20,19 @@ import rehypeSlug from 'rehype-slug'
 import PostDetails from '../components/PostDetails'
 import PostList from '../components/PostList'
 
+function serializeDatetime(datetime?: string | Date) {
+  if (!datetime) {
+    return null
+  }
+  if (datetime) {
+    if (typeof datetime === 'string') {
+      return new Date(datetime).toISOString()
+    } else if (datetime instanceof Date) {
+      return datetime.toISOString()
+    }
+  }
+}
+
 // @ts-ignore
 export const getStaticPaths = async () => {
   // @ts-ignore
@@ -85,37 +98,51 @@ export const getStaticProps = async ({
   }
 
   const fileList = await getFiles(path.join('posts'))
-  const posts = fileList.map((filename: string) => {
-    const fileContent = fs.readFileSync(
-      filename, // 'posts/xxx.{md|mdx}
-      'utf-8'
-    )
-    const slug = filename.replace('posts/', '').split('.')[0]
-    if (filename.endsWith('.md')) {
-      // 处理 markdown 文章
-      if (filename.indexOf('README') < 0) {
+  const posts = fileList
+    .filter((file: string) => !file.startsWith('posts/pages'))
+    .map((filename: string) => {
+      const fileContent = fs.readFileSync(
+        filename, // 'posts/xxx.{md|mdx}
+        'utf-8'
+      )
+      const slug = filename.replace('posts/', '').split('.')[0]
+      if (filename.endsWith('.md')) {
+        // 处理 markdown 文章
+        if (filename.indexOf('README') < 0) {
+          return {
+            frontMatter: {
+              title: fileContent.split('\n')[0].replace('#', '').trim(),
+            },
+            slug,
+          }
+        }
+        // 处理 README 文档， TODO: 对 index.mdx 进行同样处理
         return {
           frontMatter: {
             title: fileContent.split('\n')[0].replace('#', '').trim(),
           },
-          slug,
+          slug: slug.replace('/README', ''),
         }
       }
-      // 处理 README 文档， TODO: 对 index.mdx 进行同样处理
-      return {
-        frontMatter: {
-          title: fileContent.split('\n')[0].replace('#', '').trim(),
-        },
-        slug: slug.replace('/README', ''),
+      const { data: frontMatter } = matter(fileContent)
+      if (!frontMatter.title) {
+        // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
+        frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
       }
-    }
-    const { data: frontMatter } = matter(fileContent)
-    if (!frontMatter.title) {
-      // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
-      frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
-    }
-    return { frontMatter, slug }
-  })
+      frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
+      frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
+      return { frontMatter, slug }
+    })
+    .sort((a: any, b: any) => {
+      const aUpdatedAt =
+        a.frontMatter.updatedAt || a.frontMatter.createdAt || ''
+      const bUpdatedAt =
+        b.frontMatter.updatedAt || b.frontMatter.createdAt || ''
+      if (aUpdatedAt === bUpdatedAt) {
+        return 0
+      }
+      return aUpdatedAt > bUpdatedAt ? -1 : 1
+    })
 
   if (!slug) {
     return { props: { slug: null, posts } }
