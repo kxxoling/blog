@@ -10,11 +10,29 @@ interface PostProps {
   tags?: string[]
 }
 
-const bgColors = ['#31abbd', 'rgb(255, 159, 104)']
+const bgColors = [
+  '#31abbd',
+  'rgb(255, 159, 104)',
+  'rgb(61 239 233)',
+  'rgb(107 217 104)',
+  'rgb(254 204 27)',
+  'rgb(102 102 102)',
+  'rgb(206 59 90)',
+  'rgb(89 176 255)',
+  'rgb(216 59 210)',
+  'rgb(57 146 255)',
+  'rgb(244 66 80)',
+]
 
-function useRandomBgColor() {
-  const random = bgColors[Math.floor(Math.random() * bgColors.length)]
-  return random
+function hashBgColor(str: string) {
+  // get hash number from str
+  let hash = 0
+  for (let i = 0; i < str.length; i++) {
+    hash += str.charCodeAt(i)
+  }
+  const bgColor = bgColors[hash % bgColors.length]
+
+  return bgColor
 }
 
 function PostCard({
@@ -25,7 +43,8 @@ function PostCard({
   thumbnail,
   tags,
 }: PostProps): JSX.Element {
-  const bgColor = useRandomBgColor()
+  const bgColor = hashBgColor(title)
+
   return (
     <>
       <div
