@@ -20,6 +20,19 @@ import rehypeSlug from 'rehype-slug'
 import PostDetails from '../components/PostDetails'
 import PostList from '../components/PostList'
 
+function serializeDatetime(datetime?: string | Date) {
+  if (!datetime) {
+    return null
+  }
+  if (datetime) {
+    if (typeof datetime === 'string') {
+      return new Date(datetime).toISOString()
+    } else if (datetime instanceof Date) {
+      return datetime.toISOString()
+    }
+  }
+}
+
 // @ts-ignore
 export const getStaticPaths = async () => {
   // @ts-ignore
@@ -115,6 +128,8 @@ export const getStaticProps = async ({
         // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
         frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
       }
+      frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
+      frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
       return { frontMatter, slug }
     })
     .sort((a: any, b: any) => {

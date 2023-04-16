@@ -79,11 +79,15 @@ function PostCard({
             </div>
 
             <div className="flex items-center text-xs">
-              {updatedAt && <span>编辑于：{updatedAt}</span>}
+              {updatedAt && (
+                <span>编辑于：{new Date(updatedAt).toLocaleDateString()}</span>
+              )}
               {updatedAt && createdAt && (
                 <span className="inline-block w-1 h-1 mx-2 bg-white rounded-full"></span>
               )}
-              {createdAt && <span>创建于：{createdAt}</span>}
+              {createdAt && (
+                <span>创建于：{new Date(createdAt).toLocaleDateString()}</span>
+              )}
             </div>
           </div>
         </div>
