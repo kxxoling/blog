@@ -51,7 +51,7 @@ const navs = [
     Icon: IconHeartHandshake,
   },
   {
-    path: '/pages/work-experience',
+    path: '/work-experience',
     name: 'Work Exp',
     Icon: IconBriefcase,
   },
