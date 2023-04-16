@@ -5,7 +5,8 @@ import PostCard from '../components/PostCard'
 type Post = {
   frontMatter: {
     title: string
-    date: string
+    updatedAt: string
+    createdAt: string
     description?: string
     thumbnail?: string
     tags?: string[]
@@ -15,7 +16,7 @@ type Post = {
 
 function Post({ post }: { post: Post }): JSX.Element | null {
   const {
-    frontMatter: { title, description, date, thumbnail, tags },
+    frontMatter: { title, description, updatedAt, createdAt, thumbnail, tags },
   } = post
 
   return (
@@ -24,7 +25,8 @@ function Post({ post }: { post: Post }): JSX.Element | null {
       description={description}
       tags={tags}
       thumbnail={thumbnail}
-      updatedAt={date}
+      updatedAt={updatedAt}
+      createdAt={createdAt}
     />
   )
 }
