@@ -5,8 +5,8 @@ interface PostProps {
   title: string
   description?: string
   thumbnail?: string
-  updatedAt?: string
-  createdAt?: string
+  updatedAt?: `${number}-${number}-${number}`
+  createdAt?: `${number}-${number}-${number}`
   tags?: string[]
 }
 
@@ -33,6 +33,14 @@ function hashBgColor(str: string) {
   const bgColor = bgColors[hash % bgColors.length]
 
   return bgColor
+}
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('zh-CN', {})
+}
+
+function formatFrontMatterDate(str: `${number}-${number}-${number}`) {
+  return formatDate(new Date(str))
 }
 
 function PostCard({
@@ -80,13 +88,13 @@ function PostCard({
 
             <div className="flex items-center text-xs">
               {updatedAt && (
-                <span>编辑于：{new Date(updatedAt).toLocaleDateString()}</span>
+                <span>编辑于：{formatFrontMatterDate(updatedAt)}</span>
               )}
               {updatedAt && createdAt && (
                 <span className="inline-block w-1 h-1 mx-2 bg-white rounded-full"></span>
               )}
               {createdAt && (
-                <span>创建于：{new Date(createdAt).toLocaleDateString()}</span>
+                <span>创建于：{formatFrontMatterDate(createdAt)}</span>
               )}
             </div>
           </div>
