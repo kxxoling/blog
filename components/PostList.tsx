@@ -5,8 +5,8 @@ import PostCard from '../components/PostCard'
 type Post = {
   frontMatter: {
     title: string
-    updatedAt: string
-    createdAt: string
+    updatedAt: `${number}-${number}-${number}`
+    createdAt: `${number}-${number}-${number}`
     description?: string
     thumbnail?: string
     tags?: string[]

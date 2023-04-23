@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import tw from 'twin.macro'
 
 import Aside from '../components/Aside'
+import useConfetti from '../components/Confetti'
 
 import '../styles/globals.css'
 
@@ -69,6 +70,7 @@ cursor-not-allowed
 `
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  const [createConfetti, confetti] = useConfetti()
   return (
     <>
       <Head>
@@ -88,7 +90,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     <IconSearch size={24} />
                   </div>
                 </div>
-                <div className="flex items-center gap-4 pl-8 ml-auto shrink-0">
+                <div
+                  className="flex items-center gap-4 pl-8 ml-auto shrink-0"
+                  onClick={() => createConfetti()}
+                >
                   <img
                     className="w-8 h-8 rounded-full"
                     src="https://avatars.githubusercontent.com/u/1227139"
@@ -107,6 +112,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </div>
           </div>
         </Container>
+        {confetti}
       </Background>
     </>
   )
