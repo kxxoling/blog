@@ -58,10 +58,9 @@ export const getStaticPaths = async () => {
     .map((filename) => ({
       params: {
         slug: filename
-          .replace('.mdx', '')
-          .replace('.md', '')
-          .replace('posts/', '')
-          .replace('/README', '')
+          .replace(/^posts\//, '')
+          .replace(/\.(md|mdx)$/, '')
+          .replace(/\/(README|index)$/, '')
           .split('/'),
       },
     }))
@@ -116,14 +115,14 @@ export const getStaticProps = async ({
             slug,
           }
         }
-        // 处理 README 文档， TODO: 对 index.mdx 进行同样处理
         return {
           frontMatter: {
             title: fileContent.split('\n')[0].replace('#', '').trim(),
           },
-          slug: slug.replace('/README', ''),
+          slug: slug.replace(/\/(README|index)$/, ''),
         }
       }
+
       const { data: frontMatter } = matter(fileContent)
       if (!frontMatter.title) {
         // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
@@ -131,7 +130,7 @@ export const getStaticProps = async ({
       }
       frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
       frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
-      return { frontMatter, slug }
+      return { frontMatter, slug: slug.replace(/\/(README|index)$/, '') }
     })
     .sort((a: any, b: any) => {
       const aUpdatedAt =
@@ -153,10 +152,13 @@ export const getStaticProps = async ({
     if (fs.existsSync(mdPath)) {
       filePath = mdPath
     } else {
-      const mdxReadmePath = path.join('posts', slug.join('/') + '/README.mdx')
-      filePath = fs.existsSync(mdxReadmePath)
-        ? mdxReadmePath
-        : path.join('posts', slug.join('/') + '/README.md')
+      for (const tail of ['index.mdx', 'README.mdx', 'README.md']) {
+        const mdxPath = path.join('posts', slug.join('/') + '/' + tail)
+        if (fs.existsSync(mdxPath)) {
+          filePath = mdxPath
+          break
+        }
+      }
     }
   }
 
