@@ -2,6 +2,7 @@
 import type { AppProps } from 'next/app'
 
 import { IconSearch } from '@tabler/icons-react'
+import { Analytics } from '@vercel/analytics/react'
 import 'highlight.js/styles/xcode.css'
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -114,6 +115,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         </Container>
         {confetti}
       </Background>
+      <Analytics />
     </>
   )
 }
