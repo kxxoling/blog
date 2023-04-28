@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3470",
     "build": "next build",
+    "postbuild": "node scripts/generateFeed.js",
     "start": "next start -p 4470",
     "lint": "next lint",
     "prepare": "husky install"
