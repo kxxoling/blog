@@ -16,6 +16,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
 
 import PostDetails from '../components/PostDetails'
 import PostList from '../components/PostList'
@@ -169,6 +170,7 @@ export const getStaticProps = async ({
     mdxOptions: {
       rehypePlugins: [
         rehypeSlug,
+        remarkGfm,
         [
           rehypeAutolinkHeadings,
           {
