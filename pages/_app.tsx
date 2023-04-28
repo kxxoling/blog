@@ -76,6 +76,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <>
       <Head>
         <title>山人多呓语，浮世笑百姿</title>
+        <link rel="icon" type="image/x-icon" href="/logo.png" />
       </Head>
 
       <Background>
