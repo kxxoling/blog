@@ -4,17 +4,13 @@
 
 “一介程序员”
 
-### 兴趣爱好
-
-（无）
-
 ### 关于妹红
 
 先移步[萌娘百科](http://zh.moegirl.org/藤原妹红)吧！
 
 ## 关于博客
 
-本博客基于 [Next.js](https://nextjs.org/) 重新开发，原始文件托管在 [GitHub](https://github.com/kxxoling/blog) 上，受益于 git 的版本控制功能，可以根据 commit 记录找回文章早期版本，个人觉得非常适合管理博客。得益于 Next.js 的 SSG 能力，博客通过 GitHub hooks 自动部署在 [Vercel](https://vercel.com/)，只需要免费额度就可以维持，并且能够提供极致的访问体验。
+本博客基于 [Next.js](https://nextjs.org/) 重新开发，原始文件托管在 [GitHub](https://github.com/kxxoling/blog) 上，受益于 git 的版本控制功能，可以根据 commit 记录找回文章早期版本，个人觉得非常适合管理博客。得益于 Next.js 的 SSG 能力，博客通过 GitHub hooks 自动部署在 [Vercel](https://vercel.com/)，只需要免费额度就可以维持，仍在持续优化中……
 
 ### 版权
 
@@ -27,9 +23,12 @@
 ### 如何订阅
 
 - 使用 GitHub 项目的 [watching](https://github.com/kxxoling/blog/commits?author=kxxoling) 功能。
-- RSS 订阅：[https://blog.windrunner.me/feed.xml](https://blog.windrunner.me/feed.xml) （重构中……）
+- 阅读器订阅：
+  - [https://blog.windrunner.me/feed.xml](https://blog.windrunner.me/feed.xml)
+  - [https://blog.windrunner.me/atom.xml](https://blog.windrunner.me/feed.xml)
+  - [https://blog.windrunner.me/rss.xml](https://blog.windrunner.me/feed.xml)
 
 ## 一些链接
 
-- [GitHub](https://github.com/kxxoling)
+- [我的 GitHub](https://github.com/kxxoling)
 - [博客在线地址](https://blog.windrunner.me/)
