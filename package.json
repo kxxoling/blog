@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3470",
     "build": "next build",
+    "postbuild": "node scripts/generateFeed.js",
     "start": "next start -p 4470",
     "lint": "next lint",
     "prepare": "husky install"
@@ -13,6 +14,7 @@
     "@tabler/icons-react": "^2.15.0",
     "@vercel/analytics": "^1.0.0",
     "disqus-react": "^1.1.5",
+    "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.7.0",
     "next": "^13.3.0",
