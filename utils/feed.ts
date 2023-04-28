@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 
-const { Feed } = require('feed')
-const matter = require('gray-matter')
+import { Feed } from 'feed'
+import matter from 'gray-matter'
 
-function serializeDatetime(datetime) {
+function serializeDatetime(datetime: string | Date) {
   if (!datetime) {
     return null
   }
@@ -18,7 +17,7 @@ function serializeDatetime(datetime) {
   }
 }
 
-async function getSortedPosts() {
+export async function getSortedPosts() {
   // @ts-ignore
   async function getFiles(dir) {
     const dirents = await fs.promises.readdir(dir, { withFileTypes: true })
@@ -37,8 +36,8 @@ async function getSortedPosts() {
 
   const fileList = await getFiles(path.join('posts'))
   const posts = fileList
-    .filter((file) => !file.startsWith('posts/pages'))
-    .map((filename) => {
+    .filter((file: string) => !file.startsWith('posts/pages'))
+    .map((filename: string) => {
       const fileContent = fs.readFileSync(
         filename, // 'posts/xxx.{md|mdx}
         'utf-8'
@@ -71,7 +70,7 @@ async function getSortedPosts() {
       frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
       return { frontMatter, slug: slug.replace(/\/(README|index)$/, '') }
     })
-    .sort((a, b) => {
+    .sort((a: any, b: any) => {
       const aUpdatedAt =
         a.frontMatter.updatedAt || a.frontMatter.createdAt || ''
       const bUpdatedAt =
@@ -85,7 +84,7 @@ async function getSortedPosts() {
   return posts
 }
 
-async function generateRssFeed(posts) {
+export async function generateRssFeed(posts: any[]) {
   const BASE_URL = 'https://blog.windrunner.me'
 
   const feedOptions = {
@@ -119,9 +118,4 @@ async function generateRssFeed(posts) {
   fs.writeFileSync('./public/rss.xml', feed.rss2())
   fs.writeFileSync('./public/atom.xml', feed.atom1())
   fs.writeFileSync('./public/feed.xml', feed.atom1())
-}
-
-module.exports = {
-  generateRssFeed,
-  getSortedPosts,
 }
