@@ -1,7 +1,7 @@
 ---
 title: Tmux 简易配置
 description: Tmux 是一个能够终端窗口中提供多终端会话管理的应用，它可以在后台保持多个终端会话的运行，并在合适的时候 attach 或者 detach 会话，以达到保持和切换会话的作用。这里简单介绍下基本概念和配置、使用。
-createdAt: 2014-12-01
+createdAt: 2016-05-02
 updatedAt: 2023-04-28
 tags: [Tmux, Linux, macOS]
 ---
@@ -49,7 +49,7 @@ Tmux 的竞争对手有 GNU Screen，我没有过 Screen 的使用经验，但�
 | 列出所有会话       | `Prefix + s `        |
 | 重命名当前会话     | `Prefix + $`         |
 
-### Tmux Prefix （prefix）
+### Tmux Prefix（prefix）
 
 Tmux 使用 Prefix 以将自身的快捷键与其它应用区分，运行 Tmux 快捷键时首先按下这个 Prefix（默认是 `Ctrl-b` 组合键），松手后紧接着按下对应操作的快捷键。
 
@@ -119,7 +119,7 @@ bind R source-file ~/.tmux.conf \; display-message "Config reloaded..."
 你需要添加以下配置：
 
 ```ini
-# （进入复制模式后）输入 'v' 开始选择
+#（进入复制模式后）输入 'v' 开始选择
 bind-key -t vi-copy v begin-selection
 # 将选中文字添加到系统的剪贴板中
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"

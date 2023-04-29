@@ -1,39 +1,32 @@
 ---
 title: Sentry
 tags: [Sentry]
-updatedAt: '2022-06-26'
+createdAt: 2016-01-03
+updatedAt: 2022-06-26
 thumbnail: /images/sentry.webp
 ---
 
-Sentry 是一个开源的实时错误报告工具，支持 web 前后端、移动应用以及游戏，支持
-Python、OC、Java、Go、Node.js、Django、RoR 等[主流编程语言和框架](https://getsentry.com/platforms/)
-，还提供了 GitHub、Slack、Trello 等常见开发工具的[集成](https://getsentry.com/integrations/)。
+Sentry 是一个开源的实时错误报告工具，支持 web 前后端、移动应用以及游戏，支持 Python、OC、Java、Go、Node.js、Django、RoR 等[主流编程语言和框架](https://getsentry.com/platforms/)，还提供了 GitHub、Slack、Trello 等常见开发工具的[集成](https://getsentry.com/integrations/)。
 
 ## 基本概念
 
 ### Sentry 是什么
 
-通常我们所说的 Sentry 是指 Sentry 的后端服务，由 Django 编写。8.0 版本使用了 React.js
-构建前端 UI。使用 Sentry 前还需要在自己的应用中配置 Sentry 的 SDK ——
-通常在各语言的包管理工具中叫做 Raven。
+通常我们所说的 Sentry 是指 Sentry 的后端服务，由 Django 编写。8.0 版本使用了 React.js 构建前端 UI。使用 Sentry 前还需要在自己的应用中配置 Sentry 的 SDK——通常在各语言的包管理工具中叫做 Raven。
 
 当然，Sentry 还可以是其公司所提供的 Sentry SaaS 服务。
 
 ### DSN（Data Source Name）
 
-Sentry 服务支持多用户、多团队、多应用管理，每个应用都对应一个 PROJECT_ID，以及用于身份认证的
-PUBLIC_KEY 和 SECRET_KEY。由此组成一个这样的 DSN：`'{PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}'`
+Sentry 服务支持多用户、多团队、多应用管理，每个应用都对应一个 PROJECT_ID，以及用于身份认证的 PUBLIC_KEY 和 SECRET_KEY。由此组成一个这样的 DSN：`'{PROTOCOL}://{PUBLIC_KEY}:{SECRET_KEY}@{HOST}/{PATH}{PROJECT_ID}'`
 
-PROTOCOL 通常会是 `http` 或者 `https`，HOST 为 Sentry 服务的主机名和端口，PATH
-通常为空。
+PROTOCOL 通常会是 `http` 或者 `https`，HOST 为 Sentry 服务的主机名和端口，PATH 通常为空。
 
 ## 部署 Sentry 服务
 
 ### 安装
 
-由于 Sentry 依赖众多，建议在独立的虚拟环境中安装。Sentry 依赖 Unix 兼容系统、Python 2.7、
-PostgreSQL 以及 Redis，确保你已经安装好了这些依赖。考虑到 Python WSGI 应用的部署，
-你可能还需要 Nginx 或者 Apache 2 作为前端服务器，以及 supervisor 管理应用。
+由于 Sentry 依赖众多，建议在独立的虚拟环境中安装。Sentry 依赖 Unix 兼容系统、Python 2.7、PostgreSQL 以及 Redis，确保你已经安装好了这些依赖。考虑到 Python WSGI 应用的部署，你可能还需要 Nginx 或者 Apache 2 作为前端服务器，以及 supervisor 管理应用。
 
 有了这些以后，Sentry 的安装就非常简单：`pip install sentry`。
 
