@@ -5,6 +5,7 @@ import matter from 'gray-matter'
 import Head from 'next/head'
 
 import PostList from '../components/PostList'
+import { serializeDatetime } from '../utils/datetime'
 
 export const getStaticProps = async () => {
   // Copied from pages/[[...slug]].tsx
@@ -31,19 +32,14 @@ export const getStaticProps = async () => {
       'utf-8'
     )
     const slug = filename.replace('posts', '').split('.')[0]
-    if (filename.endsWith('.md')) {
-      return {
-        frontMatter: {
-          title: fileContent.split('\n')[0].replace('#', '').trim(),
-        },
-        slug,
-      }
-    }
+
     const { data: frontMatter } = matter(fileContent)
     if (!frontMatter.title) {
       // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
       frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
     }
+    frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
+    frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
     return { frontMatter, slug }
   })
 

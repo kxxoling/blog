@@ -4,18 +4,7 @@ import path from 'path'
 import { Feed } from 'feed'
 import matter from 'gray-matter'
 
-function serializeDatetime(datetime: string | Date) {
-  if (!datetime) {
-    return null
-  }
-  if (datetime) {
-    if (typeof datetime === 'string') {
-      return new Date(datetime).toISOString()
-    } else if (datetime instanceof Date) {
-      return datetime.toISOString()
-    }
-  }
-}
+import { serializeDatetime } from './datetime'
 
 export async function getSortedPosts() {
   // @ts-ignore

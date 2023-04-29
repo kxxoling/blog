@@ -20,19 +20,7 @@ import remarkGfm from 'remark-gfm'
 
 import PostDetails from '../components/PostDetails'
 import PostList from '../components/PostList'
-
-function serializeDatetime(datetime?: string | Date) {
-  if (!datetime) {
-    return null
-  }
-  if (datetime) {
-    if (typeof datetime === 'string') {
-      return new Date(datetime).toISOString()
-    } else if (datetime instanceof Date) {
-      return datetime.toISOString()
-    }
-  }
-}
+import { serializeDatetime } from '../utils/datetime'
 
 // @ts-ignore
 export const getStaticPaths = async () => {
@@ -198,6 +186,8 @@ export const getStaticProps = async ({
       ],
     },
   })
+  frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
+  frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
   return {
     props: {
       frontMatter,
