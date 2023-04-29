@@ -27,16 +27,12 @@ export const getStaticProps = async () => {
 
   const fileList = await getFiles(path.join('posts/pages'))
   const pagePosts = fileList.map((filename: string) => {
-    const fileContent = fs.readFileSync(
-      filename, // posts/pages/xxx.{md|mdx}
-      'utf-8'
-    )
+    const fileContent = fs.readFileSync(filename, 'utf-8') // posts/pages/xxx.mdx
     const slug = filename.replace('posts', '').split('.')[0]
 
     const { data: frontMatter } = matter(fileContent)
     if (!frontMatter.title) {
-      // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
-      frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
+      throw new Error('title is required')
     }
     frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
     frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
@@ -48,7 +44,6 @@ export const getStaticProps = async () => {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Pages({ posts }: never) {
-  // 这个页面是仅为了保持 SEO，不应该有人看到它
   return (
     <div className="">
       <Head>

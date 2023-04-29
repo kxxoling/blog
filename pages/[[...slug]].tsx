@@ -48,8 +48,8 @@ export const getStaticPaths = async () => {
       params: {
         slug: filename
           .replace(/^posts\//, '')
-          .replace(/\.(md|mdx)$/, '')
-          .replace(/\/(README|index)$/, '')
+          .replace(/\.mdx$/, '')
+          .replace(/\/index$/, '')
           .split('/'),
       },
     }))
@@ -89,37 +89,19 @@ export const getStaticProps = async ({
   const posts = fileList
     .filter((file: string) => !file.startsWith('posts/pages'))
     .map((filename: string) => {
-      const fileContent = fs.readFileSync(
-        filename, // 'posts/xxx.{md|mdx}
-        'utf-8'
-      )
+      const fileContent = fs.readFileSync(filename, 'utf-8') // 'posts/xxx.mdx'
       const slug = filename.replace('posts/', '').split('.')[0]
       if (filename.endsWith('.md')) {
-        // 处理 markdown 文章
-        if (filename.indexOf('README') < 0) {
-          return {
-            frontMatter: {
-              title: fileContent.split('\n')[0].replace('#', '').trim(),
-            },
-            slug,
-          }
-        }
-        return {
-          frontMatter: {
-            title: fileContent.split('\n')[0].replace('#', '').trim(),
-          },
-          slug: slug.replace(/\/(README|index)$/, ''),
-        }
+        throw new Error(`${filename} ends with .md is not allowed`)
       }
 
       const { data: frontMatter } = matter(fileContent)
       if (!frontMatter.title) {
-        // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
-        frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
+        throw new Error('title is required')
       }
       frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
       frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
-      return { frontMatter, slug: slug.replace(/\/(README|index)$/, '') }
+      return { frontMatter, slug: slug.replace(/\/index$/, '') }
     })
     .sort((a: any, b: any) => {
       const aUpdatedAt =
@@ -137,17 +119,11 @@ export const getStaticProps = async ({
   }
   let filePath = path.join('posts', slug.join('/') + '.mdx')
   if (!fs.existsSync(filePath)) {
-    const mdPath = path.join('posts', slug.join('/') + '.md')
-    if (fs.existsSync(mdPath)) {
-      filePath = mdPath
+    const mdxPath = path.join('posts', slug.join('/') + '/' + 'index.mdx')
+    if (fs.existsSync(mdxPath)) {
+      filePath = mdxPath
     } else {
-      for (const tail of ['index.mdx', 'README.mdx', 'README.md']) {
-        const mdxPath = path.join('posts', slug.join('/') + '/' + tail)
-        if (fs.existsSync(mdxPath)) {
-          filePath = mdxPath
-          break
-        }
-      }
+      throw new Error(`File ${filePath} not found!`)
     }
   }
 
