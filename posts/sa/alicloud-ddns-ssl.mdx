@@ -1,0 +1,81 @@
+---
+title: 阿里云 DDNS SSL 证书自动更新
+tags: [DDNS, Aliyun, Docker]
+createdAt: 2023-05-05
+---
+
+1. 首先获取阿里云的 AccessKey 和 SecretKey，并配置域名解析
+2. 下载 [logo](https://github.com/go-acme/lego/)，并解压到当前目录
+3. 创建配置文件 `openssl.cnf`：
+
+```conf
+[req]
+prompt=no
+req_extensions = req_ext
+distinguished_name = dn
+
+[dn]
+CN=*.<your-host>
+
+[req_ext]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = <your-host>
+DNS.2 = *.<your-host>
+```
+
+4. 生成证书：
+
+```sh
+export ALICLOUD_ACCESS_KEY=xxxx
+export ALICLOUD_SECRET_KEY=xxxx
+
+./lego --email="your-email" -a --dns alidns --csr=<your-host>.csr --dns.disable-cp new
+```
+
+5. 创建 `certs-renew.sh`：
+
+```sh
+#!/bin/bash
+
+export ALICLOUD_ACCESS_KEY=xxxx
+export ALICLOUD_SECRET_KEY=xxxx
+
+./lego --email="your-email" -a --dns alidns --csr=<your-host>.csr --dns.disable-cp new
+```
+
+赋予执行权限：`chmod +x certs-renew.sh`
+
+6. 配置定时任务，每月 1 日 0 点 0 分执行 `certs-renew.sh`：
+
+```sh
+0 0 1 * * /path/to/certs-renew.sh
+```
+
+7. 配置 Caddy 服务器：
+
+```yml
+version: '3'
+services:
+  caddy:
+    container_name: caddy
+    image: caddy:2.6.2
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./config/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./config/ssl:/etc/caddy/ssl:ro
+```
+
+`./config/Caddyfile`：
+
+```conf
+your-host {
+    encode gzip
+    tls /etc/caddy/ssl/k.root.wf.crt /etc/caddy/ssl/k.root.wf.key
+        reverse_proxy your-service-ip:port
+}
+```
+
+复制证书到 `./config/ssl` 目录下并启动 docker compose 服务：`docker compose up -d`
