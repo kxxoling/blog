@@ -1,0 +1,183 @@
+---
+title: PVE 的一些设置和配置
+createdAt: 2023-05-05
+tags: [PVE, Linux]
+---
+
+## 删除订阅提示
+
+```sh
+sed -i -e "s/Proxmox.Utils.checked_command(Ext.emptyFn);//" /usr/share/pve-manager/js/pvemanagerlib.js
+```
+
+## 温度监控
+
+### 安装 lm-sensors
+
+```sh
+apt install -y lm-sensors
+```
+
+### 执行 sensors-detect 命令，获取可显示的温度
+
+```sh
+sensors-detect
+# 根据提示操作，一般都是直接回车
+```
+
+### 根据传感器类型修改配置文件
+
+输出传感器信息：
+
+```sh
+$ sensors
+k10temp-pci-00c3
+Adapter: PCI adapter
+Tctl:         +59.0°C
+
+nvme-pci-0100
+Adapter: PCI adapter
+Composite:    +42.9°C  (low  =  -0.1°C, high = +74.8°C)
+                       (crit = +79.8°C)
+
+amdgpu-pci-0700
+Adapter: PCI adapter
+vddgfx:      793.00 mV
+vddnb:       762.00 mV
+edge:         +55.0°C
+slowPPT:     1000.00 uW
+
+nvme-pci-0600
+Adapter: PCI adapter
+Composite:    +40.9°C  (low  = -273.1°C, high = +89.8°C)
+                       (crit = +94.8°C)
+Sensor 1:     +40.9°C  (low  = -273.1°C, high = +65261.8°C)
+Sensor 2:     +59.9°C  (low  = -273.1°C, high = +65261.8°C)
+```
+
+修改 `/usr/share/perl5/PVE/API2/Nodes.pm` 文件，找到 `code => sub {}` 函数，在 `return` 前面增加：
+
+```perl
+$res->{sensinfo} = `sensors -j`;
+```
+
+修改配置文件 `/usr/share/pve-manager/js/pvemanagerlib.js` 对应位置（`Ext.define('PVE.node.StatusView'){}` 里面的 `items`）：
+
+```js
+{
+  itemId: 'sensinfo',
+  colspan: 2,
+  printBar: false,
+  title: gettext('温度传感器'),
+  textField: 'sensinfo',
+  renderer: function (value) {
+    value = JSON.parse(value.replaceAll('Â', ''));
+    const c0 = value['amdgpu-pci-0700']['vddgfx']['in0_input'].toFixed(1);
+    const c1 = value['amdgpu-pci-0700']['vddnb']['in1_input'].toFixed(1);
+    const c2 = value['amdgpu-pci-0700']['edge']['temp1_input'].toFixed(1);
+    const c3 = value['amdgpu-pci-0700']['slowPPT']['power1_average'].toFixed(1);
+    const nvme1 = value['nvme-pci-0600']['Composite']['temp1_input'].toFixed(1);
+    const k = value['k10temp-pci-00c3']['Tctl']['temp1_input'].toFixed(1);
+    return `CPU核心温度: ${c0}℃ | ${c1}℃ | ${c2}℃ | ${c3}℃
+<br>
+NVME：${nvme1}℃
+<br>
+PCI adapter：${k}℃`;
+  }
+},
+```
+
+## Prometheus 监控
+
+### 创建专用用户
+
+```sh
+pveum user add pve-exporter@pve -password <password> # 创建 PVE 用户
+pveum acl modify / -user pve-exporter@pve -role PVEAuditor # 添加 PVEAuditor 角色
+useradd -s /bin/false pve-exporter # 创建 Linux 用户
+```
+
+### 安装 Prometheus VE Exporter
+
+```sh
+# Python 虚拟环境
+apt update && apt install -y python3-venv
+python3 -m venv /opt/prometheus-pve-exporter
+source /opt/prometheus-pve-exporter/bin/activate
+pip install prometheus-pve-exporter
+```
+
+### 配置 Prometheus VE Exporter
+
+创建配置文件 `/etc/prometheus/pve.yml`：
+
+```yaml
+default:
+  user: pve-exporter@pve
+  password: <password>
+  verify_ssl: false
+```
+
+修改文件权限：
+
+```sh
+chown -v root.pve-exporter /etc/prometheus/pve.yml
+chmod -v 640 /etc/prometheus/pve.yml
+```
+
+创建服务文件 `/etc/systemd/system/prometheus-pve-exporter.service`：
+
+```ini
+[Unit]
+Description=Prometheus Proxmox VE Exporter
+Documentation=https://github.com/prometheus-pve/prometheus-pve-exporter
+
+[Service]
+Restart=always
+User=pve-exporter
+ExecStart=/opt/prometheus-pve-exporter/bin/pve_exporter /etc/prometheus/pve.yml
+
+[Install]
+WantedBy=multi-user.target
+```
+
+启动服务：
+
+```sh
+systemctl daemon-reload
+systemctl enable prometheus-pve-exporter.service
+systemctl start prometheus-pve-exporter.service
+ss -lntp | grep 9221 # 检查端口是否已成功绑定
+curl --silent http://127.0.0.1:9221/pve | grep pve_version_info
+```
+
+### 配置 Prometheus
+
+修改配置文件 `/etc/prometheus/prometheus.yml`：
+
+```yaml
+# 新增配置：
+scrape_configs:
+  - job_name: 'pve-exporter'
+    static_configs:
+      - targets:
+          - 127.0.0.1:9221
+    metrics_path: /pve
+    params:
+      module: [default]
+```
+
+重启 Prometheus：
+
+```sh
+systemctl reload prometheus
+```
+
+### 配置 Grafana
+
+导入 [PVE Exporter Dashboard](https://grafana.com/grafana/dashboards/10347)。
+
+参考：
+
+- https://post.smzdm.com/p/a0q5v720/
+- https://community.hetzner.com/tutorials/proxmox-prometheus-metrics
