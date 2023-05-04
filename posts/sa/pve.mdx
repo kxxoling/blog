@@ -177,7 +177,36 @@ systemctl reload prometheus
 
 导入 [PVE Exporter Dashboard](https://grafana.com/grafana/dashboards/10347)。
 
+## VNC 配置
+
+VNC 全称 Virtual Network Computing，是一种远程控制技术，可以通过 VNC 客户端远程控制 VNC 服务端。
+
+修改配置文件 `/etc/pve/local/qemu-server/<VMID>.conf`，·
+
+```conf
+args: -vnc 0.0.0.0:77
+```
+
+QEMU 会自动将其映射到 `5977` 端口，规则是 `5900 + <VNC_PORT>`，在别的机器链接 `<PVE_IP>:5977` 即可访问。
+
+如果需要 VNC 密码，可以设置：
+
+```conf
+args: -vnc 0.0.0.0:77,password=on
+```
+
+然后进入 PVE web UI 对应 VM monitor 面板，输入：
+
+```
+# 设置固定密码
+set_password vnc foobar1 -d vnc2
+
+# 设置限时密码（600 秒）
+expire_password vnc +600 -d vnc2
+```
+
 参考：
 
 - https://post.smzdm.com/p/a0q5v720/
 - https://community.hetzner.com/tutorials/proxmox-prometheus-metrics
+- https://pve.proxmox.com/wiki/VNC_Client_Access
