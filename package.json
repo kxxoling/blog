@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@kxxoling/react-github": "0.2.0",
     "@tabler/icons-react": "^2.15.0",
     "@vercel/analytics": "^1.0.0",
     "disqus-react": "^1.1.5",
@@ -22,7 +23,6 @@
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
-    "react-gist": "^1.2.4",
     "react-syntax-highlighter": "^15.5.0",
     "react-use": "^17.4.0",
     "rehype-autolink-headings": "^6.1.1",

@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@kxxoling/react-github':
+    specifier: 0.2.0
+    version: 0.2.0(react-dom@18.2.0)(react@18.2.0)
   '@tabler/icons-react':
     specifier: ^2.15.0
     version: 2.15.0(react@18.2.0)
@@ -34,9 +37,6 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
-  react-gist:
-    specifier: ^1.2.4
-    version: 1.2.4(react@18.2.0)
   react-syntax-highlighter:
     specifier: ^15.5.0
     version: 15.5.0(react@18.2.0)
@@ -373,6 +373,16 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /@kxxoling/react-github@0.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-356jAkEHjo0bL0cRMwJECx7CrmAc0nJQSQlBjZEg/K3qRWsiEkuic1fEoy8BdBpZ38Al5M68fMXqNHl4Z6hmxQ==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@mdx-js/mdx@2.3.0:
     resolution: {integrity: sha512-jLuwRlz8DQfQNiUCJR50Y09CGPq3fLtmtUQfVrj79E0JWu3dvsVcxVIcfhR5h0iXu+/z++zDrYeiJqifRynJkA==}
@@ -4167,14 +4177,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
-
-  /react-gist@1.2.4(react@18.2.0):
-    resolution: {integrity: sha512-uDgPJ08IJsl/7auK3CS53JKGC1P/X7tNCzo9k0r6D/5l+ilsxE1+SAaylJCh0aeyZoJOoxQikKU+MHsAvA9iFw==}
-    peerDependencies:
-      react: 0.14.x || ^15.0.0-rc || ^16.0.0-rc || ^17.0.0-rc
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}

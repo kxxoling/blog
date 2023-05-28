@@ -1,6 +1,6 @@
+import { GitHubGist as Gist } from '@kxxoling/react-github'
 import { DiscussionEmbed } from 'disqus-react'
 import { MDXRemote } from 'next-mdx-remote'
-import Gist from 'react-gist'
 
 import instinctComponents from './InstinctComponents'
 
