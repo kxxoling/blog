@@ -1,3 +1,5 @@
+import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
+
 import Badge from './Badge'
 
 /* eslint-disable @next/next/no-img-element */
@@ -51,14 +53,9 @@ function PostCard({
   thumbnail,
   tags,
 }: PostProps): JSX.Element {
-  const bgColor = hashBgColor(title)
-
   return (
     <>
-      <div
-        className="relative w-full gap-1 p-8 overflow-hidden rounded-3xl"
-        style={{ backgroundColor: bgColor }}
-      >
+      <div className="relative w-full gap-1 p-8 overflow-hidden rounded-3xl">
         <div className="absolute top-0 right-0 w-1/3 h-full overflow-hidden">
           <img
             className="absolute top-0 right-0 h-full blur-xs"
@@ -103,4 +100,47 @@ function PostCard({
     </>
   )
 }
-export default PostCard
+
+const MotionPostCard: React.FC<PostProps> = (props) => {
+  const bgColor = hashBgColor(props.title)
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  function handleMouseMove({
+    currentTarget,
+    clientX,
+    clientY,
+  }: React.MouseEvent<HTMLDivElement>) {
+    if (!currentTarget) {
+      return
+    }
+    const { left, top } = currentTarget.getBoundingClientRect()
+
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      className="relative w-full max-w-md border shadow-2xl group rounded-xl border-white/10"
+      style={{ backgroundColor: bgColor }}
+    >
+      <motion.div
+        className="absolute transition duration-300 opacity-0 pointer-events-none -inset-px rounded-xl group-hover:opacity-100"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              650px circle at ${mouseX}px ${mouseY}px,
+              ${bgColor},
+              transparent 100%
+            )
+          `,
+        }}
+      />
+      <PostCard {...props} />
+    </div>
+  )
+}
+
+export default MotionPostCard
