@@ -1,6 +1,7 @@
 import {
   IconBooks,
   IconBrandGithub,
+  IconBrandLinkedin,
   IconBriefcase,
   IconHeartHandshake,
   IconHome,
@@ -14,13 +15,13 @@ import tw from 'twin.macro'
 const Sidebar = tw.nav`
   w-[240px]
   h-full
-  p-8
+  py-4
+  px-4
   rounded-md
   bg-[rgba(0,0,0,0.1)]
 
   flex flex-col shrink-0
   overflow-x-hidden overflow-y-auto
-
 `
 
 const LogoExpand = tw.div`
@@ -31,7 +32,7 @@ const LogoExpand = tw.div`
 
   top-0
   sticky
-  mb-3
+  px-4
 
   hover:text-[#ff7551]
   transition-all
@@ -62,19 +63,24 @@ const links = [
     name: '@kxxoling',
     Icon: IconBrandGithub,
   },
+  {
+    path: 'https://www.linkedin.com/in/kxxoling/',
+    name: '@kxxoling',
+    Icon: IconBrandLinkedin,
+  },
 ]
 
 const NavItem = styled.li`
-  ${tw`px-2 py-2 rounded-md cursor-pointer`}
+  ${tw`px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight`}
 
   & span {
-    ${tw`text-gray-400 transition-all border-gray-400 rounded-md `}
+    ${tw``}
   }
 
   &:hover {
-    ${tw`bg-[#ff7551]`}
+    ${tw`bg-[#00000030]`}
     & span:first-child {
-      ${tw`text-white border-white `}
+      ${tw`text-white border-white`}
     }
     & span {
       ${tw`text-white`}
@@ -93,33 +99,31 @@ export default function Aside(): JSX.Element {
             <NavItem key={path}>
               <Link
                 href={path}
-                className="flex items-center gap-4 text-lg text-gray-300 "
+                className="flex items-center gap-2 text-lg text-gray-100 transition-all rounded-md"
               >
-                <span className="p-2 rounded-md border-[1px] border-solid">
-                  <Icon size={14} />
+                <span className="">
+                  <Icon size={20} />
                 </span>
-                <span>{name}</span>
+                <span className="">{name}</span>
               </Link>
             </NavItem>
           ))}
         </ul>
       </div>
 
-      <hr className="mt-8 mb-8 border-gray-700" />
+      <hr className="my-8 border-2 border-black opacity-20" />
 
       <div className="w-full mt-1">
-        <div className="text-gray-400 text-s">Links</div>
-        <ul className="flex flex-col mt-4">
-          {links.map(({ path, name, Icon }) => (
-            <li className="px-2" key={path}>
+        <div className="px-2 text-sm text-gray-400">Links</div>
+        <ul className="flex gap-3 px-5 mt-4">
+          {links.map(({ path, Icon }) => (
+            <li className="" key={path}>
               <Link
                 href={path}
-                className="flex items-center gap-4 my-2 text-gray-400 text-md"
+                className="inline-block gap-2 p-1 text-white transition-all duration-300 border-2 rounded-[50%] opacity-50 hover:opacity-100 hover:rounded-lg"
+                target="_blank"
               >
-                <span className="p-2 border-[1px] border-gray-500 border-solid rounded-md">
-                  <Icon size={16} />
-                </span>
-                <span>{name}</span>
+                <Icon size={20} />
               </Link>
             </li>
           ))}

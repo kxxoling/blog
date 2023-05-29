@@ -1,8 +1,18 @@
 import { GitHubGist as Gist } from '@kxxoling/react-github'
 import { DiscussionEmbed } from 'disqus-react'
 import { MDXRemote } from 'next-mdx-remote'
+import styled from 'styled-components'
+import tw from 'twin.macro'
 
 import instinctComponents from './InstinctComponents'
+
+const PostContainer = styled.div`
+  ${tw`leading-loose`}
+
+  & > * {
+    margin-bottom: 16px;
+  }
+`
 
 // @ts-ignore
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -13,8 +23,8 @@ export default function PostDetails({ slug, frontMatter, mdxSource }) {
   }
 
   return (
-    <div className="text-gray-200">
-      <div className="leading-loose ">
+    <div className="px-8 mt-16 text-gray-200">
+      <PostContainer>
         {frontMatter.title && (
           <h1 className="mx-8 text-3xl text-center text-bold">
             {frontMatter.title}
@@ -33,7 +43,7 @@ export default function PostDetails({ slug, frontMatter, mdxSource }) {
             }}
           />
         </div>
-      </div>
+      </PostContainer>
     </div>
   )
 }

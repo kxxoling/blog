@@ -40,7 +40,7 @@ const hr = tw.hr`
 border-b-2 border-gray-200 dark:border-gray-800 opacity-50
 `
 const pre = styled.pre`
-  ${tw`border-2 border-[rgba(0,0,0,0.2)] bg-[rgba(0,0,0,0.2)] rounded-md`}
+  ${tw`bg-[rgba(0,0,0,0.2)] rounded-md text-sm px-2 py-4`}
 
   & code {
     ${tw`w-full`}
@@ -54,14 +54,14 @@ const ul = styled.ul`
   list-style-type: disc;
 `
 
-const ol = styled.ul`
-  ${tw`list-decimal`}
+const ol = styled.ol`
+  ${tw`pl-4 list-decimal`}
 
-  list-style: decimal !important;
+  list-style: decimal;
 `
 
 const li = styled.li`
-  ${tw`py-1 text-sm list-item`}
+  ${tw`py-1 list-item`}
 `
 
 const blockquote = styled.blockquote`

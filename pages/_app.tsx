@@ -15,7 +15,8 @@ import '../styles/globals.css'
 
 const Container = tw.div`
   p-2
-  bg-[#1f1d2b]
+  bg-[rgba(16,18,27,.4)]
+  backdrop-blur-lg
   max-w-[1360px]
   max-h-[1200px]
   h-[95vh]
@@ -28,12 +29,11 @@ const Container = tw.div`
 `
 
 const Background = styled.div`
-  background-image: url('https://images.unsplash.com/photo-1520045892732-304bc3ac5d8e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80');
+  background-image: url('https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: color-dodge;
-  background-color: rgba(18, 21, 39, 0.86);
 
   display: flex;
   justify-content: center;
@@ -62,9 +62,11 @@ const Background = styled.div`
 
 const Input = tw.input`
 w-full h-full
-bg-[#353340] rounded-md
+bg-[#ffffff20] rounded-md
+hover:bg-[#ffffff10]
+active:bg-[#ffffff10]
 text-sm text-white
-px-4 py-2 shadow-sm
+px-6 py-2 shadow-sm
 outline-none
 hover:ring-2 ring-[#ff7551]
 cursor-not-allowed
@@ -85,10 +87,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
           <div className="flex flex-col w-full h-full grow">
             <div className="flex flex-col shrink-0">
-              <div className="flex items-center px-8 py-8 shrink-0">
+              <div className="flex items-center px-8 py-4 shrink-0">
                 <div className="h-10 flex w-full max-w-[400px] transition-all hover:max-w-[600px] relative">
                   <Input type="text" placeholder="Search…" readOnly />
-                  <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                  <div className="absolute inset-y-0 right-0 flex items-center pl-2 pr-6 text-gray-500">
                     <IconSearch size={24} />
                   </div>
                 </div>
@@ -106,8 +108,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               </div>
             </div>
 
-            <div className="relative flex flex-col mx-8 overflow-y-hidden grow">
-              <div className="z-10 text-4xl pb-4 w-full text-white shrink-0 bg-gradient-to-b from-[#1f1d2b] absolute top-0 insect-x-0" />
+            <div className="relative flex flex-col overflow-y-hidden grow bg-[rgba(16,18,27,.4)]">
               <div className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow">
                 <Component {...pageProps} />
               </div>

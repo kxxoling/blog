@@ -33,7 +33,7 @@ function Post({ post }: { post: Post }): JSX.Element | null {
 
 export default function PostList({ posts }: { posts: Post[] }): JSX.Element {
   return (
-    <>
+    <div className="px-8">
       {posts.map((post) => (
         <Link
           href={`/${post.slug}`}
@@ -43,6 +43,6 @@ export default function PostList({ posts }: { posts: Post[] }): JSX.Element {
           <Post post={post} />
         </Link>
       ))}
-    </>
+    </div>
   )
 }
