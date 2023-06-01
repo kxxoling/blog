@@ -40,10 +40,10 @@ const hr = tw.hr`
 border-b-2 border-gray-200 dark:border-gray-800 opacity-50
 `
 const pre = styled.pre`
-  ${tw`bg-[rgba(0,0,0,0.2)] rounded-md text-sm px-2 py-4`}
+  ${tw`bg-[rgba(0,0,0,0.2)] rounded-md text-sm overflow-hidden`}
 
   & code {
-    ${tw`w-full`}
+    ${tw`w-full p-6 overflow-x-auto`}
     background-color: unset;
   }
 `

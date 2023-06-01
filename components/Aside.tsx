@@ -21,21 +21,8 @@ const Sidebar = tw.nav`
   bg-[rgba(0,0,0,0.1)]
 
   flex flex-col shrink-0
-  overflow-x-hidden overflow-y-auto
-`
-
-const LogoExpand = tw.div`
-  text-white
-  text-3xl
-  font-bold
-  cursor-pointer
-
-  top-0
-  sticky
-  px-4
-
-  hover:text-[#ff7551]
-  transition-all
+  overflow-hidden
+  max-lg:hidden
 `
 
 const navs = [
@@ -91,43 +78,58 @@ const NavItem = styled.li`
 export default function Aside(): JSX.Element {
   return (
     <Sidebar>
-      <LogoExpand>Blog</LogoExpand>
-
-      <div className="w-full mt-1">
-        <ul className="flex flex-col mt-4">
-          {navs.map(({ path, name, Icon }) => (
-            <NavItem key={path}>
-              <Link
-                href={path}
-                className="flex items-center gap-2 text-lg text-gray-100 transition-all rounded-md"
-              >
-                <span className="">
-                  <Icon size={20} />
-                </span>
-                <span className="">{name}</span>
-              </Link>
-            </NavItem>
-          ))}
-        </ul>
+      <div
+        className={`
+  text-white
+  text-3xl
+  font-bold
+  cursor-pointer
+  px-4
+  hover:text-[#ff7551]
+  transition-all`}
+      >
+        Blog
       </div>
 
-      <hr className="my-8 border-2 border-black opacity-20" />
+      <hr className="mt-8 border-2 border-black opacity-20" />
 
-      <div className="w-full mt-1">
-        <div className="px-2 text-sm text-gray-400">Links</div>
-        <ul className="flex gap-3 px-5 mt-4">
-          {links.map(({ path, Icon }) => (
-            <li className="" key={path}>
-              <Link
-                href={path}
-                className="inline-block gap-2 p-1 text-white transition-all duration-300 border-2 rounded-[50%] opacity-50 hover:opacity-100 hover:rounded-lg"
-                target="_blank"
-              >
-                <Icon size={20} />
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <div className="flex-1 overflow-x-hidden overflow-y-auto pt-8 pb-4">
+        <div className="w-full">
+          <ul className="flex flex-col">
+            {navs.map(({ path, name, Icon }) => (
+              <NavItem key={path}>
+                <Link
+                  href={path}
+                  className="flex items-center gap-2 text-lg text-gray-100 transition-all rounded-md"
+                >
+                  <span className="">
+                    <Icon size={20} />
+                  </span>
+                  <span className="">{name}</span>
+                </Link>
+              </NavItem>
+            ))}
+          </ul>
+        </div>
+
+        <hr className="my-8 border-2 border-black opacity-20" />
+
+        <div className="w-full mt-1">
+          <div className="px-2 text-sm text-gray-400">Links</div>
+          <ul className="flex gap-3 px-5 mt-4">
+            {links.map(({ path, Icon }) => (
+              <li className="" key={path}>
+                <Link
+                  href={path}
+                  className="inline-block gap-2 p-1 text-white transition-all duration-300 border-2 rounded-[50%] opacity-50 hover:opacity-100 hover:rounded-lg"
+                  target="_blank"
+                >
+                  <Icon size={20} />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </Sidebar>
   )

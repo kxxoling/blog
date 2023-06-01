@@ -22,8 +22,12 @@ const Container = tw.div`
   max-w-[1360px]
   max-h-[1200px]
   h-[95vh]
-  flex
   w-full
+  max-md:w-screen
+  max-md:h-screen
+
+  h-screen
+  flex
   rounded-lg
   relative
   shadow-lg
@@ -41,6 +45,7 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   padding: 1em 2em;
   width: 100vw;
   height: 100vh;
@@ -91,7 +96,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <Container>
           <Aside />
 
-          <div className="flex flex-col w-full h-full grow">
+          <div className="flex flex-col w-full h-full overflow-hidden grow">
             <div className="flex flex-col shrink-0">
               <div className="flex items-center px-8 py-4 shrink-0">
                 <div className="h-10 flex w-full max-w-[400px] transition-all hover:max-w-[600px] relative">

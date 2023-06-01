@@ -4,9 +4,9 @@
 
 * ::-webkit-scrollbar {
   width: 6px;
-  border-radius: 10px;
+  height: 6px;
 }
 * ::-webkit-scrollbar-thumb {
   background-color: rgba(21, 20, 26, 0.63);
-  border-radius: 10px;
+  border-radius: 3px;
 }

@@ -13,17 +13,17 @@ interface PostProps {
 }
 
 const bgColors = [
-  'rgba(49, 171, 189, 0.5)',
-  'rgba(255, 159, 104, 0.5)',
-  'rgba(61, 239, 233, 0.5)',
-  'rgba(107, 217, 104, 0.5)',
-  'rgba(254, 204, 27, 0.5)',
-  'rgba(102, 102, 102, 0.5)',
-  'rgba(206, 59, 90, 0.5)',
-  'rgba(89, 176, 255, 0.5)',
-  'rgba(216, 59, 210, 0.5)',
-  'rgba(57, 146, 255, 0.5)',
-  'rgba(244, 66, 80, 0.5)',
+  'rgba(49, 171, 189, 0.4)',
+  'rgba(255, 159, 104, 0.4)',
+  'rgba(61, 239, 233, 0.4)',
+  'rgba(107, 217, 104, 0.4)',
+  'rgba(254, 204, 27, 0.4)',
+  'rgba(102, 102, 102, 0.4)',
+  'rgba(206, 59, 90, 0.4)',
+  'rgba(89, 176, 255, 0.4)',
+  'rgba(216, 59, 210, 0.4)',
+  'rgba(57, 146, 255, 0.4)',
+  'rgba(244, 66, 80, 0.4)',
 ]
 
 function hashBgColor(str: string) {
@@ -63,9 +63,9 @@ function PostCard({
             alt=""
           />
         </div>
-        <div className="w-2/3 pb-8 text-3xl text-white">
-          {description || title}
-        </div>
+        {description && (
+          <div className="w-2/3 pb-8 text-3xl text-white">{title}</div>
+        )}
         <div className="flex items-center">
           <div className="relative shrink-0">
             <img
@@ -75,7 +75,7 @@ function PostCard({
             />
           </div>
           <div className="flex flex-col gap-1 ml-4 text-white">
-            <div className="text-sm">{description ? title : ''}</div>
+            <div className="text-sm">{description || title}</div>
 
             <div className="flex gap-2 mt-1 opacity-50 text-slate-700 dark:text-slate-54">
               {tags?.map((tag) => (
