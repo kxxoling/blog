@@ -3,8 +3,10 @@ import type { AppProps } from 'next/app'
 
 import { IconSearch } from '@tabler/icons-react'
 import { Analytics } from '@vercel/analytics/react'
+import { motion, useScroll } from 'framer-motion'
 import 'highlight.js/styles/xcode.css'
 import Head from 'next/head'
+import { useRef } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
@@ -74,6 +76,10 @@ cursor-not-allowed
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const [createConfetti, confetti] = useConfetti()
+  const container = useRef<HTMLDivElement>(null)
+
+  const { scrollYProgress } = useScroll({ container })
+
   return (
     <>
       <Head>
@@ -109,7 +115,14 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </div>
 
             <div className="relative flex flex-col overflow-y-hidden grow bg-[rgba(16,18,27,.4)]">
-              <div className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow">
+              <div
+                className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow"
+                ref={container}
+              >
+                <motion.div
+                  className="fixed top-0 left-0 right-0 h-1 origin-left bg-orange-500"
+                  style={{ scaleX: scrollYProgress }}
+                />
                 <Component {...pageProps} />
               </div>
             </div>
