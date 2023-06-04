@@ -1,3 +1,4 @@
+'use client'
 import { GitHubGist as Gist } from '@kxxoling/react-github'
 import { DiscussionEmbed } from 'disqus-react'
 import { MDXRemote } from 'next-mdx-remote'

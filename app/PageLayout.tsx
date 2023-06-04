@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import type { AppProps } from 'next/app'
+'use client'
 
 import { IconSearch } from '@tabler/icons-react'
 import { Analytics } from '@vercel/analytics/react'
 import { motion, useScroll } from 'framer-motion'
 import 'highlight.js/styles/xcode.css'
-import Head from 'next/head'
 import { useRef } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
@@ -79,65 +78,66 @@ hover:ring-2 ring-[#ff7551]
 cursor-not-allowed
 `
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+export function PageLayout({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element {
   const [createConfetti, confetti] = useConfetti()
   const container = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({ container })
 
   return (
-    <>
-      <Head>
-        <title>山人多呓语，浮世笑百姿</title>
-        <link rel="icon" type="image/x-icon" href="/logo.png" />
-      </Head>
+    <html lang="en">
+      <body>
+        <Background>
+          <Container>
+            <Aside />
 
-      <Background>
-        <Container>
-          <Aside />
-
-          <div className="flex flex-col w-full h-full overflow-hidden grow">
-            <div className="flex flex-col shrink-0">
-              <div className="flex items-center px-8 py-4 shrink-0">
-                <div className="h-10 flex w-full max-w-[400px] transition-all hover:max-w-[600px] relative">
-                  <Input type="text" placeholder="Search…" readOnly />
-                  <div className="absolute inset-y-0 right-0 flex items-center pl-2 pr-6 text-gray-500">
-                    <IconSearch size={24} />
+            <div className="flex flex-col w-full h-full overflow-hidden grow">
+              <div className="flex flex-col shrink-0">
+                <div className="flex items-center px-8 py-4 shrink-0">
+                  <div className="h-10 flex w-full max-w-[400px] transition-all hover:max-w-[600px] relative">
+                    <Input type="text" placeholder="Search…" readOnly />
+                    <div className="absolute inset-y-0 right-0 flex items-center pl-2 pr-6 text-gray-500">
+                      <IconSearch size={24} />
+                    </div>
+                  </div>
+                  <div
+                    className="flex items-center gap-4 pl-8 ml-auto shrink-0"
+                    onClick={() => createConfetti()}
+                  >
+                    <img
+                      className="w-8 h-8 rounded-full"
+                      src="https://avatars.githubusercontent.com/u/1227139"
+                      alt="Kane Blueriver"
+                    />
+                    <span className="text-sm text-gray-400">
+                      Kane Blueriver
+                    </span>
                   </div>
                 </div>
+              </div>
+
+              <div className="relative flex flex-col overflow-y-hidden grow bg-[rgba(16,18,27,.4)]">
                 <div
-                  className="flex items-center gap-4 pl-8 ml-auto shrink-0"
-                  onClick={() => createConfetti()}
+                  className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow"
+                  ref={container}
                 >
-                  <img
-                    className="w-8 h-8 rounded-full"
-                    src="https://avatars.githubusercontent.com/u/1227139"
-                    alt="Kane Blueriver"
+                  <motion.div
+                    className="fixed top-0 left-0 right-0 h-1 origin-left bg-orange-500"
+                    style={{ scaleX: scrollYProgress }}
                   />
-                  <span className="text-sm text-gray-400">Kane Blueriver</span>
+                  {children}
                 </div>
               </div>
             </div>
-
-            <div className="relative flex flex-col overflow-y-hidden grow bg-[rgba(16,18,27,.4)]">
-              <div
-                className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow"
-                ref={container}
-              >
-                <motion.div
-                  className="fixed top-0 left-0 right-0 h-1 origin-left bg-orange-500"
-                  style={{ scaleX: scrollYProgress }}
-                />
-                <Component {...pageProps} />
-              </div>
-            </div>
-          </div>
-        </Container>
-        {confetti}
-      </Background>
-      <Analytics />
-    </>
+          </Container>
+          {confetti}
+        </Background>
+        <Analytics />
+      </body>
+    </html>
   )
 }
-
-export default MyApp
