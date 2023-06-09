@@ -15,8 +15,8 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-import PostDetails from '../../components/PostDetails'
-import { serializeDatetime } from '../../utils/datetime'
+import PostDetails from '@/components/PostDetails'
+import { serializeDatetime } from '@/utils/datetime'
 
 interface PageParams {
   slug: string[]

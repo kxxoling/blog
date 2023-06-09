@@ -9,8 +9,8 @@ import { useRef } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
-import Aside from '../components/Aside'
-import useConfetti from '../components/Confetti'
+import Aside from '@/components/Aside'
+import useConfetti from '@/components/Confetti'
 
 import '../styles/globals.css'
 

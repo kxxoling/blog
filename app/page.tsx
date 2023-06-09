@@ -3,8 +3,8 @@ import path from 'path'
 
 import matter from 'gray-matter'
 
-import PostList from '../components/PostList'
-import { serializeDatetime } from '../utils/datetime'
+import PostList from '@/components/PostList'
+import { serializeDatetime } from '@/utils/datetime'
 
 const getStaticProps = async () => {
   // @ts-ignore

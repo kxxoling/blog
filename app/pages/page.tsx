@@ -4,8 +4,8 @@ import path from 'path'
 import matter from 'gray-matter'
 import Head from 'next/head'
 
-import PostList from '../../components/PostList'
-import { serializeDatetime } from '../../utils/datetime'
+import PostList from '@/components/PostList'
+import { serializeDatetime } from '@/utils/datetime'
 
 const getStaticProps = async () => {
   // Copied from pages/[[...slug]].tsx

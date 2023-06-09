@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { PageLayout } from './PageLayout'
+import { PageLayout } from '@/components/Layout'
 
 export const metadata: Metadata = {
   title: '山人多呓语，浮世笑百姿',

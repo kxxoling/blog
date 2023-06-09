@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import PostCard from '../components/PostCard'
+import PostCard from '@/components/PostCard'
 
 type Post = {
   frontMatter: {
