@@ -36,7 +36,7 @@ export default function PostList({ posts }: { posts: Post[] }): JSX.Element {
     <div className="px-8">
       {posts.map((post) => (
         <Link
-          href={`/${post.slug}`}
+          href={`${post.slug}`}
           key={post.slug}
           className="flex w-full py-4 no-underline cursor-pointer grow"
         >

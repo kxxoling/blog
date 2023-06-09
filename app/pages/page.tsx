@@ -4,10 +4,10 @@ import path from 'path'
 import matter from 'gray-matter'
 import Head from 'next/head'
 
-import PostList from '../components/PostList'
-import { serializeDatetime } from '../utils/datetime'
+import PostList from '../../components/PostList'
+import { serializeDatetime } from '../../utils/datetime'
 
-export const getStaticProps = async () => {
+const getStaticProps = async () => {
   // Copied from pages/[[...slug]].tsx
   // @ts-ignore
   async function getFiles(dir) {
@@ -39,11 +39,11 @@ export const getStaticProps = async () => {
     return { frontMatter, slug }
   })
 
-  return { props: { posts: pagePosts } }
+  return { posts: pagePosts }
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export default function Pages({ posts }: never) {
+export default async function Pages() {
+  const { posts } = await getStaticProps()
   return (
     <div className="">
       <Head>

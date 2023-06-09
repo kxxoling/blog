@@ -1,3 +1,4 @@
+'use client'
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion'
 
 import Badge from './Badge'

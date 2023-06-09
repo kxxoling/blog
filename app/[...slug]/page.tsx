@@ -1,6 +1,3 @@
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import type { ParsedUrlQuery } from 'querystring'
-
 import fs from 'fs'
 import path from 'path'
 
@@ -18,12 +15,14 @@ import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
-import PostDetails from '../components/PostDetails'
-import PostList from '../components/PostList'
-import { serializeDatetime } from '../utils/datetime'
+import PostDetails from '../../components/PostDetails'
+import { serializeDatetime } from '../../utils/datetime'
 
-// @ts-ignore
-export const getStaticPaths = async () => {
+interface PageParams {
+  slug: string[]
+}
+
+export async function generateStaticParams(): Promise<PageParams[]> {
   // @ts-ignore
   async function getFiles(dir): Promise<string[]> {
     const dirents = await fs.promises.readdir(dir, { withFileTypes: true })
@@ -42,33 +41,17 @@ export const getStaticPaths = async () => {
 
   const files = await getFiles(path.join('posts'))
 
-  // @ts-ignore
-  const paths = files
-    .map((filename) => ({
-      params: {
-        slug: filename
-          .replace(/^posts\//, '')
-          .replace(/\.mdx$/, '')
-          .replace(/\/index$/, '')
-          .split('/'),
-      },
-    }))
-    .concat({ params: { slug: [''] } })
-  return {
-    paths,
-    fallback: false,
-  }
+  const paths = files.map((filename) => ({
+    slug: filename
+      .replace(/^posts\//, '')
+      .replace(/\.mdx$/, '')
+      .replace(/\/index$/, '')
+      .split('/'),
+  }))
+  return paths
 }
 
-interface Params extends ParsedUrlQuery {
-  slug: string[]
-}
-
-export const getStaticProps = async ({
-  params,
-}: GetStaticPropsContext<Params>) => {
-  const slug = params!.slug
-
+const getStaticProps = async (slug: string[]) => {
   // @ts-ignore
   async function getFiles(dir) {
     const dirents = await fs.promises.readdir(dir, { withFileTypes: true })
@@ -86,6 +69,7 @@ export const getStaticProps = async ({
   }
 
   const fileList = await getFiles(path.join('posts'))
+
   const posts = fileList
     .filter((file: string) => !file.startsWith('posts/pages'))
     .map((filename: string) => {
@@ -114,9 +98,6 @@ export const getStaticProps = async ({
       return aUpdatedAt > bUpdatedAt ? -1 : 1
     })
 
-  if (!slug) {
-    return { props: { slug: null, posts } }
-  }
   let filePath = path.join('posts', slug.join('/') + '.mdx')
   if (!fs.existsSync(filePath)) {
     const mdxPath = path.join('posts', slug.join('/') + '/' + 'index.mdx')
@@ -165,33 +146,20 @@ export const getStaticProps = async ({
   frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
   frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
   return {
-    props: {
-      frontMatter,
-      slug,
-      mdxSource,
-      posts,
-    },
+    frontMatter,
+    slug,
+    mdxSource,
+    posts,
   }
 }
 
-// @ts-ignore
-function Home({ posts }) {
-  return (
-    <div className="flex flex-col items-center mb-8">
-      <PostList posts={posts} />
-    </div>
-  )
-}
+export default async function PostPage({
+  params: { slug },
+}: {
+  params: PageParams
+}): Promise<JSX.Element> {
+  const { frontMatter, mdxSource } = await getStaticProps(slug)
 
-export default function PostPage({
-  slug,
-  posts,
-  frontMatter,
-  mdxSource,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  if (slug === null) {
-    return <Home posts={posts} />
-  }
   return (
     <PostDetails frontMatter={frontMatter} mdxSource={mdxSource} slug={slug} />
   )

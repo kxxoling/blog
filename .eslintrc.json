@@ -9,6 +9,7 @@
     "plugin:import/typescript",
     "prettier"
   ],
+  "ignorePatterns": ["node_modules", ".next", "out"],
   "rules": {
     "no-undef": "off",
     "comma-dangle": [
