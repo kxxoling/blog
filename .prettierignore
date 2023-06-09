@@ -1,3 +1,4 @@
 *.md
 .next
 *-lock.yaml
+out
