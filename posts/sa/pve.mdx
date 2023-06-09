@@ -183,7 +183,7 @@ VNC 全称 Virtual Network Computing，是一种远程控制技术，可以通�
 
 修改配置文件 `/etc/pve/local/qemu-server/<VMID>.conf`，·
 
-```conf
+```ini
 args: -vnc 0.0.0.0:77
 ```
 
@@ -191,13 +191,13 @@ QEMU 会自动将其映射到 `5977` 端口，规则是 `5900 + <VNC_PORT>`，�
 
 如果需要 VNC 密码，可以设置：
 
-```conf
+```ini
 args: -vnc 0.0.0.0:77,password=on
 ```
 
 然后进入 PVE web UI 对应 VM monitor 面板，输入：
 
-```
+```sh
 # 设置固定密码
 set_password vnc foobar1 -d vnc2
 

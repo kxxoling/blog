@@ -8,7 +8,7 @@ createdAt: 2023-05-05
 2. 下载 [logo](https://github.com/go-acme/lego/)，并解压到当前目录
 3. 创建配置文件 `openssl.cnf`：
 
-```conf
+```ini
 [req]
 prompt=no
 req_extensions = req_ext
@@ -70,7 +70,7 @@ services:
 
 `./config/Caddyfile`：
 
-```conf
+```nginx
 your-host {
     encode gzip
     tls /etc/caddy/ssl/k.root.wf.crt /etc/caddy/ssl/k.root.wf.key

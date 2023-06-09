@@ -4,7 +4,6 @@
 import { IconSearch } from '@tabler/icons-react'
 import { Analytics } from '@vercel/analytics/react'
 import { motion, useScroll } from 'framer-motion'
-import 'highlight.js/styles/xcode.css'
 import { useRef } from 'react'
 import styled from 'styled-components'
 import tw from 'twin.macro'

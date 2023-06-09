@@ -67,7 +67,7 @@ Tmux 配置文件的默认地址是 `~/.tmux.conf`，每次启动 Tmux 时都会
 Tmux 的配置未见位置是 `~/.tmux.conf`，修改 Tmux Prefix 首先需要取消绑定原有的的 Prefix ；
 再设置新的 Prefix，这里以 `Ctrl-w` 为例：
 
-```conf
+```ini
 unbind C-b
 set -g prefix C-w
 ```
@@ -108,7 +108,7 @@ Tmux 基本操作是以 `Prefix + 操作` 的方式进行的，比如 `Prefix+c`
 Tmux 快捷键绑定的命令是 `bind 快捷键 作用`，即可将“作用”绑定在 `Prefix ＋快捷键` 上，
 下面这行配置会将“重新加载”配置文件的操作绑定在快捷键 `R` 上：
 
-```conf
+```ini
 bind R source-file ~/.tmux.conf \; display-message "Config reloaded..."
 ```
 
@@ -162,7 +162,7 @@ endif
 
 在 Tmux 中遇到 Vim 主题颜色问题也可以在 `.tmux.conf` 配置中加入：
 
-```conf
+```ini
 # set -g default-terminal "screen-256color"
 set-option -sa terminal-overrides ",xterm*:Tc"
 ```
@@ -186,7 +186,7 @@ set-option -sa terminal-overrides ",xterm*:Tc"
 
 ### 一个简单的配置
 
-```conf
+```ini
 # 配置 Vim 颜色兼容
 set-option -sa terminal-overrides ",xterm*:Tc"
 # 配置鼠标控制，可能需要 terminal 支持

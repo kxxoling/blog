@@ -7,7 +7,6 @@ import {
   IconHome,
   IconUserCircle,
 } from '@tabler/icons-react'
-import 'highlight.js/styles/xcode.css'
 import Link from 'next/link'
 import styled from 'styled-components'
 import tw from 'twin.macro'
