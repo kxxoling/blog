@@ -1,22 +1,21 @@
+import type { Lang } from 'shiki'
+
 import fs from 'fs'
 import path from 'path'
 
+import rehypeShiki from '@leafac/rehype-shiki'
 import matter from 'gray-matter'
-import dockerfile from 'highlight.js/lib/languages/dockerfile'
-import erlang from 'highlight.js/lib/languages/erlang'
-import ini from 'highlight.js/lib/languages/ini'
-import nginx from 'highlight.js/lib/languages/nginx'
-import scheme from 'highlight.js/lib/languages/scheme'
-import vim from 'highlight.js/lib/languages/vim'
 import { serialize } from 'next-mdx-remote/serialize'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeCodeTitles from 'rehype-code-titles'
-import rehypeHighlight from 'rehype-highlight'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import * as shiki from 'shiki'
 
 import PostDetails from '@/components/PostDetails'
 import { serializeDatetime } from '@/utils/datetime'
+
+const langs = shiki.BUNDLED_LANGUAGES.map((lang) => lang.id) as Lang[]
 
 interface PageParams {
   slug: string[]
@@ -125,18 +124,12 @@ const getStaticProps = async (slug: string[]) => {
         ],
 
         [
-          rehypeHighlight,
+          rehypeShiki,
           {
-            ignoreMissing: true, // 默认 false，但是 sequence 和 mermaid 需要稍后支持
-            languages: {
-              scheme,
-              conf: ini,
-              systemd: ini,
-              nginx,
-              dockerfile,
-              vim,
-              erlang,
-            },
+            highlighter: await shiki.getHighlighter({
+              theme: 'poimandres',
+              langs,
+            }),
           },
         ],
         rehypeCodeTitles,
