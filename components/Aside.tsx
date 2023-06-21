@@ -7,22 +7,16 @@ import {
   IconHome,
   IconUserCircle,
 } from '@tabler/icons-react'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
-const Sidebar = tw.nav`
-  w-[240px]
-  h-full
-  py-4
-  px-4
-  rounded-md
-  bg-[rgba(0,0,0,0.1)]
-
-  flex flex-col shrink-0
-  overflow-hidden
-  max-lg:hidden
-`
+const itemMotion = {
+  visible: { opacity: 1, x: 0 },
+  hidden: { opacity: 0, x: 100 },
+}
 
 const navs = [
   {
@@ -30,15 +24,15 @@ const navs = [
     name: 'Home',
     Icon: IconHome,
   },
-  { path: '/bio', name: 'Bio', Icon: IconUserCircle },
-  { path: '/pages', name: 'Pages', Icon: IconBooks },
+  { path: '/bio/', name: 'Bio', Icon: IconUserCircle },
+  { path: '/pages/', name: 'Pages', Icon: IconBooks },
   {
-    path: '/pages/friend-links',
+    path: '/pages/friend-links/',
     name: '友情链接',
     Icon: IconHeartHandshake,
   },
   {
-    path: '/work-experience',
+    path: '/work-experience/',
     name: 'Work Exp',
     Icon: IconBriefcase,
   },
@@ -57,11 +51,7 @@ const links = [
 ]
 
 const NavItem = styled.li`
-  ${tw`px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight`}
-
-  & span {
-    ${tw``}
-  }
+  ${tw`px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight relative`}
 
   &:hover {
     ${tw`bg-[#00000030]`}
@@ -75,8 +65,9 @@ const NavItem = styled.li`
 `
 
 export default function Aside(): JSX.Element {
+  const pathname = usePathname()
   return (
-    <Sidebar>
+    <div className="flex flex-col w-full h-full px-4 py-4 overflow-hidden shrink-0">
       <div
         className={`
   text-white
@@ -84,6 +75,8 @@ export default function Aside(): JSX.Element {
   font-bold
   cursor-pointer
   px-4
+  max-md:text-center
+  max-md:py-6
   hover:text-[#ff7551]
   transition-all`}
       >
@@ -92,20 +85,28 @@ export default function Aside(): JSX.Element {
 
       <hr className="mt-8 border-2 border-black opacity-20" />
 
-      <div className="flex-1 overflow-x-hidden overflow-y-auto pt-8 pb-4">
+      <div className="flex-1 pt-8 pb-4 overflow-x-hidden overflow-y-auto">
         <div className="w-full">
           <ul className="flex flex-col">
             {navs.map(({ path, name, Icon }) => (
               <NavItem key={path}>
-                <Link
-                  href={path}
-                  className="flex items-center gap-2 text-lg text-gray-100 transition-all rounded-md"
-                >
-                  <span className="">
-                    <Icon size={20} />
-                  </span>
-                  <span className="">{name}</span>
+                <Link href={path}>
+                  <motion.span
+                    variants={itemMotion}
+                    className="flex items-center gap-2 text-lg text-gray-100 max-md:text-2xl max-md:py-2"
+                  >
+                    <span className="">
+                      <Icon size={20} />
+                    </span>
+                    <span className="">{name}</span>
+                  </motion.span>
                 </Link>
+                {pathname === path && (
+                  <motion.div
+                    layoutId="active-nav-link"
+                    className="absolute inset-0 bg-[#00000030] rounded-md"
+                  />
+                )}
               </NavItem>
             ))}
           </ul>
@@ -130,6 +131,6 @@ export default function Aside(): JSX.Element {
           </ul>
         </div>
       </div>
-    </Sidebar>
+    </div>
   )
 }
