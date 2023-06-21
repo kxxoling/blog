@@ -9,6 +9,7 @@ import {
 } from '@tabler/icons-react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 
@@ -23,15 +24,15 @@ const navs = [
     name: 'Home',
     Icon: IconHome,
   },
-  { path: '/bio', name: 'Bio', Icon: IconUserCircle },
-  { path: '/pages', name: 'Pages', Icon: IconBooks },
+  { path: '/bio/', name: 'Bio', Icon: IconUserCircle },
+  { path: '/pages/', name: 'Pages', Icon: IconBooks },
   {
-    path: '/pages/friend-links',
+    path: '/pages/friend-links/',
     name: '友情链接',
     Icon: IconHeartHandshake,
   },
   {
-    path: '/work-experience',
+    path: '/work-experience/',
     name: 'Work Exp',
     Icon: IconBriefcase,
   },
@@ -50,7 +51,7 @@ const links = [
 ]
 
 const NavItem = styled.li`
-  ${tw`px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight`}
+  ${tw`px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight relative`}
 
   &:hover {
     ${tw`bg-[#00000030]`}
@@ -64,6 +65,7 @@ const NavItem = styled.li`
 `
 
 export default function Aside(): JSX.Element {
+  const pathname = usePathname()
   return (
     <div className="flex flex-col w-full h-full px-4 py-4 overflow-hidden shrink-0">
       <div
@@ -91,7 +93,7 @@ export default function Aside(): JSX.Element {
                 <Link href={path}>
                   <motion.span
                     variants={itemMotion}
-                    className="flex items-center gap-2 text-lg text-gray-100 rounded-md max-md:text-2xl max-md:py-2"
+                    className="flex items-center gap-2 text-lg text-gray-100 max-md:text-2xl max-md:py-2"
                   >
                     <span className="">
                       <Icon size={20} />
@@ -99,6 +101,12 @@ export default function Aside(): JSX.Element {
                     <span className="">{name}</span>
                   </motion.span>
                 </Link>
+                {pathname === path && (
+                  <motion.div
+                    layoutId="active-nav-link"
+                    className="absolute inset-0 bg-[#00000030] rounded-md"
+                  />
+                )}
               </NavItem>
             ))}
           </ul>
