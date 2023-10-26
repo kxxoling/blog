@@ -141,7 +141,7 @@ docker-compose up -d
 
 ### 解除 TM 备份速度限制
 
-在网上搜到一条加速备份的命令：`sudo sysctl debug.lowpri_throttle_enabled 0`，也可以使用 `sudo sysctl debug.lowpri_throttle_enabled 1` 还原设置，但是在 macOS 12.5 上成功将备份速度从 2MB/s 加速到 1MB/s。💩 仅供参考。
+在网上搜到一条加速备份的命令：`sudo sysctl debug.lowpri_throttle_enabled=0`，也可以使用 `sudo sysctl debug.lowpri_throttle_enabled=1` 还原设置，但是在 macOS 12.5 上成功将备份速度从 2MB/s 加速到 1MB/s。💩 仅供参考。
 
 ### 筛选 TM 备份的目录
 
@@ -171,9 +171,8 @@ docker-compose up -d
 macOS 提供了一个 tmutil 命令，可以设置备份的目录，比如
 
 ```shell
-tmutil addexclusion "$(pwd)/not_backuped" # 将当前目录添加到备份目录中
-tmutil isexcluded "$(pwd)/not_backuped" # 查看是否被排除
-xattr "not_backuped" # 查看文件属性
+tmutil addexclusion "$(pwd)" # 将当前目录添加到备份目录中
+tmutil isexcluded "$(pwd)" # 查看是否被排除
 ```
 
 需要注意的是，`tmutils addexclusion some_dir` 排除的目录不会在 GUI 应用中显示，只能使用 CLI 命令查看：`sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"`。但是 GUI 应用中的设置是可以在 CLI 中查看的：
