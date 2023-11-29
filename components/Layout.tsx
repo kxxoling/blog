@@ -7,80 +7,20 @@ import { motion, useScroll } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { useMedia } from 'react-use'
-import styled, { css } from 'styled-components'
-import tw from 'twin.macro'
 
 import Aside from '@/components/Aside'
 import useConfetti from '@/components/Confetti'
 
 import '../styles/globals.css'
 
-const Container = styled.div`
-  ${tw`
-  p-2
-  bg-[rgba(16,18,27,.4)]
-  max-w-[1360px]
-  max-h-[1200px]
-  h-[95vh]
-  w-full
-  max-md:h-screen
-
-  h-screen
-  flex
-  rounded-lg
-  relative
-  shadow-lg
-  overflow-hidden`}
-
-  ${css`
-    &::before {
-      // backdrop blur will break view position, limit this into before element
-      ${tw`backdrop-blur-lg`}
-    }
-  `}
-`
-
-const Background = styled.div`
-  background-image: url('https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: color-dodge;
-
-  ${tw`flex flex-col items-center justify-center max-md:p-0`}
-
-  padding: 1em 2em;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-
-  &:before {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: linear-gradient(
-      163deg,
-      rgba(31, 29, 43, 1) 21%,
-      rgba(31, 29, 43, 0.3) 64%
-    );
-    opacity: 0.4;
-    content: '';
-  }
-`
-
-const Input = tw.input`
-w-full h-full
-bg-[#ffffff20] rounded-md
-hover:bg-[#ffffff10]
-active:bg-[#ffffff10]
-text-sm text-white
-px-6 py-2 shadow-sm
-outline-none
-hover:ring-2 ring-[#ff7551]
-cursor-not-allowed
-`
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
+  props
+) => (
+  <input
+    {...props}
+    className="w-full h-full bg-[#ffffff20] rounded-md hover:bg-[#ffffff10] active:bg-[#ffffff10] text-sm text-white px-6 py-2 shadow-sm outline-none hover:ring-2 ring-[#ff7551] cursor-not-allowed"
+  />
+)
 
 const navMotion = {
   visible: {
@@ -114,8 +54,8 @@ export function PageLayout({
   return (
     <html lang="en">
       <body>
-        <Background>
-          <Container>
+        <div className="flex flex-col items-center justify-center max-md:p-0 py-8 w-screen overflow-hidden h-screen before:w-full before:h-screen before:fixed before:top-0 before:left-0 before:opacity-40 before:content-[''] before:bg-gradient-to-[137deg] before:from-[#38288e 21%] before:to-[rgba(32, 17, 122, 0.3) 64%] bg-center bg-cover bg-no-repeat bg-blend bg-blend-color-dodge bg-macDesktop">
+          <div className="p-2 bg-[rgba(16,18,27,.4)] max-w-[1360px] max-h-[1200px] h-[95vh] w-full max-md:h-screen h-screen flex rounded-lg relative shadow-lg overflow-hidden before:backdrop-blur-lg">
             {!matches && (
               <div
                 onClick={() => {
@@ -197,9 +137,9 @@ export function PageLayout({
                 </div>
               </div>
             </div>
-          </Container>
+          </div>
           {confetti}
-        </Background>
+        </div>
         <Analytics />
       </body>
     </html>

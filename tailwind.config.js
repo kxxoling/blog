@@ -18,6 +18,10 @@ module.exports = {
       200: '50rem',
     },
     extend: {
+      backgroundImage: {
+        macDesktop:
+          "url('https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg')",
+      },
       animation: {
         blob: 'blob 10s infinite',
       },

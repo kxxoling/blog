@@ -10,8 +10,7 @@ import {
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import styled from 'styled-components'
-import tw from 'twin.macro'
+import React from 'react'
 
 const itemMotion = {
   visible: { opacity: 1, x: 0 },
@@ -50,19 +49,13 @@ const links = [
   },
 ]
 
-const NavItem = styled.li`
-  ${tw`px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight relative`}
-
-  &:hover {
-    ${tw`bg-[#00000030]`}
-    & span:first-child {
-      ${tw`text-white border-white`}
-    }
-    & span {
-      ${tw`text-white`}
-    }
-  }
-`
+const NavItem: React.FC<React.PropsWithChildren> = ({ children }) => {
+  return (
+    <li className="px-4 py-1.5 mx-2 rounded-md cursor-pointer font-extralight relative hover:bg-[#00000030] hover:text-white">
+      {children}
+    </li>
+  )
+}
 
 export default function Aside(): JSX.Element {
   const pathname = usePathname()
