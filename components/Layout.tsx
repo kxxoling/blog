@@ -152,6 +152,13 @@ export function PageLayout({
               </motion.div>
             )}
 
+            <div className="fixed inset-0 w-full h-full max-w-lg">
+              <div className="absolute -top-4 -left-0 w-64 h-64 bg-purple-700 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
+              <div className="absolute top-20 -right-0 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
+              <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000"></div>
+              <div className="m-8 relative space-y-4"></div>
+            </div>
+
             <div className="flex flex-col w-full h-full overflow-hidden grow">
               <div className="flex flex-col shrink-0">
                 <div className="flex items-center px-8 py-4 shrink-0">
