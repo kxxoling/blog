@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "algolia": "node ./scripts/build-algolia-search.js",
     "dev": "next dev -p 3470",
     "build": "next build",
     "postbuild": "ts-node --esm scripts/generateFeed.ts",
@@ -13,8 +14,11 @@
   "dependencies": {
     "@kxxoling/react-github": "0.2.0",
     "@leafac/rehype-shiki": "^2.2.1",
+    "@docsearch/css": "^3.3.3",
+    "@docsearch/react": "3",
     "@tabler/icons-react": "^2.15.0",
     "@vercel/analytics": "^1.0.1",
+    "algoliasearch": "^4.17.0",
     "disqus-react": "^1.1.5",
     "feed": "^4.2.2",
     "framer-motion": "^10.12.16",
@@ -31,6 +35,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "shiki": "^0.14.2",
+    "remove-markdown": "^0.5.0",
     "styled-components": "^5.3.9",
     "twin.macro": "^3.3.0"
   },
@@ -44,6 +49,7 @@
     "@typescript-eslint/parser": "^5.58.0",
     "autoprefixer": "^10.4.14",
     "babel-plugin-styled-components": "^2.1.1",
+    "dotenv": "^16.0.3",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
     "eslint-config-prettier": "^8.8.0",

@@ -4,8 +4,6 @@ import path from 'path'
 import { Feed } from 'feed'
 import matter from 'gray-matter'
 
-import { serializeDatetime } from './datetime'
-
 export async function getSortedPosts() {
   // @ts-ignore
   async function getFiles(dir) {
@@ -55,8 +53,6 @@ export async function getSortedPosts() {
         // 对于直接修改后缀名没有设置 title 的文章，默认使用首行大标题作为 title
         frontMatter.title = fileContent.split('\n')[0].replace('#', '').trim()
       }
-      frontMatter.createdAt = serializeDatetime(frontMatter.createdAt)
-      frontMatter.updatedAt = serializeDatetime(frontMatter.updatedAt)
       return { frontMatter, slug: slug.replace(/\/(README|index)$/, '') }
     })
     .sort((a: any, b: any) => {
