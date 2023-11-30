@@ -54,8 +54,8 @@ export function PageLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-col items-center justify-center max-md:p-0 py-8 w-screen overflow-hidden h-screen before:w-full before:h-screen before:fixed before:top-0 before:left-0 before:opacity-40 before:content-[''] before:bg-gradient-to-[137deg] before:from-[#38288e 21%] before:to-[rgba(32, 17, 122, 0.3) 64%] bg-center bg-cover bg-no-repeat bg-blend bg-blend-color-dodge bg-macDesktop">
-          <div className="p-2 bg-[rgba(16,18,27,.4)] max-w-[1360px] max-h-[1200px] h-[95vh] w-full max-md:h-screen h-screen flex rounded-lg relative shadow-lg overflow-hidden before:backdrop-blur-lg">
+        <div className="flex flex-col items-center justify-center py-0 lg:py-8 lg:px-4 w-screen overflow-hidden h-screen before:w-full before:h-screen before:fixed before:top-0 before:left-0 before:opacity-40 before:content-[''] before:bg-gradient-to-[137deg] before:from-[#38288e 21%] before:to-[rgba(32, 17, 122, 0.3) 64%] bg-center bg-cover bg-no-repeat bg-blend bg-blend-color-dodge bg-macDesktop">
+          <div className="p-0 md:p-2 bg-[rgba(16,18,27,.4)] max-w-[1360px] max-h-[1200px] h-full lg:h-[95vh] w-full max-md:h-screen flex rounded-lg relative shadow-lg overflow-hidden before:backdrop-blur-lg">
             {!matches && (
               <div
                 onClick={() => {

@@ -18,15 +18,6 @@ const Image: FC = ({ children, ...rest }) => (
   </img>
 )
 
-// const h2 = styled.h2`
-//   ${tw`mt-8 mb-4 text-2xl font-bold text-[#ff7551]`}
-//   ${css`
-//     &::before {
-//       content: '§';
-//       ${tw`mr-2`}
-//     }
-//   `}
-// `
 const h2: FC = ({ children, ...rest }) => (
   <h2
     {...rest}
@@ -36,15 +27,6 @@ const h2: FC = ({ children, ...rest }) => (
   </h2>
 )
 
-// const h3 = styled.h3`
-//   ${tw`mt-6 mb-4 text-xl font-semibold text-[#ff7551]`}
-//   ${css`
-//     &::before {
-//       content: '§';
-//       ${tw`mr-2 font-extralight`}
-//     }
-//   `}
-// `
 const h3: FC = ({ children, ...rest }) => (
   <h3
     className="mt-6 mb-4 text-xl font-semibold text-[#ff7551] before:content-['§'] before:mr-2 before:font-extralight"
