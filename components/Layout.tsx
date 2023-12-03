@@ -7,80 +7,20 @@ import { motion, useScroll } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { useMedia } from 'react-use'
-import styled, { css } from 'styled-components'
-import tw from 'twin.macro'
 
 import Aside from '@/components/Aside'
 import useConfetti from '@/components/Confetti'
 
 import '../styles/globals.css'
 
-const Container = styled.div`
-  ${tw`
-  p-2
-  bg-[rgba(16,18,27,.4)]
-  max-w-[1360px]
-  max-h-[1200px]
-  h-[95vh]
-  w-full
-  max-md:h-screen
-
-  h-screen
-  flex
-  rounded-lg
-  relative
-  shadow-lg
-  overflow-hidden`}
-
-  ${css`
-    &::before {
-      // backdrop blur will break view position, limit this into before element
-      ${tw`backdrop-blur-lg`}
-    }
-  `}
-`
-
-const Background = styled.div`
-  background-image: url('https://wallpapershome.com/images/wallpapers/macos-big-sur-1280x720-dark-wwdc-2020-22655.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-blend-mode: color-dodge;
-
-  ${tw`flex flex-col items-center justify-center max-md:p-0`}
-
-  padding: 1em 2em;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-
-  &:before {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: linear-gradient(
-      163deg,
-      rgba(31, 29, 43, 1) 21%,
-      rgba(31, 29, 43, 0.3) 64%
-    );
-    opacity: 0.4;
-    content: '';
-  }
-`
-
-const Input = tw.input`
-w-full h-full
-bg-[#ffffff20] rounded-md
-hover:bg-[#ffffff10]
-active:bg-[#ffffff10]
-text-sm text-white
-px-6 py-2 shadow-sm
-outline-none
-hover:ring-2 ring-[#ff7551]
-cursor-not-allowed
-`
+const Input: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
+  props
+) => (
+  <input
+    {...props}
+    className="h-full w-full cursor-not-allowed rounded-md bg-[#ffffff20] px-6 py-2 text-sm text-white shadow-sm outline-none ring-[#ff7551] hover:bg-[#ffffff10] hover:ring-2 active:bg-[#ffffff10]"
+  />
+)
 
 const navMotion = {
   visible: {
@@ -114,14 +54,14 @@ export function PageLayout({
   return (
     <html lang="en">
       <body>
-        <Background>
-          <Container>
+        <div className="before:bg-gradient-to-[137deg] before:from-[#38288e 21%] before:to-[rgba(32, 17, 122, 0.3) 64%] bg-blend flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-macDesktop bg-cover bg-center bg-no-repeat py-0 bg-blend-color-dodge before:fixed before:left-0 before:top-0 before:h-screen before:w-full before:opacity-40 before:content-[''] lg:px-4 lg:py-8">
+          <div className="relative flex h-full max-h-[1200px] w-full max-w-[1360px] overflow-hidden rounded-lg bg-[rgba(16,18,27,.4)] p-0 shadow-lg before:backdrop-blur-lg max-md:h-screen md:p-2 lg:h-[95vh]">
             {!matches && (
               <div
                 onClick={() => {
                   setToggled((prev) => !prev)
                 }}
-                className="fixed z-50 space-y-1 cursor-pointer select-none top-10 left-4"
+                className="fixed left-4 top-10 z-50 cursor-pointer select-none space-y-1"
               >
                 <motion.span
                   animate={{ rotateZ: toggled ? 45 : 0, y: toggled ? 8 : 0 }}
@@ -143,7 +83,7 @@ export function PageLayout({
             )}
             {(toggled || matches) && (
               <motion.div
-                className="top-0 left-0 z-40 flex h-full rounded-md max-md:bg-black max-md:bg-opacity-80 w-80 max-md:w-full max-md:fixed"
+                className="left-0 top-0 z-40 flex h-full w-80 rounded-md max-md:fixed max-md:w-full max-md:bg-black max-md:bg-opacity-80"
                 variants={navMotion}
                 animate="visible"
                 initial="hidden"
@@ -152,28 +92,28 @@ export function PageLayout({
               </motion.div>
             )}
 
-            <div className="fixed inset-0 w-full h-full max-w-lg">
-              <div className="absolute -top-4 -left-0 w-64 h-64 bg-purple-700 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob"></div>
-              <div className="absolute top-20 -right-0 w-80 h-80 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
-              <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-4000"></div>
-              <div className="m-8 relative space-y-4"></div>
+            <div className="max-w-lg fixed inset-0 h-full w-full">
+              <div className="absolute -left-0 -top-4 h-64 w-64 animate-blob rounded-full bg-purple-700 opacity-50 mix-blend-multiply blur-xl filter"></div>
+              <div className="animation-delay-2000 absolute -right-0 top-20 h-80 w-80 animate-blob rounded-full bg-yellow-300 opacity-50 mix-blend-multiply blur-xl filter"></div>
+              <div className="animation-delay-4000 absolute -bottom-8 left-20 h-72 w-72 animate-blob rounded-full bg-pink-300 opacity-50 mix-blend-multiply blur-xl filter"></div>
+              <div className="relative m-8 space-y-4"></div>
             </div>
 
-            <div className="flex flex-col w-full h-full overflow-hidden grow">
-              <div className="flex flex-col shrink-0">
-                <div className="flex items-center px-8 py-4 shrink-0">
-                  <div className="h-10 flex w-full max-w-[400px] transition-all hover:max-w-[600px] relative max-md:ml-6">
+            <div className="flex h-full w-full grow flex-col overflow-hidden">
+              <div className="flex shrink-0 flex-col">
+                <div className="flex shrink-0 items-center px-8 py-4">
+                  <div className="relative flex h-10 w-full max-w-[400px] transition-all hover:max-w-[600px] max-md:ml-6">
                     <Input type="text" placeholder="Search…" readOnly />
                     <div className="absolute inset-y-0 right-0 flex items-center pl-2 pr-6 text-gray-500">
                       <IconSearch size={24} />
                     </div>
                   </div>
                   <div
-                    className="flex items-center gap-4 pl-8 ml-auto shrink-0"
+                    className="ml-auto flex shrink-0 items-center gap-4 pl-8"
                     onClick={() => createConfetti()}
                   >
                     <img
-                      className="w-8 h-8 rounded-full"
+                      className="h-8 w-8 rounded-full"
                       src="https://avatars.githubusercontent.com/u/1227139"
                       alt="Kane Blueriver"
                     />
@@ -184,22 +124,22 @@ export function PageLayout({
                 </div>
               </div>
 
-              <div className="relative flex flex-col overflow-y-hidden grow bg-[rgba(16,18,27,.4)]">
+              <div className="relative flex grow flex-col overflow-y-hidden bg-[rgba(16,18,27,.4)]">
                 <div
-                  className="flex flex-col mt-1 overflow-x-hidden overflow-y-auto grow"
+                  className="mt-1 flex grow flex-col overflow-y-auto overflow-x-hidden"
                   ref={container}
                 >
                   <motion.div
-                    className="fixed top-0 left-0 right-0 h-1 origin-left bg-orange-500"
+                    className="fixed left-0 right-0 top-0 h-1 origin-left bg-orange-500"
                     style={{ scaleX: scrollYProgress }}
                   />
                   {children}
                 </div>
               </div>
             </div>
-          </Container>
+          </div>
           {confetti}
-        </Background>
+        </div>
         <Analytics />
       </body>
     </html>

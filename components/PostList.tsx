@@ -38,7 +38,7 @@ export default function PostList({ posts }: { posts: Post[] }): JSX.Element {
         <Link
           href={`${post.slug}`}
           key={post.slug}
-          className="flex w-full py-4 no-underline cursor-pointer grow"
+          className="flex w-full grow cursor-pointer py-4 no-underline"
         >
           <Post post={post} />
         </Link>

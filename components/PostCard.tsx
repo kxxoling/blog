@@ -56,10 +56,10 @@ function PostCard({
 }: PostProps): JSX.Element {
   return (
     <>
-      <div className="relative w-full gap-1 p-8 overflow-hidden rounded-3xl">
-        <div className="absolute top-0 right-0 w-1/3 h-full overflow-hidden">
+      <div className="relative w-full gap-1 overflow-hidden rounded-3xl p-8">
+        <div className="absolute right-0 top-0 h-full w-1/3 overflow-hidden">
           <img
-            className="absolute top-0 right-0 h-full blur-xs"
+            className="blur-xs absolute right-0 top-0 h-full"
             src={thumbnail}
             alt=""
           />
@@ -70,15 +70,15 @@ function PostCard({
         <div className="flex items-center">
           <div className="relative shrink-0">
             <img
-              className="w-12 h-12 p-1 rounded-full border-[1px] border-solid border-white"
+              className="h-12 w-12 rounded-full border-[1px] border-solid border-white p-1"
               src="https://avatars.githubusercontent.com/u/1227139"
               alt=""
             />
           </div>
-          <div className="flex flex-col gap-1 ml-4 text-white">
+          <div className="ml-4 flex flex-col gap-1 text-white">
             <div className="text-sm">{description || title}</div>
 
-            <div className="flex gap-2 mt-1 opacity-50 text-slate-700 dark:text-slate-54">
+            <div className="dark:text-slate-54 mt-1 flex gap-2 text-slate-700 opacity-50">
               {tags?.map((tag) => (
                 <Badge key={tag}>{tag}</Badge>
               ))}
@@ -89,7 +89,7 @@ function PostCard({
                 <span>编辑于：{formatFrontMatterDate(updatedAt)}</span>
               )}
               {updatedAt && createdAt && (
-                <span className="inline-block w-1 h-1 mx-2 bg-white rounded-full"></span>
+                <span className="mx-2 inline-block h-1 w-1 rounded-full bg-white"></span>
               )}
               {createdAt && (
                 <span>创建于：{formatFrontMatterDate(createdAt)}</span>
@@ -124,11 +124,11 @@ const MotionPostCard: React.FC<PostProps> = (props) => {
   return (
     <div
       onMouseMove={handleMouseMove}
-      className="relative w-full max-w-md border shadow-2xl group rounded-xl border-white/10"
+      className="max-w-md group relative w-full rounded-xl border border-white/10 shadow-2xl"
       style={{ backgroundColor: bgColor }}
     >
       <motion.div
-        className="absolute transition duration-300 opacity-0 pointer-events-none -inset-px rounded-xl group-hover:opacity-100"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(
