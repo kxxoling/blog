@@ -14,10 +14,10 @@ export default function PostDetails({ slug, frontMatter, mdxSource }) {
   }
 
   return (
-    <div className="px-8 mt-16 text-gray-200">
-      <div className="leading-loose mt-4">
+    <div className="mt-16 px-8 text-gray-200">
+      <div className="mt-4 leading-loose">
         {frontMatter.title && (
-          <h1 className="mx-8 text-3xl text-center text-bold">
+          <h1 className="text-bold mx-8 text-center text-3xl">
             {frontMatter.title}
           </h1>
         )}

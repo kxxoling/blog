@@ -59,7 +59,7 @@ export default async function PostPage(): Promise<JSX.Element> {
   const { posts } = await getStaticProps()
 
   return (
-    <div className="flex flex-col items-center mb-8">
+    <div className="mb-8 flex flex-col items-center">
       <PostList posts={posts} />
     </div>
   )

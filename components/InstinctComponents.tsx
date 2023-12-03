@@ -4,7 +4,7 @@ type FC = React.FC<React.PropsWithChildren>
 
 const h1: FC = ({ children, ...rest }) => (
   <h1
-    className="my-8 text-3xl font-bold text-center text-blue-400 text-shadow-xl"
+    className="my-8 text-center text-3xl font-bold text-blue-400 text-shadow-xl"
     {...rest}
   >
     {children}
@@ -21,7 +21,7 @@ const Image: FC = ({ children, ...rest }) => (
 const h2: FC = ({ children, ...rest }) => (
   <h2
     {...rest}
-    className="mt-8 mb-4 text-2xl font-bold text-[#ff7551] before:content-['§'] before:mr-2"
+    className="mb-4 mt-8 text-2xl font-bold text-[#ff7551] before:mr-2 before:content-['§']"
   >
     {children}
   </h2>
@@ -29,7 +29,7 @@ const h2: FC = ({ children, ...rest }) => (
 
 const h3: FC = ({ children, ...rest }) => (
   <h3
-    className="mt-6 mb-4 text-xl font-semibold text-[#ff7551] before:content-['§'] before:mr-2 before:font-extralight"
+    className="mb-4 mt-6 text-xl font-semibold text-[#ff7551] before:mr-2 before:font-extralight before:content-['§']"
     {...rest}
   >
     {children}
@@ -49,14 +49,14 @@ const a: FC = ({ children, ...rest }) => (
 )
 
 const code: FC = ({ children, ...rest }) => (
-  <code {...rest} className="inline-block px-2 rounded-md bg-[rgb(0,0,0,0.2)]">
+  <code {...rest} className="inline-block rounded-md bg-[rgb(0,0,0,0.2)] px-2">
     {children}
   </code>
 )
 
 const hr: FC = ({ children, ...rest }) => (
   <hr
-    className="border-b-2 border-gray-200 dark:border-gray-800 opacity-50"
+    className="border-b-2 border-gray-200 opacity-50 dark:border-gray-800"
     {...rest}
   >
     {children}
@@ -66,33 +66,33 @@ const hr: FC = ({ children, ...rest }) => (
 const pre: FC = ({ children, ...rest }) => (
   <pre
     {...rest}
-    className="bg-[rgba(0,0,0,0.2)] rounded-md text-sm overflow-hidden [&_code]:bg-unset [&_code]:p-6 [&_code]:overflow-x-auto [&_code]:w-full"
+    className="[&_code]:bg-unset overflow-hidden rounded-md bg-[rgba(0,0,0,0.2)] text-sm [&_code]:w-full [&_code]:overflow-x-auto [&_code]:p-6"
   >
     {children}
   </pre>
 )
 
 const ul: FC = ({ children, ...rest }) => (
-  <ul className="pl-4 list-disc" {...rest}>
+  <ul className="list-disc pl-4" {...rest}>
     {children}
   </ul>
 )
 
 const ol: FC = ({ children, ...rest }) => (
-  <ol className="pl-4 list-decimal" {...rest}>
+  <ol className="list-decimal pl-4" {...rest}>
     {children}
   </ol>
 )
 
 const li: FC = ({ children, ...rest }) => (
-  <li className="py-1 list-item" {...rest}>
+  <li className="list-item py-1" {...rest}>
     {children}
   </li>
 )
 
 const blockquote: FC = ({ children, ...rest }) => (
   <blockquote
-    className="px-4 py-2 my-3 rounded-md bg-gray-700/10 [&_p]:first:mt-0 [&_p]:last:mb-0"
+    className="my-3 rounded-md bg-gray-700/10 px-4 py-2 [&_p]:first:mt-0 [&_p]:last:mb-0"
     {...rest}
   >
     {children}
