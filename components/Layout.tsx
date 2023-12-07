@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import { Theme } from '@radix-ui/themes'
 import { IconSearch } from '@tabler/icons-react'
 import { Analytics } from '@vercel/analytics/react'
 import { motion, useScroll } from 'framer-motion'
@@ -10,6 +11,7 @@ import { useMedia } from 'react-use'
 
 import Aside from '@/components/Aside'
 import useConfetti from '@/components/Confetti'
+import '@radix-ui/themes/styles.css'
 
 import '../styles/globals.css'
 
@@ -52,7 +54,7 @@ export function PageLayout({
   }, [pathname])
 
   return (
-    <>
+    <Theme>
       <div className="before:bg-gradient-to-[137deg] before:from-[#38288e 21%] before:to-[rgba(32, 17, 122, 0.3) 64%] bg-blend flex h-screen w-screen flex-col items-center justify-center overflow-hidden bg-macDesktop bg-cover bg-center bg-no-repeat py-0 bg-blend-color-dodge before:fixed before:left-0 before:top-0 before:h-screen before:w-full before:opacity-40 before:content-[''] lg:px-4 lg:py-8">
         <div className="relative flex h-full max-h-[1200px] w-full max-w-[1360px] overflow-hidden rounded-lg bg-[rgba(16,18,27,.4)] p-0 shadow-lg before:backdrop-blur-lg max-md:h-screen md:p-2 lg:h-[95vh]">
           {!matches && (
@@ -140,6 +142,6 @@ export function PageLayout({
         {confetti}
       </div>
       <Analytics />
-    </>
+    </Theme>
   )
 }

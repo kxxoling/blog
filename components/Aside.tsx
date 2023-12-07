@@ -1,7 +1,13 @@
 import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@radix-ui/react-hover-card'
+import {
   IconBooks,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconBrandTelegram,
   IconBriefcase,
   IconHeartHandshake,
   IconHome,
@@ -54,6 +60,41 @@ const NavItem: React.FC<React.PropsWithChildren> = ({ children }) => {
     <li className="relative mx-2 cursor-pointer rounded-md px-4 py-1.5 font-extralight hover:bg-[#00000030] hover:text-white">
       {children}
     </li>
+  )
+}
+
+function Tg() {
+  return (
+    <>
+      <HoverCard>
+        <HoverCardTrigger asChild>
+          <div className="inline-block gap-2 rounded-[50%] border-2 p-1 text-white opacity-50 transition-all duration-300  hover:rounded-lg hover:opacity-100">
+            <IconBrandTelegram size={20} />
+          </div>
+        </HoverCardTrigger>
+        <HoverCardContent
+          className=" flex flex-col gap-1 rounded bg-black/40 p-2"
+          side="top"
+          sideOffset={8}
+        >
+          <Link
+            href="https://t.me/san_wei"
+            target="_blank"
+            className=" rounded px-2 py-1 hover:bg-black/20"
+          >
+            🐱 三味
+          </Link>
+
+          <Link
+            href="https://t.me/AI_Vortex"
+            target="_blank"
+            className=" rounded px-2 py-1 hover:bg-black/20"
+          >
+            🤖 AI Vortex
+          </Link>
+        </HoverCardContent>
+      </HoverCard>
+    </>
   )
 }
 
@@ -121,6 +162,10 @@ export default function Aside(): JSX.Element {
                 </Link>
               </li>
             ))}
+
+            <li>
+              <Tg />
+            </li>
           </ul>
         </div>
       </div>
