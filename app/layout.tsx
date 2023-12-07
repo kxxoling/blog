@@ -13,7 +13,7 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>
+      <body className="dark">
         <PageLayout>{children}</PageLayout>
       </body>
     </html>

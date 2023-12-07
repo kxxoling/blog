@@ -13,6 +13,8 @@
   "dependencies": {
     "@kxxoling/react-github": "0.2.0",
     "@leafac/rehype-shiki": "^2.2.1",
+    "@radix-ui/react-hover-card": "^1.0.7",
+    "@radix-ui/themes": "^2.0.2",
     "@tabler/icons-react": "^2.15.0",
     "@vercel/analytics": "^1.0.1",
     "clsx": "^2.0.0",
