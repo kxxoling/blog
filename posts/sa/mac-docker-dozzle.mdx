@@ -1,0 +1,73 @@
+---
+title: 在 M1 max macOS 上运行 Dozzle docker 容器
+createdAt: 2023-11-23
+tags: [docker, dozzle, macOS]
+---
+
+## Dozzle 简介
+
+Dozzle 是一个 docker 容器监控应用，可以通过浏览器查看容器的状态和日志。在 Linux 环境下，可以通过以下命令启动一个 Dozzle 容器：
+
+```bash
+docker run --name dozzle -p 8080:8000 -v /var/run/docker.sock:/var/run/docker.sock amir20/dozzle:latest
+```
+
+再打开浏览器 `http://localhost:8080` 即可查看容器的状态和日志。
+
+
+## macOS 上的问题
+
+在 macOS 上，我使用了 colima 来管理 docker，但是在 M1 max 上，Dozzle 容器无法正常运行，原因是 docker 的 socket 文件路径不同，需要修改 Dozzle 的启动命令：
+
+```bash
+docker run --volume=$HOME/.colima/default/docker.sock:/var/run/docker.sock -d -p 8080:8080 amir20/dozzle:latest
+```
+
+但是这时候却报错了：
+
+```bash
+# 以下错误在 dozzle 容器的报错日志中，导致容器非正常退出
+"Could not connect to any Docker Engines"
+```
+
+根据 colima 的官方回复，colima 并没有提供 docker 的 socket 文件，而是通过 ssh 的方式来管理 docker，暂时也没有添加支持的计划。因此只能通过其他方式来解决这个问题。
+
+## 解决方案
+
+由于 colima 是基于 lima 的，看了下 colima 的配置文件，可以发现实际上是启动了 Linux 虚拟机，并在其中提供的 docker 服务，因此可以通过 ssh 进入虚拟机直接启动 Dozzle 容器：
+
+```bash
+$ colima ssh
+# 进入虚拟机环境
+$ docker run --name dozzle -d -v/var/run/docker.sock:/var/run/docker.sock -p 8080:8080 amir20/dozzle:latest
+$ curl localhost:8080 # 测试是否正常运行
+$ exit # 退出虚拟机
+# 回到 macOS 环境
+$ curl localhost:8080 # 测试在 macOS 宿主机是否正常运行
+```
+
+如果出现宿主机无法正常访问的情况，可以查看下 colima 的配置，是否有对应的端口映射，比如我这里默认转发了所有 TCP 端口：
+
+```yaml
+# ~/.lima/colima/lima.yaml
+portForwards:
+  - guestIPMustBeZero: true
+    guestIP: 0.0.0.0
+    guestPortRange:
+      - 1
+      - 65535
+    hostIP: 0.0.0.0
+    hostPortRange:
+      - 1
+      - 65535
+    proto: tcp
+  - guestIP: 127.0.0.1
+    guestPortRange:
+      - 1
+      - 65535
+    hostIP: 127.0.0.1
+    hostPortRange:
+      - 1
+      - 65535
+    proto: tcp
+```
