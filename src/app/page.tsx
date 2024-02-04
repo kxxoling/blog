@@ -23,12 +23,12 @@ const getStaticProps = async () => {
     return Array.prototype.concat(...files)
   }
 
-  const fileList = await getFiles(path.join('posts'))
+  const fileList = await getFiles(path.join('_posts'))
   const posts = fileList
-    .filter((file: string) => !file.startsWith('posts/pages'))
+    .filter((file: string) => !file.startsWith('_posts/pages'))
     .map((filename: string) => {
-      const fileContent = fs.readFileSync(filename, 'utf-8') // 'posts/xxx.mdx'
-      const slug = filename.replace('posts/', '').split('.')[0]
+      const fileContent = fs.readFileSync(filename, 'utf-8')
+      const slug = filename.replace('_posts/', '').split('.')[0]
       if (filename.endsWith('.md')) {
         throw new Error(`${filename} ends with .md is not allowed`)
       }

@@ -38,11 +38,11 @@ export async function generateStaticParams(): Promise<PageParams[]> {
     return Array.prototype.concat(...files)
   }
 
-  const files = await getFiles(path.join('posts'))
+  const files = await getFiles(path.join('_posts'))
 
   const paths = files.map((filename) => ({
     slug: filename
-      .replace(/^posts\//, '')
+      .replace(/^_posts\//, '')
       .replace(/\.mdx$/, '')
       .replace(/\/index$/, '')
       .split('/'),
@@ -67,13 +67,13 @@ const getStaticProps = async (slug: string[]) => {
     return Array.prototype.concat(...files)
   }
 
-  const fileList = await getFiles(path.join('posts'))
+  const fileList = await getFiles(path.join('_posts'))
 
   const posts = fileList
-    .filter((file: string) => !file.startsWith('posts/pages'))
+    .filter((file: string) => !file.startsWith('_posts/pages'))
     .map((filename: string) => {
       const fileContent = fs.readFileSync(filename, 'utf-8') // 'posts/xxx.mdx'
-      const slug = filename.replace('posts/', '').split('.')[0]
+      const slug = filename.replace('_posts/', '').split('.')[0]
       if (filename.endsWith('.md')) {
         throw new Error(`${filename} ends with .md is not allowed`)
       }
@@ -97,9 +97,9 @@ const getStaticProps = async (slug: string[]) => {
       return aUpdatedAt > bUpdatedAt ? -1 : 1
     })
 
-  let filePath = path.join('posts', slug.join('/') + '.mdx')
+  let filePath = path.join('_posts', slug.join('/') + '.mdx')
   if (!fs.existsSync(filePath)) {
-    const mdxPath = path.join('posts', slug.join('/') + '/' + 'index.mdx')
+    const mdxPath = path.join('_posts', slug.join('/') + '/' + 'index.mdx')
     if (fs.existsSync(mdxPath)) {
       filePath = mdxPath
     } else {

@@ -25,10 +25,10 @@ const getStaticProps = async () => {
     return Array.prototype.concat(...files)
   }
 
-  const fileList = await getFiles(path.join('posts/pages'))
+  const fileList = await getFiles(path.join('_posts/pages'))
   const pagePosts = fileList.map((filename: string) => {
     const fileContent = fs.readFileSync(filename, 'utf-8') // posts/pages/xxx.mdx
-    const slug = filename.replace('posts', '').split('.')[0]
+    const slug = filename.replace('_posts', '').split('.')[0]
 
     const { data: frontMatter } = matter(fileContent)
     if (!frontMatter.title) {

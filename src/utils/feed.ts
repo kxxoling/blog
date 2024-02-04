@@ -23,15 +23,15 @@ export async function getSortedPosts() {
     return Array.prototype.concat(...files)
   }
 
-  const fileList = await getFiles(path.join('posts'))
+  const fileList = await getFiles(path.join('_posts'))
   const posts = fileList
-    .filter((file: string) => !file.startsWith('posts/pages'))
+    .filter((file: string) => !file.startsWith('_posts/pages'))
     .map((filename: string) => {
       const fileContent = fs.readFileSync(
         filename, // 'posts/xxx.{md|mdx}
         'utf-8'
       )
-      const slug = filename.replace('posts/', '').split('.')[0]
+      const slug = filename.replace('_posts/', '').split('.')[0]
       if (filename.endsWith('.md')) {
         // 处理 markdown 文章
         if (filename.indexOf('README') < 0) {
