@@ -1,3 +1,5 @@
+import type { Metadata } from './post'
+
 import fs from 'fs'
 import path from 'path'
 
@@ -5,7 +7,7 @@ import { Feed } from 'feed'
 
 import { getFileMetadata, getFiles, sortPosts } from './post'
 
-export async function getSortedPosts() {
+export async function getSortedPosts(): Promise<Metadata[]> {
   const fileList = await getFiles(path.join('_posts'))
   const posts = fileList.map(getFileMetadata('_posts')).sort(sortPosts)
   return posts
@@ -33,13 +35,16 @@ export async function generateRssFeed(posts: any[]) {
 
   const feed = new Feed(feedOptions)
 
-  posts.forEach((post) => {
+  posts.forEach((post: Metadata) => {
+    const date = new Date(
+      post.frontMatter.updatedAt || post.frontMatter.createdAt
+    )
     feed.addItem({
       title: post.frontMatter.title,
       id: post.slug,
       link: `${BASE_URL}/${post.slug}`,
       description: post.frontMatter.description,
-      date: post.updatedAt || post.createdAt || new Date(),
+      date,
     })
   })
   fs.writeFileSync('./public/rss.xml', feed.rss2())
