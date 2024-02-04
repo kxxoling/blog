@@ -1,10 +1,4 @@
 {
-  "ts-node": {
-    "target": "es2020",
-    "compilerOptions": {
-      "module": "commonjs"
-    }
-  },
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

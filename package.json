@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev -p 3470",
     "build": "next build",
-    "postbuild": "ts-node --esm scripts/generateFeed.ts",
+    "postbuild": "tsx scripts/generateFeed.ts",
     "start": "next start -p 4470",
     "lint": "next lint",
     "prepare": "husky install"
@@ -59,7 +59,7 @@
     "prettier-plugin-tailwindcss": "0.4.1",
     "tailwindcss": "^3.3.1",
     "tailwindcss-textshadow": "^2.1.3",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   },
   "type": "commonjs"
