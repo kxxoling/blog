@@ -1,4 +1,4 @@
-import { generateRssFeed, getSortedPosts } from '../utils/feed'
+import { generateRssFeed, getSortedPosts } from '../src/utils/feed'
 
 async function main() {
   const posts = await getSortedPosts()
