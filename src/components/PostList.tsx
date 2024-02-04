@@ -1,20 +1,10 @@
+import type { Metadata } from '@/utils/post'
+
 import Link from 'next/link'
 
 import PostCard from '@/components/PostCard'
 
-type Post = {
-  frontMatter: {
-    title: string
-    updatedAt: `${number}-${number}-${number}`
-    createdAt: `${number}-${number}-${number}`
-    description?: string
-    thumbnail?: string
-    tags?: string[]
-  }
-  slug: string
-}
-
-function Post({ post }: { post: Post }): JSX.Element | null {
+function Post({ post }: { post: Metadata }): JSX.Element | null {
   const {
     frontMatter: { title, description, updatedAt, createdAt, thumbnail, tags },
   } = post
@@ -31,7 +21,11 @@ function Post({ post }: { post: Post }): JSX.Element | null {
   )
 }
 
-export default function PostList({ posts }: { posts: Post[] }): JSX.Element {
+export default function PostList({
+  posts,
+}: {
+  posts: Metadata[]
+}): JSX.Element {
   return (
     <div className="px-8">
       {posts.map((post) => (
