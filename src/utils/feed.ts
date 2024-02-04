@@ -25,7 +25,6 @@ export async function getSortedPosts() {
 
   const fileList = await getFiles(path.join('_posts'))
   const posts = fileList
-    .filter((file: string) => !file.startsWith('_posts/pages'))
     .map((filename: string) => {
       const fileContent = fs.readFileSync(
         filename, // 'posts/xxx.{md|mdx}
