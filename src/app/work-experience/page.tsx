@@ -7,7 +7,7 @@ interface Work {
   startAt: string
   endAt: string
 }
-const works: Work[] = JSON.parse(process.env.NEXT_PUBLIC_WORK_EXP || '')
+const works = JSON.parse(process.env.NEXT_PUBLIC_WORK_EXP || '') as Work[]
 
 export default function WorkExperience() {
   return (
